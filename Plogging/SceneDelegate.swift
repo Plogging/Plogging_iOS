@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        // forUserID 는 변경해야함
+        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                break
+            case .revoked, .notFound:
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.showLoginViewController()
+                }
+            default:
+                break
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
