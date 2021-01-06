@@ -9,6 +9,8 @@ import UIKit
 import Alamofire
 import AuthenticationServices
 import NaverThirdPartyLogin
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class SNSLoginViewController: UIViewController {
 
@@ -103,7 +105,15 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickKakaoLoginButton(_ sender: UIButton) {
-        
+        if AuthApi.isKakaoTalkLoginAvailable() {
+            AuthApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("success \(oauthToken)")
+                }
+            }
+        }
     }
 }
 
