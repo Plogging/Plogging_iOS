@@ -106,6 +106,14 @@ class SNSLoginViewController: UIViewController {
                     print("success \(oauthToken)")
                 }
             }
+        } else {
+            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("success \(oauthToken)")
+                }
+            }
         }
     }
 }
@@ -117,6 +125,7 @@ extension SNSLoginViewController: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             // Create an account in your system.
+            // user, givenName + familyName, email
             let userFirstName = appleIDCredential.fullName?.givenName
             let userLastName = appleIDCredential.fullName?.familyName
             let userEmail = appleIDCredential.email
