@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // NAVER
         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
         
-        // SafariViewController에서 인증하는 방식을 활성화
+        instance?.isNaverAppOauthEnable = true
         instance?.isInAppOauthEnable = true
                 
         instance?.serviceUrlScheme = kServiceAppUrlScheme
@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // KAKAO
         KakaoSDKCommon.initSDK(appKey: APIKey.kakaoLoginKey)
 
-        // APPLe
+        // APPLE
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         // forUserID 는 변경해야함
         appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in

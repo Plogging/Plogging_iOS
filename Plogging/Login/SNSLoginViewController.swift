@@ -81,18 +81,6 @@ class SNSLoginViewController: UIViewController {
         authorizationController.performRequests()
     }
     
-    func performExistingAccountSetupFlows() {
-        // Prepare requests for both Apple ID and password providers.
-        let requests = [ASAuthorizationAppleIDProvider().createRequest(),
-                        ASAuthorizationPasswordProvider().createRequest()]
-        
-        // Create an authorization controller with the given requests.
-        let authorizationController = ASAuthorizationController(authorizationRequests: requests)
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
-    }
-    
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {
         loginInstance?.requestThirdPartyLogin()
     }
@@ -103,7 +91,8 @@ class SNSLoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print("success \(oauthToken)")
+                    let loginData: SNSLoginData = SNSLoginData()
+                    loginData.token = oauthToken?.accessToken ?? ""
                 }
             }
         } else {
@@ -111,7 +100,8 @@ class SNSLoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print("success \(oauthToken)")
+                    let loginData: SNSLoginData = SNSLoginData()
+                    loginData.token = oauthToken?.accessToken ?? ""
                 }
             }
         }
