@@ -17,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ypu-gG-TR6">
-                                <rect key="frame" x="184" y="418" width="46" height="60"/>
+                                <rect key="frame" x="187.5" y="418" width="39" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leP-lV-oCQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
+                                        <state key="normal" title="네이버"/>
                                         <connections>
                                             <action selector="clickNaverLoginButton:" destination="QnJ-2f-PcS" eventType="touchUpInside" id="sie-gs-WoI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-lj-PNY">
-                                        <rect key="frame" x="0.0" y="30" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="30" width="39" height="30"/>
+                                        <state key="normal" title="카카오"/>
                                         <connections>
                                             <action selector="clickKakaoLoginButton:" destination="QnJ-2f-PcS" eventType="touchUpInside" id="y5U-Pc-kQn"/>
                                         </connections>

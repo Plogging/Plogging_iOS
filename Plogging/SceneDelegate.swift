@@ -7,6 +7,8 @@
 
 import UIKit
 import AuthenticationServices
+import KakaoSDKCommon
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,6 +21,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // NAVER
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        
+        // 네이버 앱으로 인증하는 방식을 활성화
+        instance?.isNaverAppOauthEnable = true
+        
+        // SafariViewController에서 인증하는 방식을 활성화
+        instance?.isInAppOauthEnable = true
+        
+        // 인증 화면을 iPhone의 세로 모드에서만 사용하기
+        instance?.isOnlyPortraitSupportedInIphone()
+        
+        // 네이버 아이디로 로그인하기 설정
+        // 애플리케이션을 등록할 때 입력한 URL Scheme
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        // 애플리케이션 등록 후 발급받은 클라이언트 아이디
+        instance?.consumerKey = kConsumerKey
+        // 애플리케이션 등록 후 발급받은 클라이언트 시크릿
+        instance?.consumerSecret = kConsumerSecret
+        // 애플리케이션 이름
+        instance?.appName = kServiceAppName
+
+        // KAKAO
+        KakaoSDKCommon.initSDK(appKey: "3529bb3a079082a0e25f21e046931344")
+
+        // APPLe
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         // forUserID 는 변경해야함
         appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
@@ -34,7 +62,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+      NaverThirdPartyLoginConnection
+        .getSharedInstance()?
+        .receiveAccessToken(URLContexts.first?.url)
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
