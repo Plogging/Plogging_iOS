@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum Naver: String {
+    case Info = "https://openapi.naver.com/v1/nid/me"
+}

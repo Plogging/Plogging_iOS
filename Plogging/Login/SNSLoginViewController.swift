@@ -26,12 +26,6 @@ class SNSLoginViewController: UIViewController {
         setupAppleLoginButton()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        performExistingAccountSetupFlows()
-    }
-    
     // MARK: - Connect SNS Login
 
     // MARK: - NAVER
@@ -48,8 +42,7 @@ class SNSLoginViewController: UIViewController {
         
         guard let tokenType = loginInstance?.tokenType else { return }
         guard let accessToken = loginInstance?.accessToken else { return }
-        let urlStr = "https://openapi.naver.com/v1/nid/me"
-        let url = URL(string: urlStr)!
+        guard let url = URL(string: Naver.Info.rawValue) else { return }
         
         let authorization = "\(tokenType) \(accessToken)"
         
@@ -123,9 +116,16 @@ extension SNSLoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            print(appleIDCredential)
+            // Create an account in your system.
+            let userFirstName = appleIDCredential.fullName?.givenName
+            let userLastName = appleIDCredential.fullName?.familyName
+            let userEmail = appleIDCredential.email
+            print("userFirstName \(userFirstName!), userLastName \(userLastName!), userEmail \(userEmail!)")
         case let passwordCredential as ASPasswordCredential:
-            print(passwordCredential)
+            // Sign in using an existing iCloud Keychain credential.
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            print("username \(username), password \(password)")
         default:
             break
         }
