@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
 		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
+				1C5B304725A604E100413115 /* APIKey.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
+				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
 				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
