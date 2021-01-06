@@ -642,7 +642,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H92U9KV5T2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Plogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
