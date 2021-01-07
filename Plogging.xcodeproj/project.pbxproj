@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,12 @@
 		9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */; };
 		9B01589A25A0CB1A003D3B7B /* PloggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01589925A0CB1A003D3B7B /* PloggingTests.swift */; };
 		9B0158A525A0CB1A003D3B7B /* PloggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */; };
+		9B0C235325A4DA010084D27B /* PloggingResultPhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C235225A4DA010084D27B /* PloggingResultPhoto.storyboard */; };
+		9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */; };
+		9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */; };
+		9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */; };
+		9B0C239525A6F18A0084D27B /* PloggingResultImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */; };
+		9B0C23A225A6F2B10084D27B /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C23A125A6F2B10084D27B /* Extension+UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		9B0158A025A0CB1A003D3B7B /* PloggingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PloggingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUITests.swift; sourceTree = "<group>"; };
 		9B0158A625A0CB1A003D3B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B0C235225A4DA010084D27B /* PloggingResultPhoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PloggingResultPhoto.storyboard; sourceTree = "<group>"; };
+		9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoViewController.swift; sourceTree = "<group>"; };
+		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
+		9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRederingMaker.swift; sourceTree = "<group>"; };
+		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
+		9B0C23A125A6F2B10084D27B /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B30387023FB6701DA6D40B34 /* Pods-PloggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.release.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.release.xcconfig"; sourceTree = "<group>"; };
 		D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging_PloggingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDEEAC80DEAF97F6FF39C26 /* Pods-Plogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.debug.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +123,6 @@
 				F9F72661C993D638D6ACD8F4 /* Pods-PloggingTests.debug.xcconfig */,
 				B30387023FB6701DA6D40B34 /* Pods-PloggingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +151,8 @@
 		9B01588125A0CB15003D3B7B /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
+				9B0C235125A4D62F0084D27B /* Plogging Result Photo */,
+				9B0C239F25A6F2640084D27B /* Common */,
 				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
 				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
 				9B01588625A0CB15003D3B7B /* ViewController.swift */,
@@ -167,6 +180,42 @@
 				9B0158A625A0CB1A003D3B7B /* Info.plist */,
 			);
 			path = PloggingUITests;
+			sourceTree = "<group>";
+		};
+		9B0C235125A4D62F0084D27B /* Plogging Result Photo */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C238725A6EF250084D27B /* Image Render */,
+				9B0C235225A4DA010084D27B /* PloggingResultPhoto.storyboard */,
+				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
+			);
+			path = "Plogging Result Photo";
+			sourceTree = "<group>";
+		};
+		9B0C238725A6EF250084D27B /* Image Render */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */,
+				9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */,
+				9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */,
+			);
+			path = "Image Render";
+			sourceTree = "<group>";
+		};
+		9B0C239F25A6F2640084D27B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C23A025A6F2720084D27B /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B0C23A025A6F2720084D27B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C23A125A6F2B10084D27B /* Extension+UIImage.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0C235325A4DA010084D27B /* PloggingResultPhoto.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
@@ -407,9 +457,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
+				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* ViewController.swift in Sources */,
+				9B0C23A225A6F2B10084D27B /* Extension+UIImage.swift in Sources */,
+				9B0C239525A6F18A0084D27B /* PloggingResultImageMaker.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
+				9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Plogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,6 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Plogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
