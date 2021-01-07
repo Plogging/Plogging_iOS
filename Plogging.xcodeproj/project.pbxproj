@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		9B01588125A0CB15003D3B7B /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
+				1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */,
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
 				1CC08DD925A5D55400EE3505 /* Common */,
 				1CC08DBA25A4B55B00EE3505 /* Login */,
@@ -647,13 +649,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Plogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.plogging.Plogging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.plogging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,7 +673,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H92U9KV5T2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Plogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
