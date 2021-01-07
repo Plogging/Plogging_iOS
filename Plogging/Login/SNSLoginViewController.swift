@@ -28,37 +28,12 @@ class SNSLoginViewController: UIViewController {
         
     }
     
-//    func getNaverInfo() {
-//        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-//
-//        if !isValidAccessToken {
-//            return
-//        }
-//
-//        guard let tokenType = loginInstance?.tokenType else { return }
-//        guard let accessToken = loginInstance?.accessToken else { return }
-//        guard let url = URL(string: Naver.Info.rawValue) else { return }
-//
-//        let authorization = "\(tokenType) \(accessToken)"
-//
-//        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-//
-//        req.responseJSON { response in
-//            guard let result = response.value as? [String: Any] else { return }
-//            guard let object = result["response"] as? [String: Any] else { return }
-//            guard let name = object["name"] as? String else { return }
-//            guard let email = object["email"] as? String else { return }
-//            print("name: \(name), email: \(email)")
-//        }
-//    }
-    
     // MARK: - KAKAO
     func setupKakaoLoginButton() {
         
     }
     
     // MARK: - APPLE
-    
     func setupAppleLoginButton() {
         let authorizationAppleButton = ASAuthorizationAppleIDButton()
         authorizationAppleButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
@@ -112,7 +87,7 @@ extension SNSLoginViewController: ASAuthorizationControllerDelegate {
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // error.
+        print(error)
     }
 }
 

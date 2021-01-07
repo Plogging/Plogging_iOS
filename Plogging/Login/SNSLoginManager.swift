@@ -11,6 +11,7 @@ import KakaoSDKUser
 import KakaoSDKCommon
 import NaverThirdPartyLogin
 import AuthenticationServices
+import Alamofire
 
 class SNSLoginManager: NSObject {
     
@@ -80,6 +81,34 @@ class SNSLoginManager: NSObject {
         
         completion?(loginData)
     }
+    
+    func getNaverInfo() {
+        guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
+            return
+        }
+        
+        let isValidAccessToken = loginInstance.isValidAccessTokenExpireTimeNow()
+        
+        if !isValidAccessToken {
+            return
+        }
+        
+        guard let tokenType = loginInstance.tokenType else { return }
+        guard let accessToken = loginInstance.accessToken else { return }
+        guard let url = URL(string: Naver.Info.rawValue) else { return }
+        
+        let authorization = "\(tokenType) \(accessToken)"
+        
+        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+        
+        req.responseJSON { response in
+            guard let result = response.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
+            guard let name = object["name"] as? String else { return }
+            guard let email = object["email"] as? String else { return }
+            print("name: \(name), email: \(email)")
+        }
+    }
 }
 
 // MARK: - NAVER Delegate
@@ -95,9 +124,10 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
         completion?(loginData)
     }
     
-    // 로그인에 성공했을 경우 호출
+    // 로그인에 성공했을 경우 호출    
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
+        
         completionNaverLogin()
     }
     
