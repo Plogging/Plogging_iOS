@@ -7,9 +7,6 @@
 
 import UIKit
 import AuthenticationServices
-import KakaoSDKAuth
-import KakaoSDKCommon
-import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,19 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        // NAVER
-        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
-        
-        instance?.isNaverAppOauthEnable = true
-        instance?.isInAppOauthEnable = true
-                
-        instance?.serviceUrlScheme = kServiceAppUrlScheme
-        instance?.consumerKey = kConsumerKey
-        instance?.consumerSecret = kConsumerSecret
-        instance?.appName = kServiceAppName
-
-        // KAKAO
-        KakaoSDKCommon.initSDK(appKey: APIKey.kakaoLoginKey)
+        SNSLoginManager.shared.setupLoginWithNaver()
+        SNSLoginManager.shared.setupLoginWithKakao()
 
         // APPLE
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -54,15 +40,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        NaverThirdPartyLoginConnection
-            .getSharedInstance()?
-            .receiveAccessToken(URLContexts.first?.url)
-        
-        if let url = URLContexts.first?.url {
-            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                _ = AuthController.handleOpenUrl(url: url)
-            }
-        }
+//        NaverThirdPartyLoginConnection
+//            .getSharedInstance()?
+//            .receiveAccessToken(URLContexts.first?.url)
+//        
+//        if let url = URLContexts.first?.url {
+//            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+//                _ = AuthController.handleOpenUrl(url: url)
+//            }
+//        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -8,16 +8,11 @@
 import UIKit
 import Alamofire
 import AuthenticationServices
-import NaverThirdPartyLogin
-import KakaoSDKAuth
-import KakaoSDKUser
 
 class SNSLoginViewController: UIViewController {
 
     @IBOutlet weak var snsLoginStackView: UIStackView!
     
-    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,32 +25,32 @@ class SNSLoginViewController: UIViewController {
 
     // MARK: - NAVER
     func setupNaverLoginButton() {
-        loginInstance?.delegate = self
+        
     }
     
-    func getNaverInfo() {
-        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-        
-        if !isValidAccessToken {
-            return
-        }
-        
-        guard let tokenType = loginInstance?.tokenType else { return }
-        guard let accessToken = loginInstance?.accessToken else { return }
-        guard let url = URL(string: Naver.Info.rawValue) else { return }
-        
-        let authorization = "\(tokenType) \(accessToken)"
-        
-        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-        
-        req.responseJSON { response in
-            guard let result = response.value as? [String: Any] else { return }
-            guard let object = result["response"] as? [String: Any] else { return }
-            guard let name = object["name"] as? String else { return }
-            guard let email = object["email"] as? String else { return }
-            print("name: \(name), email: \(email)")
-        }
-    }
+//    func getNaverInfo() {
+//        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+//
+//        if !isValidAccessToken {
+//            return
+//        }
+//
+//        guard let tokenType = loginInstance?.tokenType else { return }
+//        guard let accessToken = loginInstance?.accessToken else { return }
+//        guard let url = URL(string: Naver.Info.rawValue) else { return }
+//
+//        let authorization = "\(tokenType) \(accessToken)"
+//
+//        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+//
+//        req.responseJSON { response in
+//            guard let result = response.value as? [String: Any] else { return }
+//            guard let object = result["response"] as? [String: Any] else { return }
+//            guard let name = object["name"] as? String else { return }
+//            guard let email = object["email"] as? String else { return }
+//            print("name: \(name), email: \(email)")
+//        }
+//    }
     
     // MARK: - KAKAO
     func setupKakaoLoginButton() {
@@ -82,28 +77,14 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {
-        loginInstance?.requestThirdPartyLogin()
+        SNSLoginManager.shared.requestLoginWithNAVER { (loginData) in
+            print(loginData)
+        }
     }
     
     @IBAction func clickKakaoLoginButton(_ sender: UIButton) {
-        if AuthApi.isKakaoTalkLoginAvailable() {
-            AuthApi.shared.loginWithKakaoTalk { (oauthToken, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    let loginData: SNSLoginData = SNSLoginData()
-                    loginData.token = oauthToken?.accessToken ?? ""
-                }
-            }
-        } else {
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    let loginData: SNSLoginData = SNSLoginData()
-                    loginData.token = oauthToken?.accessToken ?? ""
-                }
-            }
+        SNSLoginManager.shared.requestLoginWithKAKAO { (loginData) in
+            print(loginData)
         }
     }
 }
@@ -138,30 +119,5 @@ extension SNSLoginViewController: ASAuthorizationControllerDelegate {
 extension SNSLoginViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
-    }
-}
-
-// MARK: - NAVER Delegate
-extension SNSLoginViewController: NaverThirdPartyLoginConnectionDelegate {
-    // 로그인에 성공했을 경우 호출
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
-        getNaverInfo()
-    }
-    
-    // 토큰 갱신
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        print("토큰 갱신")
-    }
-    
-    // 로그아웃 할 경우 호출
-    func oauth20ConnectionDidFinishDeleteToken() {
-        print("토큰 삭제")
-        loginInstance?.requestDeleteToken()
-    }
-    
-    // ERROR
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        print(error ?? "error occured")
     }
 }
