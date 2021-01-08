@@ -76,11 +76,13 @@ extension SNSLoginViewController: ASAuthorizationControllerDelegate {
             let userLastName = appleIDCredential.fullName?.familyName
             let userEmail = appleIDCredential.email
             print("userFirstName \(userFirstName!), userLastName \(userLastName!), userEmail \(userEmail!)")
+            SNSLoginManager.shared.loginSuccess()
         case let passwordCredential as ASPasswordCredential:
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
             print("username \(username), password \(password)")
+            SNSLoginManager.shared.loginSuccess()
         default:
             break
         }

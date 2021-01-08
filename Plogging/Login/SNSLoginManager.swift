@@ -54,6 +54,7 @@ class SNSLoginManager: NSObject {
                     let loginData: SNSLoginData = SNSLoginData()
                     loginData.token = oauthToken?.accessToken ?? ""
                     completion?(loginData)
+                    self.loginSuccess()
                 }
             }
         } else {
@@ -64,6 +65,7 @@ class SNSLoginManager: NSObject {
                     let loginData: SNSLoginData = SNSLoginData()
                     loginData.token = oauthToken?.accessToken ?? ""
                     completion?(loginData)
+                    self.loginSuccess()
                 }
             }
         }
@@ -109,6 +111,11 @@ class SNSLoginManager: NSObject {
             print("name: \(name), email: \(email)")
         }
     }
+    
+    func loginSuccess() {
+        // 서버에서 세션키 받아오기
+        
+    }
 }
 
 // MARK: - NAVER Delegate
@@ -129,6 +136,7 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
         print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
         
         completionNaverLogin()
+        loginSuccess()
     }
     
     // 토큰 갱신
