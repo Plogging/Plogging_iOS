@@ -19,6 +19,15 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
+    // MARK: - setting up login
+    func setupLoginWithApple() {
+        
+    }
+    
+    func setupLoginWithKakao() {
+        KakaoSDKCommon.initSDK(appKey: APIKey.kakaoLoginKey)
+    }
+    
     func setupLoginWithNaver() {
         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
         
@@ -31,21 +40,14 @@ class SNSLoginManager: NSObject {
         instance?.appName = kServiceAppName
     }
     
-    func setupLoginWithKakao() {
-        KakaoSDKCommon.initSDK(appKey: APIKey.kakaoLoginKey)
-    }
-    
-    func setupLoginWithApple() {
-        
-    }
-    
-    func requestLoginWithAPPLE(completion: ((SNSLoginData) -> Void)?) {
+    // AMRK: - request login
+    func requestLoginWithApple(completion: ((SNSLoginData) -> Void)?) {
         let loginData = SNSLoginData()
         
         completion?(loginData)
     }
     
-    func requestLoginWithKAKAO(completion: ((SNSLoginData) -> Void)?) {
+    func requestLoginWithKakao(completion: ((SNSLoginData) -> Void)?) {
         if AuthApi.isKakaoTalkLoginAvailable() {
             AuthApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 if let error = error {
@@ -71,7 +73,7 @@ class SNSLoginManager: NSObject {
         }
     }
     
-    func requestLoginWithNAVER(completion: ((SNSLoginData) -> Void)?) {
+    func requestLoginWithNaver(completion: ((SNSLoginData) -> Void)?) {
         guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
             return
         }
@@ -84,17 +86,14 @@ class SNSLoginManager: NSObject {
         completion?(loginData)
     }
     
+    // MARK: - getting user info
     func getNaverInfo() {
         guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
             return
         }
         
-        let isValidAccessToken = loginInstance.isValidAccessTokenExpireTimeNow()
-        
-        if !isValidAccessToken {
-            return
-        }
-        
+        if !loginInstance.isValidAccessTokenExpireTimeNow() { return }
+
         guard let tokenType = loginInstance.tokenType else { return }
         guard let accessToken = loginInstance.accessToken else { return }
         guard let url = URL(string: Naver.Info.rawValue) else { return }
@@ -112,7 +111,7 @@ class SNSLoginManager: NSObject {
         }
     }
     
-    @objc func handleAuthorizationAppleIDButtonPress() {
+    func handleAuthorizationAppleIDButtonPress() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -123,10 +122,14 @@ class SNSLoginManager: NSObject {
         authorizationController.performRequests()
     }
     
+    // MARK: - success
     func loginSuccess() {
         // 서버에서 세션키 받아오기
         
     }
+    
+    // MARK: - failure
+    
 }
 
 // MARK: - NAVER Delegate
