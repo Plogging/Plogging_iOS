@@ -112,6 +112,17 @@ class SNSLoginManager: NSObject {
         }
     }
     
+    @objc func handleAuthorizationAppleIDButtonPress() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
     func loginSuccess() {
         // 서버에서 세션키 받아오기
         
@@ -158,8 +169,35 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
 }
 
 // MARK: - APPLE Delegate
+extension SNSLoginManager: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            // Create an account in your system.
+            // user, givenName + familyName, email
+            let userFirstName = appleIDCredential.fullName?.givenName
+            let userLastName = appleIDCredential.fullName?.familyName
+            let userEmail = appleIDCredential.email
+            print("userFirstName \(userFirstName!), userLastName \(userLastName!), userEmail \(userEmail!)")
+            SNSLoginManager.shared.loginSuccess()
+        default:
+            break
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error)
+    }
+}
+
 extension SNSLoginManager: ASWebAuthenticationPresentationContextProviding {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return UIApplication.shared.windows.first!
+    }
+}
+
+extension SNSLoginManager: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return UIApplication.shared.windows.first!
     }
 }

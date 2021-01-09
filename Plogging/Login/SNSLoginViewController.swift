@@ -41,14 +41,7 @@ class SNSLoginViewController: UIViewController {
     }
     
     @objc func handleAuthorizationAppleIDButtonPress() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+        SNSLoginManager.shared.handleAuthorizationAppleIDButtonPress()
     }
     
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {
@@ -61,40 +54,5 @@ class SNSLoginViewController: UIViewController {
         SNSLoginManager.shared.requestLoginWithKAKAO { (loginData) in
             print(loginData)
         }
-    }
-}
-
-// MARK: - Apple Delegate
-extension SNSLoginViewController: ASAuthorizationControllerDelegate {
-
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            // Create an account in your system.
-            // user, givenName + familyName, email
-            let userFirstName = appleIDCredential.fullName?.givenName
-            let userLastName = appleIDCredential.fullName?.familyName
-            let userEmail = appleIDCredential.email
-            print("userFirstName \(userFirstName!), userLastName \(userLastName!), userEmail \(userEmail!)")
-            SNSLoginManager.shared.loginSuccess()
-        case let passwordCredential as ASPasswordCredential:
-            // Sign in using an existing iCloud Keychain credential.
-            let username = passwordCredential.user
-            let password = passwordCredential.password
-            print("username \(username), password \(password)")
-            SNSLoginManager.shared.loginSuccess()
-        default:
-            break
-        }
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error)
-    }
-}
-
-extension SNSLoginViewController: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
     }
 }
