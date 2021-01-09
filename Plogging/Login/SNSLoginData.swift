@@ -9,4 +9,6 @@ import Foundation
 
 class SNSLoginData {
     var token: String = ""
+    var name: String = ""
+    var email: String = ""
 }
