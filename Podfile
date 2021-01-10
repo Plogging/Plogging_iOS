@@ -6,7 +6,10 @@ target 'Plogging' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.2'
-  
+  pod 'KakaoSDK'
+  pod 'KakaoSDKAuth'
+  pod 'naveridlogin-sdk-ios'
+
 
   # Pods for Plogging
 
