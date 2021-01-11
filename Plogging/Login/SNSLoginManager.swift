@@ -176,12 +176,11 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            // Create an account in your system.
-            // user, givenName + familyName, email
-            let userFirstName = appleIDCredential.fullName?.givenName
-            let userLastName = appleIDCredential.fullName?.familyName
+            let userFirstName = appleIDCredential.fullName?.givenName ?? ""
+            let userLastName = appleIDCredential.fullName?.familyName ?? ""
+            let userName = userLastName + userFirstName
             let userEmail = appleIDCredential.email
-            print("userFirstName \(userFirstName!), userLastName \(userLastName!), userEmail \(userEmail!)")
+            print("userName \(userName) userFirstName \(userFirstName), userLastName \(userLastName), userEmail \(userEmail!)")
             SNSLoginManager.shared.loginSuccess()
         default:
             break
@@ -190,12 +189,6 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
-    }
-}
-
-extension SNSLoginManager: ASWebAuthenticationPresentationContextProviding {
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return UIApplication.shared.windows.first!
     }
 }
 
