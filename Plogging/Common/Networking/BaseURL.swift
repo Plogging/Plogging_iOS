@@ -17,5 +17,5 @@ struct BasePath {
 }
 
 struct BaseHeader {
-    static let userSessionKey = "sessionKey"
+    static let userSessionKey = "userId"
 }
