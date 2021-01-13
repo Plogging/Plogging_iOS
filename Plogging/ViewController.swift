@@ -7,12 +7,6 @@
 
 import UIKit
 
-public enum tabBarItems: Int {
-    case ranking
-    case plogging
-    case mypage
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
@@ -25,18 +19,6 @@ class ViewController: UIViewController {
     var ploggingController: PloggingViewController?
     var myPageViewController: MyPageViewController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUp()
-        self.tabBar.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-    }
-    
-    // MARK: prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RankingSegue" {
             rankingViewController = segue.destination as? RankingViewController
@@ -60,6 +42,15 @@ class ViewController: UIViewController {
         tabBar.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         tabBar.translatesAutoresizingMaskIntoConstraints = false
         view.bringSubviewToFront(shadowView)
+    }
+}
+
+// MARK: Life Cycle
+extension ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUp()
+        self.tabBar.delegate = self
     }
 }
 

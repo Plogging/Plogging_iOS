@@ -25,6 +25,7 @@
 		9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */; };
 		9B01589A25A0CB1A003D3B7B /* PloggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01589925A0CB1A003D3B7B /* PloggingTests.swift */; };
 		9B0158A525A0CB1A003D3B7B /* PloggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */; };
+		9B5A32B725AEAAEA0061A361 /* Enum+TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A32B625AEAAE90061A361 /* Enum+TabBarItems.swift */; };
 		9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF225AE0DB700B0B415 /* Ranking.storyboard */; };
 		9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */; };
 		9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */; };
@@ -77,6 +78,7 @@
 		9B0158A025A0CB1A003D3B7B /* PloggingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PloggingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUITests.swift; sourceTree = "<group>"; };
 		9B0158A625A0CB1A003D3B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B5A32B625AEAAE90061A361 /* Enum+TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+TabBarItems.swift"; sourceTree = "<group>"; };
 		9B671DF225AE0DB700B0B415 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5B304D25A6079700413115 /* Enum+URL.swift */,
+				9B5A32B625AEAAE90061A361 /* Enum+TabBarItems.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
+				9B5A32B725AEAAEA0061A361 /* Enum+TabBarItems.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
