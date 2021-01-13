@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXj-XR-DvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,10 +38,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14t-un-sOC" userLabel="ShadowView">
                                 <rect key="frame" x="0.0" y="812" width="414" height="84"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-gS-pNf">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuL-s9-PTS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,7 +55,14 @@
                                         <color key="tintColor" name="AccentColor"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="jf5-O1-YEc"/>
+                                        </connections>
                                     </tabBar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-gS-pNf" userLabel="BottomCoverView">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -71,6 +74,14 @@
                                     <constraint firstAttribute="bottom" secondItem="Yj7-gS-pNf" secondAttribute="bottom" id="XJC-h9-FLk"/>
                                     <constraint firstItem="Yj7-gS-pNf" firstAttribute="top" secondItem="EuL-s9-PTS" secondAttribute="bottom" id="t6w-0u-03J"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pc1-YQ-KxE"/>
@@ -121,7 +132,7 @@
                 <viewControllerPlaceholder storyboardName="Plogging" id="t0p-XS-EL4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="59"/>
+            <point key="canvasLocation" x="941" y="10"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="cPl-XM-4KR">
@@ -129,7 +140,7 @@
                 <viewControllerPlaceholder storyboardName="MyPage" id="xTK-tR-GKx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcn-7G-Eyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976" y="132"/>
+            <point key="canvasLocation" x="947" y="109"/>
         </scene>
     </scenes>
     <resources>
