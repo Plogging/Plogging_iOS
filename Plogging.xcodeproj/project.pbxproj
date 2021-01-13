@@ -209,18 +209,14 @@
 			children = (
 				1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */,
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
+				9B01588625A0CB15003D3B7B /* ViewController.swift */,
+				9B01588825A0CB15003D3B7B /* Main.storyboard */,
 				1CC08DD925A5D55400EE3505 /* Common */,
 				1CC08DBA25A4B55B00EE3505 /* Login */,
 				9B671DEF25AE0CDC00B0B415 /* Ranking */,
 				9B671DF125AE0D1600B0B415 /* Plogging */,
 				9B671DF025AE0D0400B0B415 /* My Page */,
-				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
-				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
-				9B01588625A0CB15003D3B7B /* ViewController.swift */,
-				9B01588825A0CB15003D3B7B /* Main.storyboard */,
-				9B01588B25A0CB19003D3B7B /* Assets.xcassets */,
-				9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */,
-				9B01589025A0CB19003D3B7B /* Info.plist */,
+				9B5A32E325AEB1170061A361 /* Supporting Files */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -241,6 +237,18 @@
 				9B0158A625A0CB1A003D3B7B /* Info.plist */,
 			);
 			path = PloggingUITests;
+			sourceTree = "<group>";
+		};
+		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
+				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
+				9B01588B25A0CB19003D3B7B /* Assets.xcassets */,
+				9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */,
+				9B01589025A0CB19003D3B7B /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9B671DEF25AE0CDC00B0B415 /* Ranking */ = {
@@ -704,7 +712,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Plogging/Info.plist;
+				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,7 +734,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Plogging/Info.plist;
+				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
