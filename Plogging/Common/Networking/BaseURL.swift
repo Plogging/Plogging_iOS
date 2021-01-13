@@ -8,13 +8,14 @@
 import Foundation
 
 struct BaseURL {
-    static let mainURL = "121.130.220.217:20000"
+    static let mainURL = "http://nexters.plogging.kro.kr:20000"
 }
 
 struct BasePath {
     static let plogging = "/plogging"
+    
 }
 
 struct BaseHeader {
-    static let userSessionKey = "userId"
+    static let userSessionKey = "sessionKey"
 }
