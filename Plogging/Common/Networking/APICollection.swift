@@ -20,19 +20,20 @@ struct APICollection {
     }
     
     /// 산책 이력 가져오기
-    func getWalkingRecord(param: Parameters, completion: @escaping (Result<Data, Error>) -> Void) {
+    func getWalkingRecord(completion: @escaping (Result<Plogging, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.plogging,
                    method: .get,
                    headers: temp
         ).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                print(value)
-                break
-            case .failure:
-                print("error occured")
-                break
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
             }
+
+            guard let value = try? JSONDecoder().decode(Plogging.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
         }
     }
     

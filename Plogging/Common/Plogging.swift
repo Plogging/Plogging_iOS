@@ -35,6 +35,9 @@ struct Meta: Codable {
     let calories: Int
     let plogging_time: Int
     let plogging_img: String
+    let plogging_total_score: Int
+    let plogging_activity_score: Int
+    let plogging_environment_score: Int
 }
 
 // MARK: - TrashList

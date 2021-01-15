@@ -14,6 +14,7 @@
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
 		1CBE98A425AF25A100CC247A /* Plogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* Plogging.swift */; };
+		1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98AB25AF2DFA00CC247A /* APIError.swift */; };
 		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
 		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
@@ -59,6 +60,7 @@
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		1CBE98A325AF25A100CC247A /* Plogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plogging.swift; sourceTree = "<group>"; };
+		1CBE98AB25AF2DFA00CC247A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				1CBE988A25AC76AE00CC247A /* APICollection.swift */,
 				1CBE988F25AC7B4800CC247A /* BaseURL.swift */,
+				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
 				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
 				1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */,
+				1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
