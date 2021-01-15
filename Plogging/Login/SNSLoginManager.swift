@@ -87,6 +87,17 @@ class SNSLoginManager: NSObject {
     }
     
     // MARK: - getting user info
+    func handleAuthorizationAppleIDButtonPress() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
     func getNaverInfo() {
         guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
             return
@@ -111,15 +122,17 @@ class SNSLoginManager: NSObject {
         }
     }
     
-    func handleAuthorizationAppleIDButtonPress() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+    func getKakaoInfo() {
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("me() success.")
+                print("name \(user?.kakaoAccount?.legalName)")
+                print("email \(user?.kakaoAccount?.email)")
+            }
+        }
     }
     
     // MARK: - success
@@ -129,6 +142,10 @@ class SNSLoginManager: NSObject {
     }
     
     // MARK: - failure
+    
+    // MARK: - Edit User Data
+    
+    // MARK: - Sign Out
     
 }
 

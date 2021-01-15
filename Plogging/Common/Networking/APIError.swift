@@ -11,6 +11,7 @@ import Foundation
 enum APIError: Error {
     case requestFailed
     case decodingFailed
+    case dataFailed
     
     public var localizedDescription: String {
         switch self {
@@ -18,6 +19,8 @@ enum APIError: Error {
             return "요청 실패입니다."
         case .decodingFailed:
             return "디코딩에 실패했습니다."
+        case .dataFailed:
+            return "데이터 처리 실패입니다."
         }
     }
 }
