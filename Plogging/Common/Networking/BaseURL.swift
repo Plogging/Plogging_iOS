@@ -13,6 +13,7 @@ struct BaseURL {
 
 struct BasePath {
     static let plogging = "/plogging"
+    static let user = "/user"
     
 }
 

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+// MARK: - User
+struct User: Codable {
+    let rc: Int
+    let rcmsg: String
+    let session: String
+    let userImg: String
+    let userName: String
+}

@@ -14,9 +14,22 @@ struct APICollection {
     let temp: HTTPHeaders = ["userId": "xowns1234",
                              "Content-Type": "application/json"]
     
-    /// 세션키 발급
-    func requestSessionKey() {
-        
+    /// 로그인 하기
+    func requestSessionKey(param: Parameters, completion: @escaping (Result<User, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.user,
+                   method: .post,
+                   parameters: param
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            guard let value = try? JSONDecoder().decode(User.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
     }
     
     /// 산책 이력 가져오기
