@@ -28,16 +28,14 @@ class MapkitViewController: UIViewController {
             print("HELLO")
             startRun()
             isTouched = true
-        } else {
-            loadMap()
         }
-
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        mapView.isZoomEnabled = true
     }
 
     func startRun() {
@@ -63,7 +61,6 @@ class MapkitViewController: UIViewController {
     func eachSecond() {
         seconds += 1
         updateDisplay()
-        loadMap()
     }
 
     private func updateDisplay() {
@@ -80,45 +77,6 @@ class MapkitViewController: UIViewController {
         print(locationList.count)
     }
 
-    private func mapRegion() -> MKCoordinateRegion? {
-
-        let latitudes = locationList.map { location -> Double in
-            location.coordinate.latitude
-        }
-
-        let longitudes = locationList.map { location -> Double in
-            location.coordinate.longitude
-        }
-
-        let maxLat = latitudes.max()!
-        let minLat = latitudes.min()!
-        let maxLong = longitudes.max()!
-        let minLong = longitudes.min()!
-
-        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
-                longitude: (minLong + maxLong) / 2)
-        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
-                longitudeDelta: (maxLong - minLong) * 1.3)
-        return MKCoordinateRegion(center: center, span: span)
-    }
-
-    private func polyLine() -> MKPolyline {
-
-        let coords: [CLLocationCoordinate2D] = locationList.map { location in
-            CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        }
-        return MKPolyline(coordinates: coords, count: coords.count)
-    }
-
-    func loadMap() {
-
-        if(locationList.isEmpty) {return}
-
-        let region = mapRegion()
-        mapView.setRegion(region!, animated: true)
-        let path = polyLine()
-        mapView.addOverlay(path)
-    }
 
 
 

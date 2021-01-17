@@ -7,5 +7,4 @@ import MapKit
 
 class LocationManager {
     static let shared = CLLocationManager()
-
 }
