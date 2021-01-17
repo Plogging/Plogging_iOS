@@ -287,6 +287,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Ul-gq-Uv4"/>
                     <connections>
+                        <outlet property="emailView" destination="pGj-Vb-1p7" id="Otm-ez-NNp"/>
+                        <outlet property="passwordView" destination="ddg-fy-BfH" id="0RD-HZ-mic"/>
+                        <outlet property="signUpButton" destination="1j5-P5-LSD" id="79z-lG-jGu"/>
                         <outlet property="signUpButtonBottomConstraint" destination="Ncf-mE-HJT" id="HxA-wW-zKr"/>
                     </connections>
                 </viewController>

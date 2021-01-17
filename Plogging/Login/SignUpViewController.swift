@@ -9,12 +9,16 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addNotification()
+        setupUI()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -36,8 +40,19 @@ class SignUpViewController: UIViewController {
         )
     }
     
+    func setupUI() {
+        emailView.clipsToBounds = true
+        emailView.layer.cornerRadius = 4
+        
+        passwordView.clipsToBounds = true
+        passwordView.layer.cornerRadius = 4
+        
+        signUpButton.clipsToBounds = true
+        signUpButton.layer.cornerRadius = 12
+    }
+    
     @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        if signUpButtonBottomConstraint.constant == 36, let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             signUpButtonBottomConstraint.constant = keyboardHeight + 6
