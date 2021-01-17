@@ -21,7 +21,14 @@ class SNSLoginManager: NSObject {
 
     // MARK: - setting up login
     func setupLoginWithApple() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
         
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
     func setupLoginWithKakao() {
@@ -87,15 +94,18 @@ class SNSLoginManager: NSObject {
     }
     
     // MARK: - getting user info
-    func handleAuthorizationAppleIDButtonPress() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            let userFirstName = appleIDCredential.fullName?.givenName ?? ""
+            let userLastName = appleIDCredential.fullName?.familyName ?? ""
+            let userName = userLastName + userFirstName
+            let userEmail = appleIDCredential.email
+            print("userName \(userName) userFirstName \(userFirstName), userLastName \(userLastName), userEmail \(userEmail!)")
+            SNSLoginManager.shared.loginSuccess()
+        default:
+            break
+        }
     }
     
     func getNaverInfo() {
@@ -190,20 +200,6 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
 
 // MARK: - APPLE Delegate
 extension SNSLoginManager: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userFirstName = appleIDCredential.fullName?.givenName ?? ""
-            let userLastName = appleIDCredential.fullName?.familyName ?? ""
-            let userName = userLastName + userFirstName
-            let userEmail = appleIDCredential.email
-            print("userName \(userName) userFirstName \(userFirstName), userLastName \(userLastName), userEmail \(userEmail!)")
-            SNSLoginManager.shared.loginSuccess()
-        default:
-            break
-        }
-    }
-    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
     }
