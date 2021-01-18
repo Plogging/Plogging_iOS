@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-86.956521739130437" y="81.696428571428569"/>
         </scene>
-        <!--PloggingResultPhoto-->
+        <!--PloggingResult-->
         <scene sceneID="vbk-Mb-ekB">
             <objects>
-                <viewControllerPlaceholder storyboardName="PloggingResultPhoto" id="Fks-4Y-fhy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="PloggingResult" id="Fks-4Y-fhy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="AJv-SF-dWn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ec-Od-9zt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

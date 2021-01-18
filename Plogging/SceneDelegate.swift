@@ -25,18 +25,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // APPLE
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         // forUserID 는 변경해야함
-        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-                break
-            case .revoked, .notFound:
-                DispatchQueue.main.async {
-                    self.window?.rootViewController?.showLoginViewController()
-                }
-            default:
-                break
-            }
-        }
+//        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//                break
+//            case .revoked, .notFound:
+//                DispatchQueue.main.async {
+//                    self.window?.rootViewController?.showLoginViewController()
+//                }
+//            default:
+//                break
+//            }
+//        }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
