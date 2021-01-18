@@ -19,7 +19,7 @@
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
 		9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588425A0CB15003D3B7B /* SceneDelegate.swift */; };
-		9B01588725A0CB15003D3B7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588625A0CB15003D3B7B /* ViewController.swift */; };
+		9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588625A0CB15003D3B7B /* MainViewController.swift */; };
 		9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588825A0CB15003D3B7B /* Main.storyboard */; };
 		9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588B25A0CB19003D3B7B /* Assets.xcassets */; };
 		9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */; };
@@ -34,7 +34,14 @@
 		9B51A5EF25B45C67000AA9FA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */; };
 		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
 		9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A63525B5C998000AA9FA /* DeviceScreen.swift */; };
+		9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */; };
 		9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */; };
+		9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF225AE0DB700B0B415 /* Ranking.storyboard */; };
+		9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */; };
+		9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */; };
+		9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0125AE0DE900B0B415 /* RankingViewController.swift */; };
+		9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */; };
+		9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +77,7 @@
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9B01588625A0CB15003D3B7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B01588625A0CB15003D3B7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B01588925A0CB15003D3B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B01588B25A0CB19003D3B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B01588E25A0CB19003D3B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,12 +93,18 @@
 		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
 		9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRederingMaker.swift; sourceTree = "<group>"; };
 		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
-		9B0C23A125A6F2B10084D27B /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
 		9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		9B51A63525B5C998000AA9FA /* DeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScreen.swift; sourceTree = "<group>"; };
+		9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+MainTab.swift"; sourceTree = "<group>"; };
 		9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		9B671DF225AE0DB700B0B415 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
+		9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
+		9B671E0125AE0DE900B0B415 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
+		9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		B30387023FB6701DA6D40B34 /* Pods-PloggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.release.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.release.xcconfig"; sourceTree = "<group>"; };
 		D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging_PloggingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDEEAC80DEAF97F6FF39C26 /* Pods-Plogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.debug.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5B304D25A6079700413115 /* Enum+URL.swift */,
+				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -199,7 +213,6 @@
 				9B01588025A0CB15003D3B7B /* Products */,
 				4D6400549CE8260A84A282DF /* Pods */,
 				0D3991AC06B393D10B2A9FFE /* Frameworks */,
-				9B671C9925AC989B00B0B415 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,15 +232,13 @@
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 				1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */,
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
+				9B5A33AA25AF40140061A361 /* Main */,
 				1CC08DD925A5D55400EE3505 /* Common */,
 				1CC08DBA25A4B55B00EE3505 /* Login */,
-				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
-				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
-				9B01588625A0CB15003D3B7B /* ViewController.swift */,
-				9B01588825A0CB15003D3B7B /* Main.storyboard */,
-				9B01588B25A0CB19003D3B7B /* Assets.xcassets */,
-				9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */,
-				9B01589025A0CB19003D3B7B /* Info.plist */,
+				9B671DEF25AE0CDC00B0B415 /* Ranking */,
+				9B671DF125AE0D1600B0B415 /* Plogging */,
+				9B671DF025AE0D0400B0B415 /* My Page */,
+				9B5A32E325AEB1170061A361 /* Supporting Files */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -273,12 +284,52 @@
 			path = "Image Render";
 			sourceTree = "<group>";
 		};
-		9B671C9925AC989B00B0B415 /* Recovered References */ = {
+		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9B0C23A125A6F2B10084D27B /* Extension+UIImage.swift */,
+				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
+				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
+				9B01588B25A0CB19003D3B7B /* Assets.xcassets */,
+				9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */,
+				9B01589025A0CB19003D3B7B /* Info.plist */,
 			);
-			name = "Recovered References";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B5A33AA25AF40140061A361 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B01588625A0CB15003D3B7B /* MainViewController.swift */,
+				9B01588825A0CB15003D3B7B /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9B671DEF25AE0CDC00B0B415 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF225AE0DB700B0B415 /* Ranking.storyboard */,
+				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		9B671DF025AE0D0400B0B415 /* My Page */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
+				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
+			);
+			path = "My Page";
+			sourceTree = "<group>";
+		};
+		9B671DF125AE0D1600B0B415 /* Plogging */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
+				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+			);
+			path = Plogging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,9 +442,12 @@
 			files = (
 				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
+				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
+				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
 				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
+				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,16 +578,20 @@
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
-				9B01588725A0CB15003D3B7B /* ViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */,
 				9B51A5EF25B45C67000AA9FA /* AlbumViewController.swift in Sources */,
+				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
+				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
+				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
+				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
+				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
 				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
@@ -718,7 +776,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Plogging/Info.plist;
+				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,7 +798,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Plogging/Info.plist;
+				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXj-XR-DvY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRy-ze-S5H" userLabel="RankingView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="aAV-LN-e74" kind="embed" identifier="RankingSegue" id="YdK-XK-okV"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-L4-9eV" userLabel="MyPageView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="xTK-tR-GKx" kind="embed" identifier="MypageSegue" id="kXz-wl-NRm"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-Aj-3tK" userLabel="PloggingView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="t0p-XS-EL4" kind="embed" identifier="PloggingSegue" id="1bX-HR-C2k"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14t-un-sOC" userLabel="ShadowView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <subviews>
+                                    <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuL-s9-PTS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="YTn-0c-1Vc"/>
+                                        </constraints>
+                                        <items>
+                                            <tabBarItem title="Ranking" image="square.and.arrow.up" catalog="system" selectedImage="square.and.arrow.up.fill" id="wa6-R8-Le3">
+                                                <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                                                <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-50"/>
+                                            </tabBarItem>
+                                            <tabBarItem tag="1" title="Plogging" image="square.and.arrow.up.fill" catalog="system" id="Xmu-sR-zg9"/>
+                                            <tabBarItem tag="2" title="MyPage" image="square.and.arrow.down" catalog="system" id="Qf3-Pp-gdX"/>
+                                        </items>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="jf5-O1-YEc"/>
+                                        </connections>
+                                    </tabBar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-gS-pNf" userLabel="BottomCoverView">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EuL-s9-PTS" firstAttribute="top" secondItem="14t-un-sOC" secondAttribute="top" id="1KY-qa-77e"/>
+                                    <constraint firstItem="EuL-s9-PTS" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="FME-Lh-V2O"/>
+                                    <constraint firstItem="Yj7-gS-pNf" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="Gwx-KZ-phV"/>
+                                    <constraint firstAttribute="trailing" secondItem="EuL-s9-PTS" secondAttribute="trailing" id="MxW-cP-lke"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yj7-gS-pNf" secondAttribute="trailing" id="NAY-9I-6dl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yj7-gS-pNf" secondAttribute="bottom" id="XJC-h9-FLk"/>
+                                    <constraint firstItem="Yj7-gS-pNf" firstAttribute="top" secondItem="EuL-s9-PTS" secondAttribute="bottom" id="t6w-0u-03J"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Pc1-YQ-KxE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="14t-un-sOC" firstAttribute="trailing" secondItem="Pc1-YQ-KxE" secondAttribute="trailing" id="0hz-oN-Ng9"/>
+                            <constraint firstItem="14t-un-sOC" firstAttribute="bottom" secondItem="aXj-XR-DvY" secondAttribute="bottom" id="5Ct-Jq-i1O"/>
+                            <constraint firstItem="mRy-ze-S5H" firstAttribute="leading" secondItem="Pc1-YQ-KxE" secondAttribute="leading" id="Hm2-fW-gXr"/>
+                            <constraint firstItem="Pc1-YQ-KxE" firstAttribute="trailing" secondItem="5KH-L4-9eV" secondAttribute="trailing" id="IeI-4k-d8I"/>
+                            <constraint firstItem="EuL-s9-PTS" firstAttribute="bottom" secondItem="Pc1-YQ-KxE" secondAttribute="bottom" id="UWo-lg-HqR"/>
+                            <constraint firstItem="Pc1-YQ-KxE" firstAttribute="trailing" secondItem="bhN-Aj-3tK" secondAttribute="trailing" id="Va9-uc-kjN"/>
+                            <constraint firstAttribute="top" secondItem="bhN-Aj-3tK" secondAttribute="top" id="Xdg-3f-d4s"/>
+                            <constraint firstAttribute="bottom" secondItem="mRy-ze-S5H" secondAttribute="bottom" id="YPL-76-UY8"/>
+                            <constraint firstItem="Pc1-YQ-KxE" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="YoI-37-iXd"/>
+                            <constraint firstAttribute="top" secondItem="mRy-ze-S5H" secondAttribute="top" id="eoe-vy-7VT"/>
+                            <constraint firstAttribute="bottom" secondItem="bhN-Aj-3tK" secondAttribute="bottom" id="f1X-gC-3OV"/>
+                            <constraint firstAttribute="top" secondItem="5KH-L4-9eV" secondAttribute="top" id="icT-Ya-xID"/>
+                            <constraint firstItem="bhN-Aj-3tK" firstAttribute="leading" secondItem="Pc1-YQ-KxE" secondAttribute="leading" id="r4Y-1W-030"/>
+                            <constraint firstAttribute="bottom" secondItem="5KH-L4-9eV" secondAttribute="bottom" id="sYA-9B-UXC"/>
+                            <constraint firstItem="Pc1-YQ-KxE" firstAttribute="trailing" secondItem="mRy-ze-S5H" secondAttribute="trailing" id="vqh-0t-JN5"/>
+                            <constraint firstItem="5KH-L4-9eV" firstAttribute="leading" secondItem="Pc1-YQ-KxE" secondAttribute="leading" id="yw5-xg-Zre"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myPageView" destination="5KH-L4-9eV" id="qzP-ib-Pbs"/>
+                        <outlet property="ploggingTabItem" destination="Xmu-sR-zg9" id="6Ns-6s-Efp"/>
+                        <outlet property="ploggingView" destination="bhN-Aj-3tK" id="4s1-Sn-4MU"/>
+                        <outlet property="rankingView" destination="mRy-ze-S5H" id="Og7-HP-1gu"/>
+                        <outlet property="shadowView" destination="14t-un-sOC" id="qf9-YG-fIA"/>
+                        <outlet property="tabBar" destination="EuL-s9-PTS" id="E2p-pW-DMJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="58"/>
+        </scene>
+        <!--Ranking-->
+        <scene sceneID="d3c-8Y-k1K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Ranking" id="aAV-LN-e74" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8a-Vv-rPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936" y="-80"/>
+        </scene>
+        <!--Plogging-->
+        <scene sceneID="wzM-Pf-Bdp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Plogging" id="t0p-XS-EL4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941" y="10"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="cPl-XM-4KR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="xTK-tR-GKx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mcn-7G-Eyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

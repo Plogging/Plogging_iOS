@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.setupLoginWithKakao()
 
-        // APPLE
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        // forUserID 는 변경해야함
+//        // APPLE
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        // forUserID 는 변경해야함
 //        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
 //            switch credentialState {
 //            case .authorized:
