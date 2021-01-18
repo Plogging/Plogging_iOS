@@ -22,6 +22,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOJ-ww-Ipm">
+                                <rect key="frame" x="279" y="218" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="정산하기"/>
+                                <connections>
+                                    <segue destination="WgU-5b-NSU" kind="show" id="DVr-w6-ism"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aUi-5w-hQg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,7 +41,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47U-Fe-h5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="106"/>
+            <point key="canvasLocation" x="413.04347826086962" y="105.80357142857143"/>
+        </scene>
+        <!--PloggingResult-->
+        <scene sceneID="uDH-Zm-AVf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PloggingResult" id="WgU-5b-NSU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vvr-6Y-3VP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAW-oF-95o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="124"/>
         </scene>
     </scenes>
     <resources>

@@ -229,7 +229,6 @@
 		9B01588125A0CB15003D3B7B /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
-				9B0C235125A4D62F0084D27B /* Plogging Result */,
 				1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */,
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
 				9B5A33AA25AF40140061A361 /* Main */,
@@ -328,6 +327,7 @@
 			children = (
 				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
 				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
