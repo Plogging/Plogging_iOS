@@ -14,7 +14,6 @@ class CameraViewController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var captureDevice: AVCaptureDevice?
     var baseImage: UIImage?
-  
     let cameraFrameView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -24,52 +23,6 @@ class CameraViewController: UIViewController {
 
 // MARK: AVCapturePhotoCaptureDelegate
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
-    // MARK: Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(cameraFrameView)
-        setUpCameraFrameViewLayout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        addPloggingResultInfoView()
-        
-        captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .medium
-        do {
-            guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video) else {
-                print("Unable to access backCamera")
-                return
-            }
-            guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
-                print("Unable to access frontCamera")
-                return
-            }
-            let backCameraInput = try AVCaptureDeviceInput(device: backCamera)
-            stillImageOutput = AVCapturePhotoOutput()
-            if captureSession.canAddInput(backCameraInput) && captureSession.canAddOutput(stillImageOutput) {
-                captureSession.addInput(backCameraInput)
-                captureSession.addOutput(stillImageOutput)
-                setUpLivePreview()
-            }
-        }
-        catch let error {
-            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
-        }
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.captureSession.startRunning()
-            DispatchQueue.main.async {
-                self.videoPreviewLayer.frame = self.cameraFrameView.bounds
-            }
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.captureSession.stopRunning()
-    }
     // MARK: IBAction
     @IBAction func takePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
@@ -115,5 +68,52 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             }
             PloggingResultPhotoViewController.baseImage = baseImage
         }
+    }
+    
+    // MARK: Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(cameraFrameView)
+        setUpCameraFrameViewLayout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addPloggingResultInfoView()
+        
+        captureSession = AVCaptureSession()
+        captureSession.sessionPreset = .medium
+        do {
+            guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video) else {
+                print("Unable to access backCamera")
+                return
+            }
+            guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
+                print("Unable to access frontCamera")
+                return
+            }
+            let backCameraInput = try AVCaptureDeviceInput(device: backCamera)
+            stillImageOutput = AVCapturePhotoOutput()
+            if captureSession.canAddInput(backCameraInput) && captureSession.canAddOutput(stillImageOutput) {
+                captureSession.addInput(backCameraInput)
+                captureSession.addOutput(stillImageOutput)
+                setUpLivePreview()
+            }
+        }
+        catch let error {
+            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.captureSession.startRunning()
+            DispatchQueue.main.async {
+                self.videoPreviewLayer.frame = self.cameraFrameView.bounds
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.captureSession.stopRunning()
     }
 }
