@@ -23,6 +23,7 @@ extension MapkitViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         }
 
         locationList.append(curLocation)
+        loadMap(curLocation: locationList.last!.coordinate, locationList: locationList, mapView: mapView)
     }
 
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

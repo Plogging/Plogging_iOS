@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Path" representedClassName=".Path" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lat" optional="YES" attributeType="Transformable" customClassName="[Double]"/>
+        <attribute name="lon" optional="YES" attributeType="Transformable" customClassName="[Double]"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="Path" positionX="-54" positionY="-9" width="128" height="89"/>
+    </elements>
+</model>

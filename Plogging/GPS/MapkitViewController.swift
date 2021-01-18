@@ -23,11 +23,16 @@ class MapkitViewController: UIViewController {
 
     var isTouched: Bool = false
 
+    let backupManager = BackupManager()
+
     @IBAction func onTouch(_ sender: UIButton) {
         if !isTouched {
             print("HELLO")
             startRun()
             isTouched = true
+        } else {
+            print("STOP")
+            stopLocationUpdate()
         }
     }
     
@@ -36,12 +41,15 @@ class MapkitViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.isZoomEnabled = true
+
+        locationList = backupManager.restorePathData()
+
+        locationManager.requestWhenInUseAuthorization()
     }
 
     func startRun() {
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
-        locationList.removeAll()
         updateDisplay()
 
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
@@ -56,6 +64,11 @@ class MapkitViewController: UIViewController {
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
+    }
+
+    func stopLocationUpdate() {
+        locationManager.stopUpdatingLocation()
+        backupManager.savePathData(to: locationList)
     }
 
     func eachSecond() {
