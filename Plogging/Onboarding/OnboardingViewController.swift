@@ -40,19 +40,21 @@ class OnboardingViewController: UIViewController {
     ]
     
     private let onboardingDescriptionList = [
-        "플로깅하며 주운 쓰레기를 기록하고 총 거리와 시간, 칼로리를 확인해요.",
-        "운동점수와 환경점수를 합산한 총점이 랭킹에 반영돼요.",
-        "모든 기록은 마이페이지에 저장되며 언제든 공유가 가능해요."
+        "플로깅하며 주운 쓰레기를 기록하고\n총 거리와 시간, 칼로리를 확인해요.",
+        "운동점수와 환경점수를 합산한 총점이\n랭킹에 반영돼요.",
+        "모든 기록은 마이페이지에 저장되며\n언제든 공유가 가능해요."
     ]
     
     private var isLastPage: Bool = false {
         didSet {
             if isLastPage {
                 skipButton.setTitle("확인", for: .normal)
-                skipButton.backgroundColor = UIColor(red: 55, green: 213, blue: 172, alpha: 1)
+                skipButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                skipButton.backgroundColor = UIColor(red: 55/255, green: 213/255, blue: 172/255, alpha: 1)
             } else {
                 skipButton.setTitle("건너뛰기", for: .normal)
-                skipButton.backgroundColor = UIColor(red: 234, green: 234, blue: 234, alpha: 1)
+                skipButton.setTitleColor(UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1), for: .normal)
+                skipButton.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
             }
         }
     }
@@ -82,28 +84,47 @@ class OnboardingViewController: UIViewController {
         defaultView.addSubview(scrollView)
         
         for x in 0..<onboardingTitleList.count {
-            let pageView = UIView(frame: CGRect(x: CGFloat(x) * (defaultView.frame.size.width), y: 0, width: defaultView.frame.size.width, height: defaultView.frame.size.height))
-            scrollView.addSubview(pageView)
+            // 페이지
+            let pageView = UIView(frame: CGRect(x: CGFloat(x) * (defaultView.frame.size.width),
+                                                y: 0, width: defaultView.frame.size.width,
+                                                height: defaultView.frame.size.height))
             
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 16, width: 330, height: 253))
+            // 이미지
+            let imageView = UIImageView(frame: CGRect(x: 0,
+                                                      y: 100,
+                                                      width: 330,
+                                                      height: 253))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
-            imageView.center = defaultView.center
+            imageView.center.x = self.defaultView.center.x
             
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: imageView.frame.origin.y + imageView.frame.height + 16, width: defaultView.frame.size.width, height: 68))
+            // 제목
+            let titleLabel = UILabel(frame: CGRect(x: 0,
+                                                   y: imageView.frame.origin.y + imageView.frame.height + 54,
+                                                   width: defaultView.frame.size.width,
+                                                   height: 68))
+            titleLabel.textAlignment = .center
             titleLabel.numberOfLines = 2
             titleLabel.attributedText = onboardingTitleList[x]
 
-            let descriptionLabel = UILabel(frame: CGRect(x: 0, y: titleLabel.frame.origin.y + 48, width: defaultView.frame.size.width, height: 68))
+            // 부제목
+            let descriptionLabel = UILabel(frame: CGRect(x: 0,
+                                                         y: imageView.frame.origin.y + imageView.frame.height + 54 + titleLabel.frame.height + 18,
+                                                         width: defaultView.frame.size.width,
+                                                         height: 46))
+            descriptionLabel.textAlignment = .center
             descriptionLabel.numberOfLines = 2
             descriptionLabel.text = onboardingDescriptionList[x]
-            descriptionLabel.textColor = UIColor(red: 182, green: 182, blue: 182, alpha: 1)
+            descriptionLabel.textColor = UIColor(red: 182/255, green: 182/255, blue: 182/255, alpha: 1)
 
+            // 포함
+            scrollView.addSubview(pageView)
             pageView.addSubview(imageView)
             pageView.addSubview(titleLabel)
             pageView.addSubview(descriptionLabel)
         }
         
-        scrollView.contentSize = CGSize(width: defaultView.frame.size.width * 3, height: 0)
+        let fullContentSize = defaultView.frame.size.width * 3
+        scrollView.contentSize = CGSize(width: fullContentSize, height: 0)
     }
     
     @IBAction func ClickedSkipButton(_ sender: UIButton) {
@@ -118,8 +139,14 @@ extension OnboardingViewController: UIScrollViewDelegate {
     }
 
     func setIndiactorForCurrentPage()  {
-        let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl?.currentPage = Int(page)
+        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl?.currentPage = page
+        
+        if page == onboardingTitleList.count - 1 {
+            isLastPage = true
+        } else {
+            isLastPage = false
+        }
     }
 }
 
