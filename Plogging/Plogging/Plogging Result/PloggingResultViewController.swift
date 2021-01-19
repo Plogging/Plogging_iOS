@@ -8,7 +8,10 @@
 import UIKit
 
 class PloggingResultViewController: UIViewController {
-    // MARK: IBAction
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func registerPloggingPhoto(_ sender: Any) {
         let alert = UIAlertController(title: "플로깅 사진 기록하기", message: "플로깅 사진 기록방식을 선택하세요.", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
@@ -23,10 +26,5 @@ class PloggingResultViewController: UIViewController {
         alert.addAction(camera)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }

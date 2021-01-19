@@ -10,14 +10,6 @@ import UIKit
 class AlbumViewController: UIViewController {
     var baseImage: UIImage?
     
-    func setUpImagePicker() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.allowsEditing = true
-        present(imagePickerController, animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "renderingAlbumPhoto" {
@@ -29,16 +21,23 @@ class AlbumViewController: UIViewController {
         }
     }
     
-    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpImagePicker()
+    }
+    
+    private func setUpImagePicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
     }
 }
 
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension AlbumViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }

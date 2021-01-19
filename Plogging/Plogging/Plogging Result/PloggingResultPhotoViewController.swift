@@ -8,21 +8,13 @@
 import UIKit
 
 class PloggingResultPhotoViewController: UIViewController {
-    var baseImage: UIImage?
-    let thumbnailImageView: UIImageView = {
+    private let thumbnailImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    var baseImage: UIImage?
     
-    func setUpThumbnailImageViewLayout() {
-        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        thumbnailImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        thumbnailImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-    }
-    
-    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(thumbnailImageView)
@@ -33,5 +25,12 @@ class PloggingResultPhotoViewController: UIViewController {
         let ploggingResultImageMaker = PloggingResultImageMaker()
         let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage!, 2.13, "13:30")
         thumbnailImageView.image = ploggingResultImage
+    }
+    
+    private func setUpThumbnailImageViewLayout() {
+        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
+        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
+        thumbnailImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        thumbnailImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
     }
 }
