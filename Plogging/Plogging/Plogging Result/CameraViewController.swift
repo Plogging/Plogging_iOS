@@ -117,8 +117,12 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         guard let imageData = photo.fileDataRepresentation() else {
             return
         }
-        let capturedImage = UIImage(data: imageData)
-        baseImage = capturedImage
+        guard let capturedImage = UIImage(data: imageData) else {
+            return
+        }
+        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceScreen.screenWidth, height: DeviceScreen.screenWidth))
+        UIImageWriteToSavedPhotosAlbum(resizedCapturedImage, nil, nil, nil)
+        baseImage = resizedCapturedImage
         self.performSegue(withIdentifier: "renderingCameraPhoto", sender: nil)
     }
 }
