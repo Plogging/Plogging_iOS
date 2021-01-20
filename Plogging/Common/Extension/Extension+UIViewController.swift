@@ -16,4 +16,12 @@ extension UIViewController {
             self.present(loginViewController, animated: true, completion: nil)
         }
     }
+    
+    func showPopUpViewController() {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
+        }
+    }
 }
