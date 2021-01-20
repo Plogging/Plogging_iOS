@@ -49,12 +49,12 @@ class OnboardingViewController: UIViewController {
         didSet {
             if isLastPage {
                 skipButton.setTitle("확인", for: .normal)
-                skipButton.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                skipButton.backgroundColor = UIColor(red: 55/255, green: 213/255, blue: 172/255, alpha: 1)
+                skipButton.setTitleColor(.white, for: .normal)
+                skipButton.backgroundColor = UIColor.tintGreen
             } else {
                 skipButton.setTitle("건너뛰기", for: .normal)
-                skipButton.setTitleColor(UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1), for: .normal)
-                skipButton.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+                skipButton.setTitleColor(UIColor.darkGrayColor, for: .normal)
+                skipButton.backgroundColor = UIColor.veryLightPinkTwo
             }
         }
     }
@@ -63,30 +63,34 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         
         setupScrollView()
+        setupButtonUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupUI()
+        setupPageLayout()
     }
 
-    func setupScrollView() {
+    private func setupScrollView() {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true
     }
     
-    private func setupUI() {
+    private func setupButtonUI() {
         skipButton.clipsToBounds = true
-        skipButton.layer.cornerRadius = 42
-        
+        skipButton.layer.cornerRadius = 40
+    }
+    
+    private func setupPageLayout() {
         scrollView.frame = defaultView.bounds
         defaultView.addSubview(scrollView)
         
         for x in 0..<onboardingTitleList.count {
             // 페이지
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * (defaultView.frame.size.width),
-                                                y: 0, width: defaultView.frame.size.width,
+                                                y: 0,
+                                                width: defaultView.frame.size.width,
                                                 height: defaultView.frame.size.height))
             
             // 이미지
@@ -114,7 +118,7 @@ class OnboardingViewController: UIViewController {
             descriptionLabel.textAlignment = .center
             descriptionLabel.numberOfLines = 2
             descriptionLabel.text = onboardingDescriptionList[x]
-            descriptionLabel.textColor = UIColor(red: 182/255, green: 182/255, blue: 182/255, alpha: 1)
+            descriptionLabel.textColor = UIColor.lightGrayColor
 
             // 포함
             scrollView.addSubview(pageView)
@@ -157,11 +161,11 @@ class User {
     static let shared = User()
     
     func isFirstTimeUser() -> Bool {
-        return UserDefaults.standard.bool(forKey: "isNewUser")
+        return UserDefaults.standard.bool(forKey: "isFirstTimeUser")
     }
     
     func setIsNotFirstTimeUser() {
-        UserDefaults.standard.setValue(true, forKey: "isNewUser")
+        UserDefaults.standard.setValue(true, forKey: "isFirstTimeUser")
     }
 }
 

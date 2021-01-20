@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ace-ym-Vpp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="637"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYN-rD-qHT">
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="weB-8p-1AI">
-                                <rect key="frame" x="146" y="689" width="122.5" height="28"/>
+                                <rect key="frame" x="146" y="681" width="122.5" height="28"/>
                                 <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.96470588235294119" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.21568627450980393" green="0.83529411764705885" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
@@ -46,8 +46,8 @@
                         <constraints>
                             <constraint firstItem="sd4-aj-PW7" firstAttribute="trailing" secondItem="Ace-ym-Vpp" secondAttribute="trailing" id="5xX-qk-6FT"/>
                             <constraint firstItem="UYN-rD-qHT" firstAttribute="centerX" secondItem="lJb-pO-o9c" secondAttribute="centerX" id="AqB-W2-0cW"/>
-                            <constraint firstItem="weB-8p-1AI" firstAttribute="top" secondItem="Ace-ym-Vpp" secondAttribute="bottom" constant="8" id="Eza-nd-ft5"/>
-                            <constraint firstItem="UYN-rD-qHT" firstAttribute="top" secondItem="weB-8p-1AI" secondAttribute="bottom" constant="8" id="KFt-lo-xCg"/>
+                            <constraint firstItem="weB-8p-1AI" firstAttribute="top" secondItem="Ace-ym-Vpp" secondAttribute="bottom" constant="16" id="Eza-nd-ft5"/>
+                            <constraint firstItem="UYN-rD-qHT" firstAttribute="top" secondItem="weB-8p-1AI" secondAttribute="bottom" constant="16" id="KFt-lo-xCg"/>
                             <constraint firstItem="sd4-aj-PW7" firstAttribute="bottom" secondItem="UYN-rD-qHT" secondAttribute="bottom" constant="59" id="UaA-9t-fLV"/>
                             <constraint firstItem="Ace-ym-Vpp" firstAttribute="leading" secondItem="sd4-aj-PW7" secondAttribute="leading" id="WGr-QI-4B4"/>
                             <constraint firstItem="Ace-ym-Vpp" firstAttribute="top" secondItem="sd4-aj-PW7" secondAttribute="top" id="ePB-qm-uHy"/>
