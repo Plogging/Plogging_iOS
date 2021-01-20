@@ -5,6 +5,7 @@
 import Foundation
 import CoreData
 
+// TODO: Refactoring (HIGH)
 class BackupManager {
     func savePathData(to pathDataList: [CLLocation]) {
 
@@ -21,17 +22,26 @@ class BackupManager {
         }
 
         let context = AppDelegate.viewContext
-        let pathEntity = NSEntityDescription.entity(forEntityName: "Path", in: context)
-
-        if let entity = pathEntity {
-            let createdPath = NSManagedObject(entity: entity, insertInto: context)
-            createdPath.setValue(latitude, forKey: "lat")
-            createdPath.setValue(longitude, forKey: "lon")
-            createdPath.setValue(startTime, forKey: "startTime")
-            createdPath.setValue(endTime, forKey: "endTime")
-        }
 
         do {
+
+            let paths = try context.fetch(Path.fetchRequest()) as [Path]?
+
+            let updatePath: Path?
+
+            if paths?.count == 0{
+                updatePath = (NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Path", in: context)!, insertInto: context) as! Path)
+            } else {
+                updatePath = (paths?.first)!
+            }
+
+            updatePath?.setValue(latitude, forKey: "lat")
+            updatePath?.setValue(longitude, forKey: "lon")
+            updatePath?.setValue(startTime, forKey: "startTime")
+            updatePath?.setValue(endTime, forKey: "endTime")
+
+            print("[BACKUP] save count : \(pathDataList.count)")
+
             try context.save()
         } catch {
             print("ERROR ON SAVE")
@@ -56,6 +66,16 @@ class BackupManager {
             for index in 0..<lat.count {
                 result.append(CLLocation(latitude: lat[index], longitude: lon[index]))
             }
+            
+            context.delete(path)
+        }
+
+        print("[BACKUP] restore count : \(result.count)")
+        
+        do {
+            try context.save()
+        } catch {
+            print("ERROR ON SAVE")
         }
 
         return result

@@ -9,21 +9,20 @@ import CoreLocation
 
 class MapkitViewController: UIViewController {
 
-    private let locationManager = LocationManager.shared
-    private var seconds = 0
-    private var timer: Timer?
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
 
-    var locationList: [CLLocation] = []
+    private var timer: Timer?
 
     @IBOutlet private var distanceLabel: UILabel!
     @IBOutlet private var timeLabel: UILabel!
     @IBOutlet private var paceLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
 
     var isTouched: Bool = false
+    var pathManger: PathManager?
 
-    let backupManager = BackupManager()
+    var seconds = 0
+    var distance: Measurement<UnitLength>?
+
 
     @IBAction func onTouch(_ sender: UIButton) {
         if !isTouched {
@@ -32,44 +31,33 @@ class MapkitViewController: UIViewController {
             isTouched = true
         } else {
             print("STOP")
-            stopLocationUpdate()
+            pathManger?.stopLocationUpdate()
         }
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        mapView.isZoomEnabled = true
+        pathManger = PathManager(on: mapView)
+    }
 
-        locationList = backupManager.restorePathData()
-
-        locationManager.requestWhenInUseAuthorization()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        pathManger?.stopLocationUpdate()
     }
 
     func startRun() {
         seconds = 0
-        distance = Measurement(value: 0, unit: UnitLength.meters)
+        distance = pathManger!.distance
         updateDisplay()
 
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.eachSecond()
         }
 
-        startLocationUpdate()
+        pathManger?.startLocationUpdate()
     }
 
-    func startLocationUpdate() {
-        locationManager.delegate = self
-        locationManager.activityType = .fitness
-        locationManager.distanceFilter = 10
-        locationManager.startUpdatingLocation()
-    }
-
-    func stopLocationUpdate() {
-        locationManager.stopUpdatingLocation()
-        backupManager.savePathData(to: locationList)
-    }
 
     func eachSecond() {
         seconds += 1
@@ -77,9 +65,9 @@ class MapkitViewController: UIViewController {
     }
 
     private func updateDisplay() {
-        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedDistance = FormatDisplay.distance(distance!)
         let formattedTime = FormatDisplay.time(seconds)
-        let formattedPace = FormatDisplay.pace(distance: distance,
+        let formattedPace = FormatDisplay.pace(distance: distance!,
                 seconds: seconds,
                 outputUnit: UnitSpeed.minutesPerMile)
 
@@ -87,7 +75,6 @@ class MapkitViewController: UIViewController {
         timeLabel.text = "Time:  \(formattedTime)"
         paceLabel.text = "Pace:  \(formattedPace)"
         
-        print(locationList.count)
     }
 
 
