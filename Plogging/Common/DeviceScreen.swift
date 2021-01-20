@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 struct DeviceScreen {
-    static let screenWidth = UIScreen.main.bounds.size.width
-    static let screenHeight = UIScreen.main.bounds.size.height
+    static let width = UIScreen.main.bounds.size.width
+    static let height = UIScreen.main.bounds.size.height
 }

@@ -22,7 +22,7 @@ class CameraViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "renderingCameraPhoto" {
+        if segue.identifier == SegueIdentifier.renderingCameraPhoto {
             guard let PloggingResultPhotoViewController = segue.destination as? PloggingResultPhotoViewController else {
                 return
             }
@@ -56,10 +56,6 @@ extension CameraViewController {
                 print("Unable to access backCamera")
                 return
             }
-            guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
-                print("Unable to access frontCamera")
-                return
-            }
             let backCameraInput = try AVCaptureDeviceInput(device: backCamera)
             stillImageOutput = AVCapturePhotoOutput()
             if captureSession.canAddInput(backCameraInput) && captureSession.canAddOutput(stillImageOutput) {
@@ -89,10 +85,10 @@ extension CameraViewController {
 // MARK: Camera Layout Setting
 private extension CameraViewController {
     func setUpCameraFrameViewLayout() {
-        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        cameraFrameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        cameraFrameView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        cameraFrameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cameraFrameView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func addPloggingResultInfoView() {
@@ -120,9 +116,9 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         guard let capturedImage = UIImage(data: imageData) else {
             return
         }
-        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceScreen.screenWidth, height: DeviceScreen.screenWidth))
+        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceScreen.width, height: DeviceScreen.width))
         UIImageWriteToSavedPhotosAlbum(resizedCapturedImage, nil, nil, nil)
         baseImage = resizedCapturedImage
-        self.performSegue(withIdentifier: "renderingCameraPhoto", sender: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.renderingCameraPhoto, sender: nil)
     }
 }

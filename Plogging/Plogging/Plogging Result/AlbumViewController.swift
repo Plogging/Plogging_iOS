@@ -12,7 +12,7 @@ class AlbumViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "renderingAlbumPhoto" {
+        if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
             guard let PloggingResultPhotoViewController = segue.destination as? PloggingResultPhotoViewController else {
                 return
             }
@@ -24,6 +24,10 @@ class AlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpImagePicker()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("dis")
     }
     
     private func setUpImagePicker() {
@@ -42,6 +46,7 @@ extension AlbumViewController: UIImagePickerControllerDelegate, UINavigationCont
             return
         }
         baseImage = selectedImage
-        self.performSegue(withIdentifier: "renderingAlbumPhoto", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.renderingAlbumPhoto, sender: nil)
     }
 }

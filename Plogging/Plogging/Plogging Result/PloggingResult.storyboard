@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82H-Q8-kGh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="agv-g4-xNx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -13,37 +13,52 @@
             <objects>
                 <viewController id="GCD-x0-68a" customClass="AlbumViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xg0-RW-Cnt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Zc2-sq-nN7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="i8c-01-yL6"/>
                     <connections>
-                        <segue destination="O5j-vd-2au" kind="show" identifier="renderingAlbumPhoto" id="yvj-4Q-PhN"/>
+                        <segue destination="O5j-vd-2au" kind="push" identifier="renderingAlbumPhoto" id="yvj-4Q-PhN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxH-K8-SOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="-293"/>
+            <point key="canvasLocation" x="652" y="-288"/>
         </scene>
         <!--Plogging Result Photo View Controller-->
         <scene sceneID="EJf-z7-GsQ">
             <objects>
                 <viewController storyboardIdentifier="PhotoEditing" id="O5j-vd-2au" customClass="PloggingResultPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eS8-dg-Mph">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDE-VJ-0J2">
+                                <rect key="frame" x="183" y="801" width="52" height="30"/>
+                                <state key="normal" title="저장하기"/>
+                                <connections>
+                                    <action selector="moveToPloggingResultViewController:" destination="O5j-vd-2au" eventType="touchUpInside" id="sbc-cQ-hmj"/>
+                                    <segue destination="cYc-QN-zTB" kind="unwind" identifier="unwindToPloggingResult" unwindAction="unwindToPloggingResultWithSender:" id="lJZ-4S-lls"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vxf-Nm-0Qr"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="aDE-VJ-0J2" firstAttribute="centerX" secondItem="vxf-Nm-0Qr" secondAttribute="centerX" id="8Ck-JJ-yfv"/>
+                            <constraint firstItem="vxf-Nm-0Qr" firstAttribute="bottom" secondItem="aDE-VJ-0J2" secondAttribute="bottom" constant="31" id="Qia-ZR-e4O"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZQb-n7-8Fo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFN-c0-Iba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cYc-QN-zTB" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="hqz-SP-PbQ"/>
             </objects>
-            <point key="canvasLocation" x="488" y="86"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="87.723214285714278"/>
         </scene>
         <!--Plogging Result View Controller-->
         <scene sceneID="g6B-nw-ONR">
@@ -54,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-rJ-iF7">
-                                <rect key="frame" x="158.5" y="403" width="97" height="100"/>
+                                <rect key="frame" x="158.5" y="425" width="97" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="D5d-1s-y3A"/>
                                     <constraint firstAttribute="height" constant="100" id="QMz-0O-iDM"/>
@@ -65,36 +80,49 @@
                                     <action selector="registerPloggingPhoto:" destination="82H-Q8-kGh" eventType="touchUpInside" id="XDu-gL-jUy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-By-jhw">
+                                <rect key="frame" x="281" y="128" width="87" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="결과 저장 "/>
+                                <connections>
+                                    <action selector="savePloggingResult:" destination="82H-Q8-kGh" eventType="touchUpInside" id="Pmv-HH-z6I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="91A-zq-55U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="b2g-By-jhw" firstAttribute="top" secondItem="91A-zq-55U" secondAttribute="top" constant="40" id="PUs-fV-AX3"/>
                             <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerY" secondItem="91A-zq-55U" secondAttribute="centerY" id="VZf-pN-KUP"/>
+                            <constraint firstItem="91A-zq-55U" firstAttribute="trailing" secondItem="b2g-By-jhw" secondAttribute="trailing" constant="46" id="ZkV-wc-NCv"/>
+                            <constraint firstItem="b2g-By-jhw" firstAttribute="leading" secondItem="91A-zq-55U" secondAttribute="leading" constant="281" id="hsT-en-2Ld"/>
                             <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerX" secondItem="91A-zq-55U" secondAttribute="centerX" id="wHQ-oq-0uw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="asD-dD-2mV"/>
                     <connections>
+                        <outlet property="ploggingResultPhoto" destination="c6s-rJ-iF7" id="2MM-QY-5Ef"/>
                         <segue destination="DjO-kN-shv" kind="show" identifier="openCamera" id="ujz-IQ-8ks"/>
-                        <segue destination="GCD-x0-68a" kind="show" identifier="openLibrary" id="jDB-AZ-V17"/>
+                        <segue destination="GCD-x0-68a" kind="show" identifier="openPhotoLibrary" id="jDB-AZ-V17"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H74-0X-KSI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1120.2898550724638" y="88.392857142857139"/>
+            <point key="canvasLocation" x="-210.1449275362319" y="88.392857142857139"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="lhb-8B-bCI">
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" id="DjO-kN-shv" customClass="CameraViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Dg-Yd-c6a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n2-hA-BZI">
-                                <rect key="frame" x="192" y="758" width="30" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="192" y="812" width="30" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="촬영">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhoto:" destination="DjO-kN-shv" eventType="touchUpInside" id="LEd-ap-jOZ"/>
@@ -102,7 +130,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdU-00-XUr"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8n2-hA-BZI" firstAttribute="centerX" secondItem="GdU-00-XUr" secondAttribute="centerX" id="2gJ-Bc-bfU"/>
                             <constraint firstItem="GdU-00-XUr" firstAttribute="bottom" secondItem="8n2-hA-BZI" secondAttribute="bottom" constant="20" id="fxf-Pc-EPs"/>
@@ -115,16 +143,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTe-oC-w7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275.36231884057975" y="481.47321428571428"/>
+            <point key="canvasLocation" x="634.78260869565224" y="481.47321428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2ci-DD-TX8">
+            <objects>
+                <navigationController storyboardIdentifier="PloggingResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="agv-g4-xNx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E3J-0m-H2l">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="82H-Q8-kGh" kind="relationship" relationship="rootViewController" id="T7q-pk-zeS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhV-kV-7yd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1120.2898550724638" y="88.392857142857139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5jN-d7-xdi"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="timer" width="872" height="980"/>
+        <image name="timer" width="436" height="490"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

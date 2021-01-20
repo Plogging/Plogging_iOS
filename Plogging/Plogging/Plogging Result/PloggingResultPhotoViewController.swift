@@ -13,24 +13,30 @@ class PloggingResultPhotoViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    var thumbnailImage: UIImage?
     var baseImage: UIImage?
+    
+    @IBAction func moveToPloggingResultViewController(_ sender: UIButton) {
+        performSegue(withIdentifier: SegueIdentifier.unwindToPloggingResult, sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(thumbnailImageView)
         setUpThumbnailImageViewLayout()
-        let resizedBaseImage = baseImage?.resize(targetSize: CGSize(width: DeviceScreen.screenWidth, height: DeviceScreen.screenWidth))
-        
-        // 추후 카메라로 찍은 이미지 가져오고, 없으면 기본 이미지 사용으로 변경 + 플로깅 데이터 가져오기
+        guard let resizedBaseImage = baseImage?.resize(targetSize: CGSize(width: DeviceScreen.width, height: DeviceScreen.width)) else {
+            return
+        }
         let ploggingResultImageMaker = PloggingResultImageMaker()
-        let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage!, 2.13, "13:30")
+        let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage, 2.13, "13:30")
         thumbnailImageView.image = ploggingResultImage
+        thumbnailImage = ploggingResultImage
     }
     
     private func setUpThumbnailImageViewLayout() {
-        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.screenWidth).isActive = true
-        thumbnailImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        thumbnailImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        thumbnailImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        thumbnailImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

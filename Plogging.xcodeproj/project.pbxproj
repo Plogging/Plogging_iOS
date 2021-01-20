@@ -29,12 +29,14 @@
 		9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */; };
 		9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */; };
 		9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */; };
+		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
 		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
 		9B51A5EF25B45C67000AA9FA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */; };
 		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
 		9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A63525B5C998000AA9FA /* DeviceScreen.swift */; };
 		9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */; };
+		9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B661B9525B8292F008EA09D /* SegueIdentifier.swift */; };
 		9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */; };
 		9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF225AE0DB700B0B415 /* Ranking.storyboard */; };
 		9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */; };
@@ -93,11 +95,13 @@
 		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
 		9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRederingMaker.swift; sourceTree = "<group>"; };
 		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
+		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
 		9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		9B51A63525B5C998000AA9FA /* DeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScreen.swift; sourceTree = "<group>"; };
 		9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+MainTab.swift"; sourceTree = "<group>"; };
+		9B661B9525B8292F008EA09D /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		9B671DF225AE0DB700B0B415 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
 				1C5B304725A604E100413115 /* APIKey.swift */,
 				9B51A63525B5C998000AA9FA /* DeviceScreen.swift */,
+				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -265,8 +270,8 @@
 			children = (
 				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
 				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
-				9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */,
 				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
+				9B51A5EE25B45C67000AA9FA /* AlbumViewController.swift */,
 				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
 				9B0C238725A6EF250084D27B /* Image Render */,
 			);
@@ -327,6 +332,7 @@
 			children = (
 				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
 				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
@@ -579,6 +585,8 @@
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */,
+				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
+				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B51A5EF25B45C67000AA9FA /* AlbumViewController.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
