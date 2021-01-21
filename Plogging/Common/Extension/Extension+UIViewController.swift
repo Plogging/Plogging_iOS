@@ -17,9 +17,10 @@ extension UIViewController {
         }
     }
     
-    func showPopUpViewController() {
+    func showPopUpViewController(with type: PopUpType) {
         let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = type
             popUpViewController.modalPresentationStyle = .overCurrentContext
             self.present(popUpViewController, animated: false, completion: nil)
         }
