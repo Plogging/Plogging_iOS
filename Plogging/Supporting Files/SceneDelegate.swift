@@ -19,12 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        // 세션키 존재하지 않으면
-        SNSLoginManager.shared.setupLoginWithNaver()
-        SNSLoginManager.shared.setupLoginWithKakao()
+        if let sessionKey = UserDefaults.standard.string(forKey: "sessionKey") {
+            print(sessionKey)
+        } else {
+            // 세션키 존재하지 않으면
+            SNSLoginManager.shared.setupLoginWithNaver()
+            SNSLoginManager.shared.setupLoginWithKakao()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.window?.rootViewController?.showLoginViewController()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.window?.rootViewController?.showLoginViewController()
+            }
         }
     }
     
