@@ -21,7 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.setupLoginWithKakao()
-
+        
+        DispatchQueue.main.async {
+            self.window?.rootViewController?.showPopUpViewController()
+        }
 //        // APPLE
 //        let appleIDProvider = ASAuthorizationAppleIDProvider()
 //        // forUserID 는 변경해야함

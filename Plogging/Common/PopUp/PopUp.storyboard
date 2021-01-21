@@ -118,9 +118,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="MIT-nz-OQJ" id="qOK-sq-gCr"/>
                         <outlet property="noButton" destination="0ie-fq-zU5" id="47s-gA-yEs"/>
                         <outlet property="popUpInnerView" destination="IZz-Mo-x3d" id="QlY-M5-NwD"/>
                         <outlet property="popUpOuterView" destination="yqV-Cm-boz" id="cOq-eR-fyb"/>
+                        <outlet property="titleLabel" destination="UFg-Yb-s1h" id="6ft-eu-LGj"/>
                         <outlet property="yesButton" destination="EL4-7d-wQP" id="cly-48-gvB"/>
                     </connections>
                 </viewController>

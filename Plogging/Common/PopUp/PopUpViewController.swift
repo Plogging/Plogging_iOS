@@ -13,6 +13,8 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var popUpInnerView: UIView!
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,6 @@ class PopUpViewController: UIViewController {
     private func setupUI() {
         popUpInnerView.clipsToBounds = true
         popUpInnerView.layer.cornerRadius = 12
-        
         yesButton.clipsToBounds = true
         yesButton.layer.cornerRadius = 12
         noButton.clipsToBounds = true
