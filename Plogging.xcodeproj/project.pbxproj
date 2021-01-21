@@ -28,7 +28,7 @@
 		9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C235225A4DA010084D27B /* PloggingResult.storyboard */; };
 		9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */; };
 		9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */; };
-		9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */; };
+		9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */; };
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
 		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
@@ -93,7 +93,7 @@
 		9B0C235225A4DA010084D27B /* PloggingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PloggingResult.storyboard; sourceTree = "<group>"; };
 		9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoViewController.swift; sourceTree = "<group>"; };
 		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
-		9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRederingMaker.swift; sourceTree = "<group>"; };
+		9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRenderingMaker.swift; sourceTree = "<group>"; };
 		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		9B0C238725A6EF250084D27B /* Image Render */ = {
 			isa = PBXGroup;
 			children = (
-				9B0C238F25A6F1540084D27B /* ImageRederingMaker.swift */,
+				9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */,
 				9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */,
 				9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */,
 			);
@@ -584,7 +584,7 @@
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
-				9B0C239025A6F1540084D27B /* ImageRederingMaker.swift in Sources */,
+				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B51A5EF25B45C67000AA9FA /* AlbumViewController.swift in Sources */,

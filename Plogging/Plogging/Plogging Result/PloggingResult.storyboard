@@ -128,12 +128,21 @@
                                     <action selector="takePhoto:" destination="DjO-kN-shv" eventType="touchUpInside" id="LEd-ap-jOZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBO-iP-DrK">
+                                <rect key="frame" x="191" y="762" width="30" height="30"/>
+                                <state key="normal" title="전환"/>
+                                <connections>
+                                    <action selector="changeCamera:" destination="DjO-kN-shv" eventType="touchUpInside" id="DBY-Wu-9jI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdU-00-XUr"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8n2-hA-BZI" firstAttribute="centerX" secondItem="GdU-00-XUr" secondAttribute="centerX" id="2gJ-Bc-bfU"/>
+                            <constraint firstItem="GdU-00-XUr" firstAttribute="bottom" secondItem="CBO-iP-DrK" secondAttribute="bottom" constant="70" id="Vt5-LJ-GVX"/>
                             <constraint firstItem="GdU-00-XUr" firstAttribute="bottom" secondItem="8n2-hA-BZI" secondAttribute="bottom" constant="20" id="fxf-Pc-EPs"/>
+                            <constraint firstItem="CBO-iP-DrK" firstAttribute="centerX" secondItem="GdU-00-XUr" secondAttribute="centerX" id="jhI-1S-hAr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eTg-oT-qbU"/>

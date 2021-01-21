@@ -19,8 +19,7 @@ class PloggingMainViewController: UIViewController {
             let ploggingResultViewController = ploggingResult.instantiateViewController(identifier: "PloggingResultViewController")
             ploggingResultViewController.modalPresentationStyle = .fullScreen
             ploggingResultViewController.modalTransitionStyle = .crossDissolve
-            let topViewController = UIApplication.shared.keyWindow?.rootViewController
-            topViewController?.present(ploggingResultViewController, animated: true, completion: nil)
+            self.rootViewController?.present(ploggingResultViewController, animated: true, completion: nil)
         })
     }
 }

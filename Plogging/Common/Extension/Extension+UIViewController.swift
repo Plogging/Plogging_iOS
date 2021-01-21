@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIViewController {
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
+    }
+}
+
+extension UIViewController {
     func showLoginViewController() {
         let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
