@@ -45,7 +45,7 @@ class PopUpViewController: UIViewController {
         descriptionLabel.text = type.descriptionMessage()
         imageView.image = type.image()
         
-        outerViewHeightConstraint.constant = type.outerViewHegiht()
+        outerViewHeightConstraint.constant = type.outerViewHeight()
         innerViewHeightConstraint.constant = type.innerViewHeight()
         
         if type.numberOfButton() == 1 {
