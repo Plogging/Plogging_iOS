@@ -21,37 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.setupLoginWithKakao()
-        
-        DispatchQueue.main.async {
-            self.window?.rootViewController?.showPopUpViewController()
-        }
-//        // APPLE
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        // forUserID 는 변경해야함
-//        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
-//            switch credentialState {
-//            case .authorized:
-//                break
-//            case .revoked, .notFound:
-//                DispatchQueue.main.async {
-//                    self.window?.rootViewController?.showLoginViewController()
-//                }
-//            default:
-//                break
-//            }
-//        }
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-//        NaverThirdPartyLoginConnection
-//            .getSharedInstance()?
-//            .receiveAccessToken(URLContexts.first?.url)
-//        
-//        if let url = URLContexts.first?.url {
-//            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-//                _ = AuthController.handleOpenUrl(url: url)
-//            }
-//        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
