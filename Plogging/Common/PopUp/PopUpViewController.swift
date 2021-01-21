@@ -50,8 +50,10 @@ class PopUpViewController: UIViewController {
         
         if type.numberOfButton() == 1 {
             noButton.isHidden = true
+            yesButton.setTitle("확인", for: .normal)
         } else {
             noButton.isHidden = false
+            yesButton.setTitle("네", for: .normal)
         }
     }
     
