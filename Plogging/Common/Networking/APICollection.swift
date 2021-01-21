@@ -13,12 +13,16 @@ struct APICollection {
 
     let temp: HTTPHeaders = ["userId": "xowns1234",
                              "Content-Type": "application/json"]
-    
+
+    let login: HTTPHeaders = ["Content-Type": "application/json"]
+
     /// 로그인 하기
     func requestSessionKey(param: Parameters, completion: @escaping (Result<User, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.user,
                    method: .post,
-                   parameters: param
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: login
         ).responseJSON { response in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
