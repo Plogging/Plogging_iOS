@@ -35,8 +35,19 @@ class LoginViewController: UIViewController {
         signInButton.layer.cornerRadius = 12
     }
     
-    @IBAction func ClickedFindPasswordButton(_ sender: UIButton) {
-        
+    @IBAction func clickedFindPasswordButton(_ sender: UIButton) {
+
     }
     
+    @IBAction func clickedKakaoLoginButton(_ sender: UIButton) {
+
+    }
+    
+    @IBAction func clickedNaverLoginButton(_ sender: UIButton) {
+
+    }
+
+    @IBAction func clickedAppleLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithApple()
+    }
 }

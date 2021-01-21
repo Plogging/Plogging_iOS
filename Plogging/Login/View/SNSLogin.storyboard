@@ -439,7 +439,7 @@
                                     <color key="titleColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="ClickedFindPasswordButton:" destination="emF-za-emW" eventType="touchUpInside" id="Jd5-oN-bIu"/>
+                                    <action selector="clickedFindPasswordButton:" destination="emF-za-emW" eventType="touchUpInside" id="yfW-KT-VXC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnU-Nb-3kp">
@@ -456,14 +456,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwT-Fp-R3a">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                         <state key="normal" image="btnKakao"/>
+                                        <connections>
+                                            <action selector="clickedKakaoLoginButton:" destination="emF-za-emW" eventType="touchUpInside" id="AWb-iZ-bSj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gde-yh-T1e">
                                         <rect key="frame" x="110" y="0.0" width="56" height="56"/>
                                         <state key="normal" image="btnNaver"/>
+                                        <connections>
+                                            <action selector="clickedNaverLoginButton:" destination="emF-za-emW" eventType="touchUpInside" id="ohQ-oi-F1C"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcB-4K-8cm">
                                         <rect key="frame" x="220" y="0.0" width="56" height="56"/>
                                         <state key="normal" image="btnApple"/>
+                                        <connections>
+                                            <action selector="clickedAppleLoginButton:" destination="emF-za-emW" eventType="touchUpInside" id="uQJ-JW-1Cb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
