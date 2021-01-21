@@ -9,21 +9,35 @@ import UIKit
 
 class WaitingScreenViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+
+    private var timer: Timer?
+    private var second: Int = 0 {
+        didSet {
+            imageView.image = UIImage(named: "\(second)")
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        createTimer()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func createTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(changeSecond), userInfo: nil, repeats: true)
     }
-    */
-
+     
+    @objc private func changeSecond(){
+        second = second + 1
+        
+        if second == 3 {
+            timer?.invalidate()
+            moveToPloggingView()
+        }
+    }
+    
+    private func moveToPloggingView() {
+        
+    }
 }

@@ -16,4 +16,12 @@ extension UIViewController {
             self.present(loginViewController, animated: true, completion: nil)
         }
     }
+    
+    func showWaitingScreenViewController() {
+        let storyboard = UIStoryboard(name: "WaitingScreen", bundle: nil)
+        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
+            waitingScreenViewController.modalPresentationStyle = .fullScreen
+            self.present(waitingScreenViewController, animated: false, completion: nil)
+        }
+    }
 }
