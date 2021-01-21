@@ -147,6 +147,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1C21855425BA09B30076CD14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C21855525BA09B70076CD14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1CC281D525B4BB43003FBCCD /* SignUpViewController.swift */,
+				1C2184D525B755810076CD14 /* LoginViewController.swift */,
+				1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C21855625BA09BB0076CD14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C5B306825A6163500413115 /* SNSLoginData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1C5B304C25A6077700413115 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,12 +195,10 @@
 		1CC08DBA25A4B55B00EE3505 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */,
-				1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */,
-				1C5B306825A6163500413115 /* SNSLoginData.swift */,
+				1C21855625BA09BB0076CD14 /* Model */,
+				1C21855525BA09B70076CD14 /* Controller */,
+				1C21855425BA09B30076CD14 /* View */,
 				1C5B306D25A6A04700413115 /* SNSLoginManager.swift */,
-				1CC281D525B4BB43003FBCCD /* SignUpViewController.swift */,
-				1C2184D525B755810076CD14 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -759,7 +783,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
