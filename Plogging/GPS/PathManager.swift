@@ -21,6 +21,7 @@ class PathManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
     }
 
+
     func startLocationUpdate() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
@@ -32,7 +33,7 @@ class PathManager: NSObject {
 
     func stopLocationUpdate() {
         locationManager.stopUpdatingLocation()
-        backupPath()
+        backupManager.removePathData()
     }
 
     func drawPathOnMap(locationList: [CLLocation], mapView: MKMapView) {
@@ -45,6 +46,7 @@ class PathManager: NSObject {
         let path = createPolyLine(locationList: locationList)
         mapView.addOverlay(path)
     }
+
 
     func retrievePath() {
         locationList = backupManager.restorePathData()

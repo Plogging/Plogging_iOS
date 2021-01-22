@@ -15,9 +15,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
     
+    
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingViewController?
     var myPageViewController: MyPageViewController?
+    
     
     // MARK: Life Cycle
     override func viewDidLoad() {

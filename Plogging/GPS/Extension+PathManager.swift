@@ -22,9 +22,13 @@ extension PathManager: CLLocationManagerDelegate, MKMapViewDelegate {
         }
 
         locationList.append(curLocation)
+
+        mapView.addAnnotation(MKPlacemark(coordinate: curLocation.coordinate))
+
+
         print("[BACKUP] update count : \(locations.count)")
 
-        if (locationList.count % 1) == 0 {
+        if (locationList.count % 30) == 0 {
             backupPath()
         }
 
