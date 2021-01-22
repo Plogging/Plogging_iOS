@@ -32,7 +32,7 @@ class PloggingResultPhotoViewController: UIViewController {
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
     }
-    
+   
     private func setUpThumbnailImageViewLayout() {
         thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
         thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true

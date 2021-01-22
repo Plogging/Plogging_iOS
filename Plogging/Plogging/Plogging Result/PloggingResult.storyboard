@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="agv-g4-xNx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9Q-tL-GIe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,29 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Album View Controller-->
-        <scene sceneID="Biv-Wm-tSq">
-            <objects>
-                <viewController id="GCD-x0-68a" customClass="AlbumViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xg0-RW-Cnt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Zc2-sq-nN7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="i8c-01-yL6"/>
-                    <connections>
-                        <segue destination="O5j-vd-2au" kind="push" identifier="renderingAlbumPhoto" id="yvj-4Q-PhN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nxH-K8-SOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="652" y="-288"/>
-        </scene>
         <!--Plogging Result Photo View Controller-->
         <scene sceneID="EJf-z7-GsQ">
             <objects>
-                <viewController storyboardIdentifier="PhotoEditing" id="O5j-vd-2au" customClass="PloggingResultPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PloggingResultPhotoViewController" id="O5j-vd-2au" customClass="PloggingResultPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eS8-dg-Mph">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +39,7 @@
                 <exit id="cYc-QN-zTB" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="hqz-SP-PbQ"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="87.723214285714278"/>
+            <point key="canvasLocation" x="2426.0869565217395" y="87.723214285714278"/>
         </scene>
         <!--Plogging Result View Controller-->
         <scene sceneID="g6B-nw-ONR">
@@ -68,11 +49,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-rJ-iF7">
-                                <rect key="frame" x="158.5" y="425" width="97" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-By-jhw">
+                                <rect key="frame" x="281" y="128" width="87" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="D5d-1s-y3A"/>
-                                    <constraint firstAttribute="height" constant="100" id="QMz-0O-iDM"/>
+                                    <constraint firstAttribute="width" constant="87" id="jRf-Ha-AW6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="저장 "/>
+                                <connections>
+                                    <action selector="savePloggingResult:" destination="82H-Q8-kGh" eventType="touchUpInside" id="Pmv-HH-z6I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-rJ-iF7">
+                                <rect key="frame" x="82" y="512" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="D5d-1s-y3A"/>
+                                    <constraint firstAttribute="height" constant="250" id="QMz-0O-iDM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="200"/>
                                 <state key="normal" title="Button" image="timer"/>
@@ -80,35 +72,27 @@
                                     <action selector="registerPloggingPhoto:" destination="82H-Q8-kGh" eventType="touchUpInside" id="XDu-gL-jUy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-By-jhw">
-                                <rect key="frame" x="281" y="128" width="87" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="결과 저장 "/>
-                                <connections>
-                                    <action selector="savePloggingResult:" destination="82H-Q8-kGh" eventType="touchUpInside" id="Pmv-HH-z6I"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="91A-zq-55U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="91A-zq-55U" firstAttribute="bottom" secondItem="c6s-rJ-iF7" secondAttribute="bottom" constant="100" id="0sI-NU-tEv"/>
+                            <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerX" secondItem="91A-zq-55U" secondAttribute="centerX" id="8Ns-FQ-FEw"/>
                             <constraint firstItem="b2g-By-jhw" firstAttribute="top" secondItem="91A-zq-55U" secondAttribute="top" constant="40" id="PUs-fV-AX3"/>
-                            <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerY" secondItem="91A-zq-55U" secondAttribute="centerY" id="VZf-pN-KUP"/>
                             <constraint firstItem="91A-zq-55U" firstAttribute="trailing" secondItem="b2g-By-jhw" secondAttribute="trailing" constant="46" id="ZkV-wc-NCv"/>
                             <constraint firstItem="b2g-By-jhw" firstAttribute="leading" secondItem="91A-zq-55U" secondAttribute="leading" constant="281" id="hsT-en-2Ld"/>
-                            <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerX" secondItem="91A-zq-55U" secondAttribute="centerX" id="wHQ-oq-0uw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="asD-dD-2mV"/>
                     <connections>
                         <outlet property="ploggingResultPhoto" destination="c6s-rJ-iF7" id="2MM-QY-5Ef"/>
                         <segue destination="DjO-kN-shv" kind="show" identifier="openCamera" id="ujz-IQ-8ks"/>
-                        <segue destination="GCD-x0-68a" kind="show" identifier="openPhotoLibrary" id="jDB-AZ-V17"/>
+                        <segue destination="O5j-vd-2au" kind="show" identifier="renderingAlbumPhoto" id="4lY-Be-khK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H74-0X-KSI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210.1449275362319" y="88.392857142857139"/>
+            <point key="canvasLocation" x="672" y="103"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="lhb-8B-bCI">
@@ -132,7 +116,7 @@
                                 <rect key="frame" x="191" y="762" width="30" height="30"/>
                                 <state key="normal" title="전환"/>
                                 <connections>
-                                    <action selector="changeCamera:" destination="DjO-kN-shv" eventType="touchUpInside" id="DBY-Wu-9jI"/>
+                                    <action selector="switchCamera:" destination="DjO-kN-shv" eventType="touchUpInside" id="DBY-Wu-9jI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -152,29 +136,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTe-oC-w7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634.78260869565224" y="481.47321428571428"/>
+            <point key="canvasLocation" x="1568.1159420289857" y="493.52678571428567"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="2ci-DD-TX8">
+        <scene sceneID="OY7-RW-U69">
             <objects>
-                <navigationController storyboardIdentifier="PloggingResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="agv-g4-xNx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PloggingResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="i9Q-tL-GIe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E3J-0m-H2l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ZT-jb-8UT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="82H-Q8-kGh" kind="relationship" relationship="rootViewController" id="T7q-pk-zeS"/>
+                        <segue destination="82H-Q8-kGh" kind="relationship" relationship="rootViewController" id="bny-BT-eeR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RhV-kV-7yd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9N-XX-vYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1120.2898550724638" y="88.392857142857139"/>
+            <point key="canvasLocation" x="-210.1449275362319" y="88.392857142857139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5jN-d7-xdi"/>
+        <segue reference="4lY-Be-khK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="timer" width="436" height="490"/>
