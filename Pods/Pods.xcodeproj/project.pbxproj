@@ -43,18 +43,16 @@
 		05AD39F1AD77C7C773D1FEC3EC83E2D0 /* KakaoSDKLink-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A1568D2F47C823DBB520A311F3D08E8 /* KakaoSDKLink-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06A9FFA5CD007E895649110042F861FA /* Pods-PloggingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD61BC7D5108FB9B91F76A87AFF28C6B /* Pods-PloggingTests-dummy.m */; };
 		06C230490ABDD4CAC34525D96225CEF3 /* LinkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA9FB3D369F0DB9456DBACD6B15FB0 /* LinkInfo.swift */; };
+		07B5C552CE06B399870C27CFC6AF59E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		0A1849775CF90D514963187D3A771CF8 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3E0289DD1863B8B293BBE5B6ED7FD /* Combine.swift */; };
 		0A900DF17E3B64F08AF673E9A0DDD697 /* OperationQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B180D29D54B53D69BE08203E7DA658 /* OperationQueue+Alamofire.swift */; };
 		0AE05ADCC8D4A0063689901E7A16C432 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5BCEB24917298DB9AA964A50F408B /* AuthApi.swift */; };
-		0AEAAC364F815806B11086BF16EB5273 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		0BD59C078A7BB080BD0D6481A6225C81 /* KakaoSDKAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA975FB9C29A54966B22B5CEC30675 /* KakaoSDKAuth.framework */; };
 		0C7F28AE9DD72B76FFDE9F280C568AF5 /* KakaoSDKNavi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F777ECE28AA094E89EA9F456F0B24E5 /* KakaoSDKNavi-dummy.m */; };
 		0FD910DB0B5E8D0F1A4915E14EE5C278 /* AccessTokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43B44D8B7E349E242B9585D1DB146D /* AccessTokenInfo.swift */; };
 		1185E2E19FD7EF08CF6B838720B83E7B /* AuthRequestRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403EA8813D2325EF1A6C999E86944F4 /* AuthRequestRetrier.swift */; };
 		1208E81DA8B532D0646D627B50290EB6 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1678DE84514E7B7B82C14F54C755274A /* AFError.swift */; };
 		120E112110CA7D3A6FA205DEBEF9097F /* KakaoSDKTemplate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BA43BD545BC1F2692C9131B18A693C /* KakaoSDKTemplate-dummy.m */; };
-		1219A6F4048869768A73337AC57CAF5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
-		1516B0010832CBD9D7494409D30EEA5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		16FC6CCEBF03B810FF1DB8D33F27F9E4 /* MigrateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0099675E77D3A90C9926E1512C27C4 /* MigrateManager.swift */; };
 		191F8DCA6A276E3A70D3B66B936A86FC /* ErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4608D2493C7CB71D4E6BA19450196D71 /* ErrorInfo.swift */; };
 		19D605A3233499828FB6B790869F3E9C /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B613D841E5A61D856635A57C810E17A6 /* NetworkReachabilityManager.swift */; };
@@ -64,29 +62,30 @@
 		202510A4375757B5DCB384353510DCFF /* KakaoSDKAuth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BACEBE733806C79B27E6C563B692F8 /* KakaoSDKAuth-dummy.m */; };
 		212EDC48B68107BEA9247F3464CE696E /* StringEncoding+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53FB1D7E151C8269B8E4818E9C7F35A /* StringEncoding+Alamofire.swift */; };
 		218C14EAE5AA31C30314AE0289B732A0 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03FD77623E17EDF928C6E585CEE9C /* Protected.swift */; };
-		218D2653A498D42E5DEDDDBCD936D38A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		22678AD060288EE019F2F5136F5A69A7 /* KakaoSDKStory-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AC56FE1D13BF3DDA65B17E2B08ADEE0 /* KakaoSDKStory-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23EF1194D73A742432C1B649BAD1867A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		25B4F9545167A371F5F48FE652FD1F4A /* KakaoSDKCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990D36E29DFC54BB3DDB6E6F9A86EA24 /* KakaoSDKCommon.framework */; };
 		27E59A11A2743B0595CDE3A08675EAE1 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6171881A52E5517455F779D60E31C /* DispatchQueue+Alamofire.swift */; };
-		286F6FFE525A25C9940DF6E5DF9B74FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		299A4A229E0E48CFC83CC05D4C2004E5 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2B54DA859D30804B113FA627FF37 /* Array+Utils.swift */; };
 		302C34B15A477EDB982C3CCE8AC1D178 /* LinkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48D1A991D7C0F12A0BCF138509FA51 /* LinkResult.swift */; };
 		30A6CD80D1C26216CD439C36AF7A008F /* KakaoSDKAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA975FB9C29A54966B22B5CEC30675 /* KakaoSDKAuth.framework */; };
 		318E6D4E0467119A4E5D4F8E1547C451 /* ApiRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C9920CAA8D187BC204683B5AA4F36 /* ApiRequestAdapter.swift */; };
 		380539A00DA56795180DEADBBC49951C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48910446A1206CDDD6B28E36AED39EBF /* Common.swift */; };
 		381FF05F8B4F611EE9C2FDBE4457BB89 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA2E8208E362BA4C7914647E6F2F5D /* SessionDelegate.swift */; };
+		3B11762FBBEA668DD217E65F25688B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		3BD2F517011D24C6E18A7F94761A7073 /* Pods-Plogging-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23369EDAC3E1281751EF891C703FA222 /* Pods-Plogging-dummy.m */; };
 		3C10928B5CDB7E3E4C5D0EFE56820E56 /* MessageSendResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B4DD08B560794EE8EA67D4CFAD598 /* MessageSendResult.swift */; };
 		3D64286A10D5D5C6B32E2A243CEF92B5 /* Pods-Plogging-PloggingUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D12EFB02B39F7601D25AD60B6A08EBE0 /* Pods-Plogging-PloggingUITests-dummy.m */; };
 		41DF8B87E0AAD053686A14A48E80F84F /* KakaoSDKNavi.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F7D5B8A954DD5D364EAA7106E1ABEE9 /* KakaoSDKNavi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42D0EF08DA0F39A212A0BCA1AB8AAD68 /* KakaoSDKCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990D36E29DFC54BB3DDB6E6F9A86EA24 /* KakaoSDKCommon.framework */; };
 		45B8CC1C61E7A0BB28CFA8CE7C12FEBC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABEC3D407F6BA3B0E11C1EA4AD7A59 /* MultipartFormData.swift */; };
+		4759541D1141DE340095CB7418B8E0C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		47595AD920C0B3E459224A948EBD53A0 /* TokenManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D2A5A269D179266E388EB127786D7 /* TokenManagable.swift */; };
-		476D5F33E25386C60D6BD75C4FA97C67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		4788DB9F07F9140096577F7B85762F2E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B90B7918DFE281F21B304CA0E15C6B8 /* Api.swift */; };
 		47FDBBBD2704901588C3A7C56BBC502D /* ServerTrustEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6866198499A9F026687916830132DFB /* ServerTrustEvaluation.swift */; };
 		494D8EEDA7021AA641292EAA865D9BDF /* KakaoSDKAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA975FB9C29A54966B22B5CEC30675 /* KakaoSDKAuth.framework */; };
 		4AEC050FA7D5ED52FDA9DF50EA3560DF /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAAA8AF8194CF5BD354C2BFC1E53501 /* ParameterEncoder.swift */; };
+		529A86A2ADFE557E1C56E384B9FB5B99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		54C7E7A509149EBAF0A930219C4C3D3E /* OAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0827EDC0A16996F1325F81E822805C /* OAuthToken.swift */; };
 		55D8C335BB7F8465713CAF1208035B22 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06F7FC2D96EB03F9AD9C203220BF6A /* Properties.swift */; };
 		5AE89A59029C89AD3523407039010EA7 /* UserServiceTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBC1B43049D39ADBCCC5407845C81E /* UserServiceTerms.swift */; };
@@ -105,12 +104,12 @@
 		70081D18B17AF72994ECBE0DCEC3DAFC /* NaviModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3EF925288950D9874730B2FDE7A60E /* NaviModels.swift */; };
 		71B3DD1C6D4321CC40C8ED5021E547B3 /* KakaoSDKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B349A7883828C39DE60A9D4949E6CB /* KakaoSDKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72EC2712926E6D28B52360D9AC41668F /* AlamofireExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA72258432EA1F722D2140A16F769A2 /* AlamofireExtended.swift */; };
+		74AC0814AFECAACFC0A5D4291876E159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		774ACCEA5F164FEBB7D157AA2F46CF00 /* StoryPostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40151E66850A0F88A0C3011AB36C7 /* StoryPostResult.swift */; };
 		77AE4DF03E02F58D7ABBCEDB0365562F /* KakaoSDKCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990D36E29DFC54BB3DDB6E6F9A86EA24 /* KakaoSDKCommon.framework */; };
 		781CD5E3B19A595062F64DB739821357 /* KakaoSDKTalk.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CDDD14C800BCC75FBE9EA2DB3CF2533 /* KakaoSDKTalk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D3DD4A8BB36733BA15868F7FB8C56CE /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9FC88A5A4F714F8700FC89CA76CA44B /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8322646DC77EAF0698D46F7969397EE2 /* AuthErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC28A6F2F85ACDA560876695A10D0FF /* AuthErrorInfo.swift */; };
-		864C35654C063C2A2883D00FE2D94AF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		867EF2BEBF76CA5BE092F9E8AC8A08A9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381A2F4B5BFB9FB8EB764A286A735DE5 /* Alamofire.framework */; };
 		8865A284E7099C154905D0E41D3A9496 /* KakaoSDKTalk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E91B7881870421D6D7F3B73028F50EBD /* KakaoSDKTalk-dummy.m */; };
 		892CB2CF68DA8D76CA0F4C7C136FF879 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD271055BD029D04351F0829A01818F2 /* UserApi.swift */; };
@@ -127,19 +126,17 @@
 		999987895A047E9D2433362216B967B8 /* KakaoSDKUser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD818C3003AE4F380D9A1C2AB9914C4C /* KakaoSDKUser-dummy.m */; };
 		9B1D8A7798D8A6F518FC9AF9725431D0 /* URLConvertible+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE234E157FEC2CD875C5068C48FC6E5 /* URLConvertible+URLRequestConvertible.swift */; };
 		9FED70D1E1FBFB80E974E999EF732258 /* RetryPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D9B9612E4FF137F14B3592DA69745 /* RetryPolicy.swift */; };
-		A9C7B29D4878F1690BBE3F8195CF0313 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51834BC193C70BEB883208CC35DE74C /* CFNetwork.framework */; };
+		A738C2A39C0150BBA7EA5EC19B95F03E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF1C031C60825A684EA44AC930ED875 /* CFNetwork.framework */; };
 		ABA85887A41495358C83CE3F3030EDEA /* CachedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84AB64882404BFC4313F867E5D0886 /* CachedResponseHandler.swift */; };
 		AC994D7488D83690BEDB6E08EA6BC1F2 /* Pods-Plogging-PloggingUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9AF8146BDDEBA3B5E5F3D483AF189F /* Pods-Plogging-PloggingUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADE77B42C9DA82577E257C961D53BE0D /* LinkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6509556F02B7DCD75A52B715F66EC9 /* LinkApi.swift */; };
-		AEA26D7C70F7864155017F57BD0D96C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		B14E196516773EEC3EEB8816048DA7D1 /* SdkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89AEA040381288CFA48BB657A48204 /* SdkLog.swift */; };
-		B2D875AEC1918552E1EFCA5F40DF26DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
+		B1625F5858DE3CB42FD8A345FDD0D370 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
+		B2604A801CCF8A3B03F77749DD8E2650 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		B2DD2E9FB9C71FF54BC66311CCFF486D /* Pods-PloggingTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF4384E8E57BA1A6072B85A5E6C771A3 /* Pods-PloggingTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38E49588875ACCC7ABEFB94E9ECCCDA /* KakaoSDKAuth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5E1369E72667112AE360D735C5B28F /* KakaoSDKAuth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B668A84A468B140C6C5F4C88F46ED8D5 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EB859B1ACE10FBF8F1D01029F90C48 /* AuthController.swift */; };
 		B6765473D6BF9F160066CC1C4C2BA858 /* ImageUploadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E95CBAA81599DBB07FABABB5D993C /* ImageUploadResult.swift */; };
-		B97BBEE4D2DDA2D9306F85B90E6F1B7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
-		BB846E18A11DB0CF9942FFA4E81BB95F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		BB8ED5E2072081FA8AC649B5AADAF190 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE1EFA108B8268CB69EFB69EAFAB992 /* User.swift */; };
 		BCC97C43EB322D7F283F3F570F2C11E8 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E51E93A7215DF180081A58E0C01A /* Story.swift */; };
 		C1C5B050B55C15103ABC81769551A283 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55D9258E85CC00283D40C6E423ACFB /* Response.swift */; };
@@ -155,14 +152,15 @@
 		CF9D3E23DA23561809AB6FB640A18145 /* KakaoSDKStory.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF192072298C9E166103C5BA817D1CA /* KakaoSDKStory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D03F1F02DE8606E6057D57866611BEBF /* MultipartUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850CA3DDEBF514C66246686B8DE9484 /* MultipartUpload.swift */; };
 		D14066FAE94E304798E43651E5886D13 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878C0FBBD8CC8320C6284831B13B0A8 /* ParameterEncoding.swift */; };
+		D2AC6FAA0FB9D556F4606F8814E78090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		D31FC7FDD450C4CDD633ECBAD27C6221 /* URLEncodedFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437532F0BAF11E52772604EAD0D5194 /* URLEncodedFormEncoder.swift */; };
 		D5EAAFB6FAD77A8F0699345149BA3CBB /* URLRequest+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F52A727BC5D9DEAFD73BADCF68610E /* URLRequest+Alamofire.swift */; };
 		DC43AB0AF99347D3AC59E4ACFA039CBB /* KakaoSDKLink-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F653A0676375195C719F42B711896A06 /* KakaoSDKLink-dummy.m */; };
 		DC627AFC5B585686898B014184AFCABD /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE6495D7573DCC986F7053C344A165 /* AuthenticationInterceptor.swift */; };
 		DDDB75BBC4B95C2AE90B6F88BA8E43EC /* KakaoSDKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = E48CE83C08A38169C93C2C05B8B62946 /* KakaoSDKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2681FABFD6B324F5CD254D2BA7D8ED1 /* TemplateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D90DC5BF81BB24CFB7F77B0A31445E /* TemplateModels.swift */; };
+		E3D83FB8F8EB6292D3BDF1EE67281B35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		E53DBB44585690D6A5C2D89D4C81FCB1 /* SdkCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE78F8E846EEE3050311243A7D27411 /* SdkCrypto.swift */; };
-		E8EE8136E2AC0231F6E8221A9B42744D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */; };
 		E9985621508DDD982371EB93A6FF7D1F /* SdkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B107C1798F89A001FA4379F80A26DF /* SdkUtils.swift */; };
 		EAB7E57BAC2ED7C38E9381EE846AFD36 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489877C9F23FE23091BE6B16CB66B816 /* Auth.swift */; };
 		EC64CD38B1EC623E168B34D0ACE33DE8 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C218B46A33593BC91EA96BD536535 /* Friends.swift */; };
@@ -170,6 +168,8 @@
 		EEC6A847D2E871D9D4476F06EC317832 /* Dictionary+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B280BEA3E7AEAB1E9440FF13C4029 /* Dictionary+Utils.swift */; };
 		F0F3224FF592F9BA2A044A2FC2BD4CCD /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C98630927022E5B69966AB9304214 /* Validation.swift */; };
 		F5920AFE9287BA9785CA4BABDF343A54 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7334C502AA1AA6325C4C46D1BB043E6 /* Data+Utils.swift */; };
+		F640292899E2677610CD2EC733F409AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
+		F6B16DC8CADA07287C6A372AC8AD787C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */; };
 		F70EF854395CDE981A8336E4FF0310FE /* URLSessionConfiguration+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC1B1FCEFCBC291C5EB4EC83AA564C /* URLSessionConfiguration+Alamofire.swift */; };
 		F9CA266B8347BF3F606DBB2ED7BF0EA0 /* KakaoSDKAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFEF92FFE59FAD6694CEA60F5B85E30 /* KakaoSDKAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9E474B5710FE4728EAF0FD901230257 /* KakaoSDKLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 85585DB8067448AD35AFA011A1B4F6CA /* KakaoSDKLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -502,6 +502,7 @@
 		09F3F8D85955CFD076420EA41E3EB459 /* Pods-Plogging-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Plogging-umbrella.h"; sourceTree = "<group>"; };
 		0A3C11B03C89715B0FD3A8C0F0CC3E2C /* KakaoSDKUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKUser.release.xcconfig; sourceTree = "<group>"; };
 		0B3C6E87D1CB7A20FA0F84992DFA1F06 /* KakaoSDKTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKTemplate.release.xcconfig; sourceTree = "<group>"; };
+		0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0D92EA7EA793F6BFF8C3FCCFB48EBE25 /* TalkProfile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TalkProfile.swift; path = sources/KakaoSDKTalk/model/TalkProfile.swift; sourceTree = "<group>"; };
 		0F11ED47FA4B438786304D4DD00EE5C7 /* KakaoSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDK.debug.xcconfig; sourceTree = "<group>"; };
 		0FD5127B2702EB2DEE818756AFD2565F /* Urls.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Urls.swift; path = sources/KakaoSDKCommon/common/Urls.swift; sourceTree = "<group>"; };
@@ -639,13 +640,13 @@
 		AC302B35325DB24BC9CAD7752F5076BC /* KakaoSDKTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KakaoSDKTalk.framework; path = KakaoSDKTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF877270DA51A78C9D0EB4EA38348F7B /* Pods-Plogging-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Plogging-Info.plist"; sourceTree = "<group>"; };
 		B110D7078AE161CF2441BDEA8A949038 /* DecodingContainer+AnyCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DecodingContainer+AnyCollection.swift"; path = "sources/KakaoSDKCommon/extension/DecodingContainer+AnyCollection.swift"; sourceTree = "<group>"; };
-		B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		B386B543FE740AD19EA5F4BCBBE83BBE /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Source/HTTPMethod.swift; sourceTree = "<group>"; };
 		B434CFED3D93D630F1CB9A503773E8C9 /* KakaoSDKTemplate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKTemplate-prefix.pch"; sourceTree = "<group>"; };
 		B613D841E5A61D856635A57C810E17A6 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		B7F52A727BC5D9DEAFD73BADCF68610E /* URLRequest+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLRequest+Alamofire.swift"; path = "Source/URLRequest+Alamofire.swift"; sourceTree = "<group>"; };
 		B8B5586521E054135052190E19C3ECF5 /* KakaoSDKCommon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KakaoSDKCommon-Info.plist"; sourceTree = "<group>"; };
 		BBE78F8E846EEE3050311243A7D27411 /* SdkCrypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkCrypto.swift; path = sources/KakaoSDKCommon/common/SdkCrypto.swift; sourceTree = "<group>"; };
+		BBF1C031C60825A684EA44AC930ED875 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		BF59BD16BAEDB75422283BF367F9A157 /* KakaoSDKTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KakaoSDKTemplate.h; path = sources/KakaoSDKTemplate/KakaoSDKTemplate.h; sourceTree = "<group>"; };
 		C0B3E0289DD1863B8B293BBE5B6ED7FD /* Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = Source/Combine.swift; sourceTree = "<group>"; };
 		C2B180D29D54B53D69BE08203E7DA658 /* OperationQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "OperationQueue+Alamofire.swift"; path = "Source/OperationQueue+Alamofire.swift"; sourceTree = "<group>"; };
@@ -681,7 +682,6 @@
 		F19E84234D0155BE6AF51CC0281E5242 /* EventMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = Source/EventMonitor.swift; sourceTree = "<group>"; };
 		F421A63B335FD2EB93FACB8A8ADA180B /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Source/RedirectHandler.swift; sourceTree = "<group>"; };
 		F45B4929453F6884F089E466073071A8 /* Pods-Plogging-PloggingUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Plogging-PloggingUITests.modulemap"; sourceTree = "<group>"; };
-		F51834BC193C70BEB883208CC35DE74C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		F5769EB916BC1801E1A114E549EE113D /* Pods-Plogging-PloggingUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Plogging-PloggingUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F653A0676375195C719F42B711896A06 /* KakaoSDKLink-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KakaoSDKLink-dummy.m"; sourceTree = "<group>"; };
 		F958E3B473665DEB49805EDBD9CFA149 /* Pods-PloggingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PloggingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -706,7 +706,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286F6FFE525A25C9940DF6E5DF9B74FB /* Foundation.framework in Frameworks */,
+				E3D83FB8F8EB6292D3BDF1EE67281B35 /* Foundation.framework in Frameworks */,
 				77AE4DF03E02F58D7ABBCEDB0365562F /* KakaoSDKCommon.framework in Frameworks */,
 				673C1AC73CB0FB2790D8CEC97821D888 /* KakaoSDKTemplate.framework in Frameworks */,
 			);
@@ -716,7 +716,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8EE8136E2AC0231F6E8221A9B42744D /* Foundation.framework in Frameworks */,
+				07B5C552CE06B399870C27CFC6AF59E9 /* Foundation.framework in Frameworks */,
 				42D0EF08DA0F39A212A0BCA1AB8AAD68 /* KakaoSDKCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,7 +725,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218D2653A498D42E5DEDDDBCD936D38A /* Foundation.framework in Frameworks */,
+				B1625F5858DE3CB42FD8A345FDD0D370 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,7 +733,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA26D7C70F7864155017F57BD0D96C2 /* Foundation.framework in Frameworks */,
+				4759541D1141DE340095CB7418B8E0C0 /* Foundation.framework in Frameworks */,
 				0BD59C078A7BB080BD0D6481A6225C81 /* KakaoSDKAuth.framework in Frameworks */,
 				25B4F9545167A371F5F48FE652FD1F4A /* KakaoSDKCommon.framework in Frameworks */,
 			);
@@ -743,7 +743,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB846E18A11DB0CF9942FFA4E81BB95F /* Foundation.framework in Frameworks */,
+				3B11762FBBEA668DD217E65F25688B5E /* Foundation.framework in Frameworks */,
 				8A56E6FEFBAFFAF672097943B231D7B3 /* KakaoSDKCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,7 +752,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1219A6F4048869768A73337AC57CAF5A /* Foundation.framework in Frameworks */,
+				F640292899E2677610CD2EC733F409AD /* Foundation.framework in Frameworks */,
 				494D8EEDA7021AA641292EAA865D9BDF /* KakaoSDKAuth.framework in Frameworks */,
 				CCF8538A2A0AF0059B4D51573285BA94 /* KakaoSDKCommon.framework in Frameworks */,
 				FF0278CFBCB1D6BFE7620CB9612B9204 /* KakaoSDKTemplate.framework in Frameworks */,
@@ -763,7 +763,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97BBEE4D2DDA2D9306F85B90E6F1B7E /* Foundation.framework in Frameworks */,
+				23EF1194D73A742432C1B649BAD1867A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,8 +771,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C7B29D4878F1690BBE3F8195CF0313 /* CFNetwork.framework in Frameworks */,
-				476D5F33E25386C60D6BD75C4FA97C67 /* Foundation.framework in Frameworks */,
+				A738C2A39C0150BBA7EA5EC19B95F03E /* CFNetwork.framework in Frameworks */,
+				F6B16DC8CADA07287C6A372AC8AD787C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,7 +780,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D875AEC1918552E1EFCA5F40DF26DF /* Foundation.framework in Frameworks */,
+				B2604A801CCF8A3B03F77749DD8E2650 /* Foundation.framework in Frameworks */,
 				30A6CD80D1C26216CD439C36AF7A008F /* KakaoSDKAuth.framework in Frameworks */,
 				C835E7761A30069DB995258477B41048 /* KakaoSDKCommon.framework in Frameworks */,
 			);
@@ -791,7 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				867EF2BEBF76CA5BE092F9E8AC8A08A9 /* Alamofire.framework in Frameworks */,
-				864C35654C063C2A2883D00FE2D94AF5 /* Foundation.framework in Frameworks */,
+				D2AC6FAA0FB9D556F4606F8814E78090 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,7 +799,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AEAAC364F815806B11086BF16EB5273 /* Foundation.framework in Frameworks */,
+				74AC0814AFECAACFC0A5D4291876E159 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +807,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1516B0010832CBD9D7494409D30EEA5B /* Foundation.framework in Frameworks */,
+				529A86A2ADFE557E1C56E384B9FB5B99 /* Foundation.framework in Frameworks */,
 				C4681D0AF9E4BF0AAC316B4B5F85EE7B /* KakaoSDKCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,7 +975,7 @@
 				9BEA975FB9C29A54966B22B5CEC30675 /* KakaoSDKAuth.framework */,
 				990D36E29DFC54BB3DDB6E6F9A86EA24 /* KakaoSDKCommon.framework */,
 				C9FD51CE29FE58CB6F63FB6C8F392A1D /* KakaoSDKTemplate.framework */,
-				C553041E6F9FB59CB7925BD734396CF3 /* iOS */,
+				FDC03B764760A8B1E2E63A19587DBA3D /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1145,15 +1145,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C553041E6F9FB59CB7925BD734396CF3 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				F51834BC193C70BEB883208CC35DE74C /* CFNetwork.framework */,
-				B2561260E37D4605E5FFA7F2440738C6 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		C9B75C709B687AB25FA2477B84ED295E /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1298,6 +1289,15 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		FDC03B764760A8B1E2E63A19587DBA3D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BBF1C031C60825A684EA44AC930ED875 /* CFNetwork.framework */,
+				0BF4FA17F4EEFA989AD184BCF3893E6B /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2241,11 +2241,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E826062BE2883D3DA893E37F04976CB /* Debug */ = {
+		00097573D5BFC9D16133830F9E86D50E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84EC52A1F83CC120BEED4A82DB2D1689 /* KakaoSDKCommon.debug.xcconfig */;
+			baseConfigurationReference = F958E3B473665DEB49805EDBD9CFA149 /* Pods-PloggingTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2254,8 +2256,45 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		074F8A6EC0A2FDCE481AE6F7E9867293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B75D112B2DC72EEFCBE6F1EEC9BD385 /* KakaoSDKAuth.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2263,9 +2302,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKCommon;
-				PRODUCT_NAME = KakaoSDKCommon;
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKAuth;
+				PRODUCT_NAME = KakaoSDKAuth;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -2276,12 +2315,88 @@
 			};
 			name = Debug;
 		};
-		0EDBE46E819053B2775934D52BFB8372 /* Release */ = {
+		0A5FEC0C3F9FBBB3751F9DCD5540DDD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FD93477A7C55575345C667304656AF8 /* KakaoSDKUser.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKUser/KakaoSDKUser-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKUser/KakaoSDKUser-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKUser/KakaoSDKUser.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKUser;
+				PRODUCT_NAME = KakaoSDKUser;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		18F845BBCE4101DD06B2798262CC81F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5E2EBB26EB2121C10572E3FDB76B4E3 /* Pods-PloggingTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		202A93C811889D05C4D34267FB7E88AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9A1A140E5AD818F0A17244B9EDD3AB6 /* Pods-Plogging.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2314,11 +2429,342 @@
 			};
 			name = Release;
 		};
-		0EFE96288723C586772B6F1BCCB73C48 /* Release */ = {
+		38417E63A4063BED4D4129881EC69A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B3C6E87D1CB7A20FA0F84992DFA1F06 /* KakaoSDKTemplate.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKTemplate;
+				PRODUCT_NAME = KakaoSDKTemplate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39C629DC030BB12EBAB156B31FFBE017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6991D18AC7ED79466DBCB8444987A1 /* KakaoSDKTemplate.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKTemplate;
+				PRODUCT_NAME = KakaoSDKTemplate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F4A459DEAD0E5AB5B83396B2BE58938 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 092B21DCEF33599B85CADA8B0EFFEF4C /* Pods-Plogging.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Plogging/Pods-Plogging-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Plogging/Pods-Plogging.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		49159435A28F381564CAC0B52AD7132F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E291A84C2FC8789B467F51FA3BE73CE7 /* naveridlogin-sdk-ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5392490E4DA917180D497D9A3F4795F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68C08C811AAFFCAE93CF8298660B861C /* KakaoSDKCommon.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKCommon;
+				PRODUCT_NAME = KakaoSDKCommon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		56DC75BD59B2EE8D1BAF8F167EB3A229 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F11ED47FA4B438786304D4DD00EE5C7 /* KakaoSDK.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		579276777787037921C855FC7C8EF709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C4B1CE1280CBC203A279FEF0EFF1533 /* KakaoSDKTalk.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKTalk;
+				PRODUCT_NAME = KakaoSDKTalk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5CFE1F08957D285E94BFEF161E6D65CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2D60C960402E4D11B8BB5B3BA211130 /* KakaoSDKNavi.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKNavi;
+				PRODUCT_NAME = KakaoSDKNavi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6BB6618FAC95BBB8500DDFDD9126438D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5864406B07518931505D5EE3EEF71615 /* Pods-Plogging-PloggingUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D66A7976839DF7A98571510DA872B68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8CD8C1449ED49F7E192DFBC18CD29B /* KakaoSDKStory.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKStory/KakaoSDKStory-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKStory;
+				PRODUCT_NAME = KakaoSDKStory;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7B739B5714E97529006A5A6A3C32C5AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 857C988E75D2BC96014A971B760EC67C /* KakaoSDKAuth.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2350,204 +2796,10 @@
 			};
 			name = Release;
 		};
-		2444D36F2CB5FF3F9469EF5F6322EA10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8733A9C077D1FDEE78DB1271112D86F5 /* Alamofire.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_MODULE_NAME = Alamofire;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2D5B06E7C4F86099A968979D3A781052 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8CD8C1449ED49F7E192DFBC18CD29B /* KakaoSDKStory.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKStory/KakaoSDKStory-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKStory;
-				PRODUCT_NAME = KakaoSDKStory;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3051D2FD63631EC9B880EF323F819463 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E291A84C2FC8789B467F51FA3BE73CE7 /* naveridlogin-sdk-ios.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		37B247DB40ED774892629281483C242E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F328DE0E2B1975329A1482004386AA6 /* KakaoSDKStory.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKStory/KakaoSDKStory-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKStory;
-				PRODUCT_NAME = KakaoSDKStory;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		39D7C5B175873B71243B8D59EA755B45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC6991D18AC7ED79466DBCB8444987A1 /* KakaoSDKTemplate.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKTemplate;
-				PRODUCT_NAME = KakaoSDKTemplate;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		493629645326AC61EDED609526780F3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CD05D7D016E2FAEC472BF4A03596E21 /* KakaoSDKTalk.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKTalk/KakaoSDKTalk.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKTalk;
-				PRODUCT_NAME = KakaoSDKTalk;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+		8A3650F6C8AC2EFFA814EA61C37468B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2570,7 +2822,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2609,120 +2860,12 @@
 			};
 			name = Debug;
 		};
-		5174C37341309F05A9C6CA0AEE92DDCE /* Debug */ = {
+		97433300F86D78033F6EFFD031A051FF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 092B21DCEF33599B85CADA8B0EFFEF4C /* Pods-Plogging.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Plogging/Pods-Plogging-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Plogging/Pods-Plogging.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		561F32C28455C805F43F7BA755674A24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F958E3B473665DEB49805EDBD9CFA149 /* Pods-PloggingTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		568FC8EFEFF47B16A7D07F288F6B2F58 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D009335EB9BAC6B232646C6E8653744 /* KakaoSDKLink.debug.xcconfig */;
+			baseConfigurationReference = 6CD05D7D016E2FAEC472BF4A03596E21 /* KakaoSDKTalk.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKLink/KakaoSDKLink-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKLink/KakaoSDKLink-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKLink/KakaoSDKLink.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKLink;
-				PRODUCT_NAME = KakaoSDKLink;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		70AE4834FD527C3B5CE6D607CC7070E3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C4B1CE1280CBC203A279FEF0EFF1533 /* KakaoSDKTalk.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2748,36 +2891,17 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		7C23B6124AF743E847587229F320E590 /* Release */ = {
+		9A5C1B4561FF104ACDC4131263076076 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82A45B0BAC88F5D1126A87BBD751AEC7 /* KakaoSDK.release.xcconfig */;
+			baseConfigurationReference = 4F328DE0E2B1975329A1482004386AA6 /* KakaoSDKStory.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8193BF48513ABEDB6D6EC59B262CA4B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5864406B07518931505D5EE3EEF71615 /* Pods-Plogging-PloggingUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2786,34 +2910,32 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKStory/KakaoSDKStory-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKStory/KakaoSDKStory.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKStory;
+				PRODUCT_NAME = KakaoSDKStory;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+		AF1F8D2941B0228930706FA0F2C9BB78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2836,7 +2958,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2871,11 +2992,66 @@
 			};
 			name = Release;
 		};
-		8BDC9AAA36C7AB2F3FC01170F89CB0B3 /* Release */ = {
+		AFAAE050A2C35135D96009699F94AB82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A45B0BAC88F5D1126A87BBD751AEC7 /* KakaoSDK.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B59A43BEA26997937796AE37175C6B0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8733A9C077D1FDEE78DB1271112D86F5 /* Alamofire.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5D652609985F253F2908B70A9AD591B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 16CB5FD6924F6D81E7534AA6D4F95287 /* KakaoSDKNavi.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2907,11 +3083,12 @@
 			};
 			name = Release;
 		};
-		9A60052DF8448738F734BCE721C519EB /* Release */ = {
+		B933EB3CE5F02ECA8EB8895A6FB33AE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A3C11B03C89715B0FD3A8C0F0CC3E2C /* KakaoSDKUser.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2943,190 +3120,13 @@
 			};
 			name = Release;
 		};
-		9B66E952E27F29569285AB82461A2F34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D44BD2B4278D971428FA20541EFF476 /* Alamofire.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_MODULE_NAME = Alamofire;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AAB4F089AF0C8B7D3B817DC7400E6272 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2D60C960402E4D11B8BB5B3BA211130 /* KakaoSDKNavi.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKNavi/KakaoSDKNavi.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKNavi;
-				PRODUCT_NAME = KakaoSDKNavi;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AF87ED90302FB5BE0B31CD3A14D2187C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5E2EBB26EB2121C10572E3FDB76B4E3 /* Pods-PloggingTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C9566B14A7C361C46CE8E0CE7A355A7C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F11ED47FA4B438786304D4DD00EE5C7 /* KakaoSDK.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CB3ACB20E8839CE69EBB70FE605F77D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68C08C811AAFFCAE93CF8298660B861C /* KakaoSDKCommon.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKCommon;
-				PRODUCT_NAME = KakaoSDKCommon;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CC54EA0D2DB66E2586552AF379AD8987 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D6A6F89C2A365679AE39E147D02DB57 /* naveridlogin-sdk-ios.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CED20FDD0C51A38251B46E11D492DDD6 /* Release */ = {
+		C168E81A5A5892EAF4565853D403D154 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B2A004154FE7F0BA3BFEE78D77122C4 /* Pods-Plogging-PloggingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -3159,11 +3159,12 @@
 			};
 			name = Release;
 		};
-		D6CC320FAE6A37390A7041C38ECF2CA9 /* Debug */ = {
+		D4DCB7E72946DDAC5F7A4E32E08926DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FD93477A7C55575345C667304656AF8 /* KakaoSDKUser.debug.xcconfig */;
+			baseConfigurationReference = 4D009335EB9BAC6B232646C6E8653744 /* KakaoSDKLink.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -3172,8 +3173,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKUser/KakaoSDKUser-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKUser/KakaoSDKUser-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKLink/KakaoSDKLink-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKLink/KakaoSDKLink-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3181,9 +3182,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKUser/KakaoSDKUser.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKUser;
-				PRODUCT_NAME = KakaoSDKUser;
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKLink/KakaoSDKLink.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKLink;
+				PRODUCT_NAME = KakaoSDKLink;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -3194,11 +3195,12 @@
 			};
 			name = Debug;
 		};
-		D90C8AEAC2004ADAE7A764448016AA05 /* Release */ = {
+		F51DAAA511BD47B058880847A3C2293E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B3C6E87D1CB7A20FA0F84992DFA1F06 /* KakaoSDKTemplate.release.xcconfig */;
+			baseConfigurationReference = 1D44BD2B4278D971428FA20541EFF476 /* Alamofire.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -3207,22 +3209,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKTemplate/KakaoSDKTemplate.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKTemplate;
-				PRODUCT_NAME = KakaoSDKTemplate;
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3230,11 +3232,64 @@
 			};
 			name = Release;
 		};
-		F30631FAE8A6238E92AD4FF017BB15B2 /* Release */ = {
+		FC3C4CCD376FE2C1F5BF98E1B15C2748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84EC52A1F83CC120BEED4A82DB2D1689 /* KakaoSDKCommon.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KakaoSDKCommon/KakaoSDKCommon.modulemap";
+				PRODUCT_MODULE_NAME = KakaoSDKCommon;
+				PRODUCT_NAME = KakaoSDKCommon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FED8C5FCD7FE6805D1ADCCE077185524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D6A6F89C2A365679AE39E147D02DB57 /* naveridlogin-sdk-ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFADF17A22C474074795D0A4EC5EDE35 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 79F42966737764E1DAACEB38861F4BC7 /* KakaoSDKLink.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -3266,49 +3321,14 @@
 			};
 			name = Release;
 		};
-		FC1CA9E53F02323220257A84E981B8B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B75D112B2DC72EEFCBE6F1EEC9BD385 /* KakaoSDKAuth.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KakaoSDKAuth/KakaoSDKAuth.modulemap";
-				PRODUCT_MODULE_NAME = KakaoSDKAuth;
-				PRODUCT_NAME = KakaoSDKAuth;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2C86B7F394788F8E6171908E62DD5DAF /* Build configuration list for PBXAggregateTarget "naveridlogin-sdk-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CC54EA0D2DB66E2586552AF379AD8987 /* Debug */,
-				3051D2FD63631EC9B880EF323F819463 /* Release */,
+				FED8C5FCD7FE6805D1ADCCE077185524 /* Debug */,
+				49159435A28F381564CAC0B52AD7132F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3316,8 +3336,8 @@
 		309BC88476F281CAA5B3FE408911FA4A /* Build configuration list for PBXNativeTarget "KakaoSDKTalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				493629645326AC61EDED609526780F3A /* Debug */,
-				70AE4834FD527C3B5CE6D607CC7070E3 /* Release */,
+				97433300F86D78033F6EFFD031A051FF /* Debug */,
+				579276777787037921C855FC7C8EF709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3325,8 +3345,8 @@
 		38658A83E899038CCA9848861BAD6029 /* Build configuration list for PBXNativeTarget "KakaoSDKAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC1CA9E53F02323220257A84E981B8B5 /* Debug */,
-				0EFE96288723C586772B6F1BCCB73C48 /* Release */,
+				074F8A6EC0A2FDCE481AE6F7E9867293 /* Debug */,
+				7B739B5714E97529006A5A6A3C32C5AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3334,8 +3354,8 @@
 		45D807B6AFE9B5C1F4125F9FFEF05FA7 /* Build configuration list for PBXNativeTarget "Pods-Plogging" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5174C37341309F05A9C6CA0AEE92DDCE /* Debug */,
-				0EDBE46E819053B2775934D52BFB8372 /* Release */,
+				3F4A459DEAD0E5AB5B83396B2BE58938 /* Debug */,
+				202A93C811889D05C4D34267FB7E88AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3343,8 +3363,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
-				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+				8A3650F6C8AC2EFFA814EA61C37468B1 /* Debug */,
+				AF1F8D2941B0228930706FA0F2C9BB78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3352,8 +3372,8 @@
 		64B7D7A476D690435A56CF032BA29A41 /* Build configuration list for PBXAggregateTarget "KakaoSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C9566B14A7C361C46CE8E0CE7A355A7C /* Debug */,
-				7C23B6124AF743E847587229F320E590 /* Release */,
+				56DC75BD59B2EE8D1BAF8F167EB3A229 /* Debug */,
+				AFAAE050A2C35135D96009699F94AB82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3361,8 +3381,8 @@
 		763461B59AA34D09F2B182E721A8194D /* Build configuration list for PBXNativeTarget "KakaoSDKTemplate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39D7C5B175873B71243B8D59EA755B45 /* Debug */,
-				D90C8AEAC2004ADAE7A764448016AA05 /* Release */,
+				39C629DC030BB12EBAB156B31FFBE017 /* Debug */,
+				38417E63A4063BED4D4129881EC69A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3370,8 +3390,8 @@
 		77BA03C98D7323E16A2905B746C2E8BB /* Build configuration list for PBXNativeTarget "KakaoSDKCommon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E826062BE2883D3DA893E37F04976CB /* Debug */,
-				CB3ACB20E8839CE69EBB70FE605F77D8 /* Release */,
+				FC3C4CCD376FE2C1F5BF98E1B15C2748 /* Debug */,
+				5392490E4DA917180D497D9A3F4795F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3379,8 +3399,8 @@
 		78E219AC01CD5AFED663C9AB28280801 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2444D36F2CB5FF3F9469EF5F6322EA10 /* Debug */,
-				9B66E952E27F29569285AB82461A2F34 /* Release */,
+				B59A43BEA26997937796AE37175C6B0D /* Debug */,
+				F51DAAA511BD47B058880847A3C2293E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3388,8 +3408,8 @@
 		8DAEB3038813B4CEB5AF74EB43C4BB6C /* Build configuration list for PBXNativeTarget "KakaoSDKUser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D6CC320FAE6A37390A7041C38ECF2CA9 /* Debug */,
-				9A60052DF8448738F734BCE721C519EB /* Release */,
+				0A5FEC0C3F9FBBB3751F9DCD5540DDD9 /* Debug */,
+				B933EB3CE5F02ECA8EB8895A6FB33AE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3397,8 +3417,8 @@
 		9FE0C0B5A671AE8D533254E9E2F23D4F /* Build configuration list for PBXNativeTarget "Pods-Plogging-PloggingUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8193BF48513ABEDB6D6EC59B262CA4B1 /* Debug */,
-				CED20FDD0C51A38251B46E11D492DDD6 /* Release */,
+				6BB6618FAC95BBB8500DDFDD9126438D /* Debug */,
+				C168E81A5A5892EAF4565853D403D154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3406,8 +3426,8 @@
 		A949CE52D5C36033F80850CEFF1BB301 /* Build configuration list for PBXNativeTarget "KakaoSDKLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				568FC8EFEFF47B16A7D07F288F6B2F58 /* Debug */,
-				F30631FAE8A6238E92AD4FF017BB15B2 /* Release */,
+				D4DCB7E72946DDAC5F7A4E32E08926DF /* Debug */,
+				FFADF17A22C474074795D0A4EC5EDE35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3415,8 +3435,8 @@
 		CD1CD4DF969242D394B5A59D5273C5CB /* Build configuration list for PBXNativeTarget "KakaoSDKStory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37B247DB40ED774892629281483C242E /* Debug */,
-				2D5B06E7C4F86099A968979D3A781052 /* Release */,
+				9A5C1B4561FF104ACDC4131263076076 /* Debug */,
+				6D66A7976839DF7A98571510DA872B68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3424,8 +3444,8 @@
 		D719ECC4790ADAF06214BA631D0404F0 /* Build configuration list for PBXNativeTarget "KakaoSDKNavi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAB4F089AF0C8B7D3B817DC7400E6272 /* Debug */,
-				8BDC9AAA36C7AB2F3FC01170F89CB0B3 /* Release */,
+				5CFE1F08957D285E94BFEF161E6D65CE /* Debug */,
+				B5D652609985F253F2908B70A9AD591B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3433,8 +3453,8 @@
 		D90A27E5B7D1530F52F1A075C39C41D4 /* Build configuration list for PBXNativeTarget "Pods-PloggingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				561F32C28455C805F43F7BA755674A24 /* Debug */,
-				AF87ED90302FB5BE0B31CD3A14D2187C /* Release */,
+				00097573D5BFC9D16133830F9E86D50E /* Debug */,
+				18F845BBCE4101DD06B2798262CC81F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

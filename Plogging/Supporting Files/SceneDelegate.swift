@@ -19,36 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // 유저 처음인지 확인하는 작업 필요
         SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.setupLoginWithKakao()
-
-//        // APPLE
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        // forUserID 는 변경해야함
-//        appleIDProvider.getCredentialState(forUserID: "temp") { (credentialState, error) in
-//            switch credentialState {
-//            case .authorized:
-//                break
-//            case .revoked, .notFound:
-//                DispatchQueue.main.async {
-//                    self.window?.rootViewController?.showLoginViewController()
-//                }
-//            default:
-//                break
-//            }
-//        }
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-//        NaverThirdPartyLoginConnection
-//            .getSharedInstance()?
-//            .receiveAccessToken(URLContexts.first?.url)
-//        
-//        if let url = URLContexts.first?.url {
-//            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-//                _ = AuthController.handleOpenUrl(url: url)
-//            }
-//        }
+      
+        DispatchQueue.main.async {
+            self.window?.rootViewController?.showOnboardingViewController()
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
