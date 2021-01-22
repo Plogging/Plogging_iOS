@@ -46,6 +46,12 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>사진 및 동영상 촬영을 위한 카메라 사용 권한</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>동영상 촬영 및 음성인식을 위한 권한</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>사진 및 동영상 첨부를 위한 앨범 사용 권한</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

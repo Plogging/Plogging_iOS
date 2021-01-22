@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVh-87-zgX">
+                                <rect key="frame" x="262" y="116" width="64" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="TJA-iJ-RBH"/>
+                                    <constraint firstAttribute="height" constant="93" id="bah-Tj-CCq"/>
+                                </constraints>
+                                <state key="normal" title="snsPhoto" image="running"/>
+                                <connections>
+                                    <segue destination="Fks-4Y-fhy" kind="show" id="i44-yz-tVZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FVh-87-zgX" secondAttribute="trailing" constant="88" id="44T-Ee-8Jp"/>
+                            <constraint firstItem="FVh-87-zgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="262" id="ZMF-Cm-shb"/>
+                            <constraint firstItem="FVh-87-zgX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="dfc-hF-3Cb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FVh-87-zgX" secondAttribute="bottom" constant="653" id="sMs-Zm-LaW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86.956521739130437" y="81.696428571428569"/>
+        </scene>
+        <!--PloggingResult-->
+        <scene sceneID="vbk-Mb-ekB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PloggingResult" id="Fks-4Y-fhy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AJv-SF-dWn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ec-Od-9zt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="-115"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="running" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

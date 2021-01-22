@@ -13,6 +13,12 @@ enum Storyboard: String {
 }
 
 extension UIViewController {
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
+    }
+}
+
+extension UIViewController {
     func showLoginViewController() {
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
