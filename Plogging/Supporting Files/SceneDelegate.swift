@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 유저 처음인지 확인하는 작업 필요
         SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.setupLoginWithKakao()
-        
+      
         DispatchQueue.main.async {
             self.window?.rootViewController?.showOnboardingViewController()
         }

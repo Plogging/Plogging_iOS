@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
+		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
+		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
 		1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */; };
 		1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2184E325B75C880076CD14 /* Onboarding.storyboard */; };
 		1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184EB25B770130076CD14 /* Extension+String.swift */; };
@@ -70,6 +73,9 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
 		1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		1C2184E325B75C880076CD14 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		1C2184EB25B770130076CD14 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
@@ -163,6 +169,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1C21851525B8B74A0076CD14 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				1C21851625B8B7560076CD14 /* PopUp.storyboard */,
+				1C21851B25B8B7630076CD14 /* PopUpViewController.swift */,
+			);
+			path = PopUp;
 		1C2184DD25B75B260076CD14 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 			children = (
 				1C5B304D25A6079700413115 /* Enum+URL.swift */,
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
+				1C21852925B8C3480076CD14 /* Enum+PopUp.swift */,
 				9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */,
 			);
 			path = Enum;
@@ -196,6 +210,7 @@
 		1CC08DD925A5D55400EE3505 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
 				1C5B304725A604E100413115 /* APIKey.swift */,
@@ -470,6 +485,7 @@
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
+				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
 				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
@@ -619,8 +635,10 @@
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
 				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
+				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
+				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
 				1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */,
