@@ -28,6 +28,15 @@ extension UIViewController {
         }
     }
     
+    func showPopUpViewController(with type: PopUpType) {
+        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = type
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
+        }
+    }
+  
     func showOnboardingViewController() {
         let storyboard = UIStoryboard(name: Storyboard.Onboarding.rawValue, bundle: nil)
         if let onboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController {
