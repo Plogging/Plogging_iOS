@@ -180,6 +180,8 @@
 				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
 			);
 			path = WaitingScreen;
+			sourceTree = "<group>";
+		};
 		1C21851525B8B74A0076CD14 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +189,8 @@
 				1C21851B25B8B7630076CD14 /* PopUpViewController.swift */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
 		1C2184DD25B75B260076CD14 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
