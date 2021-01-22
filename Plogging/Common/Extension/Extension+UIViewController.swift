@@ -28,6 +28,14 @@ extension UIViewController {
         }
     }
     
+    func showWaitingScreenViewController() {
+        let storyboard = UIStoryboard(name: "WaitingScreen", bundle: nil)
+        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
+            waitingScreenViewController.modalPresentationStyle = .fullScreen
+            self.present(waitingScreenViewController, animated: false, completion: nil)
+        }
+    }
+  
     func showPopUpViewController(with type: PopUpType) {
         let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
