@@ -12,4 +12,8 @@ class PloggingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func clickStartPloggingButton(_ sender: UIButton) {
+        self.showWaitingScreenViewController()
+    }
 }

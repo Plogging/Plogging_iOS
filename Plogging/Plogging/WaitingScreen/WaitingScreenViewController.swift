@@ -12,7 +12,7 @@ class WaitingScreenViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
 
     private var timer: Timer?
-    private var second: Int = 0 {
+    private var second: Int = 3 {
         didSet {
             imageView.image = UIImage(named: "\(second)")
         }
@@ -29,15 +29,19 @@ class WaitingScreenViewController: UIViewController {
     }
      
     @objc private func changeSecond(){
-        second = second + 1
+        second = second - 1
         
-        if second == 3 {
+        if second == 0 {
             timer?.invalidate()
             moveToPloggingView()
         }
     }
     
     private func moveToPloggingView() {
-        
+        let storyboard = UIStoryboard(name: "Plogging", bundle: nil)
+        if let ploggingMainViewController = storyboard.instantiateViewController(withIdentifier: "PloggingMainViewController") as? PloggingMainViewController {
+            ploggingMainViewController.modalPresentationStyle = .fullScreen
+            self.present(ploggingMainViewController, animated: false, completion: nil)
+        }
     }
 }
