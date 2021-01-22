@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9Q-tL-GIe">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Plogging Result Photo View Controller-->
+        <scene sceneID="EJf-z7-GsQ">
+            <objects>
+                <viewController storyboardIdentifier="PloggingResultPhotoViewController" id="O5j-vd-2au" customClass="PloggingResultPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eS8-dg-Mph">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDE-VJ-0J2">
+                                <rect key="frame" x="183" y="801" width="52" height="30"/>
+                                <state key="normal" title="저장하기"/>
+                                <connections>
+                                    <action selector="moveToPloggingResultViewController:" destination="O5j-vd-2au" eventType="touchUpInside" id="sbc-cQ-hmj"/>
+                                    <segue destination="cYc-QN-zTB" kind="unwind" identifier="unwindToPloggingResult" unwindAction="unwindToPloggingResultWithSender:" id="lJZ-4S-lls"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vxf-Nm-0Qr"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="aDE-VJ-0J2" firstAttribute="centerX" secondItem="vxf-Nm-0Qr" secondAttribute="centerX" id="8Ck-JJ-yfv"/>
+                            <constraint firstItem="vxf-Nm-0Qr" firstAttribute="bottom" secondItem="aDE-VJ-0J2" secondAttribute="bottom" constant="31" id="Qia-ZR-e4O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZQb-n7-8Fo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFN-c0-Iba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cYc-QN-zTB" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="hqz-SP-PbQ"/>
+            </objects>
+            <point key="canvasLocation" x="2426.0869565217395" y="87.723214285714278"/>
+        </scene>
+        <!--Plogging Result View Controller-->
+        <scene sceneID="g6B-nw-ONR">
+            <objects>
+                <viewController id="82H-Q8-kGh" customClass="PloggingResultViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vsb-7a-9qN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-By-jhw">
+                                <rect key="frame" x="281" y="128" width="87" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="jRf-Ha-AW6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="저장 "/>
+                                <connections>
+                                    <action selector="savePloggingResult:" destination="82H-Q8-kGh" eventType="touchUpInside" id="Pmv-HH-z6I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-rJ-iF7">
+                                <rect key="frame" x="82" y="512" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="D5d-1s-y3A"/>
+                                    <constraint firstAttribute="height" constant="250" id="QMz-0O-iDM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                                <state key="normal" title="Button" image="timer"/>
+                                <connections>
+                                    <action selector="registerPloggingPhoto:" destination="82H-Q8-kGh" eventType="touchUpInside" id="XDu-gL-jUy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="91A-zq-55U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="91A-zq-55U" firstAttribute="bottom" secondItem="c6s-rJ-iF7" secondAttribute="bottom" constant="100" id="0sI-NU-tEv"/>
+                            <constraint firstItem="c6s-rJ-iF7" firstAttribute="centerX" secondItem="91A-zq-55U" secondAttribute="centerX" id="8Ns-FQ-FEw"/>
+                            <constraint firstItem="b2g-By-jhw" firstAttribute="top" secondItem="91A-zq-55U" secondAttribute="top" constant="40" id="PUs-fV-AX3"/>
+                            <constraint firstItem="91A-zq-55U" firstAttribute="trailing" secondItem="b2g-By-jhw" secondAttribute="trailing" constant="46" id="ZkV-wc-NCv"/>
+                            <constraint firstItem="b2g-By-jhw" firstAttribute="leading" secondItem="91A-zq-55U" secondAttribute="leading" constant="281" id="hsT-en-2Ld"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="asD-dD-2mV"/>
+                    <connections>
+                        <outlet property="ploggingResultPhoto" destination="c6s-rJ-iF7" id="2MM-QY-5Ef"/>
+                        <segue destination="DjO-kN-shv" kind="show" identifier="openCamera" id="ujz-IQ-8ks"/>
+                        <segue destination="O5j-vd-2au" kind="show" identifier="renderingAlbumPhoto" id="4lY-Be-khK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H74-0X-KSI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672" y="103"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="lhb-8B-bCI">
+            <objects>
+                <viewController storyboardIdentifier="CameraViewController" id="DjO-kN-shv" customClass="CameraViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Dg-Yd-c6a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n2-hA-BZI">
+                                <rect key="frame" x="192" y="812" width="30" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="촬영">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="DjO-kN-shv" eventType="touchUpInside" id="LEd-ap-jOZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBO-iP-DrK">
+                                <rect key="frame" x="191" y="762" width="30" height="30"/>
+                                <state key="normal" title="전환"/>
+                                <connections>
+                                    <action selector="switchCamera:" destination="DjO-kN-shv" eventType="touchUpInside" id="DBY-Wu-9jI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GdU-00-XUr"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8n2-hA-BZI" firstAttribute="centerX" secondItem="GdU-00-XUr" secondAttribute="centerX" id="2gJ-Bc-bfU"/>
+                            <constraint firstItem="GdU-00-XUr" firstAttribute="bottom" secondItem="CBO-iP-DrK" secondAttribute="bottom" constant="70" id="Vt5-LJ-GVX"/>
+                            <constraint firstItem="GdU-00-XUr" firstAttribute="bottom" secondItem="8n2-hA-BZI" secondAttribute="bottom" constant="20" id="fxf-Pc-EPs"/>
+                            <constraint firstItem="CBO-iP-DrK" firstAttribute="centerX" secondItem="GdU-00-XUr" secondAttribute="centerX" id="jhI-1S-hAr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eTg-oT-qbU"/>
+                    <connections>
+                        <segue destination="O5j-vd-2au" kind="show" identifier="renderingCameraPhoto" id="5jN-d7-xdi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sTe-oC-w7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568.1159420289857" y="493.52678571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OY7-RW-U69">
+            <objects>
+                <navigationController storyboardIdentifier="PloggingResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="i9Q-tL-GIe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ZT-jb-8UT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="82H-Q8-kGh" kind="relationship" relationship="rootViewController" id="bny-BT-eeR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9N-XX-vYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210.1449275362319" y="88.392857142857139"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4lY-Be-khK"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="timer" width="436" height="490"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

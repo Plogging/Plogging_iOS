@@ -25,7 +25,19 @@
 		9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B01588D25A0CB19003D3B7B /* LaunchScreen.storyboard */; };
 		9B01589A25A0CB1A003D3B7B /* PloggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01589925A0CB1A003D3B7B /* PloggingTests.swift */; };
 		9B0158A525A0CB1A003D3B7B /* PloggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */; };
+		9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C235225A4DA010084D27B /* PloggingResult.storyboard */; };
+		9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */; };
+		9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */; };
+		9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */; };
+		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
+		9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */; };
+		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
+		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
+		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
+		9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A63525B5C998000AA9FA /* DeviceScreen.swift */; };
 		9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */; };
+		9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B661B9525B8292F008EA09D /* SegueIdentifier.swift */; };
+		9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */; };
 		9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF225AE0DB700B0B415 /* Ranking.storyboard */; };
 		9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */; };
 		9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */; };
@@ -78,7 +90,19 @@
 		9B0158A025A0CB1A003D3B7B /* PloggingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PloggingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0158A425A0CB1A003D3B7B /* PloggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUITests.swift; sourceTree = "<group>"; };
 		9B0158A625A0CB1A003D3B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B0C235225A4DA010084D27B /* PloggingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PloggingResult.storyboard; sourceTree = "<group>"; };
+		9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoViewController.swift; sourceTree = "<group>"; };
+		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
+		9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRenderingMaker.swift; sourceTree = "<group>"; };
+		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
+		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
+		9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Camera.swift"; sourceTree = "<group>"; };
+		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
+		9B51A63525B5C998000AA9FA /* DeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScreen.swift; sourceTree = "<group>"; };
 		9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+MainTab.swift"; sourceTree = "<group>"; };
+		9B661B9525B8292F008EA09D /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		9B671DF225AE0DB700B0B415 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
@@ -136,6 +160,7 @@
 			children = (
 				1C5B304D25A6079700413115 /* Enum+URL.swift */,
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
+				9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -157,6 +182,8 @@
 				1C5B304C25A6077700413115 /* Enum */,
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
 				1C5B304725A604E100413115 /* APIKey.swift */,
+				9B51A63525B5C998000AA9FA /* DeviceScreen.swift */,
+				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -164,6 +191,7 @@
 		1CC08DDA25A5D55C00EE3505 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */,
 				1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */,
 			);
 			path = Extension;
@@ -238,6 +266,28 @@
 			path = PloggingUITests;
 			sourceTree = "<group>";
 		};
+		9B0C235125A4D62F0084D27B /* Plogging Result */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
+				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
+				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
+				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
+				9B0C238725A6EF250084D27B /* Image Render */,
+			);
+			path = "Plogging Result";
+			sourceTree = "<group>";
+		};
+		9B0C238725A6EF250084D27B /* Image Render */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */,
+				9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */,
+				9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */,
+			);
+			path = "Image Render";
+			sourceTree = "<group>";
+		};
 		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +332,8 @@
 			children = (
 				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
 				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
+				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -394,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
@@ -528,17 +581,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
+				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
+				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
+				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
+				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
+				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
+				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
+				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
+				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
+				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
+				9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
 				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
 			);
@@ -646,7 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -701,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
