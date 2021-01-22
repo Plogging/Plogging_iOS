@@ -176,6 +176,8 @@
 				1C21851B25B8B7630076CD14 /* PopUpViewController.swift */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
 		1C2184DD25B75B260076CD14 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
