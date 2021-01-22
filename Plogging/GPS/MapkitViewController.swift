@@ -32,9 +32,9 @@ class MapkitViewController: UIViewController {
         } else {
             print("STOP")
             pathManger?.stopLocationUpdate()
+            isTouched = false
         }
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -5,7 +5,7 @@
 import Foundation
 import CoreData
 
-// TODO: Refactoring (HIGH)
+// TODO: Refactoring (HIGH) (Scheme 변경)
 class BackupManager {
     func savePathData(to pathDataList: [CLLocation]) {
 
@@ -21,32 +21,29 @@ class BackupManager {
             longitude.append(location.coordinate.longitude)
         }
 
-        let context = AppDelegate.viewContext
+        AppDelegate.persistContainer.performBackgroundTask { context in
+            do {
+                let paths: [Path]? = try context.fetch(Path.fetchRequest()) as? [Path]
+                let updatePath: Path?
 
-        do {
+                if paths?.count == 0 {
+                    updatePath = (NSManagedObject(entity: Path.entity(), insertInto: context) as! Path)
+                } else {
+                    updatePath = (paths?.first)!
+                }
 
-            let paths = try context.fetch(Path.fetchRequest()) as [Path]?
+                updatePath?.setValue(latitude, forKey: "lat")
+                updatePath?.setValue(longitude, forKey: "lon")
+                updatePath?.setValue(startTime, forKey: "startTime")
+                updatePath?.setValue(endTime, forKey: "endTime")
 
-            let updatePath: Path?
-
-            if paths?.count == 0{
-                updatePath = (NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "Path", in: context)!, insertInto: context) as! Path)
-            } else {
-                updatePath = (paths?.first)!
+                print("[BACKUP] save count : \(pathDataList.count)")
+                try context.save()
+            } catch {
+                print("ERROR ON SAVE")
+                fatalError(error.localizedDescription)
             }
-
-            updatePath?.setValue(latitude, forKey: "lat")
-            updatePath?.setValue(longitude, forKey: "lon")
-            updatePath?.setValue(startTime, forKey: "startTime")
-            updatePath?.setValue(endTime, forKey: "endTime")
-
-            print("[BACKUP] save count : \(pathDataList.count)")
-
-            try context.save()
-        } catch {
-            print("ERROR ON SAVE")
         }
-
     }
 
     func restorePathData() -> [CLLocation] {
@@ -75,9 +72,20 @@ class BackupManager {
         do {
             try context.save()
         } catch {
-            print("ERROR ON SAVE")
+            fatalError(error.localizedDescription)
         }
 
         return result
+    }
+
+    func removePathData() {
+        let context = AppDelegate.viewContext
+        do {
+            let paths = try context.fetch(Path.fetchRequest()) as? [Path]
+            paths?.forEach{ path in context.delete(path) }
+            try context.save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 }
