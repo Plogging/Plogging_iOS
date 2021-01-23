@@ -25,6 +25,16 @@
 		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
 		25AE08688E2C7F71DFE4895C /* Pods_Plogging_PloggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */; };
+		3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */; };
+		3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */; };
+		3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */; };
+		3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A98D1552E6F9909BEE64 /* BackupManager.swift */; };
+		3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */; };
+		3D51AC8584B703C4B9929581 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A796B6221B925D0A8021 /* FormatDisplay.swift */; };
+		3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */; };
+		3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A4D3DA91775A4DCD9228 /* PathManager.swift */; };
+		3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */; };
+		3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */; };
 		7A88803982B01E577D9600F3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E856C59342FFB1CD6308BEED /* Pods_Plogging.framework */; };
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
@@ -96,6 +106,16 @@
 		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		2A0ABABA99B77BC2068FB18E /* Pods-Plogging-PloggingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
+		3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPS.storyboard; sourceTree = "<group>"; };
+		3D51A4D3DA91775A4DCD9228 /* PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
+		3D51A796B6221B925D0A8021 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		3D51A98D1552E6F9909BEE64 /* BackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
+		3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
+		3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +270,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3D51A0932B7C1EAA461372FD /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */,
+				3D51A4D3DA91775A4DCD9228 /* PathManager.swift */,
+				3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */,
+				3D51A98D1552E6F9909BEE64 /* BackupManager.swift */,
+				3D51A796B6221B925D0A8021 /* FormatDisplay.swift */,
+				3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */,
+				3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */,
+				3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */,
+				3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */,
+				3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */,
+			);
+			path = GPS;
+			sourceTree = "<group>";
+		};
 		4D6400549CE8260A84A282DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +334,7 @@
 				9B671DF125AE0D1600B0B415 /* Plogging */,
 				9B671DF025AE0D0400B0B415 /* My Page */,
 				9B5A32E325AEB1170061A361 /* Supporting Files */,
+				3D51A0932B7C1EAA461372FD /* GPS */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -511,6 +549,7 @@
 				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
+				3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +708,15 @@
 				9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
 				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
+				3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */,
+				3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */,
+				3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */,
+				3D51AC8584B703C4B9929581 /* FormatDisplay.swift in Sources */,
+				3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */,
+				3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */,
+				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
+				3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */,
+				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1056,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */,
+			);
+			currentVersion = 3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */;
+			path = Backup.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9B01587725A0CB15003D3B7B /* Project object */;
 }

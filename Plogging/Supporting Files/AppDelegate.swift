@@ -6,11 +6,27 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: CoreData Container
+    lazy var persistContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Backup")
+        container.loadPersistentStores () { description, error in
+            if let error = error {fatalError("Error on load container")}
+        }
+        return container
+    }()
 
+    static var persistContainer: NSPersistentContainer {
+        return (UIApplication.shared.delegate as! AppDelegate).persistContainer
+    }
+
+    static var viewContext: NSManagedObjectContext {
+        return persistContainer.viewContext
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

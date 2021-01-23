@@ -52,6 +52,10 @@
 	<string>동영상 촬영 및 음성인식을 위한 권한</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>사진 및 동영상 첨부를 위한 앨범 사용 권한</string>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -84,6 +88,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
