@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
-		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
-		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
-		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
-		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
 		1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */; };
 		1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2184E325B75C880076CD14 /* Onboarding.storyboard */; };
 		1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184EB25B770130076CD14 /* Extension+String.swift */; };
 		1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */; };
+		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
+		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
+		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
+		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
+		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306825A6163500413115 /* SNSLoginData.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
+		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
 		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
 		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
@@ -75,21 +76,22 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
-		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
-		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
-		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
 		1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		1C2184E325B75C880076CD14 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		1C2184EB25B770130076CD14 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
+		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
+		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
 		1C5B306825A6163500413115 /* SNSLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
 		1C5B306D25A6A04700413115 /* SNSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginManager.swift; sourceTree = "<group>"; };
+		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
 		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -173,13 +175,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
+		1C2184DD25B75B260076CD14 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
-				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
+				1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */,
+				1C2184E325B75C880076CD14 /* Onboarding.storyboard */,
 			);
-			path = WaitingScreen;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		1C21851525B8B74A0076CD14 /* PopUp */ = {
@@ -191,13 +193,13 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
-		1C2184DD25B75B260076CD14 /* Onboarding */ = {
+		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */,
-				1C2184E325B75C880076CD14 /* Onboarding.storyboard */,
+				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
+				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
 			);
-			path = Onboarding;
+			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
 		1C5B304C25A6077700413115 /* Enum */ = {
@@ -207,19 +209,21 @@
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
 				1C21852925B8C3480076CD14 /* Enum+PopUp.swift */,
 				9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */,
+				1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		1CC08DBA25A4B55B00EE3505 /* Login */ = {
+		1CC08DBA25A4B55B00EE3505 /* SignInSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				1C2184DD25B75B260076CD14 /* Onboarding */,
 				1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */,
 				1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */,
 				1C5B306825A6163500413115 /* SNSLoginData.swift */,
 				1C5B306D25A6A04700413115 /* SNSLoginManager.swift */,
 			);
-			path = Login;
+			path = SignInSignUp;
 			sourceTree = "<group>";
 		};
 		1CC08DD925A5D55400EE3505 /* Common */ = {
@@ -288,8 +292,7 @@
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
 				9B5A33AA25AF40140061A361 /* Main */,
 				1CC08DD925A5D55400EE3505 /* Common */,
-				1C2184DD25B75B260076CD14 /* Onboarding */,
-				1CC08DBA25A4B55B00EE3505 /* Login */,
+				1CC08DBA25A4B55B00EE3505 /* SignInSignUp */,
 				9B671DEF25AE0CDC00B0B415 /* Ranking */,
 				9B671DF125AE0D1600B0B415 /* Plogging */,
 				9B671DF025AE0D0400B0B415 /* My Page */,
@@ -659,6 +662,7 @@
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
+				1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */,
 				1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */,
 				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,

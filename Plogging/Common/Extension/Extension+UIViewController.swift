@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum Storyboard: String {
-    case SNSLogin
-    case Onboarding
-}
-
 extension UIViewController {
     var rootViewController: UIViewController? {
         return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
@@ -27,17 +22,9 @@ extension UIViewController {
             self.present(loginViewController, animated: true, completion: nil)
         }
     }
-    
-    func showWaitingScreenViewController() {
-        let storyboard = UIStoryboard(name: "WaitingScreen", bundle: nil)
-        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
-            waitingScreenViewController.modalPresentationStyle = .fullScreen
-            self.present(waitingScreenViewController, animated: false, completion: nil)
-        }
-    }
   
     func showPopUpViewController(with type: PopUpType) {
-        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
             popUpViewController.type = type
             popUpViewController.modalPresentationStyle = .overCurrentContext
