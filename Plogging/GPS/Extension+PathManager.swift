@@ -14,7 +14,8 @@ extension PathManager: CLLocationManagerDelegate, MKMapViewDelegate {
         guard let curLocation = locations.last else { return }
 
         let howRecent = curLocation.timestamp.timeIntervalSinceNow
-        guard curLocation.horizontalAccuracy < 30 && abs(howRecent) < 20 else { return }
+
+        guard abs(howRecent) < 10 else { return }
 
         if let lastLocation = locationList.last {
             let delta = curLocation.distance(from: lastLocation)

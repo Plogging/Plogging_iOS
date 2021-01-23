@@ -26,8 +26,8 @@ class PathManager: NSObject {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
-        retrievePath()
         print("[BACKUP] success restore count : \(locationList.count)")
     }
 
