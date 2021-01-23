@@ -54,6 +54,8 @@
 	<string>사진 및 동영상 첨부를 위한 앨범 사용 권한</string>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -78,11 +80,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>GPS</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Need to get location</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Need to get location</string>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -90,6 +88,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
