@@ -8,7 +8,7 @@ import MapKit
 
 class PathManager: NSObject {
 
-    var locationList = [CLLocation]()
+    var locationList: [CLLocation] = []
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var mapView: MKMapView
     var backupManager = BackupManager()
@@ -37,16 +37,12 @@ class PathManager: NSObject {
     }
 
     func drawPathOnMap(locationList: [CLLocation], mapView: MKMapView) {
-
         if(locationList.isEmpty) {return}
-
-        let region = measureMapRegion(curLocation: locationList.last!.coordinate)
-        mapView.setRegion(region!, animated: true)
-
+        guard let region = measureMapRegion(curLocation: locationList.last!.coordinate) else {return;}
+        mapView.setRegion(region, animated: true)
         let path = createPolyLine(locationList: locationList)
         mapView.addOverlay(path)
     }
-
 
     func retrievePath() {
         locationList = backupManager.restorePathData()

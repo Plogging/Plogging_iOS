@@ -6,23 +6,23 @@ import Foundation
 import CoreLocation
 import MapKit
 
-extension PathManager: CLLocationManagerDelegate, MKMapViewDelegate {
+extension PathManager: CLLocationManagerDelegate{
     // todo validate location 업데이트 시, 경로 랜더링
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         // todo refactor
-        guard let curLocation = locations.last else { return }
+        guard let currentLocation = locations.last else { return }
 
-        let howRecent = curLocation.timestamp.timeIntervalSinceNow
+        let howRecent = currentLocation.timestamp.timeIntervalSinceNow
 
         guard abs(howRecent) < 10 else { return }
 
         if let lastLocation = locationList.last {
-            let delta = curLocation.distance(from: lastLocation)
+            let delta = currentLocation.distance(from: lastLocation)
             distance = distance + Measurement(value: delta, unit: UnitLength.meters)
         }
 
-        locationList.append(curLocation)
+        locationList.append(currentLocation)
 
         print("[BACKUP] update count : \(locations.count)")
 
@@ -32,7 +32,9 @@ extension PathManager: CLLocationManagerDelegate, MKMapViewDelegate {
 
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
+}
 
+extension PathManager: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)

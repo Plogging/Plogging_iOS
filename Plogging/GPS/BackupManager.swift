@@ -27,9 +27,9 @@ class BackupManager {
                 let updatePath: Path?
 
                 if paths?.count == 0 {
-                    updatePath = (NSManagedObject(entity: Path.entity(), insertInto: context) as! Path)
+                    updatePath = NSManagedObject(entity: Path.entity(), insertInto: context) as? Path
                 } else {
-                    updatePath = (paths?.first)!
+                    updatePath = (paths?.first)
                 }
 
                 updatePath?.setValue(latitude, forKey: "lat")
@@ -57,13 +57,14 @@ class BackupManager {
         var result = [CLLocation]()
 
         paths?.forEach{ path in
-            let lat: [Double] = path.value(forKey: "lat") as! [Double]
-            let lon: [Double] = path.value(forKey: "lon") as! [Double]
+
+        if let lat: [Double] = path.value(forKey: "lat") as? [Double],
+           let lon: [Double] = path.value(forKey: "lon") as? [Double] {
 
             for index in 0..<lat.count {
                 result.append(CLLocation(latitude: lat[index], longitude: lon[index]))
             }
-            
+        }
             context.delete(path)
         }
 
