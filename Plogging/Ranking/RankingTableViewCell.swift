@@ -25,7 +25,6 @@ class RankingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
@@ -44,10 +43,22 @@ class RankingTableViewCell: UITableViewCell {
 
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 22.5
-
     }
     
-    func config() {
-        
+    func config(index: IndexPath) {
+        rankingImageView.image = nil
+        if index.row == 0 {
+            rankingImageView.image = UIImage(named: "ranking\(index.row + 1)")
+            outerView.backgroundColor = UIColor(red: 254/255, green: 229/255, blue: 231/255, alpha: 1)
+            profileOuterView.backgroundColor = UIColor(red: 255/255, green: 106/255, blue: 124/255, alpha: 1)
+        } else if index.row == 1 {
+            rankingImageView.image = UIImage(named: "ranking\(index.row + 1)")
+            outerView.backgroundColor = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
+            profileOuterView.backgroundColor = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
+        } else if index.row == 2 {
+            rankingImageView.image = UIImage(named: "ranking\(index.row + 1)")
+            outerView.backgroundColor = UIColor(red: 253/255, green: 244/255, blue: 217/255, alpha: 1)
+            profileOuterView.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 0/255, alpha: 1)
+        }
     }
 }
