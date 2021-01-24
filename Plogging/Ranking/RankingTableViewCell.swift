@@ -46,7 +46,6 @@ class RankingTableViewCell: UITableViewCell {
     }
     
     func config(index: IndexPath) {
-        rankingImageView.image = nil
         if index.row == 0 {
             rankingImageView.image = UIImage(named: "ranking\(index.row + 1)")
             outerView.backgroundColor = UIColor(red: 254/255, green: 229/255, blue: 231/255, alpha: 1)

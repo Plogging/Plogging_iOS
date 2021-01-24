@@ -38,11 +38,16 @@ class RankingViewController: UIViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 86
+        
+        let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
+        tableView.contentInset = inset
     }
 }
 
 extension RankingViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 }
 
 extension RankingViewController: UITableViewDataSource {
@@ -56,9 +61,6 @@ extension RankingViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
-
 
 class RankigTabBar: UIView {
     let collectionView: UICollectionView = {
