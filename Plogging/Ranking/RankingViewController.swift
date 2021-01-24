@@ -9,21 +9,40 @@ import UIKit
 
 class RankingViewController: UIViewController {
 
+    @IBOutlet weak var rankingTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupRankingTitle()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupRankingTitle() {
+        let rankingTitleString = NSMutableAttributedString()
+            .bold("연쇄쓰담마", fontSize: 35)
+            .normal("님의", fontSize: 35)
+            .newLine(fontSize: 35)
+            .normal("랭킹을 확인하세요!", fontSize: 35)
+        rankingTitleLabel.attributedText = rankingTitleString
     }
-    */
+}
 
+class RankigTabBar: UIView {
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.backgroundColor = .clear
+        return collection
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        addSubview(collectionView)
+    }
 }
