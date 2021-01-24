@@ -99,6 +99,7 @@ class OnboardingViewController: UIViewController {
                                                       width: 330,
                                                       height: 253))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
+            imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
             
             // 제목
