@@ -1,0 +1,65 @@
+//
+// Created by KHU_TAEWOO on 2021/01/25.
+//
+
+import Foundation
+import UIKit
+
+class ConfirmButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupProperties()
+        setupLayout()
+    }
+
+    func setupProperties() {
+        setTitle("플로깅 시작하기", for: .normal)
+        setTitleColor(.systemBlue, for: .normal)
+        layer.backgroundColor = CGColor.fromInt(red: 55, green: 213, blue: 172, alpha: 1)
+        layer.cornerRadius = 42
+        setTitleColor(.white, for: .normal)
+        
+        // todo - shadow 적용하기
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowColor = .fromInt(red: 55, green: 213, blue: 172, alpha: 0.67)
+        layer.shadowRadius = 75
+        
+        // todo - click 이벤트 확인
+    }
+
+    func setupLayout() {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalToConstant: 196),
+            heightAnchor.constraint(equalToConstant: 78)
+        ])
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+@available(iOS 13.0, *)
+struct ViewRepresentable: UIViewRepresentable {
+
+    typealias UIViewType = ConfirmButton
+
+    func makeUIView(context: UIViewRepresentableContext<ViewRepresentable>) -> UIViewType {
+        ConfirmButton()
+    }
+
+    func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<ViewRepresentable>) {
+
+    }
+}
+struct ViewPreview: PreviewProvider {
+    static var previews: some View {
+        ViewRepresentable()
+            .padding(10)
+    }
+}
+#endif
