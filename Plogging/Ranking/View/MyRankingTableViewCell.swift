@@ -27,10 +27,14 @@ class MyRankingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     @IBAction func clickRankingScoreInfoButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = .랭킹점수안내팝업
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.window?.rootViewController?.present(popUpViewController, animated: false, completion: nil)
+        }
     }
-    
 }
