@@ -206,6 +206,24 @@
 			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
+		1C5A68BA25BF238900F096A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF225AE0DB700B0B415 /* Ranking.storyboard */,
+				1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */,
+				1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C5A68BB25BF239D00F096A9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1C5B304C25A6077700413115 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,10 +387,8 @@
 		9B671DEF25AE0CDC00B0B415 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				9B671DF225AE0DB700B0B415 /* Ranking.storyboard */,
-				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
-				1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */,
-				1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */,
+				1C5A68BB25BF239D00F096A9 /* Controller */,
+				1C5A68BA25BF238900F096A9 /* View */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
