@@ -64,8 +64,8 @@ extension CameraViewController {
 // MARK: Camera Layout Setting
 private extension CameraViewController {
     func setUpCameraFrameViewLayout() {
-        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
-        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
+        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
         cameraFrameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraFrameView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
@@ -133,7 +133,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         guard let capturedImage = UIImage(data: imageData) else {
             return
         }
-        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceScreen.width, height: DeviceScreen.width))
+        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
         UIImageWriteToSavedPhotosAlbum(resizedCapturedImage, nil, nil, nil)
         baseImage = resizedCapturedImage
         self.performSegue(withIdentifier: SegueIdentifier.renderingCameraPhoto, sender: nil)
