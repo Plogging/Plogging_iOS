@@ -8,7 +8,7 @@
 import UIKit
 
 class PloggingResultViewController: UIViewController {
-    @IBOutlet weak var ploggingResultPhoto: UIButton!
+    @IBOutlet weak var ploggingResultPhoto: UIImageView!
     var baseImage: UIImage?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,12 +52,20 @@ class PloggingResultViewController: UIViewController {
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        if baseImage == nil {
+            let ploggingResultImageMaker = PloggingResultImageMaker()
+            guard let commonImage = UIImage(named: "test") else {
+                return
+            }
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(commonImage, 2.13, "13:30")
+            ploggingResultPhoto.image = ploggingResultImage
+            // self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PloggingResultPhotoViewController, let thumbnailImage = sourceViewController.thumbnailImage {
-            ploggingResultPhoto.setImage(thumbnailImage, for: .normal)
+            ploggingResultPhoto.image = thumbnailImage
         }
     }
     
