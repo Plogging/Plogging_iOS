@@ -37,8 +37,8 @@ class PloggingResultViewController: UIViewController {
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
-        alert.addAction(library)
         alert.addAction(camera)
+        alert.addAction(library)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
