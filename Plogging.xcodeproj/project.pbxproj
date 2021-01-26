@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
-		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
-		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
-		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
-		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
 		1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */; };
 		1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2184E325B75C880076CD14 /* Onboarding.storyboard */; };
 		1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184EB25B770130076CD14 /* Extension+String.swift */; };
 		1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */; };
+		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
+		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
+		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
+		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
+		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306825A6163500413115 /* SNSLoginData.swift */; };
@@ -38,6 +38,8 @@
 		9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */; };
 		9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */; };
 		9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */; };
+		9B14C10D25BC6A4F0066B2B5 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */; };
+		9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */; };
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
@@ -75,15 +77,15 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
-		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
-		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
-		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
 		1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		1C2184E325B75C880076CD14 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		1C2184EB25B770130076CD14 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
+		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
+		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 		9B0C238A25A6F0680084D27B /* PloggingInfoViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfoViewCreater.swift; sourceTree = "<group>"; };
 		9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRenderingMaker.swift; sourceTree = "<group>"; };
 		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
+		9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoH.ttf; path = "../../../../../../Downloads/Apple_산돌고딕_Neo/AppleSDGothicNeoH.ttf"; sourceTree = "<group>"; };
+		9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoEB.ttf; path = "../../../../../../Downloads/Apple_산돌고딕_Neo/AppleSDGothicNeoEB.ttf"; sourceTree = "<group>"; };
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Camera.swift"; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -173,13 +177,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
+		1C2184DD25B75B260076CD14 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
-				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
+				1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */,
+				1C2184E325B75C880076CD14 /* Onboarding.storyboard */,
 			);
-			path = WaitingScreen;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		1C21851525B8B74A0076CD14 /* PopUp */ = {
@@ -191,13 +195,13 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
-		1C2184DD25B75B260076CD14 /* Onboarding */ = {
+		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */,
-				1C2184E325B75C880076CD14 /* Onboarding.storyboard */,
+				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
+				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
 			);
-			path = Onboarding;
+			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
 		1C5B304C25A6077700413115 /* Enum */ = {
@@ -338,9 +342,19 @@
 			path = "Image Render";
 			sourceTree = "<group>";
 		};
+		9B14C10A25BC660E0066B2B5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */,
+				9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B14C10A25BC660E0066B2B5 /* Font */,
 				9B01588225A0CB15003D3B7B /* AppDelegate.swift */,
 				9B01588425A0CB15003D3B7B /* SceneDelegate.swift */,
 				9B01588B25A0CB19003D3B7B /* Assets.xcassets */,
@@ -506,7 +520,9 @@
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
 				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
+				9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
+				9B14C10D25BC6A4F0066B2B5 /* AppleSDGothicNeoEB.ttf in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

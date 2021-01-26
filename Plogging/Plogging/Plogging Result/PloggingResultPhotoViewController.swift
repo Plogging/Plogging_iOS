@@ -16,6 +16,10 @@ class PloggingResultPhotoViewController: UIViewController {
     var thumbnailImage: UIImage?
     var baseImage: UIImage?
     
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func moveToPloggingResultViewController(_ sender: UIButton) {
         performSegue(withIdentifier: SegueIdentifier.unwindToPloggingResult, sender: self)
     }
@@ -37,6 +41,6 @@ class PloggingResultPhotoViewController: UIViewController {
         thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
         thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
         thumbnailImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        thumbnailImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        thumbnailImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 107).isActive = true
     }
 }

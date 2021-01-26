@@ -27,7 +27,7 @@ class PloggingResultViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    @IBAction func registerPloggingPhoto(_ sender: Any) {
+    func showPloggingPhotoResisterAlert() {
         let alert = UIAlertController(title: "플로깅 사진 기록하기", message: "플로깅 사진 기록방식을 선택하세요.", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
             self.setUpImagePicker()
@@ -41,6 +41,14 @@ class PloggingResultViewController: UIViewController {
         alert.addAction(camera)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func scoreGuideAlert(_ sender: UIButton) {
+        self.showPopUpViewController(with: .운동점수안내팝업)
+    }
+    
+    @IBAction func registerPloggingPhoto(_ sender: UITapGestureRecognizer) {
+        showPloggingPhotoResisterAlert()
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
