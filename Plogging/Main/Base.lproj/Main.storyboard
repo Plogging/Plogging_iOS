@@ -47,7 +47,7 @@
                                         <items>
                                             <tabBarItem title="" image="rankingTabDefault" selectedImage="rankingTab" id="d1E-af-L5A"/>
                                             <tabBarItem tag="1" title="" image="ploggingTabDefault" selectedImage="ploggingTab" id="Xmu-sR-zg9"/>
-                                            <tabBarItem tag="2" title="" image="mypageTab" selectedImage="mypageTab" id="Qf3-Pp-gdX"/>
+                                            <tabBarItem tag="2" title="" image="mypageTabDefault" selectedImage="mypageTab" id="Qf3-Pp-gdX"/>
                                         </items>
                                         <color key="tintColor" name="AccentColor"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,6 +142,7 @@
     </scenes>
     <resources>
         <image name="mypageTab" width="40" height="40"/>
+        <image name="mypageTabDefault" width="40" height="41"/>
         <image name="ploggingTab" width="40" height="41"/>
         <image name="ploggingTabDefault" width="40" height="40"/>
         <image name="rankingTab" width="40" height="40"/>
