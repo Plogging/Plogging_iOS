@@ -52,7 +52,7 @@ class OnboardingViewController: UIViewController {
                 skipButton.setImage(confirmImage, for: .normal)
             } else {
                 let skipImage = UIImage(named: "skip")
-                skipButton.setTitle(skipImage, for: .normal)
+                skipButton.setImage(skipImage, for: .normal)
             }
         }
     }
