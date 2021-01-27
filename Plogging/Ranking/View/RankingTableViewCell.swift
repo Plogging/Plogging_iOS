@@ -10,6 +10,7 @@ import UIKit
 class RankingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rankingImageView: UIImageView!
+    @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -47,17 +48,29 @@ class RankingTableViewCell: UITableViewCell {
     
     func config(index: IndexPath) {
         if index.row == 1 {
+            rankingImageView.isHidden = false
+            rankingLabel.isHidden = true
             rankingImageView.image = UIImage(named: "ranking\(index.row)")
             outerView.backgroundColor = UIColor(red: 254/255, green: 229/255, blue: 231/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 255/255, green: 106/255, blue: 124/255, alpha: 1)
         } else if index.row == 2 {
+            rankingImageView.isHidden = false
+            rankingLabel.isHidden = true
             rankingImageView.image = UIImage(named: "ranking\(index.row)")
             outerView.backgroundColor = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
         } else if index.row == 3 {
+            rankingImageView.isHidden = false
+            rankingLabel.isHidden = true
             rankingImageView.image = UIImage(named: "ranking\(index.row)")
             outerView.backgroundColor = UIColor(red: 253/255, green: 244/255, blue: 217/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 0/255, alpha: 1)
+        } else {
+            rankingImageView.isHidden = true
+            rankingLabel.isHidden = false
+            rankingLabel.text = "\(index.row)"
+            outerView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            profileOuterView.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 207/255, alpha: 1)
         }
     }
 }

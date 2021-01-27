@@ -22,6 +22,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking3" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-D7-O9K">
                                 <rect key="frame" x="16" y="28.5" width="25" height="29"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gON-YM-RDl">
+                                <rect key="frame" x="16" y="32.5" width="25" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="WJj-6I-EsE">
                                 <rect key="frame" x="123" y="33" width="133" height="20.5"/>
                                 <subviews>
@@ -62,7 +68,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.89803921568627454" blue="0.90588235294117647" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gON-YM-RDl" firstAttribute="centerY" secondItem="qAi-ce-fW9" secondAttribute="centerY" id="Dmz-MD-Twa"/>
                             <constraint firstItem="Onp-zf-uhx" firstAttribute="leading" secondItem="S6I-D7-O9K" secondAttribute="trailing" constant="16" id="HLs-Lb-E2Z"/>
+                            <constraint firstItem="gON-YM-RDl" firstAttribute="leading" secondItem="qAi-ce-fW9" secondAttribute="leading" constant="16" id="LKo-oz-M5D"/>
+                            <constraint firstItem="Onp-zf-uhx" firstAttribute="leading" secondItem="gON-YM-RDl" secondAttribute="trailing" constant="16" id="NFw-BL-nzz"/>
                             <constraint firstItem="S6I-D7-O9K" firstAttribute="leading" secondItem="qAi-ce-fW9" secondAttribute="leading" constant="16" id="REc-Th-Q4z"/>
                             <constraint firstItem="WJj-6I-EsE" firstAttribute="leading" secondItem="Onp-zf-uhx" secondAttribute="trailing" constant="16" id="TdZ-ww-DQI"/>
                             <constraint firstItem="Onp-zf-uhx" firstAttribute="centerY" secondItem="qAi-ce-fW9" secondAttribute="centerY" id="Vga-aZ-ULA"/>
@@ -89,6 +98,7 @@
                 <outlet property="profileImageView" destination="W8E-zP-fuv" id="7Xe-oB-gea"/>
                 <outlet property="profileOuterView" destination="Onp-zf-uhx" id="QMj-zj-yeG"/>
                 <outlet property="rankingImageView" destination="S6I-D7-O9K" id="yRs-e4-8LU"/>
+                <outlet property="rankingLabel" destination="gON-YM-RDl" id="vV4-j1-s8W"/>
                 <outlet property="scoreLabel" destination="uWN-TL-upv" id="E6f-um-lS5"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="102.45535714285714"/>
