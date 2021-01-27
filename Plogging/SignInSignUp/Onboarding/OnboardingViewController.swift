@@ -48,13 +48,11 @@ class OnboardingViewController: UIViewController {
     private var isLastPage: Bool = false {
         didSet {
             if isLastPage {
-                skipButton.setTitle("확인", for: .normal)
-                skipButton.setTitleColor(.white, for: .normal)
-                skipButton.backgroundColor = UIColor.tintGreen
+                let confirmImage = UIImage(named: "confirm")
+                skipButton.setImage(confirmImage, for: .normal)
             } else {
-                skipButton.setTitle("건너뛰기", for: .normal)
-                skipButton.setTitleColor(UIColor.darkGrayColor, for: .normal)
-                skipButton.backgroundColor = UIColor.veryLightPinkTwo
+                let skipImage = UIImage(named: "skip")
+                skipButton.setTitle(skipImage, for: .normal)
             }
         }
     }
