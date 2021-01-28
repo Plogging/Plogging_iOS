@@ -16,16 +16,23 @@ class IntroduceModalItem: UIView {
     }
 
     convenience init(indexImage: UIImage?, iconImage: UIImage?, text: String) {
-
         self.init(frame: .zero)
-
         addSubview(label)
         addSubview(icon)
         addSubview(index)
-
         icon.image = iconImage
         index.image = indexImage
         label.text = text
+        setupLayout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func updateConstraints() {
+        setupLayout()
+        super.updateConstraints()
     }
 
     func setupLayout() {
@@ -34,8 +41,6 @@ class IntroduceModalItem: UIView {
         NSLayoutConstraint.activate([
                                         icon.centerXAnchor.constraint(equalTo: centerXAnchor),
                                         icon.topAnchor.constraint(equalTo: topAnchor),
-//            icon.heightAnchor.constraint(equalToConstant: 122),
-//            icon.widthAnchor.constraint(equalToConstant: 132)
                                     ])
 
         index.translatesAutoresizingMaskIntoConstraints = false
@@ -51,18 +56,18 @@ class IntroduceModalItem: UIView {
         label.textColor = .black
         label.numberOfLines = 3
         label.textAlignment = .left
-        label.font.withSize(14)
+        label.font.withSize(11.0)
         label.textColor = UIColor.init(cgColor: .fromInt(red: 99, green: 110, blue: 127, alpha: 1))
 
         // label view layout
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+                                        label.bottomAnchor.constraint(equalTo: bottomAnchor),
                                         label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
-                                        label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12),
+                                        label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12)
+
                                     ])
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

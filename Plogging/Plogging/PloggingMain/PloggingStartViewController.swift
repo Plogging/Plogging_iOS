@@ -12,6 +12,7 @@ class PloggingStartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .orange
         view.addSubview(button)
         button.addTarget(self, action: #selector(onConfirm), for: .touchUpInside)
     }
