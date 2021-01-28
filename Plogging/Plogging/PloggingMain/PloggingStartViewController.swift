@@ -34,7 +34,7 @@ class PloggingStartViewController: UIViewController {
 
     @objc
     func onConfirm() {
-        let controller = PloggingIntroduceModalViewController()
+        let controller = PloggingRunningInfoViewController()
         controller.modalPresentationStyle = .popover
         present(controller, animated: true, completion: nil)
     }

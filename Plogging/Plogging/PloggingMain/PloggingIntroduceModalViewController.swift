@@ -21,18 +21,18 @@ class PloggingIntroduceModalViewController: UIViewController {
             background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             background.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-                                    ])
+        ])
 
 
         guard let stackLayout = stackLayout else { return }
         stackLayout.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                                        stackLayout.centerXAnchor.constraint(equalTo: background.centerXAnchor),
-                                        stackLayout.bottomAnchor.constraint(equalTo: background.safeAreaLayoutGuide.bottomAnchor, constant: -73),
-                                        stackLayout.topAnchor.constraint(equalTo: background.topAnchor, constant: 59),
-                                        stackLayout.leadingAnchor.constraint(equalTo: background.leadingAnchor),
-                                        stackLayout.trailingAnchor.constraint(equalTo: background.trailingAnchor)
-                                    ])
+            stackLayout.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+            stackLayout.bottomAnchor.constraint(equalTo: background.safeAreaLayoutGuide.bottomAnchor, constant: -73),
+            stackLayout.topAnchor.constraint(equalTo: background.topAnchor, constant: 59),
+            stackLayout.leadingAnchor.constraint(equalTo: background.leadingAnchor),
+            stackLayout.trailingAnchor.constraint(equalTo: background.trailingAnchor)
+        ])
 
     }
 
