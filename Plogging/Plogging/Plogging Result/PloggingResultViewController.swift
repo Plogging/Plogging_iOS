@@ -135,3 +135,10 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: UICollectionViewDelegateFlowLayout
+extension PloggingResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: DeviceScreen.width - 108, height: 50)
+    }
+}
