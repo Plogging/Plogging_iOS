@@ -9,7 +9,14 @@ import UIKit
 
 class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingResultPhoto: UIImageView!
+    @IBOutlet weak var totalTrashCount: UILabel!
+    @IBOutlet weak var exerciseScore: UILabel!
+    @IBOutlet weak var echoScore: UILabel!
+    @IBOutlet weak var ploggingTime: UILabel!
+    @IBOutlet weak var ploggingDistance: UILabel!
+    @IBOutlet weak var ploggingCalorie: UILabel!
     var baseImage: UIImage?
+    var ploggingResultData: PloggingResult?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -25,6 +32,24 @@ class PloggingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        
+        let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
+        let info = PloggingResult.Info(time: "12:21", distance: "50", calorie: "990")
+        let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
+        
+        ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos)
+
+//        exerciseScore.text = ploggingResultData?.score.exercise
+//        echoScore.text = ploggingResultData?.score.eco
+//        ploggingTime.text = ploggingResultData?.info.time
+//        ploggingDistance.text = ploggingResultData?.info.distance
+//        ploggingCalorie.text = ploggingResultData?.info.calorie
+        
+        exerciseScore.text = "\(100)점"
+        echoScore.text = "\(200)점"
+        ploggingTime.text = "300"
+        ploggingDistance.text = "400"
+        ploggingCalorie.text = "500"
     }
     
     func showPloggingPhotoResisterAlert() {
@@ -53,6 +78,7 @@ class PloggingResultViewController: UIViewController {
     
     @IBAction func savePloggingResult(_ sender: Any) {
         if baseImage == nil {
+            self.showPopUpViewController(with: .사진없이저장팝업)
             let ploggingResultImageMaker = PloggingResultImageMaker()
             guard let commonImage = UIImage(named: "test") else {
                 return
@@ -87,5 +113,25 @@ extension PloggingResultViewController: UIImagePickerControllerDelegate, UINavig
         baseImage = selectedImage
         self.dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: SegueIdentifier.renderingAlbumPhoto, sender: nil)
+    }
+}
+
+// MARK: UICollectionViewDataSource
+extension PloggingResultViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let trashInfos = ploggingResultData?.trashInfos else {
+            return 0
+        }
+        return trashInfos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
+        let trashCountCell = cell as? TrashCountCell
+        guard let trashInfos = ploggingResultData?.trashInfos else {
+            return cell
+        }
+        trashCountCell?.updateUI(trashInfos[indexPath.item])
+        return cell
     }
 }

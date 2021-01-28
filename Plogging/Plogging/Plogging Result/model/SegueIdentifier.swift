@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SegueIdentifier {
+public struct SegueIdentifier {
     static let openPhotoLibrary = "openPhotoLibrary"
     static let openCamera = "openCamera"
     static let renderingCameraPhoto = "renderingCameraPhoto"

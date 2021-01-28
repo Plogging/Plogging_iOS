@@ -42,6 +42,8 @@
 		9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */; };
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */; };
+		9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */; };
+		9B32B5A825C2761700CB25C0 /* PloggingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B5A725C2761700CB25C0 /* PloggingResult.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
 		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
 		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
@@ -120,6 +122,8 @@
 		9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoEB.ttf; path = "../../../../../../Downloads/Apple_산돌고딕_Neo/AppleSDGothicNeoEB.ttf"; sourceTree = "<group>"; };
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Camera.swift"; sourceTree = "<group>"; };
+		9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCountCell.swift; sourceTree = "<group>"; };
+		9B32B5A725C2761700CB25C0 /* PloggingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResult.swift; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
 		9B51A63525B5C998000AA9FA /* DeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScreen.swift; sourceTree = "<group>"; };
@@ -236,7 +240,6 @@
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
 				1C5B304725A604E100413115 /* APIKey.swift */,
 				9B51A63525B5C998000AA9FA /* DeviceScreen.swift */,
-				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 		9B0C235125A4D62F0084D27B /* Plogging Result */ = {
 			isa = PBXGroup;
 			children = (
+				9B32B5AC25C27F4900CB25C0 /* model */,
 				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
 				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
 				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
@@ -352,6 +356,16 @@
 				9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9B32B5AC25C27F4900CB25C0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
+				9B32B5A725C2761700CB25C0 /* PloggingResult.swift */,
+				9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
@@ -660,9 +674,11 @@
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
+				9B32B5A825C2761700CB25C0 /* PloggingResult.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
+				9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
