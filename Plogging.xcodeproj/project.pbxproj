@@ -32,10 +32,10 @@
 		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
 		1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98AB25AF2DFA00CC247A /* APIError.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
-		1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */; };
-		1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */; };
 		1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */; };
 		1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281DB25B4C117003FBCCD /* PloggingUser.swift */; };
+		1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */; };
+		1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */; };
 		25AE08688E2C7F71DFE4895C /* Pods_Plogging_PloggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */; };
 		3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */; };
 		3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */; };
@@ -125,10 +125,10 @@
 		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
 		1CBE98AB25AF2DFA00CC247A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
-		1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		1CC281DB25B4C117003FBCCD /* PloggingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUser.swift; sourceTree = "<group>"; };
+		1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		2A0ABABA99B77BC2068FB18E /* Pods-Plogging-PloggingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
 		3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPS.storyboard; sourceTree = "<group>"; };
@@ -304,6 +304,48 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		1C8B320A25C48FA30021A88D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C8B320B25C48FAF0021A88D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C8B320D25C48FCF0021A88D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C8B320E25C48FD40021A88D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
+				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C8B320F25C48FFD0021A88D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
+				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1CBE988925AC757B00CC247A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,8 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				1CBE988925AC757B00CC247A /* Networking */,
-				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
-				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
 				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
@@ -496,8 +536,8 @@
 		9B671DF025AE0D0400B0B415 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
-				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
+				1C8B320B25C48FAF0021A88D /* Controller */,
+				1C8B320A25C48FA30021A88D /* View */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -505,10 +545,10 @@
 		9B671DF125AE0D1600B0B415 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
+				1C8B320F25C48FFD0021A88D /* Model */,
+				1C8B320E25C48FD40021A88D /* Controller */,
+				1C8B320D25C48FCF0021A88D /* View */,
 				1C21853A25B9F1750076CD14 /* WaitingScreen */,
-				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
-				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
-				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
