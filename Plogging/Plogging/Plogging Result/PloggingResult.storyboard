@@ -132,7 +132,7 @@
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="scoreGuideAlert:" destination="82H-Q8-kGh" eventType="touchUpInside" id="t0O-Sq-azj"/>
+                                                    <action selector="showScoreGuideAlert:" destination="82H-Q8-kGh" eventType="touchUpInside" id="t0O-Sq-azj"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="LJd-px-dlX">
@@ -747,6 +747,7 @@
                         <outlet property="ploggingResultPhoto" destination="SwS-f1-R3t" id="h0o-UE-ypJ"/>
                         <outlet property="ploggingTime" destination="NnI-wF-VNX" id="ljW-e8-asm"/>
                         <outlet property="totalTrashCount" destination="nuT-H2-sLb" id="Bti-2X-me8"/>
+                        <outlet property="totalTrashCountTitle" destination="4Cn-br-FxU" id="R1s-qh-cpZ"/>
                         <outlet property="trashInfoViewHeight" destination="IXQ-vj-dLj" id="G3L-ch-f1T"/>
                         <segue destination="DjO-kN-shv" kind="show" identifier="openCamera" id="ujz-IQ-8ks"/>
                         <segue destination="O5j-vd-2au" kind="show" identifier="renderingAlbumPhoto" id="4lY-Be-khK"/>

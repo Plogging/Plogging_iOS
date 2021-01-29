@@ -10,6 +10,7 @@ import UIKit
 class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingResultPhoto: UIImageView!
     @IBOutlet weak var totalTrashCount: UILabel!
+    @IBOutlet weak var totalTrashCountTitle: UILabel!
     @IBOutlet weak var exerciseScore: UILabel!
     @IBOutlet weak var echoScore: UILabel!
     @IBOutlet weak var ploggingTime: UILabel!
@@ -33,6 +34,10 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpViewUI()
+    }
+    
+    private func setUpViewUI() {
         self.navigationController?.navigationBar.isHidden = true
         
         let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
@@ -47,11 +52,11 @@ class PloggingResultViewController: UIViewController {
         contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
         
-//        exerciseScore.text = ploggingResultData?.score.exercise
-//        echoScore.text = ploggingResultData?.score.eco
-//        ploggingTime.text = ploggingResultData?.info.time
-//        ploggingDistance.text = ploggingResultData?.info.distance
-//        ploggingCalorie.text = ploggingResultData?.info.calorie
+        //        exerciseScore.text = ploggingResultData?.score.exercise
+        //        echoScore.text = ploggingResultData?.score.eco
+        //        ploggingTime.text = ploggingResultData?.info.time
+        //        ploggingDistance.text = ploggingResultData?.info.distance
+        //        ploggingCalorie.text = ploggingResultData?.info.calorie
         
         exerciseScore.text = "\(100)점"
         echoScore.text = "\(200)점"
@@ -67,9 +72,10 @@ class PloggingResultViewController: UIViewController {
             trashCountSum += Int(trashCount) ?? 0
         }
         totalTrashCount.text = "\(trashCountSum)개"
+        totalTrashCountTitle.text = "총 \(trashCountSum)개의 쓰레기를 주웠어요!"
     }
     
-    func showPloggingPhotoResisterAlert() {
+    private func showPloggingPhotoResisterAlert() {
         let alert = UIAlertController(title: "플로깅 사진 기록하기", message: "플로깅 사진 기록방식을 선택하세요.", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
             self.setUpImagePicker()
@@ -85,7 +91,18 @@ class PloggingResultViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func scoreGuideAlert(_ sender: UIButton) {
+    private func setUpImagePicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+    }
+}
+
+// MARK: IBAction
+extension PloggingResultViewController {
+    @IBAction func showScoreGuideAlert(_ sender: UIButton) {
         self.showPopUpViewController(with: .운동점수안내팝업)
     }
     
@@ -110,14 +127,6 @@ class PloggingResultViewController: UIViewController {
         if let sourceViewController = sender.source as? PloggingResultPhotoViewController, let thumbnailImage = sourceViewController.thumbnailImage {
             ploggingResultPhoto.image = thumbnailImage
         }
-    }
-    
-    private func setUpImagePicker() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.allowsEditing = true
-        present(imagePickerController, animated: true, completion: nil)
     }
 }
 
