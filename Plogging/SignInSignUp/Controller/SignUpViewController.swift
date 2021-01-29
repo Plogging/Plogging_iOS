@@ -52,7 +52,8 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if signUpButtonBottomConstraint.constant == 36, let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        if signUpButtonBottomConstraint.constant == 36,
+           let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             signUpButtonBottomConstraint.constant = keyboardHeight + 6
