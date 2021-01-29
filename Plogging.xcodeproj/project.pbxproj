@@ -21,6 +21,8 @@
 		1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306825A6163500413115 /* SNSLoginData.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
+		1C8B31FF25C489B20021A88D /* PlogginListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8B31FD25C489B20021A88D /* PlogginListCollectionViewCell.swift */; };
+		1C8B320025C489B20021A88D /* PlogginListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8B31FE25C489B20021A88D /* PlogginListCollectionViewCell.xib */; };
 		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
 		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
@@ -102,6 +104,8 @@
 		1C5B306825A6163500413115 /* SNSLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
 		1C5B306D25A6A04700413115 /* SNSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginManager.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
+		1C8B31FD25C489B20021A88D /* PlogginListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogginListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1C8B31FE25C489B20021A88D /* PlogginListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlogginListCollectionViewCell.xib; sourceTree = "<group>"; };
 		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 				1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		1C8B31FC25C489920021A88D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C8B31FD25C489B20021A88D /* PlogginListCollectionViewCell.swift */,
+				1C8B31FE25C489B20021A88D /* PlogginListCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1CC08DBA25A4B55B00EE3505 /* SignInSignUp */ = {
@@ -412,6 +425,7 @@
 		9B671DF025AE0D0400B0B415 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
+				1C8B31FC25C489920021A88D /* View */,
 				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
 				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
 			);
@@ -549,6 +563,7 @@
 				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
+				1C8B320025C489B20021A88D /* PlogginListCollectionViewCell.xib in Resources */,
 				3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +731,7 @@
 				3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */,
 				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
 				3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */,
+				1C8B31FF25C489B20021A88D /* PlogginListCollectionViewCell.swift in Sources */,
 				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
