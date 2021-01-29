@@ -17,7 +17,7 @@ struct APICollection {
     let login: HTTPHeaders = ["Content-Type": "application/json"]
 
     /// 로그인 하기
-    func requestSessionKey(param: Parameters, completion: @escaping (Result<User, APIError>) -> Void) {
+    func requestSessionKey(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.user,
                    method: .post,
                    parameters: param,
@@ -28,7 +28,7 @@ struct APICollection {
                 return completion(.failure(.dataFailed))
             }
 
-            guard let value = try? JSONDecoder().decode(User.self, from: data) else {
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
             

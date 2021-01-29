@@ -22,12 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let sessionKey = UserDefaults.standard.string(forKey: "sessionKey") {
             print(sessionKey)
         } else {
-            // 세션키 존재하지 않으면
+            // 유저 처음인지 확인하는 작업 필요
             SNSLoginManager.shared.setupLoginWithNaver()
             SNSLoginManager.shared.setupLoginWithKakao()
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.window?.rootViewController?.showLoginViewController()
+          
+            DispatchQueue.main.async {
+                self.window?.rootViewController?.showOnboardingViewController()
             }
         }
     }

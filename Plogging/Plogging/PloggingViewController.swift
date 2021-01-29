@@ -11,19 +11,13 @@ class PloggingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func clickStartPloggingButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: Storyboard.WaitingScreen.rawValue, bundle: nil)
+        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
+            waitingScreenViewController.modalPresentationStyle = .fullScreen
+            self.present(waitingScreenViewController, animated: false, completion: nil)
+        }
     }
-    */
-
 }

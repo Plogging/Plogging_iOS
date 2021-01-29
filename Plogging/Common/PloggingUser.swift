@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable {
+struct PloggingUser: Codable {
     let rc: Int
     let rcmsg: String
     let session: String

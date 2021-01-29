@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Waiting Screen View Controller-->
+        <scene sceneID="xRd-uP-Efn">
+            <objects>
+                <viewController storyboardIdentifier="WaitingScreenViewController" id="qu6-jc-6nC" customClass="WaitingScreenViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SBp-xC-iFF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플로깅이 곧 시작됩니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l5-or-xjZ">
+                                <rect key="frame" x="16" y="551" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.38823529411764707" green="0.43137254901960786" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="wgP-TE-xrJ">
+                                <rect key="frame" x="149" y="377" width="116" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="8Pm-x1-XvP"/>
+                                    <constraint firstAttribute="height" constant="142" id="dfN-mn-qe1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TVe-ZU-6fd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6l5-or-xjZ" firstAttribute="top" secondItem="wgP-TE-xrJ" secondAttribute="bottom" constant="32" id="42Y-ck-G43"/>
+                            <constraint firstItem="wgP-TE-xrJ" firstAttribute="centerX" secondItem="SBp-xC-iFF" secondAttribute="centerX" id="6Y7-kB-Ch5"/>
+                            <constraint firstItem="wgP-TE-xrJ" firstAttribute="centerY" secondItem="SBp-xC-iFF" secondAttribute="centerY" id="Ytg-jO-tuJ"/>
+                            <constraint firstItem="6l5-or-xjZ" firstAttribute="leading" secondItem="TVe-ZU-6fd" secondAttribute="leading" constant="16" id="lmj-jM-5dV"/>
+                            <constraint firstItem="TVe-ZU-6fd" firstAttribute="trailing" secondItem="6l5-or-xjZ" secondAttribute="trailing" constant="16" id="zFr-NR-vWa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="wgP-TE-xrJ" id="m0A-Lv-wtr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zRl-ih-tSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-416" y="-95"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="3" width="116" height="142"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
