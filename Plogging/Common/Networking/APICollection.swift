@@ -37,7 +37,7 @@ struct APICollection {
     }
     
     /// 산책 이력 가져오기
-    func getWalkingRecord(completion: @escaping (Result<Plogging, APIError>) -> Void) {
+    func getWalkingRecord(completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.plogging,
                    method: .get,
                    headers: temp
@@ -46,7 +46,7 @@ struct APICollection {
                 return completion(.failure(.dataFailed))
             }
 
-            guard let value = try? JSONDecoder().decode(Plogging.self, from: data) else {
+            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
             

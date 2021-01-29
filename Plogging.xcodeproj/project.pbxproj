@@ -27,7 +27,7 @@
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
-		1CBE98A425AF25A100CC247A /* Plogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* Plogging.swift */; };
+		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
 		1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98AB25AF2DFA00CC247A /* APIError.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
 		1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */; };
@@ -116,7 +116,7 @@
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
-		1CBE98A325AF25A100CC247A /* Plogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plogging.swift; sourceTree = "<group>"; };
+		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
 		1CBE98AB25AF2DFA00CC247A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				1CBE988925AC757B00CC247A /* Networking */,
-				1CBE98A325AF25A100CC247A /* Plogging.swift */,
+				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
 				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
 				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
@@ -733,7 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBE98A425AF25A100CC247A /* Plogging.swift in Sources */,
+				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
 				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
