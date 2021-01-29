@@ -24,7 +24,7 @@ class PloggingResultPhotoViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(thumbnailImageView)
         setUpThumbnailImageViewLayout()
-        guard let resizedBaseImage = baseImage?.resize(targetSize: CGSize(width: DeviceScreen.width, height: DeviceScreen.width)) else {
+        guard let resizedBaseImage = baseImage?.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenHeight)) else {
             return
         }
         let ploggingResultImageMaker = PloggingResultImageMaker()
@@ -34,8 +34,8 @@ class PloggingResultPhotoViewController: UIViewController {
     }
    
     private func setUpThumbnailImageViewLayout() {
-        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
-        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        thumbnailImageView.widthAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
+        thumbnailImageView.heightAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
         thumbnailImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         thumbnailImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
