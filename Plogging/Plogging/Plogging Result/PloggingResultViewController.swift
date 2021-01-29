@@ -27,8 +27,13 @@ class PloggingResultViewController: UIViewController {
             guard let PloggingResultPhotoViewController = segue.destination as? PloggingResultPhotoViewController else {
                 return
             }
-            // 거리, 시간 추가 전달 필요
+            PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
             PloggingResultPhotoViewController.baseImage = baseImage
+        } else if segue.identifier == SegueIdentifier.openCamera {
+            guard let cameraViewController = segue.destination as? CameraViewController else {
+                return
+            }
+            cameraViewController.ploggingResultData = ploggingResultData
         }
     }
     
@@ -43,36 +48,35 @@ class PloggingResultViewController: UIViewController {
         let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
         let info = PloggingResult.Info(time: "12:21", distance: "50", calorie: "990")
         let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
+        let trashCountSum = PloggingResult.TrashCountSum(sum: "10")
         
-        ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos)
+        ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos, trashCountSum: trashCountSum)
+        
+        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * getTrashInfosCount()))
+        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * getTrashInfosCount()))
+        
+        exerciseScore.text = ploggingResultData?.score.exercise
+        echoScore.text = ploggingResultData?.score.eco
+        ploggingTime.text = ploggingResultData?.info.time
+        ploggingDistance.text = ploggingResultData?.info.distance
+        ploggingCalorie.text = ploggingResultData?.info.calorie
+        
+        totalTrashCount.text = "\(getTrashCountSum())개"
+        totalTrashCountTitle.text = "총 \(getTrashCountSum())개의 쓰레기를 주웠어요!"
+    }
+    
+    public func getTrashCountSum() -> String {
+        guard let trashCountSum = ploggingResultData?.trashCountSum.sum else {
+            return ""
+        }
+        return trashCountSum
+    }
+
+    private func getTrashInfosCount() -> Int {
         guard let trashInfosCount = ploggingResultData?.trashInfos.count else {
-            return
+            return 0
         }
-        
-        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
-        
-        //        exerciseScore.text = ploggingResultData?.score.exercise
-        //        echoScore.text = ploggingResultData?.score.eco
-        //        ploggingTime.text = ploggingResultData?.info.time
-        //        ploggingDistance.text = ploggingResultData?.info.distance
-        //        ploggingCalorie.text = ploggingResultData?.info.calorie
-        
-        exerciseScore.text = "\(100)점"
-        echoScore.text = "\(200)점"
-        ploggingTime.text = "300"
-        ploggingDistance.text = "400"
-        ploggingCalorie.text = "500"
-        
-        var trashCountSum = 0
-        for i in 0..<trashInfosCount {
-            guard let trashCount = ploggingResultData?.trashInfos[i].count else {
-                return
-            }
-            trashCountSum += Int(trashCount) ?? 0
-        }
-        totalTrashCount.text = "\(trashCountSum)개"
-        totalTrashCountTitle.text = "총 \(trashCountSum)개의 쓰레기를 주웠어요!"
+        return trashInfosCount
     }
     
     private func showPloggingPhotoResisterAlert() {
@@ -117,7 +121,10 @@ extension PloggingResultViewController {
             guard let commonImage = UIImage(named: "test") else {
                 return
             }
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(commonImage, 2.13, "13:30")
+            guard let distance = ploggingResultData?.info.distance else {
+                return
+            }
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(commonImage, distance, "\(getTrashCountSum())")
             ploggingResultPhoto.image = ploggingResultImage
             // self.navigationController?.dismiss(animated: true, completion: nil)
         }

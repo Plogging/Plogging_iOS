@@ -14,6 +14,7 @@ class CameraViewController: UIViewController {
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     private var currentCamera = Camera.back.position
     var baseImage: UIImage?
+    var ploggingResultData: PloggingResult?
     
     private let cameraFrameView: UIView = {
         let view = UIView()
@@ -44,6 +45,7 @@ class CameraViewController: UIViewController {
                 return
             }
             PloggingResultPhotoViewController.baseImage = baseImage
+            PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
         }
     }
     
@@ -111,8 +113,13 @@ private extension CameraViewController {
     
     func addPloggingResultInfoView() {
         let ploggingInfoViewCreater = PloggingInfoViewCreater()
-        // 거리 시간 전달 필요
-        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(2.13, "13:30")
+        guard let distance = ploggingResultData?.info.distance else {
+            return
+        }
+        guard let trashCountSum = ploggingResultData?.trashCountSum.sum else {
+            return
+        }
+        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance, "\(trashCountSum)")
         ploggingInfoView.frame = CGRect(x: 0, y: cameraFrameView.frame.origin.y, width: 0, height: 0)
         view.addSubview(ploggingInfoView)
     }

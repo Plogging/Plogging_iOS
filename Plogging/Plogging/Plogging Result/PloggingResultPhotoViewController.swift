@@ -15,6 +15,7 @@ class PloggingResultPhotoViewController: UIViewController {
     }()
     var thumbnailImage: UIImage?
     var baseImage: UIImage?
+    var ploggingResultData: PloggingResult?
     
     @IBAction func back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -32,7 +33,13 @@ class PloggingResultPhotoViewController: UIViewController {
             return
         }
         let ploggingResultImageMaker = PloggingResultImageMaker()
-        let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage, 2.13, "13:30")
+        guard let distance = ploggingResultData?.info.distance else {
+            return
+        }
+        guard let trashCountSum = ploggingResultData?.trashCountSum.sum else {
+            return
+        }
+        let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage, distance, "\(trashCountSum)")
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
     }

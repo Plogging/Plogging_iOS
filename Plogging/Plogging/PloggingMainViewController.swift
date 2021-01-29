@@ -35,8 +35,9 @@ class PloggingMainViewController: UIViewController {
         let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
         let info = PloggingResult.Info(time: "12:21", distance: "50", calorie: "990")
         let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
+        let trashCountSum = PloggingResult.TrashCountSum(sum: "10")
         
-        var ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos)
+        var ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos, trashCountSum: trashCountSum)
         let ploggingResult = UIStoryboard(name: "PloggingResult", bundle: nil)
         guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
             return

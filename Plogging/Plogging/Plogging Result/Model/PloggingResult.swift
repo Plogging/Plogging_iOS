@@ -24,7 +24,13 @@ public struct PloggingResult {
         var count: String
     }
     
-    var score: PloggingResult.Score
-    var info: PloggingResult.Info
+    struct TrashCountSum {
+        var sum: String
+    }
+    
+    var score: Score
+    var info: Info
     var trashInfos: [TrashInfo]
+    var trashCountSum: TrashCountSum
+    
 }
