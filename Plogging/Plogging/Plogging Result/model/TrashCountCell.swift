@@ -10,10 +10,14 @@ import UIKit
 class TrashCountCell: UICollectionViewCell {
     @IBOutlet weak var trashName: UILabel!
     @IBOutlet weak var trashCount: UILabel!
+    @IBOutlet weak var lineSeparotor: UIView!
     
-//           trashCountCell?.updateUI(trashInfos[indexPath])
     func updateUI(_ trashInfo: PloggingResult.TrashInfo) {
         trashName.text = trashInfo.name
         trashCount.text = trashInfo.count + "개"
+    }
+    
+    func changeSeparatorColor() {
+        lineSeparotor.backgroundColor = UIColor.greenBlue
     }
 }

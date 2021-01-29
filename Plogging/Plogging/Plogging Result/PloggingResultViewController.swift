@@ -150,6 +150,9 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         }
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
+        if indexPath.item == trashInfos.count-1 {
+            trashCountCell?.changeSeparatorColor()
+        }
         return cell
     }
 }

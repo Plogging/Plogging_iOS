@@ -527,6 +527,7 @@
                                                                         </collectionViewCellContentView>
                                                                         <size key="customSize" width="291" height="50"/>
                                                                         <connections>
+                                                                            <outlet property="lineSeparotor" destination="Ets-nX-VSJ" id="qU3-an-T9n"/>
                                                                             <outlet property="trashCount" destination="UzY-oq-AvQ" id="DEk-Yf-M4C"/>
                                                                             <outlet property="trashName" destination="Zfx-fR-JOH" id="fsP-Eg-ekb"/>
                                                                         </connections>
