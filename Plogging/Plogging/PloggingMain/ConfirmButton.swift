@@ -12,6 +12,11 @@ class ConfirmButton: UIButton {
         setupLayout()
     }
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupProperties()
+        setupLayout()
+    }
 
     func setupProperties() {
         setTitle("플로깅 시작하기", for: .normal)
@@ -31,18 +36,12 @@ class ConfirmButton: UIButton {
     func setupLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 196),
-            heightAnchor.constraint(equalToConstant: 78)
+            topAnchor.constraint(equalTo: topAnchor),
+            bottomAnchor.constraint(equalTo: bottomAnchor),
+            leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupProperties()
-        setupLayout()
-    }
-
-
 }
 
 #if canImport(SwiftUI) && DEBUG
