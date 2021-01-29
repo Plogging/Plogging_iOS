@@ -49,13 +49,11 @@ class OnboardingViewController: UIViewController {
     private var isLastPage: Bool = false {
         didSet {
             if isLastPage {
-                skipButton.setTitle("확인", for: .normal)
-                skipButton.setTitleColor(.white, for: .normal)
-                skipButton.backgroundColor = UIColor.tintGreen
+                let confirmImage = UIImage(named: "confirm")
+                skipButton.setImage(confirmImage, for: .normal)
             } else {
-                skipButton.setTitle("건너뛰기", for: .normal)
-                skipButton.setTitleColor(UIColor.darkGrayColor, for: .normal)
-                skipButton.backgroundColor = UIColor.veryLightPinkTwo
+                let skipImage = UIImage(named: "skip")
+                skipButton.setImage(skipImage, for: .normal)
             }
         }
     }
@@ -100,6 +98,7 @@ class OnboardingViewController: UIViewController {
                                                       width: 330,
                                                       height: 253))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
+            imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
             
             // 제목
