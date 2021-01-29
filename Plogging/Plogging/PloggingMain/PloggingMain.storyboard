@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="bHg-Id-0Y1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppd-Sj-3xd" customClass="ConfirmButton" customModule="Plogging">
+                                <rect key="frame" x="89" y="201" width="149.5" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ppd-Sj-3xd" secondAttribute="height" multiplier="38:47" id="nrA-Ja-LwQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="ppd-Sj-3xd" secondAttribute="bottom" constant="476" id="BKE-Wb-wOt"/>
+                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" constant="-61" id="NbA-Ip-hrJ"/>
+                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="leading" secondItem="gOF-4b-UF3" secondAttribute="leading" constant="89" id="QW1-Xg-B9L"/>
+                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="top" secondItem="gOF-4b-UF3" secondAttribute="top" constant="157" id="Sa0-0O-jiQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0K-c9-4nf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="-391"/>
+            <point key="canvasLocation" x="347.82608695652175" y="-391.07142857142856"/>
         </scene>
         <!--Plogging Introduce Modal View Controller-->
         <scene sceneID="rWS-4A-ax1">
@@ -49,12 +65,58 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LsG-j0-skQ" kind="relationship" relationship="rootViewController" id="d6s-Yq-7Zm"/>
+                        <segue destination="iDk-36-o5o" kind="relationship" relationship="rootViewController" id="OUg-kC-r6R"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWV-Dd-i44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1210" y="-391"/>
+        </scene>
+        <!--Plogging Running Info View Controller-->
+        <scene sceneID="Nvt-tf-emK">
+            <objects>
+                <viewController id="iDk-36-o5o" customClass="PloggingRunningInfoViewController" customModule="Plogging" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syo-Hv-PFH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="center" ambiguous="YES" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-rB-z4s">
+                                <rect key="frame" x="0.0" y="132" width="414" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-5h-MFn" customClass="SummeryItem" customModule="Plogging">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="84"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" id="fgd-wO-2uJ" customClass="SummeryItem" customModule="Plogging">
+                                        <rect key="frame" x="8" y="0.0" width="0.0" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H25-Bo-P2e" customClass="SummeryItem" customModule="Plogging">
+                                        <rect key="frame" x="271" y="0.0" width="143" height="84"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wY2-NV-ZFd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EPq-rB-z4s" secondAttribute="trailingMargin" id="NhN-lV-GGO"/>
+                            <constraint firstItem="EPq-rB-z4s" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="l6H-gs-Yfr"/>
+                            <constraint firstItem="EPq-rB-z4s" firstAttribute="top" secondItem="wY2-NV-ZFd" secondAttribute="top" constant="33" id="ofQ-iN-4ps"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZCB-kh-8P6"/>
+                    <connections>
+                        <outlet property="summeryDistance" destination="9PT-5h-MFn" id="3Zu-IX-rbv"/>
+                        <outlet property="summeryKcal" destination="H25-Bo-P2e" id="9nD-gx-tNR"/>
+                        <outlet property="summeryStackView" destination="EPq-rB-z4s" id="lQu-aO-FPI"/>
+                        <outlet property="summeryTime" destination="fgd-wO-2uJ" id="JaC-xT-g8i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jzp-ey-eN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-1064.0625"/>
         </scene>
     </scenes>
     <resources>
