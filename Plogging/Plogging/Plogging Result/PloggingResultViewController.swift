@@ -15,6 +15,8 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingDistance: UILabel!
     @IBOutlet weak var ploggingCalorie: UILabel!
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     var baseImage: UIImage?
     var ploggingResultData: PloggingResult?
     
@@ -38,7 +40,13 @@ class PloggingResultViewController: UIViewController {
         let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
         
         ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos)
-
+        guard let trashInfosCount = ploggingResultData?.trashInfos.count else {
+            return
+        }
+        
+        contentViewHeight.constant = 1280 /* 전체 길이 */ + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = 80 + 40 /* 윗 공간 */+ CGFloat((50 * trashInfosCount))
+        
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
 //        ploggingTime.text = ploggingResultData?.info.time
@@ -50,6 +58,11 @@ class PloggingResultViewController: UIViewController {
         ploggingTime.text = "300"
         ploggingDistance.text = "400"
         ploggingCalorie.text = "500"
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
     }
     
     func showPloggingPhotoResisterAlert() {
@@ -132,6 +145,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
             return cell
         }
         trashCountCell?.updateUI(trashInfos[indexPath.item])
+        
         return cell
     }
 }
