@@ -5,6 +5,7 @@
 //  Created by 김혜리 on 2021/01/20.
 //
 
+
 import UIKit
 
 class OnboardingViewController: UIViewController {
@@ -168,4 +169,3 @@ class User {
         UserDefaults.standard.setValue(true, forKey: "isFirstTimeUser")
     }
 }
-

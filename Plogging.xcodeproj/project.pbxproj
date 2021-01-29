@@ -18,12 +18,20 @@
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
-		1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306825A6163500413115 /* SNSLoginData.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
+		1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */; };
+		1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000025C46B30003144B1 /* LoginViewController.swift */; };
+		1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */; };
+		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
+		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
-		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
-		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
+		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
+		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
+		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
+		1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98AB25AF2DFA00CC247A /* APIError.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
+		1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */; };
+		1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281DB25B4C117003FBCCD /* PloggingUser.swift */; };
 		25AE08688E2C7F71DFE4895C /* Pods_Plogging_PloggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */; };
 		3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */; };
 		3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */; };
@@ -99,12 +107,20 @@
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
-		1C5B306825A6163500413115 /* SNSLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
 		1C5B306D25A6A04700413115 /* SNSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginManager.swift; sourceTree = "<group>"; };
+		1C5C000025C46B30003144B1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
+		1C5C000325C46B30003144B1 /* SNSLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
+		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
+		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
-		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
-		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
+		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
+		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
+		1CBE98AB25AF2DFA00CC247A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		1CC281DB25B4C117003FBCCD /* PloggingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUser.swift; sourceTree = "<group>"; };
 		2A0ABABA99B77BC2068FB18E /* Pods-Plogging-PloggingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
 		3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPS.storyboard; sourceTree = "<group>"; };
@@ -234,13 +250,49 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		1C5C000225C46B30003144B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C5C000325C46B30003144B1 /* SNSLoginData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C5C000425C46B31003144B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C5C000525C46B31003144B1 /* SNSLogin.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C5CFFFE25C46B30003144B1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */,
+				1C5C000025C46B30003144B1 /* LoginViewController.swift */,
+				1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1CBE988925AC757B00CC247A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE988A25AC76AE00CC247A /* APICollection.swift */,
+				1CBE988F25AC7B4800CC247A /* BaseURL.swift */,
+				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		1CC08DBA25A4B55B00EE3505 /* SignInSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				1C5CFFFE25C46B30003144B1 /* Controller */,
+				1C5C000225C46B30003144B1 /* Model */,
+				1C5C000425C46B31003144B1 /* View */,
 				1C2184DD25B75B260076CD14 /* Onboarding */,
-				1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */,
-				1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */,
-				1C5B306825A6163500413115 /* SNSLoginData.swift */,
 				1C5B306D25A6A04700413115 /* SNSLoginManager.swift */,
 			);
 			path = SignInSignUp;
@@ -249,6 +301,9 @@
 		1CC08DD925A5D55400EE3505 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1CBE988925AC757B00CC247A /* Networking */,
+				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
+				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
 				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
@@ -264,6 +319,7 @@
 			children = (
 				9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */,
 				1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */,
+				1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */,
 				1C2184EB25B770130076CD14 /* Extension+String.swift */,
 				1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */,
 			);
@@ -542,11 +598,11 @@
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */,
+				1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
-				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
 				3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */,
@@ -677,7 +733,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
+				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
@@ -685,16 +743,19 @@
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
+				1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
+				1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */,
+				1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */,
+				1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
-				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
@@ -707,7 +768,10 @@
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
 				9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
-				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
+				1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */,
+				1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */,
+				1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */,
+				1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */,
 				3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */,
 				3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */,
 				3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */,
