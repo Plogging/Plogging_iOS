@@ -19,23 +19,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="64G-dD-haf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eJe-Sl-f51">
-                                <rect key="frame" x="36" y="330.5" width="342" height="77"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께 플로깅해요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kln-7R-cg5">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 000 가입하고 플로거의 세계로 함께 떠나봐요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5K-B5-Tfi">
-                                        <rect key="frame" x="0.0" y="43.5" width="342" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ypu-gG-TR6">
                                 <rect key="frame" x="36" y="457.5" width="342" height="168"/>
                                 <subviews>
@@ -148,12 +131,9 @@
                             <constraint firstItem="64G-dD-haf" firstAttribute="leading" secondItem="glD-Aj-CoI" secondAttribute="leading" id="Pbj-yK-t2M"/>
                             <constraint firstItem="2uL-He-YRY" firstAttribute="top" secondItem="aFX-FD-ER9" secondAttribute="bottom" constant="24" id="Vnl-Q6-suD"/>
                             <constraint firstItem="aFX-FD-ER9" firstAttribute="top" secondItem="Ypu-gG-TR6" secondAttribute="bottom" constant="12" id="aP9-sx-ZmA"/>
-                            <constraint firstItem="glD-Aj-CoI" firstAttribute="trailing" secondItem="eJe-Sl-f51" secondAttribute="trailing" constant="36" id="atX-kA-rQe"/>
                             <constraint firstItem="glD-Aj-CoI" firstAttribute="bottom" secondItem="2uL-He-YRY" secondAttribute="bottom" constant="36" id="dUs-Rh-Q63"/>
                             <constraint firstItem="2uL-He-YRY" firstAttribute="leading" secondItem="glD-Aj-CoI" secondAttribute="leading" constant="36" id="ecc-gh-sNk"/>
-                            <constraint firstItem="Ypu-gG-TR6" firstAttribute="top" secondItem="eJe-Sl-f51" secondAttribute="bottom" constant="50" id="fnk-fG-wLy"/>
                             <constraint firstAttribute="bottom" secondItem="64G-dD-haf" secondAttribute="bottom" id="k8x-hY-HDH"/>
-                            <constraint firstItem="eJe-Sl-f51" firstAttribute="leading" secondItem="glD-Aj-CoI" secondAttribute="leading" constant="36" id="lEb-KM-jZj"/>
                             <constraint firstItem="glD-Aj-CoI" firstAttribute="trailing" secondItem="Ypu-gG-TR6" secondAttribute="trailing" constant="36" id="r8X-ob-mUR"/>
                         </constraints>
                     </view>
@@ -370,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qn-u4-vGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="35"/>
+            <point key="canvasLocation" x="2245" y="35"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="t9C-7i-EQz">
@@ -434,6 +414,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lS-IU-3V2">
                                 <rect key="frame" x="295.5" y="231.5" width="94.5" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94.5" id="YbC-E3-ScT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="비밀번호 찾기">
                                     <color key="titleColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -487,7 +470,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ivD-SA-Upj" firstAttribute="top" secondItem="DTY-em-avl" secondAttribute="bottom" constant="12" id="6j8-iR-f3Q"/>
-                            <constraint firstItem="1lS-IU-3V2" firstAttribute="leading" secondItem="vs8-um-cwI" secondAttribute="trailing" constant="10" id="8Jz-Xs-EpJ"/>
+                            <constraint firstItem="1lS-IU-3V2" firstAttribute="leading" secondItem="vs8-um-cwI" secondAttribute="trailing" constant="10" id="9R9-1Y-tSC"/>
                             <constraint firstItem="bQt-34-mgs" firstAttribute="trailing" secondItem="DTY-em-avl" secondAttribute="trailing" constant="24" id="AQL-Tv-XVZ"/>
                             <constraint firstItem="Sfn-mG-Y0e" firstAttribute="centerX" secondItem="bQt-34-mgs" secondAttribute="centerX" id="Aei-Je-etf"/>
                             <constraint firstItem="bQt-34-mgs" firstAttribute="trailing" secondItem="1lS-IU-3V2" secondAttribute="trailing" constant="24" id="BJA-Kv-Rsa"/>
@@ -504,6 +487,7 @@
                             <constraint firstItem="vs8-um-cwI" firstAttribute="leading" secondItem="bQt-34-mgs" secondAttribute="leading" constant="24" id="oUw-vG-Poj"/>
                             <constraint firstItem="BnU-Nb-3kp" firstAttribute="leading" secondItem="bQt-34-mgs" secondAttribute="leading" constant="24" id="pEa-ai-CIm"/>
                             <constraint firstItem="XHx-eg-raj" firstAttribute="centerX" secondItem="Sfn-mG-Y0e" secondAttribute="centerX" id="qI3-rS-mc3"/>
+                            <constraint firstItem="BnU-Nb-3kp" firstAttribute="top" relation="lessThanOrEqual" secondItem="vs8-um-cwI" secondAttribute="bottom" constant="70" id="rDh-u4-Nch"/>
                             <constraint firstItem="1lS-IU-3V2" firstAttribute="top" secondItem="ivD-SA-Upj" secondAttribute="bottom" constant="12" id="rQY-LX-8WO"/>
                             <constraint firstItem="vs8-um-cwI" firstAttribute="top" secondItem="ivD-SA-Upj" secondAttribute="bottom" constant="18" id="wLQ-lB-NHj"/>
                         </constraints>
