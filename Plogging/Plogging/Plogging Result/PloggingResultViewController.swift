@@ -44,8 +44,8 @@ class PloggingResultViewController: UIViewController {
             return
         }
         
-        contentViewHeight.constant = 1280 /* 전체 길이 */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 + 40 /* 윗 공간 */+ CGFloat((50 * trashInfosCount))
+        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
         
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
@@ -58,11 +58,15 @@ class PloggingResultViewController: UIViewController {
         ploggingTime.text = "300"
         ploggingDistance.text = "400"
         ploggingCalorie.text = "500"
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         
+        var trashCountSum = 0
+        for i in 0..<trashInfosCount {
+            guard let trashCount = ploggingResultData?.trashInfos[i].count else {
+                return
+            }
+            trashCountSum += Int(trashCount) ?? 0
+        }
+        totalTrashCount.text = "\(trashCountSum)개"
     }
     
     func showPloggingPhotoResisterAlert() {

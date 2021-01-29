@@ -550,11 +550,11 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0개" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuT-H2-sLb">
-                                                                        <rect key="frame" x="241" y="22" width="26" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000개" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuT-H2-sLb">
+                                                                        <rect key="frame" x="203" y="22" width="64" height="21"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="26" id="3kG-wv-Ocf"/>
                                                                             <constraint firstAttribute="height" constant="21" id="wB1-wS-unX"/>
+                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="xe2-o7-yjU"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -745,6 +745,7 @@
                         <outlet property="ploggingDistance" destination="Q05-aS-dYW" id="VlW-dm-cyd"/>
                         <outlet property="ploggingResultPhoto" destination="SwS-f1-R3t" id="h0o-UE-ypJ"/>
                         <outlet property="ploggingTime" destination="NnI-wF-VNX" id="ljW-e8-asm"/>
+                        <outlet property="totalTrashCount" destination="nuT-H2-sLb" id="Bti-2X-me8"/>
                         <outlet property="trashInfoViewHeight" destination="IXQ-vj-dLj" id="G3L-ch-f1T"/>
                         <segue destination="DjO-kN-shv" kind="show" identifier="openCamera" id="ujz-IQ-8ks"/>
                         <segue destination="O5j-vd-2au" kind="show" identifier="renderingAlbumPhoto" id="4lY-Be-khK"/>
