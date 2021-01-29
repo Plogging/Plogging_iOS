@@ -45,22 +45,14 @@ class PloggingResultViewController: UIViewController {
     private func setUpViewUI() {
         self.navigationController?.navigationBar.isHidden = true
         
-        let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
-        let info = PloggingResult.Info(time: "12:21", distance: "50", calorie: "990")
-        let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
-        let trashCountSum = PloggingResult.TrashCountSum(sum: "10")
-        
-        ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos, trashCountSum: trashCountSum)
-        
         contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * getTrashInfosCount()))
         trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * getTrashInfosCount()))
-        
+
         exerciseScore.text = ploggingResultData?.score.exercise
         echoScore.text = ploggingResultData?.score.eco
         ploggingTime.text = ploggingResultData?.info.time
         ploggingDistance.text = ploggingResultData?.info.distance
         ploggingCalorie.text = ploggingResultData?.info.calorie
-        
         totalTrashCount.text = "\(getTrashCountSum())개"
         totalTrashCountTitle.text = "총 \(getTrashCountSum())개의 쓰레기를 주웠어요!"
     }
@@ -125,6 +117,7 @@ extension PloggingResultViewController {
                 return
             }
             let ploggingResultImage = ploggingResultImageMaker.createResultImage(commonImage, distance, "\(getTrashCountSum())")
+            //서버 통신 추가
             ploggingResultPhoto.image = ploggingResultImage
             // self.navigationController?.dismiss(animated: true, completion: nil)
         }

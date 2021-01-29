@@ -32,5 +32,4 @@ public struct PloggingResult {
     var info: Info
     var trashInfos: [TrashInfo]
     var trashCountSum: TrashCountSum
-    
 }

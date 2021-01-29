@@ -328,7 +328,7 @@
 		9B0C235125A4D62F0084D27B /* Plogging Result */ = {
 			isa = PBXGroup;
 			children = (
-				9B32B5AC25C27F4900CB25C0 /* model */,
+				9B32B5AC25C27F4900CB25C0 /* Model */,
 				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
 				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
 				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
@@ -358,14 +358,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		9B32B5AC25C27F4900CB25C0 /* model */ = {
+		9B32B5AC25C27F4900CB25C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 				9B32B5A725C2761700CB25C0 /* PloggingResult.swift */,
 				9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9B5A32E325AEB1170061A361 /* Supporting Files */ = {
