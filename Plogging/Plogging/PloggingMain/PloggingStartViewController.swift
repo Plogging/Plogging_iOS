@@ -10,6 +10,8 @@ class PloggingStartViewController: UIViewController {
 
     private var button = ConfirmButton()
 
+    @IBOutlet weak var dummy: ConfirmButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange

@@ -12,6 +12,7 @@ class ConfirmButton: UIButton {
         setupLayout()
     }
 
+
     func setupProperties() {
         setTitle("플로깅 시작하기", for: .normal)
         setTitleColor(.systemBlue, for: .normal)
@@ -36,8 +37,11 @@ class ConfirmButton: UIButton {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupProperties()
+        setupLayout()
     }
+
 
 }
 

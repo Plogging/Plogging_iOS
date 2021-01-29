@@ -45,12 +45,12 @@ class IntroduceModalItem: UIView {
 
         index.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                                        index.centerYAnchor.constraint(equalTo: label.centerYAnchor),
-                                        index.widthAnchor.constraint(equalToConstant: 34),
-                                        index.heightAnchor.constraint(equalToConstant: 34),
-                                        index.topAnchor.constraint(equalTo: label.topAnchor),
-                                        index.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 66)
-                                    ])
+            index.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+            index.widthAnchor.constraint(equalToConstant: 34),
+            index.heightAnchor.constraint(equalToConstant: 34),
+            index.topAnchor.constraint(equalTo: label.topAnchor),
+            index.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 66)
+        ])
 
         // todo: - letter space, line height 설정하기
         label.textColor = .black
@@ -64,11 +64,10 @@ class IntroduceModalItem: UIView {
         // label view layout
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                                        label.bottomAnchor.constraint(equalTo: bottomAnchor),
-                                        label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
-                                        label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12)
-
-                                    ])
+            label.bottomAnchor.constraint(equalTo: bottomAnchor),
+            label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
+            label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12)
+        ])
     }
 
 
