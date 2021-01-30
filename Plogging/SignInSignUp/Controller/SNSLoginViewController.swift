@@ -26,6 +26,10 @@ class SNSLoginViewController: UIViewController {
         setupButtonsUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func setupButtonsUI() {
         kakaoLoginButton.clipsToBounds = true
         kakaoLoginButton.layer.cornerRadius = 12
