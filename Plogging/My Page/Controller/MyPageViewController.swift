@@ -44,6 +44,19 @@ extension MyPageViewController: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+extension MyPageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let space: CGFloat = 40
+        let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
+        return CGSize(width: size, height: size)
+    }
 }
