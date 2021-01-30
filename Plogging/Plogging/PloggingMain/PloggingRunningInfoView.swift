@@ -15,6 +15,4 @@ class PloggingRunningInfoView: UIView{
         super.init(coder:coder)
     }
 
-
-
 }

@@ -22,7 +22,7 @@ class ConfirmButton: UIButton {
         setTitle("플로깅 시작하기", for: .normal)
         setTitleColor(.systemBlue, for: .normal)
         layer.backgroundColor = CGColor.fromInt(red: 55, green: 213, blue: 172, alpha: 1)
-        layer.cornerRadius = 42
+        layer.cornerRadius = 40
         setTitleColor(.white, for: .normal)
         
         // todo - shadow 적용하기

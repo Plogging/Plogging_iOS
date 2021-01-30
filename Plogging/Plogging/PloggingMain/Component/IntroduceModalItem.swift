@@ -53,7 +53,7 @@ class IntroduceModalItem: UIView {
         ])
 
         // todo: - letter space, line height 설정하기
-        label.textColor = .black
+        label.textColor = .black()
         label.numberOfLines = 0
         label.textAlignment = .left
         label.font.withSize(11.0)
