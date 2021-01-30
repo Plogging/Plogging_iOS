@@ -319,6 +319,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="회원가입"/>
+                                <connections>
+                                    <segue destination="rtc-X8-Qot" kind="show" id="q9C-8D-1Tr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vyH-i1-AGy"/>
@@ -469,7 +472,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bQt-34-mgs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ivD-SA-Upj" firstAttribute="top" secondItem="DTY-em-avl" secondAttribute="bottom" constant="12" id="6j8-iR-f3Q"/>
                             <constraint firstItem="1lS-IU-3V2" firstAttribute="leading" secondItem="vs8-um-cwI" secondAttribute="trailing" constant="10" id="9R9-1Y-tSC"/>
@@ -561,7 +564,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xA9-uk-LXe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BW2-7F-acK" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="93o-QR-Vm1"/>
                             <constraint firstItem="xA9-uk-LXe" firstAttribute="trailing" secondItem="BW2-7F-acK" secondAttribute="trailing" constant="24" id="Cef-LX-LRz"/>
@@ -584,6 +587,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wat-zA-0fT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3642" y="35"/>
+        </scene>
+        <!--Nick Name View Controller-->
+        <scene sceneID="Kie-7p-gIK">
+            <objects>
+                <viewController id="rtc-X8-Qot" customClass="NickNameViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jbz-nP-C5g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="87o-75-x4Z">
+                                <rect key="frame" x="24" y="190" width="366" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미 사용중인 닉네임입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgn-t3-qaA">
+                                <rect key="frame" x="24" y="252" width="366" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.16078431372549018" blue="0.2627450980392157" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltv-Y5-glX">
+                                <rect key="frame" x="24" y="30" width="118" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공백포함 9자까지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdO-11-u4g">
+                                <rect key="frame" x="24" y="190" width="366" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRF-qU-Gfh">
+                                <rect key="frame" x="24" y="405" width="366" height="60"/>
+                                <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.83921568629999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="enG-7R-BVo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="회원가입"/>
+                                <connections>
+                                    <action selector="clickConfirmButton:" destination="rtc-X8-Qot" eventType="touchUpInside" id="22r-3R-qkT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1vl-w4-p35"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rgn-t3-qaA" firstAttribute="leading" secondItem="1vl-w4-p35" secondAttribute="leading" constant="24" id="7Qu-cf-CaJ"/>
+                            <constraint firstItem="YRF-qU-Gfh" firstAttribute="leading" secondItem="1vl-w4-p35" secondAttribute="leading" constant="24" id="HWv-Oq-o1d"/>
+                            <constraint firstItem="1vl-w4-p35" firstAttribute="trailing" secondItem="YRF-qU-Gfh" secondAttribute="trailing" constant="24" id="ZzS-TB-son"/>
+                            <constraint firstItem="87o-75-x4Z" firstAttribute="top" secondItem="Ltv-Y5-glX" secondAttribute="bottom" constant="128" id="abz-Q4-qm9"/>
+                            <constraint firstItem="1vl-w4-p35" firstAttribute="trailing" secondItem="hdO-11-u4g" secondAttribute="trailing" constant="24" id="dV8-nd-aoU"/>
+                            <constraint firstItem="rgn-t3-qaA" firstAttribute="top" secondItem="hdO-11-u4g" secondAttribute="bottom" constant="20" id="e3T-de-0Tu"/>
+                            <constraint firstItem="87o-75-x4Z" firstAttribute="leading" secondItem="1vl-w4-p35" secondAttribute="leading" constant="24" id="lhv-eg-DDB"/>
+                            <constraint firstItem="YRF-qU-Gfh" firstAttribute="top" secondItem="rgn-t3-qaA" secondAttribute="bottom" constant="132" id="uj5-RL-vI9"/>
+                            <constraint firstItem="Ltv-Y5-glX" firstAttribute="leading" secondItem="1vl-w4-p35" secondAttribute="leading" constant="24" id="vIM-D5-5Zd"/>
+                            <constraint firstItem="hdO-11-u4g" firstAttribute="leading" secondItem="1vl-w4-p35" secondAttribute="leading" constant="24" id="wKP-Nr-sK1"/>
+                            <constraint firstItem="1vl-w4-p35" firstAttribute="trailing" secondItem="rgn-t3-qaA" secondAttribute="trailing" constant="24" id="xGl-hQ-fED"/>
+                            <constraint firstItem="hdO-11-u4g" firstAttribute="top" secondItem="Ltv-Y5-glX" secondAttribute="bottom" constant="128" id="yMC-x5-Og1"/>
+                            <constraint firstItem="1vl-w4-p35" firstAttribute="trailing" secondItem="87o-75-x4Z" secondAttribute="trailing" constant="24" id="ygg-xP-079"/>
+                            <constraint firstItem="Ltv-Y5-glX" firstAttribute="top" secondItem="1vl-w4-p35" secondAttribute="top" constant="30" id="zij-CO-aF0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ewf-s1-eK6"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="YRF-qU-Gfh" id="SWD-Rr-ymP"/>
+                        <outlet property="nickNameInfoLabel" destination="hdO-11-u4g" id="fBJ-jd-NYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypm-1r-F2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4358" y="35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M4d-Nx-MCG">

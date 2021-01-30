@@ -18,6 +18,7 @@
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C31C03525C5B60800413EBB /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */; };
 		1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */; };
+		1C31C03A25C5C28C00413EBB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03925C5C28C00413EBB /* NickNameViewController.swift */; };
 		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
 		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
@@ -111,6 +112,7 @@
 		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
 		1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+LoginValidation.swift"; sourceTree = "<group>"; };
+		1C31C03925C5C28C00413EBB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
 		1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRankingTableViewCell.xib; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				1C5C000025C46B30003144B1 /* LoginViewController.swift */,
 				1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */,
 				1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */,
+				1C31C03925C5C28C00413EBB /* NickNameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				1C31C03525C5B60800413EBB /* FindPasswordViewController.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
 				1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */,
+				1C31C03A25C5C28C00413EBB /* NickNameViewController.swift in Sources */,
 				1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
