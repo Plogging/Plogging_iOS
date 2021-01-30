@@ -8,58 +8,17 @@ import MapKit
 
 class PloggingStartViewController: UIViewController {
 
-    private var button = ConfirmButton()
+    @IBOutlet weak var presentIntroduceModal: ConfirmButton!
 
-    @IBOutlet weak var dummy: ConfirmButton!
+    @IBAction func presentModal(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
+        if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController") as? PloggingIntroduceModalViewController {
+            infoController.isModalInPresentation = true
+            present(infoController, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
-        view.addSubview(button)
-        button.addTarget(self, action: #selector(onConfirm), for: .touchUpInside)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setupLayout()
-        onConfirm()
-    }
-
-    // TODO: life cycle
-    func setupLayout() {
-        button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -133)
-        ])
-    }
-
-    @objc
-    func onConfirm() {
-        let controller = PloggingRunningInfoViewController()
-        controller.modalPresentationStyle = .popover
-        present(controller, animated: true, completion: nil)
     }
 }
-
-
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-@available(iOS 13.0, *)
-
-struct VCRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = PloggingStartViewController
-    func makeUIViewController(context: Context) -> PloggingStartViewController {
-        PloggingStartViewController()
-    }
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-    }
-}
-
-struct Previews: PreviewProvider {
-    static var previews: some View {
-        VCRepresentable()
-    }
-}
-#endif
