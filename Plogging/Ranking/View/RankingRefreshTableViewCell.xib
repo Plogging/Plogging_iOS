@@ -24,12 +24,18 @@
                                 <state key="normal" title="새로고침">
                                     <color key="titleColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="refreshButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="15f-wb-AoA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDO-gm-j7A">
                                 <rect key="frame" x="56" y="0.0" width="12" height="30"/>
                                 <state key="normal" image="refresh">
                                     <color key="titleColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="refreshIconButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pbD-go-Tg0"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>

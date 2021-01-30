@@ -11,13 +11,23 @@ class RankingRefreshTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
+    @IBAction func refreshButtonClick(_ sender: UIButton) {
+        refreshCollecView()
+    }
+    
+    @IBAction func refreshIconButtonClick(_ sender: UIButton) {
+        refreshCollecView()
+    }
+    
+    private func refreshCollecView() {
+        
+    }
 }

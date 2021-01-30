@@ -57,6 +57,7 @@ class RankingViewController: UIViewController {
         
         weeklyView.alpha = 1
         monthlyView.alpha = 0
+        refreshRankingList()
     }
     
     @IBAction func montlyButtonClick(_ sender: UIButton) {
@@ -65,6 +66,14 @@ class RankingViewController: UIViewController {
         
         weeklyView.alpha = 0
         monthlyView.alpha = 1
+        refreshRankingList()
+    }
+    
+    private func refreshRankingList() {
+        // weekly
+        tableView.reloadData()
+        
+        // monthly
     }
 }
 
@@ -76,7 +85,7 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

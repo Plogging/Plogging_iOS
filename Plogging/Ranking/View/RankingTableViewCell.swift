@@ -69,7 +69,7 @@ class RankingTableViewCell: UITableViewCell {
         } else {
             rankingImageView.isHidden = true
             rankingLabel.isHidden = false
-            rankingLabel.text = "\(index.row)"
+            rankingLabel.text = "\(imageIndex)"
             outerView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 207/255, alpha: 1)
         }
