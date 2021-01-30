@@ -34,12 +34,15 @@ class RankingViewController: UIViewController {
         tableView.register(userRankingNib, forCellReuseIdentifier: "RankingTableViewCell")
         let myRankingNib = UINib(nibName: "MyRankingTableViewCell", bundle: nil)
         tableView.register(myRankingNib, forCellReuseIdentifier: "MyRankingTableViewCell")
+        let rankinbRefreshNib = UINib(nibName: "RankingRefreshTableViewCell", bundle: nil)
+        tableView.register(rankinbRefreshNib, forCellReuseIdentifier: "RankingRefreshTableViewCell")
+
 
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 86
+        tableView.estimatedRowHeight = 86
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
@@ -60,6 +63,9 @@ extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyRankingTableViewCell", for: indexPath) as! MyRankingTableViewCell
+            return cell
+        } else if indexPath.row == 1 {
+            let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RankingRefreshTableViewCell", for: indexPath) as! RankingRefreshTableViewCell
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as! RankingTableViewCell

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wYV-BF-HDx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wYV-BF-HDx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,20 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyPage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gl-vr-g6U">
-                                <rect key="frame" x="176.5" y="442.5" width="61.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6f6-Wf-chz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gPU-Lo-zlH">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mcL-eo-Gqt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2Gl-vr-g6U" firstAttribute="centerX" secondItem="mcL-eo-Gqt" secondAttribute="centerX" id="8x4-9l-zr5"/>
-                            <constraint firstItem="2Gl-vr-g6U" firstAttribute="centerY" secondItem="mcL-eo-Gqt" secondAttribute="centerY" id="Mad-BS-xaa"/>
+                            <constraint firstItem="mcL-eo-Gqt" firstAttribute="bottom" secondItem="6f6-Wf-chz" secondAttribute="bottom" id="01u-2B-enW"/>
+                            <constraint firstItem="6f6-Wf-chz" firstAttribute="leading" secondItem="mcL-eo-Gqt" secondAttribute="leading" id="QyN-U8-a2v"/>
+                            <constraint firstItem="6f6-Wf-chz" firstAttribute="top" secondItem="mcL-eo-Gqt" secondAttribute="top" id="cR6-kX-mA2"/>
+                            <constraint firstItem="mcL-eo-Gqt" firstAttribute="trailing" secondItem="6f6-Wf-chz" secondAttribute="trailing" id="cxX-2Z-wh2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="6f6-Wf-chz" id="Y2Y-mD-YH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVG-pF-Six" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -47,22 +47,23 @@ class RankingTableViewCell: UITableViewCell {
     }
     
     func config(index: IndexPath) {
-        if index.row == 1 {
+        let imageIndex = index.row - 1
+        if index.row == 2 {
             rankingImageView.isHidden = false
             rankingLabel.isHidden = true
-            rankingImageView.image = UIImage(named: "ranking\(index.row)")
+            rankingImageView.image = UIImage(named: "ranking\(imageIndex)")
             outerView.backgroundColor = UIColor(red: 254/255, green: 229/255, blue: 231/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 255/255, green: 106/255, blue: 124/255, alpha: 1)
-        } else if index.row == 2 {
-            rankingImageView.isHidden = false
-            rankingLabel.isHidden = true
-            rankingImageView.image = UIImage(named: "ranking\(index.row)")
-            outerView.backgroundColor = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
-            profileOuterView.backgroundColor = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
         } else if index.row == 3 {
             rankingImageView.isHidden = false
             rankingLabel.isHidden = true
-            rankingImageView.image = UIImage(named: "ranking\(index.row)")
+            rankingImageView.image = UIImage(named: "ranking\(imageIndex)")
+            outerView.backgroundColor = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
+            profileOuterView.backgroundColor = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
+        } else if index.row == 4 {
+            rankingImageView.isHidden = false
+            rankingLabel.isHidden = true
+            rankingImageView.image = UIImage(named: "ranking\(imageIndex)")
             outerView.backgroundColor = UIColor(red: 253/255, green: 244/255, blue: 217/255, alpha: 1)
             profileOuterView.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 0/255, alpha: 1)
         } else {
