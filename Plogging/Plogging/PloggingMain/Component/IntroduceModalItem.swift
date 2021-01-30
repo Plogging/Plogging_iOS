@@ -13,21 +13,24 @@ class IntroduceModalItem: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-
-    convenience init(indexImage: UIImage?, iconImage: UIImage?, text: String) {
-        self.init(frame: .zero)
-        addSubview(label)
-        addSubview(icon)
-        addSubview(index)
-        icon.image = iconImage
-        index.image = indexImage
-        label.text = text
-        setupLayout()
+        setupView()
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupView()
+    }
+
+    func setupResource(indexImage: UIImage?, iconImage: UIImage?, text: String) {
+        label.text = text
+        index.image = indexImage
+        icon.image = iconImage
+    }
+
+    func setupView() {
+        addSubview(label)
+        addSubview(icon)
+        addSubview(index)
     }
 
     override func updateConstraints() {
@@ -39,9 +42,9 @@ class IntroduceModalItem: UIView {
 
         icon.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                                        icon.centerXAnchor.constraint(equalTo: centerXAnchor),
-                                        icon.topAnchor.constraint(equalTo: topAnchor),
-                                    ])
+            icon.centerXAnchor.constraint(equalTo: centerXAnchor),
+            icon.topAnchor.constraint(equalTo: topAnchor),
+        ])
 
         index.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -54,11 +57,10 @@ class IntroduceModalItem: UIView {
 
         // todo: - letter space, line height 설정하기
         label.textColor = .black()
-        label.numberOfLines = 0
         label.textAlignment = .left
-        label.font.withSize(11.0)
+        label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 3
         label.addCharacterSpacing(kernValue: -0.34)
-        label.addLineSpacing(height: 20)
         label.textColor = UIColor.init(cgColor: .fromInt(red: 99, green: 110, blue: 127, alpha: 1))
 
         // label view layout

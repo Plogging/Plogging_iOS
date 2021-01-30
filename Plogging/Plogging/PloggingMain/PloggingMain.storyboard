@@ -15,45 +15,60 @@
                     <view key="view" contentMode="scaleToFill" id="bHg-Id-0Y1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppd-Sj-3xd" customClass="ConfirmButton" customModule="Plogging">
-                                <rect key="frame" x="89" y="201" width="149.5" height="185"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ppd-Sj-3xd" secondAttribute="height" multiplier="38:47" id="nrA-Ja-LwQ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="ppd-Sj-3xd" secondAttribute="bottom" constant="476" id="BKE-Wb-wOt"/>
-                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" constant="-61" id="NbA-Ip-hrJ"/>
-                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="leading" secondItem="gOF-4b-UF3" secondAttribute="leading" constant="89" id="QW1-Xg-B9L"/>
-                            <constraint firstItem="ppd-Sj-3xd" firstAttribute="top" secondItem="gOF-4b-UF3" secondAttribute="top" constant="157" id="Sa0-0O-jiQ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0K-c9-4nf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347.82608695652175" y="-391.07142857142856"/>
+            <point key="canvasLocation" x="-267" y="-391"/>
         </scene>
         <!--Plogging Introduce Modal View Controller-->
         <scene sceneID="rWS-4A-ax1">
             <objects>
                 <viewController id="Qbt-66-Vq9" customClass="PloggingIntroduceModalViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6wX-mt-Xj8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="735"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="287" width="414" height="161"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="491" width="414" height="244"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fMK-Xs-Sqc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Iu8-Pr-tad" secondAttribute="trailing" id="Pi8-BS-Gdk"/>
+                            <constraint firstItem="fMK-Xs-Sqc" firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="73" id="r2n-BJ-feO"/>
+                            <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" id="tJ9-A6-Rj5"/>
+                            <constraint firstItem="Iu8-Pr-tad" firstAttribute="leading" secondItem="6wX-mt-Xj8" secondAttribute="leading" id="zyu-dT-LnD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rde-q6-uUn"/>
+                    <connections>
+                        <outlet property="firstItem" destination="p4q-8g-MAN" id="ula-ZF-wH9"/>
+                        <outlet property="secondItem" destination="U4A-Yu-n7f" id="Tbh-aP-YEN"/>
+                        <outlet property="thirdItem" destination="QD3-hB-Af7" id="NzA-3K-ZQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQw-Sh-owb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452.17391304347831" y="-391.07142857142856"/>
+            <point key="canvasLocation" x="-796" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyd-UY-9P6">
@@ -63,7 +78,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="iDk-36-o5o" kind="relationship" relationship="rootViewController" id="OUg-kC-r6R"/>
+                        <segue destination="Qbt-66-Vq9" kind="relationship" relationship="rootViewController" id="o19-Fm-FIy"/>
+                        <segue destination="Qbt-66-Vq9" kind="show" id="YsT-LB-wkP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWV-Dd-i44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -167,6 +183,9 @@
             <point key="canvasLocation" x="0.0" y="-1064.0625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YsT-LB-wkP"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
