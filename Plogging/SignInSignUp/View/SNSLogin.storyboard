@@ -659,11 +659,12 @@
                     <connections>
                         <outlet property="confirmButton" destination="YRF-qU-Gfh" id="SWD-Rr-ymP"/>
                         <outlet property="nickNameInfoLabel" destination="hdO-11-u4g" id="fBJ-jd-NYb"/>
+                        <outlet property="nickNameTextField" destination="87o-75-x4Z" id="btw-Pr-0Mc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypm-1r-F2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4335" y="79"/>
+            <point key="canvasLocation" x="4330" y="35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M4d-Nx-MCG">
