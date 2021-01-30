@@ -28,15 +28,15 @@ extension NSMutableAttributedString {
 }
 
 extension String {
-    func isValidEmail(email: String) -> Bool {
+    func isValidEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
+        return emailTest.evaluate(with: self)
     }
     
-    func validpassword(password: String) -> Bool {
+    func isValidpassword() -> Bool {
         let passwordreg = ("(?=.*[A-Za-z])(?=.*[0-9]).{8,20}")
         let passwordtesting = NSPredicate(format: "SELF MATCHES %@", passwordreg)
-        return passwordtesting.evaluate(with: password)
+        return passwordtesting.evaluate(with: self)
     }
 }

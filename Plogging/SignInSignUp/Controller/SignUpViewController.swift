@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
@@ -59,10 +60,26 @@ class SignUpViewController: UIViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
 
     }
+    
+    @IBAction func clickSignUpButton(_ sender: UIButton) {
+        checkValidation()
+    }
 }
 
 extension SignUpViewController: LoginValidation {
     func checkValidation() {
-        
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            if !email.isValidEmail() {
+                warningLabel.isHidden = false
+                warningLabel.text = "올바르지 않은 형식의 이메일입니다."
+                return
+            }
+            if !password.isValidpassword() {
+                warningLabel.isHidden = false
+                warningLabel.text = "대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상"
+                return
+            }
+            warningLabel.isHidden = true
+        }
     }
 }
