@@ -17,6 +17,7 @@
 		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C31C03525C5B60800413EBB /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */; };
+		1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */; };
 		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
 		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
@@ -109,6 +110,7 @@
 		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
 		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
+		1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+LoginValidation.swift"; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
 		1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRankingTableViewCell.xib; sourceTree = "<group>"; };
@@ -248,6 +250,14 @@
 			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
+		1C31C03625C5B9A000413EBB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		1C5A68BA25BF238900F096A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +384,7 @@
 		1CC08DD925A5D55400EE3505 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1C31C03625C5B9A000413EBB /* Protocol */,
 				1CBE988925AC757B00CC247A /* Networking */,
 				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
@@ -808,6 +819,7 @@
 			files = (
 				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
+				1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */,
 				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */,

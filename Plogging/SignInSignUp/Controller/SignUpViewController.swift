@@ -58,3 +58,9 @@ class SignUpViewController: UIViewController {
 
     }
 }
+
+extension SignUpViewController: LoginValidation {
+    func checkValidation() {
+        
+    }
+}
