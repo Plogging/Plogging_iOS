@@ -62,24 +62,28 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
-        checkValidation()
+        if checkValidation() {
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameChange, sender: nil)
+        }
     }
 }
 
 extension SignUpViewController: LoginValidation {
-    func checkValidation() {
+    func checkValidation() -> Bool {
         if let email = emailTextField.text, let password = passwordTextField.text {
             if !email.isValidEmail() {
                 warningLabel.isHidden = false
                 warningLabel.text = "올바르지 않은 형식의 이메일입니다."
-                return
+                return false
             }
             if !password.isValidpassword() {
                 warningLabel.isHidden = false
                 warningLabel.text = "대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상"
-                return
+                return false
             }
             warningLabel.isHidden = true
+            return true
         }
+        return false
     }
 }

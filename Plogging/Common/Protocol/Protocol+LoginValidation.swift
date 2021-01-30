@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginValidation {
-    func checkValidation()
+    func checkValidation() -> Bool
 }
 
 
