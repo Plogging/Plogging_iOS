@@ -39,10 +39,10 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViewUI()
+        setUpUI()
     }
     
-    private func setUpViewUI() {
+    private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
         
         contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * getTrashInfosCount()))
