@@ -12,7 +12,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,23 +51,10 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if signUpButtonBottomConstraint.constant == 36,
-           let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            signUpButtonBottomConstraint.constant = keyboardHeight + 6
-            
-            UIView.animate(withDuration: 0.1, animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
+
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        signUpButtonBottomConstraint.constant = 36
-        
-        UIView.animate(withDuration: 0.1, animations: {
-            self.view.layoutIfNeeded()
-        })
+
     }
 }
