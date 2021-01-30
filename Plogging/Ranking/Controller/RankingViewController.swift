@@ -10,8 +10,11 @@ import UIKit
 class RankingViewController: UIViewController {
 
     @IBOutlet weak var rankingTitleLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var weeklyButton: UIButton!
+    @IBOutlet weak var weeklyView: UIView!
+    @IBOutlet weak var monthlyButton: UIButton!
+    @IBOutlet weak var monthlyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,22 @@ class RankingViewController: UIViewController {
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
+    }
+    
+    @IBAction func weeklyButtonClick(_ sender: UIButton) {
+        weeklyButton.setTitleColor(UIColor.greenBlue, for: .normal)
+        monthlyButton.setTitleColor(UIColor.rankingGray, for: .normal)
+        
+        weeklyView.alpha = 1
+        monthlyView.alpha = 0
+    }
+    
+    @IBAction func montlyButtonClick(_ sender: UIButton) {
+        weeklyButton.setTitleColor(UIColor.rankingGray, for: .normal)
+        monthlyButton.setTitleColor(UIColor.greenBlue, for: .normal)
+        
+        weeklyView.alpha = 0
+        monthlyView.alpha = 1
     }
 }
 
