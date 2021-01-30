@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum Storyboard: String {
-    case SNSLogin
-    case Onboarding
-}
-
 extension UIViewController {
     var rootViewController: UIViewController? {
         return UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
@@ -22,22 +17,14 @@ extension UIViewController {
     func showLoginViewController() {
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
-            loginViewController.modalPresentationStyle = .formSheet
+            loginViewController.modalPresentationStyle = .fullScreen
             loginViewController.isModalInPresentation = true
             self.present(loginViewController, animated: true, completion: nil)
         }
     }
-    
-    func showWaitingScreenViewController() {
-        let storyboard = UIStoryboard(name: "WaitingScreen", bundle: nil)
-        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
-            waitingScreenViewController.modalPresentationStyle = .fullScreen
-            self.present(waitingScreenViewController, animated: false, completion: nil)
-        }
-    }
   
     func showPopUpViewController(with type: PopUpType) {
-        let storyboard = UIStoryboard(name: "PopUp", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
             popUpViewController.type = type
             popUpViewController.modalPresentationStyle = .overCurrentContext

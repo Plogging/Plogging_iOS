@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,7 +59,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="aDq-lA-8Bh"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                         <state key="normal" title="아니요">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -74,7 +73,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="VdH-XZ-Lgh"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                         <state key="normal" title="네">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -119,7 +118,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cg1-y2-G5o"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="YTa-rq-0KH" secondAttribute="bottom" id="KRT-H2-DUt"/>
                             <constraint firstItem="YTa-rq-0KH" firstAttribute="trailing" secondItem="cg1-y2-G5o" secondAttribute="trailing" id="brw-TR-AM7"/>
@@ -148,9 +147,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close" width="139" height="136"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="close" width="142" height="116"/>
     </resources>
 </document>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,21 +36,18 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14t-un-sOC" userLabel="ShadowView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="84"/>
+                                <rect key="frame" x="0.0" y="804" width="414" height="92"/>
                                 <subviews>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuL-s9-PTS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="YTn-0c-1Vc"/>
+                                            <constraint firstAttribute="height" constant="58" id="YTn-0c-1Vc"/>
                                         </constraints>
                                         <items>
-                                            <tabBarItem title="Ranking" image="square.and.arrow.up" catalog="system" selectedImage="square.and.arrow.up.fill" id="wa6-R8-Le3">
-                                                <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
-                                                <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-50"/>
-                                            </tabBarItem>
-                                            <tabBarItem tag="1" title="Plogging" image="square.and.arrow.up.fill" catalog="system" id="Xmu-sR-zg9"/>
-                                            <tabBarItem tag="2" title="MyPage" image="square.and.arrow.down" catalog="system" id="Qf3-Pp-gdX"/>
+                                            <tabBarItem title="" image="rankingTabDefault" selectedImage="rankingTab" id="d1E-af-L5A"/>
+                                            <tabBarItem tag="1" title="" image="ploggingTabDefault" selectedImage="ploggingTab" id="Xmu-sR-zg9"/>
+                                            <tabBarItem tag="2" title="" image="mypageTabDefault" selectedImage="mypageTab" id="Qf3-Pp-gdX"/>
                                         </items>
                                         <color key="tintColor" name="AccentColor"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +57,7 @@
                                         </connections>
                                     </tabBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-gS-pNf" userLabel="BottomCoverView">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="58" width="414" height="34"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -144,9 +141,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <image name="mypageTab" width="40" height="40"/>
+        <image name="mypageTabDefault" width="40" height="41"/>
+        <image name="ploggingTab" width="40" height="41"/>
+        <image name="ploggingTabDefault" width="40" height="40"/>
+        <image name="rankingTab" width="40" height="40"/>
+        <image name="rankingTabDefault" width="40" height="40"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

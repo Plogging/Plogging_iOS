@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+>>>>>>> 9d63b0fe54a9fa6f7e98b3f16b02ad2be3fa7316
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +22,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+=======
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVh-87-zgX">
                                 <rect key="frame" x="262" y="116" width="64" height="93"/>
@@ -36,10 +47,17 @@
                             <constraint firstItem="FVh-87-zgX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="dfc-hF-3Cb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FVh-87-zgX" secondAttribute="bottom" constant="653" id="sMs-Zm-LaW"/>
                         </constraints>
+>>>>>>> 9d63b0fe54a9fa6f7e98b3f16b02ad2be3fa7316
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
+            <point key="canvasLocation" x="139" y="66"/>
+        </scene>
+    </scenes>
+    <resources>
+=======
             <point key="canvasLocation" x="-86.956521739130437" y="81.696428571428569"/>
         </scene>
         <!--PloggingResult-->
@@ -55,6 +73,7 @@
     </scenes>
     <resources>
         <image name="running" width="512" height="512"/>
+>>>>>>> 9d63b0fe54a9fa6f7e98b3f16b02ad2be3fa7316
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

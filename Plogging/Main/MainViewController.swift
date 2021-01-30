@@ -15,9 +15,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
     
+    
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingViewController?
     var myPageViewController: MyPageViewController?
+    
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -45,7 +47,7 @@ class MainViewController: UIViewController {
         shadowView.layer.shadowOffset = CGSize(width: 0, height: -1)
         
         tabBar.clipsToBounds = true
-        tabBar.layer.cornerRadius = 40
+        tabBar.layer.cornerRadius = 37
         tabBar.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         tabBar.translatesAutoresizingMaskIntoConstraints = false
         view.bringSubviewToFront(shadowView)

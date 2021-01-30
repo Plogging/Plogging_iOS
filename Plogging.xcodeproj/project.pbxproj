@@ -16,14 +16,37 @@
 		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
 		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
+		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
+		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
-		1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306825A6163500413115 /* SNSLoginData.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
-		1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */; };
-		1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */; };
+		1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */; };
+		1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000025C46B30003144B1 /* LoginViewController.swift */; };
+		1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */; };
+		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
+		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
+		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
+		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
+		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
+		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
+		1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98AB25AF2DFA00CC247A /* APIError.swift */; };
 		1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */; };
+		1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */; };
+		1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC281DB25B4C117003FBCCD /* PloggingUser.swift */; };
+		1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */; };
+		1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */; };
 		25AE08688E2C7F71DFE4895C /* Pods_Plogging_PloggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */; };
+		3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */; };
+		3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */; };
+		3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */; };
+		3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A98D1552E6F9909BEE64 /* BackupManager.swift */; };
+		3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */; };
+		3D51AC8584B703C4B9929581 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A796B6221B925D0A8021 /* FormatDisplay.swift */; };
+		3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */; };
+		3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A4D3DA91775A4DCD9228 /* PathManager.swift */; };
+		3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */; };
+		3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */; };
 		7A88803982B01E577D9600F3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E856C59342FFB1CD6308BEED /* Pods_Plogging.framework */; };
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
@@ -90,15 +113,38 @@
 		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
 		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
+		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
+		1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRankingTableViewCell.xib; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
-		1C5B306825A6163500413115 /* SNSLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
 		1C5B306D25A6A04700413115 /* SNSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginManager.swift; sourceTree = "<group>"; };
-		1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
-		1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
+		1C5C000025C46B30003144B1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSLoginViewController.swift; sourceTree = "<group>"; };
+		1C5C000325C46B30003144B1 /* SNSLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSLoginData.swift; sourceTree = "<group>"; };
+		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
+		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
+		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
+		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
+		1CBE98AB25AF2DFA00CC247A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		1CC281DB25B4C117003FBCCD /* PloggingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUser.swift; sourceTree = "<group>"; };
+		1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		2A0ABABA99B77BC2068FB18E /* Pods-Plogging-PloggingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
+		3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPS.storyboard; sourceTree = "<group>"; };
+		3D51A4D3DA91775A4DCD9228 /* PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
+		3D51A796B6221B925D0A8021 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		3D51A98D1552E6F9909BEE64 /* BackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
+		3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
+		3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +256,26 @@
 			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
+		1C5A68BA25BF238900F096A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF225AE0DB700B0B415 /* Ranking.storyboard */,
+				1CE928D525BDD0980083FB62 /* RankingTableViewCell.swift */,
+				1CE928D625BDD0980083FB62 /* RankingTableViewCell.xib */,
+				1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */,
+				1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C5A68BB25BF239D00F096A9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1C5B304C25A6077700413115 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,24 +283,105 @@
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
 				1C21852925B8C3480076CD14 /* Enum+PopUp.swift */,
 				9B2C339625B97F5F00EB5B87 /* Enum+Camera.swift */,
+				1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		1CC08DBA25A4B55B00EE3505 /* Login */ = {
+		1C5C000225C46B30003144B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1CC08DBB25A4B56E00EE3505 /* SNSLogin.storyboard */,
-				1CC08DC025A4B57900EE3505 /* SNSLoginViewController.swift */,
-				1C5B306825A6163500413115 /* SNSLoginData.swift */,
+				1C5C000325C46B30003144B1 /* SNSLoginData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C5C000425C46B31003144B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C5C000525C46B31003144B1 /* SNSLogin.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C5CFFFE25C46B30003144B1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */,
+				1C5C000025C46B30003144B1 /* LoginViewController.swift */,
+				1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C8B320A25C48FA30021A88D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C8B320B25C48FAF0021A88D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C8B320D25C48FCF0021A88D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C8B320E25C48FD40021A88D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
+				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1C8B320F25C48FFD0021A88D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
+				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CBE988925AC757B00CC247A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE988A25AC76AE00CC247A /* APICollection.swift */,
+				1CBE988F25AC7B4800CC247A /* BaseURL.swift */,
+				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1CC08DBA25A4B55B00EE3505 /* SignInSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				1C5CFFFE25C46B30003144B1 /* Controller */,
+				1C5C000225C46B30003144B1 /* Model */,
+				1C5C000425C46B31003144B1 /* View */,
+				1C2184DD25B75B260076CD14 /* Onboarding */,
 				1C5B306D25A6A04700413115 /* SNSLoginManager.swift */,
 			);
-			path = Login;
+			path = SignInSignUp;
 			sourceTree = "<group>";
 		};
 		1CC08DD925A5D55400EE3505 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1CBE988925AC757B00CC247A /* Networking */,
 				1C21851525B8B74A0076CD14 /* PopUp */,
 				1C5B304C25A6077700413115 /* Enum */,
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
@@ -249,10 +396,28 @@
 			children = (
 				9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */,
 				1CC08DDB25A5D56D00EE3505 /* Extension+UIViewController.swift */,
+				1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */,
 				1C2184EB25B770130076CD14 /* Extension+String.swift */,
 				1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3D51A0932B7C1EAA461372FD /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */,
+				3D51A4D3DA91775A4DCD9228 /* PathManager.swift */,
+				3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */,
+				3D51A98D1552E6F9909BEE64 /* BackupManager.swift */,
+				3D51A796B6221B925D0A8021 /* FormatDisplay.swift */,
+				3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */,
+				3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */,
+				3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */,
+				3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */,
+				3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */,
+			);
+			path = GPS;
 			sourceTree = "<group>";
 		};
 		4D6400549CE8260A84A282DF /* Pods */ = {
@@ -297,12 +462,12 @@
 				1C5B305525A6099700413115 /* PloggingRelease.entitlements */,
 				9B5A33AA25AF40140061A361 /* Main */,
 				1CC08DD925A5D55400EE3505 /* Common */,
-				1C2184DD25B75B260076CD14 /* Onboarding */,
-				1CC08DBA25A4B55B00EE3505 /* Login */,
+				1CC08DBA25A4B55B00EE3505 /* SignInSignUp */,
 				9B671DEF25AE0CDC00B0B415 /* Ranking */,
 				9B671DF125AE0D1600B0B415 /* Plogging */,
 				9B671DF025AE0D0400B0B415 /* My Page */,
 				9B5A32E325AEB1170061A361 /* Supporting Files */,
+				3D51A0932B7C1EAA461372FD /* GPS */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -393,8 +558,8 @@
 		9B671DEF25AE0CDC00B0B415 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				9B671DF225AE0DB700B0B415 /* Ranking.storyboard */,
-				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
+				1C5A68BB25BF239D00F096A9 /* Controller */,
+				1C5A68BA25BF238900F096A9 /* View */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -402,8 +567,8 @@
 		9B671DF025AE0D0400B0B415 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
-				9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */,
+				1C8B320B25C48FAF0021A88D /* Controller */,
+				1C8B320A25C48FA30021A88D /* View */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -411,10 +576,10 @@
 		9B671DF125AE0D1600B0B415 /* Plogging */ = {
 			isa = PBXGroup;
 			children = (
+				1C8B320F25C48FFD0021A88D /* Model */,
+				1C8B320E25C48FD40021A88D /* Controller */,
+				1C8B320D25C48FCF0021A88D /* View */,
 				1C21853A25B9F1750076CD14 /* WaitingScreen */,
-				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
-				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
-				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
@@ -532,16 +697,20 @@
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */,
+				1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */,
+				1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
-				1CC08DBC25A4B56E00EE3505 /* SNSLogin.storyboard in Resources */,
 				9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */,
 				9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				9B14C10D25BC6A4F0066B2B5 /* AppleSDGothicNeoEB.ttf in Resources */,
+				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
+				1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
+				3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,8 +838,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
+				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
+				1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
@@ -679,28 +851,45 @@
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */,
+				1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
+				1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */,
+				1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */,
+				1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */,
+				1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
-				1C5B306925A6163500413115 /* SNSLoginData.swift in Sources */,
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
+				1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */,
 				1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */,
 				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
 				9B2C339725B97F5F00EB5B87 /* Enum+Camera.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
-				1CC08DC125A4B57900EE3505 /* SNSLoginViewController.swift in Sources */,
+				1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */,
+				1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */,
+				1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */,
+				1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */,
+				3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */,
+				3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */,
+				3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */,
+				3D51AC8584B703C4B9929581 /* FormatDisplay.swift in Sources */,
+				3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */,
+				3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */,
+				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
+				3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */,
+				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1229,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */,
+			);
+			currentVersion = 3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */;
+			path = Backup.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9B01587725A0CB15003D3B7B /* Project object */;
 }

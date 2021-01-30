@@ -91,8 +91,8 @@ extension CameraViewController {
 // MARK: Camera Layout Setting
 private extension CameraViewController {
     func setUpCameraFrameViewLayout() {
-        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
-        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceScreen.width).isActive = true
+        cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
+        cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
         cameraFrameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraFrameView.topAnchor.constraint(equalTo: view.topAnchor, constant: 107).isActive = true
     }
@@ -101,14 +101,14 @@ private extension CameraViewController {
         cameraButton.widthAnchor.constraint(equalToConstant: 72).isActive = true
         cameraButton.heightAnchor.constraint(equalToConstant: 72).isActive = true
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceScreen.width + 107 + 98).isActive = true
+        cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceInfo.screenWidth + 107 + 98).isActive = true
     }
     
     func setUpCameraSwitchButtonLayout() {
         cameraSwitchButton.widthAnchor.constraint(equalToConstant: 38).isActive = true
         cameraSwitchButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
         cameraSwitchButton.leftAnchor.constraint(equalTo: cameraButton.rightAnchor, constant: 88).isActive = true
-        cameraSwitchButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceScreen.width + 107 + 114).isActive = true
+        cameraSwitchButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceInfo.screenWidth + 107 + 114).isActive = true
     }
     
     func addPloggingResultInfoView() {
@@ -179,7 +179,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         guard let capturedImage = UIImage(data: imageData) else {
             return
         }
-        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceScreen.width, height: DeviceScreen.width))
+        let resizedCapturedImage = capturedImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
         UIImageWriteToSavedPhotosAlbum(resizedCapturedImage, nil, nil, nil)
         baseImage = resizedCapturedImage
         self.performSegue(withIdentifier: SegueIdentifier.renderingCameraPhoto, sender: nil)

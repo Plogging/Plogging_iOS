@@ -30,10 +30,10 @@ class PloggingInfoViewCreater {
     
     func addPloggingDistanceView(_ ploggingDistance: String) {
         let distanceIconImageView =  UIImageView(image: UIImage(named: "running"))
-        distanceIconImageView.frame = CGRect.init(x: 22, y: DeviceScreen.width * 6/7, width: 32, height: 32)
+        distanceIconImageView.frame = CGRect.init(x: 22, y: DeviceInfo.screenWidth * 6/7, width: 32, height: 32)
         ploggingInfoBaseView.addSubview(distanceIconImageView)
         
-        let distanceLabel = UILabel(frame: CGRect(x: 57, y: DeviceScreen.width * 6/7, width: 100, height: 32))
+        let distanceLabel = UILabel(frame: CGRect(x: 57, y: DeviceInfo.screenWidth * 6/7, width: 100, height: 32))
         distanceLabel.text = ploggingDistance
         distanceLabel.text?.append("km")
         distanceLabel.font = UIFont(name: "SFProDisplay-Black", size: 23)
@@ -43,10 +43,10 @@ class PloggingInfoViewCreater {
     
     func addTrashCountView(_ trashCount: String) {
         let timerIconImageView =  UIImageView(image: UIImage(named: "trash"))
-        timerIconImageView.frame = CGRect.init(x: DeviceScreen.width * 1/3 + 22, y: DeviceScreen.width * 6/7, width: 32, height: 32)
+        timerIconImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 1/3 + 22, y: DeviceInfo.screenWidth * 6/7, width: 32, height: 32)
         ploggingInfoBaseView.addSubview(timerIconImageView)
         
-        let timeLabel = UILabel(frame: CGRect(x: DeviceScreen.width * 1/3 + 57, y: DeviceScreen.width * 6/7, width: 100, height: 32))
+        let timeLabel = UILabel(frame: CGRect(x: DeviceInfo.screenWidth * 1/3 + 57, y: DeviceInfo.screenWidth * 6/7, width: 100, height: 32))
         timeLabel.text = trashCount
         timeLabel.font = UIFont(name: "SFProDisplay-Black", size: 23)
         timeLabel.textColor = UIColor.white
