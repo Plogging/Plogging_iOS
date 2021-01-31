@@ -44,12 +44,17 @@ class PathManager: NSObject {
         print("start location")
     }
 
-    func startRunning() {
-        isRecord = true
-    }
-
     func stopLocationUpdate() {
         locationManager.stopUpdatingLocation()
+    }
+
+    func startRunning() {
+        self.isRecord = true
+    }
+    
+    func stopRunning() {
+        self.isRecord = false
+        locationList = []
         backupManager.removePathData()
     }
 
@@ -73,7 +78,7 @@ class PathManager: NSObject {
 
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-        MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {

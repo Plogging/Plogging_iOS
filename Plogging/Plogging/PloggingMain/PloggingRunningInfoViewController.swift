@@ -17,7 +17,7 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var summeryStack: UIStackView!
     
-    var pathManager = PathManager()
+    var pathManager = PathManager.pathManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class PloggingRunningInfoViewController: UIViewController {
         stopButton.setTitle("종료", for: .normal)
         
         pathManager.setupMapview(on: mapView)
-        pathManager.startLocationUpdate()
+        pathManager.startRunning()
         
     }
     
@@ -49,6 +49,8 @@ class PloggingRunningInfoViewController: UIViewController {
     }
     
     @IBAction func backToStart() {
+        pathManager.stopRunning()
         dismiss(animated: true, completion: nil)
     }
+    
 }
