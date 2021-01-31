@@ -4,6 +4,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class PloggingRunningInfoViewController: UIViewController {
 
@@ -13,6 +14,10 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var summeryKcal: SummeryItem!
     @IBOutlet weak var continueButton: ConfirmButton!
     @IBOutlet weak var stopButton: ConfirmButton!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var summeryStack: UIStackView!
+    
+    var pathManager = PathManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,22 @@ class PloggingRunningInfoViewController: UIViewController {
         summeryKcal.setupView(unit: "kcal", value: "399")
         stopButton.backgroundColor = .gray
         stopButton.setTitle("종료", for: .normal)
+        
+        pathManager.setupMapview(on: mapView)
+        pathManager.startLocationUpdate()
+        
+    }
+    
+    func createGradation() {
+        let gradation = CAGradientLayer()
+        gradation.colors = [
+            UIColor.fromInt(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
+            UIColor.fromInt(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        ]
+        
+        gradation.frame = summeryStack.bounds
+        
+        summeryStack.layer.addSublayer(gradation)
     }
     
     @IBAction func backToStart() {

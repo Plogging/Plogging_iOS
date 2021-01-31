@@ -10,12 +10,18 @@ extension PathManager: CLLocationManagerDelegate{
     // todo validate location 업데이트 시, 경로 랜더링
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
+        print("receive location")
+
         // todo refactor
         guard let currentLocation = locations.last else { return }
-
         let howRecent = currentLocation.timestamp.timeIntervalSinceNow
-
         guard abs(howRecent) < 10 else { return }
+
+        if(isRecord == false) {
+            pointResentLocation(location: currentLocation.coordinate)
+            print("skip location")
+            return
+        }
 
         if let lastLocation = locationList.last {
             let delta = currentLocation.distance(from: lastLocation)
@@ -29,7 +35,7 @@ extension PathManager: CLLocationManagerDelegate{
         if (locationList.count % 10) == 0 {
             backupPath()
         }
-
+        guard let mapView = mapView else {return}
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
 }

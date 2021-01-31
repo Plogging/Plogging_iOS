@@ -14,6 +14,7 @@ class PloggingStartViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func presentModal(_ sender: Any) {
+        pathManager?.startRunning()
         let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
         if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController") as? PloggingIntroduceModalViewController {
             infoController.isModalInPresentation = true
@@ -23,7 +24,8 @@ class PloggingStartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pathManager = PathManager(on: mapView)
+        pathManager = PathManager.pathManager
+        pathManager?.setupMapview(on: mapView)
     }
     override func viewDidAppear(_ animated: Bool) {
         pathManager?.startLocationUpdate()

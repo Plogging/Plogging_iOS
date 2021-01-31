@@ -8,27 +8,44 @@ import MapKit
 
 class PathManager: NSObject {
 
+    static var pathManager = PathManager()
+    
     var locationList: [CLLocation] = []
     var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var mapView: MKMapView
+    var mapView: MKMapView?
     var backupManager = BackupManager()
     let locationManager = LocationManager.shared
 
-    init(on mapView: MKMapView) {
-        self.mapView = mapView
+    var isRecord = false
+
+    override init() {
         super.init()
-        mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func setupMapview(on mapView: MKMapView) {
+        self.mapView = mapView
+        self.mapView?.delegate = self
+        pointResentLocation(location: mapView.userLocation.coordinate)
     }
 
+    func pointResentLocation(location: CLLocationCoordinate2D) {
+        guard let region = measureMapRegion(curLocation: location) else { return }
+        mapView?.setRegion(region, animated: true)
+    }
 
-    func startLocationUpdate() {
+    func startLocationUpdate () {
+        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         print("[BACKUP] success restore count : \(locationList.count)")
+        print("start location")
+    }
+
+    func startRunning() {
+        isRecord = true
     }
 
     func stopLocationUpdate() {
@@ -46,6 +63,7 @@ class PathManager: NSObject {
 
     func retrievePath() {
         locationList = backupManager.restorePathData()
+        guard let mapView = mapView else {return}
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
 

@@ -38,7 +38,8 @@ class MapkitViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pathManger = PathManager(on: mapView)
+        pathManger = PathManager()
+        pathManger?.setupMapview(on: mapView)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
