@@ -10,7 +10,6 @@ class PloggingStartViewController: UIViewController {
 
     @IBOutlet weak var presentIntroduceModal: ConfirmButton!
     
-    @IBOutlet weak var dummyItem: PickTrashItem!
     
     @IBAction func presentModal(_ sender: Any) {
         let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
@@ -23,7 +22,6 @@ class PloggingStartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dummyItem.setupResource(icon: UIImage(named: "RoundIndex2")!, category: "Hello")
     }
     
 }

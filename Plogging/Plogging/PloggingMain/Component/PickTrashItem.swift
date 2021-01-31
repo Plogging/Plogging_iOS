@@ -64,5 +64,6 @@ class PickTrashItem: UIView {
     func setupResource(icon: UIImage, category: String) {
         self.iconImage.image = icon
         self.categoryLabel.text = category
+        self.layer.cornerRadius = 12
     }
 }

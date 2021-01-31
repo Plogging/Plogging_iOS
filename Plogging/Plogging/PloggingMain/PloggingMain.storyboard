@@ -11,7 +11,7 @@
         <!--Plogging Start View Controller-->
         <scene sceneID="i08-Hf-YDc">
             <objects>
-                <viewController storyboardIdentifier="PloggingStartViewController" id="LsG-j0-skQ" customClass="PloggingStartViewController" customModule="Plogging" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PloggingStartViewController" extendedLayoutIncludesOpaqueBars="YES" id="LsG-j0-skQ" customClass="PloggingStartViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bHg-Id-0Y1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,22 +28,29 @@
                                     <segue destination="Qbt-66-Vq9" kind="show" id="iHz-hG-7gg"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-jE-Msr" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="87" y="188" width="198" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVp-qM-Ers" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
+                                <rect key="frame" x="109" y="726" width="196" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="gmz-NV-am4"/>
+                                    <constraint firstAttribute="height" constant="78" id="s3g-No-mGE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="iDk-36-o5o" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="1P9-KW-9ZJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kVp-qM-Ers" firstAttribute="top" secondItem="GLZ-mF-rOV" secondAttribute="bottom" constant="30" id="OZW-z1-c8N"/>
                             <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="GLZ-mF-rOV" secondAttribute="bottom" constant="166" id="s4s-pY-NQD"/>
                             <constraint firstItem="GLZ-mF-rOV" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="u6k-nj-5Jf"/>
+                            <constraint firstItem="kVp-qM-Ers" firstAttribute="leading" secondItem="GLZ-mF-rOV" secondAttribute="leading" id="y6q-yK-Yeb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                     <connections>
-                        <outlet property="dummyItem" destination="JHP-jE-Msr" id="0Lc-1j-EEb"/>
                         <outlet property="presentIntroduceModal" destination="GLZ-mF-rOV" id="u6W-7M-EPZ"/>
                     </connections>
                 </viewController>
@@ -96,6 +103,84 @@
             </objects>
             <point key="canvasLocation" x="-268" y="357"/>
         </scene>
+        <!--Plogging Pick Trash View Controller-->
+        <scene sceneID="Qgp-zd-MGM">
+            <objects>
+                <viewController id="L58-d0-Xxa" customClass="PloggingPickTrashViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="MQW-a2-kNX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="eT4-sJ-U6H">
+                                <rect key="frame" x="18" y="101" width="378" height="642"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="202"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="Cjt-AF-4aS" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="nud-Ee-kzk" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="G5s-re-Oug">
+                                        <rect key="frame" x="0.0" y="220" width="378" height="202"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="ciP-Qr-MfR" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="Bf6-kk-QUL" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="A4Y-75-e4Q">
+                                        <rect key="frame" x="0.0" y="440" width="378" height="202"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="rhT-4Y-zXW" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="CLO-B8-j8i" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="0.0" width="180" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Kdj-D9-I62"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kdj-D9-I62" firstAttribute="trailing" secondItem="eT4-sJ-U6H" secondAttribute="trailing" constant="18" id="7A8-1N-eKW"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="leading" secondItem="Kdj-D9-I62" secondAttribute="leading" constant="18" id="8mg-yO-edO"/>
+                            <constraint firstAttribute="bottom" secondItem="eT4-sJ-U6H" secondAttribute="bottom" constant="156" id="BiW-mS-vZK"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="DPD-jN-K0J"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="top" constant="101" id="SYY-R5-ESB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nfj-N2-D4o"/>
+                    <connections>
+                        <outlet property="vinil" destination="Cjt-AF-4aS" id="UHi-x2-lEz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5X-0d-wFx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566.66666666666674" y="343.52678571428572"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyd-UY-9P6">
             <objects>
@@ -118,7 +203,7 @@
         <!--Plogging Running Info View Controller-->
         <scene sceneID="Nvt-tf-emK">
             <objects>
-                <viewController id="iDk-36-o5o" customClass="PloggingRunningInfoViewController" customModule="Plogging" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PloggingRunningInfoViewController" id="iDk-36-o5o" customClass="PloggingRunningInfoViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syo-Hv-PFH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
@@ -144,6 +229,9 @@
                                             <constraint firstAttribute="height" constant="78" id="kKz-CE-ytc"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="L58-d0-Xxa" kind="show" id="mej-vC-8cd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
                                         <rect key="frame" x="148" y="353" width="118" height="78"/>
