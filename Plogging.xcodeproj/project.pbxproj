@@ -55,6 +55,9 @@
 		3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */; };
 		3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */; };
 		3D51AF1CEFCC282053522F9A /* PloggingRunningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A5A1F2919D5A91404486 /* PloggingRunningInfoView.swift */; };
+		7A4AA8EE25C703B000521E4E /* PickTrashItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A4AA8ED25C703B000521E4E /* PickTrashItem.xib */; };
+		7A4AA8F025C703BD00521E4E /* PickTrashItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4AA8EF25C703BD00521E4E /* PickTrashItem.swift */; };
+		7A79264D25C71DD0005C8039 /* PloggingPickTrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79264C25C71DD0005C8039 /* PloggingPickTrashViewController.swift */; };
 		7A88803982B01E577D9600F3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E856C59342FFB1CD6308BEED /* Pods_Plogging.framework */; };
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
@@ -156,6 +159,9 @@
 		3D51AE25984433F5F05B2702 /* PloggingStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingStartViewController.swift; sourceTree = "<group>"; };
 		3D51AE3ED63FD4152FD9F0C7 /* IntroduceModalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroduceModalItem.swift; sourceTree = "<group>"; };
 		3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
+		7A4AA8ED25C703B000521E4E /* PickTrashItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTrashItem.xib; sourceTree = "<group>"; };
+		7A4AA8EF25C703BD00521E4E /* PickTrashItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickTrashItem.swift; sourceTree = "<group>"; };
+		7A79264C25C71DD0005C8039 /* PloggingPickTrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingPickTrashViewController.swift; sourceTree = "<group>"; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -433,6 +439,8 @@
 				3D51ABED64871BEA7244591A /* SummeryItem.swift */,
 				3D51A400E0AAA5812F69351E /* ConfirmButton.swift */,
 				3D51AE3ED63FD4152FD9F0C7 /* IntroduceModalItem.swift */,
+				7A4AA8ED25C703B000521E4E /* PickTrashItem.xib */,
+				7A4AA8EF25C703BD00521E4E /* PickTrashItem.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -446,6 +454,7 @@
 				3D51AE25984433F5F05B2702 /* PloggingStartViewController.swift */,
 				3D51A23D19EC393721239E0F /* PloggingRunningInfoViewController.swift */,
 				3D51ADBFBB66B888E2555064 /* PloggingIntroduceModalViewController.swift */,
+				7A79264C25C71DD0005C8039 /* PloggingPickTrashViewController.swift */,
 			);
 			path = PloggingMain;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
+				7A4AA8EE25C703B000521E4E /* PickTrashItem.xib in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
@@ -854,12 +864,14 @@
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
+				7A4AA8F025C703BD00521E4E /* PickTrashItem.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */,
 				1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */,
 				1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */,
+				7A79264D25C71DD0005C8039 /* PloggingPickTrashViewController.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceScreen.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */,
