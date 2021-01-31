@@ -36,14 +36,12 @@ class PloggingMainViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func createPloggingResultData() -> PloggingResult {
-        let score = PloggingResult.Score(exercise: "\(500)", eco: "100")
-        let info = PloggingResult.Info(time: "12:21", distance: "50", calorie: "990")
-        let trashInfos = [PloggingResult.TrashInfo(name: "유리", count: "2"),PloggingResult.TrashInfo(name: "비닐", count: "5"),PloggingResult.TrashInfo(name: "그 외", count: "3")]
-        let trashCountSum = PloggingResult.TrashCountSum(sum: "10")
+    func createPloggingResultData() -> PloggingList {
+        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImg: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
+        let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
         
-        let ploggingResultData = PloggingResult(score: score, info: info, trashInfos: trashInfos, trashCountSum: trashCountSum)
-        
-        return ploggingResultData
+        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
+    
+        return ploggingList
     }
 }

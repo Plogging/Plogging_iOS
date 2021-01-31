@@ -494,10 +494,8 @@
 			isa = PBXGroup;
 			children = (
 				9B32B5AC25C27F4900CB25C0 /* Model */,
-				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
-				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
-				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
-				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
+				9BBFF19325C5608200D6636E /* View */,
+				9BBFF19425C5609200D6636E /* Controller */,
 				9B0C238725A6EF250084D27B /* Image Render */,
 			);
 			path = "Plogging Result";
@@ -583,6 +581,24 @@
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
+			sourceTree = "<group>";
+		};
+		9BBFF19325C5608200D6636E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C235225A4DA010084D27B /* PloggingResult.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9BBFF19425C5609200D6636E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */,
+				9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */,
+				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

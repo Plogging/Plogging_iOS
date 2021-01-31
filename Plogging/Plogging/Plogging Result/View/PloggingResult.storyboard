@@ -739,9 +739,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="asD-dD-2mV"/>
                     <connections>
+                        <outlet property="activityScore" destination="r7U-ad-liM" id="5bw-wa-GiU"/>
                         <outlet property="contentViewHeight" destination="ydx-Zy-9qh" id="d7u-RI-7mt"/>
-                        <outlet property="echoScore" destination="Yg4-N7-i1d" id="ees-bv-mE7"/>
-                        <outlet property="exerciseScore" destination="r7U-ad-liM" id="5bw-wa-GiU"/>
+                        <outlet property="environmentScore" destination="Yg4-N7-i1d" id="rAQ-hm-U0s"/>
                         <outlet property="ploggingCalorie" destination="otZ-kb-pO5" id="e8B-QX-8W0"/>
                         <outlet property="ploggingDistance" destination="Q05-aS-dYW" id="VlW-dm-cyd"/>
                         <outlet property="ploggingResultPhoto" destination="SwS-f1-R3t" id="h0o-UE-ypJ"/>
