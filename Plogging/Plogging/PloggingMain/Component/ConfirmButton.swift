@@ -21,14 +21,14 @@ class ConfirmButton: UIButton {
     func setupProperties() {
         setTitle("플로깅 시작하기", for: .normal)
         setTitleColor(.systemBlue, for: .normal)
-        layer.backgroundColor = .init(red: 55, green: 213, blue: 172, alpha: 1)
+        backgroundColor = .fromInt(red: 55, green: 213, blue: 172, alpha: 1)
 
         layer.cornerRadius = 40
         setTitleColor(.white, for: .normal)
         
         // todo - shadow 적용하기
         layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowColor = .init(red: 55, green: 213, blue: 172, alpha: 0.67)
+        layer.shadowColor = UIColor.fromInt(red: 55, green: 213, blue: 172, alpha: 0.67).cgColor
         layer.shadowRadius = 75
         
         // todo - click 이벤트 확인

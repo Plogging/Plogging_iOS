@@ -59,15 +59,18 @@ class IntroduceModalItem: UIView {
         label.textColor = .black
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 14)
-        label.numberOfLines = 3
+        label.numberOfLines = 2
         label.textColor = UIColor.fromInt(red: 99, green: 110, blue: 127, alpha: 1)
+        label.adjustsFontSizeToFitWidth = true
 
         // label view layout
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
             label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
-            label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12)
+            label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12),
+            label.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -56),
+            label.trailingAnchor.constraint(greaterThanOrEqualTo: trailingAnchor, constant: -73)
         ])
     }
 

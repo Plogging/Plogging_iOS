@@ -11,7 +11,7 @@
         <!--Plogging Start View Controller-->
         <scene sceneID="i08-Hf-YDc">
             <objects>
-                <viewController id="LsG-j0-skQ" customClass="PloggingStartViewController" customModule="Plogging" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PloggingStartViewController" id="LsG-j0-skQ" customClass="PloggingStartViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bHg-Id-0Y1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,11 @@
                                     <segue destination="Qbt-66-Vq9" kind="show" id="iHz-hG-7gg"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-jE-Msr" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                <rect key="frame" x="87" y="188" width="198" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -38,6 +43,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                     <connections>
+                        <outlet property="dummyItem" destination="JHP-jE-Msr" id="0Lc-1j-EEb"/>
                         <outlet property="presentIntroduceModal" destination="GLZ-mF-rOV" id="u6W-7M-EPZ"/>
                     </connections>
                 </viewController>
@@ -54,18 +60,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
-                                <rect key="frame" x="0.0" y="88" width="414" height="701"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="642"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="311.5" width="414" height="78"/>
+                                        <rect key="frame" x="0.0" y="287" width="414" height="68"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="457" width="414" height="244"/>
+                                        <rect key="frame" x="0.0" y="398" width="414" height="244"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -76,27 +82,24 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Iu8-Pr-tad" secondAttribute="trailing" id="Pi8-BS-Gdk"/>
                             <constraint firstItem="fMK-Xs-Sqc" firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="73" id="r2n-BJ-feO"/>
-                            <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" id="tJ9-A6-Rj5"/>
+                            <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" constant="59" id="tJ9-A6-Rj5"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="leading" secondItem="6wX-mt-Xj8" secondAttribute="leading" id="zyu-dT-LnD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JCz-ry-zVD"/>
                     <connections>
                         <outlet property="firstItem" destination="p4q-8g-MAN" id="ula-ZF-wH9"/>
                         <outlet property="secondItem" destination="U4A-Yu-n7f" id="Tbh-aP-YEN"/>
                         <outlet property="thirdItem" destination="QD3-hB-Af7" id="NzA-3K-ZQJ"/>
                     </connections>
                 </viewController>
-                <navigationItem id="tbx-Ut-E7r"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQw-Sh-owb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-796" y="346"/>
+            <point key="canvasLocation" x="-268" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyd-UY-9P6">
             <objects>
-                <navigationController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="HGx-tp-GMd" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-tp-GMd" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fBK-Rq-Yhe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -206,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzp-ey-eN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="-1064.0625"/>
+            <point key="canvasLocation" x="564" y="-391"/>
         </scene>
     </scenes>
     <resources>
