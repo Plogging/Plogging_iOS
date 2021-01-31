@@ -58,19 +58,14 @@ class PloggingResultViewController: UIViewController {
         totalTrashCount.text = "\(trashCountSum)개"
         totalTrashCountTitle.text = "총 \(trashCountSum)개의 쓰레기를 주웠어요!"
         
-        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * getTrashListCount()))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * getTrashListCount()))
+        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
+        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
     }
 
-    private func getTrashListCount() -> Int {
-        guard let trashInfosCount = ploggingResultData?.trashList.count else {
-            return 0
-        }
-        return trashInfosCount
-    }
-    
     public func getTrashCountSum() -> Int {
-        for i in 0..<getTrashListCount() {
+        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
+        for i in 0..<trashInfosCount {
             guard let trashPickCount = ploggingResultData?.trashList[i].pickCount else {
                 return 0
             }
@@ -124,7 +119,7 @@ extension PloggingResultViewController {
             guard let distance = ploggingResultData?.meta.distance else {
                 return
             }
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(commonImage, "\(distance)", "\(100)")
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: commonImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
             //서버 통신 추가
             ploggingResultPhoto.image = ploggingResultImage
         }

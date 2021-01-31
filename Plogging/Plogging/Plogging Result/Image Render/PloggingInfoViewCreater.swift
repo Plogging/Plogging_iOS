@@ -10,7 +10,7 @@ import UIKit
 class PloggingInfoViewCreater {
     let ploggingInfoBaseView = UIImageView()
     
-    func createFloggingInfoView(_ distance: String, _ trashCount: String) -> UIImageView {
+    func createFloggingInfoView(distance: String, trashCount: String) -> UIImageView {
         addPloggingDistanceView(distance)
         addTrashCountView(trashCount)
         addTodayDate()

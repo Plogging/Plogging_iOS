@@ -29,7 +29,7 @@ class PloggingResultPhotoViewController: UIViewController {
         guard let distance = ploggingResultData?.meta.distance else {
             return
         }
-        let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage, "\(distance)", "\(trashCountSum)")
+        let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBaseImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
     }

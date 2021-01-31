@@ -8,6 +8,20 @@
 import UIKit
 import AVFoundation
 
+enum Camera {
+    case back
+    case front
+    
+    var position: String {
+        switch self {
+        case .back:
+            return "back"
+        case .front:
+            return "front"
+        }
+    }
+}
+
 class CameraViewController: UIViewController {
     private var captureSession: AVCaptureSession!
     private var stillImageOutput: AVCapturePhotoOutput!
@@ -118,7 +132,7 @@ private extension CameraViewController {
         guard let distance = ploggingResultData?.meta.distance else {
             return
         }
-        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView("\(distance)", "\(trashCountSum)")
+        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance: "\(distance)", trashCount: "\(trashCountSum)")
         ploggingInfoView.frame = CGRect(x: 0, y: cameraFrameView.frame.origin.y, width: 0, height: 0)
         view.addSubview(ploggingInfoView)
     }

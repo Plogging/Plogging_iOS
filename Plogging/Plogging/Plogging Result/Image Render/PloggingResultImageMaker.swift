@@ -8,9 +8,9 @@
 import UIKit
 
 class PloggingResultImageMaker {
-    func createResultImage(_ baseImage: UIImage, _ distance: String, _ trashCount: String) -> UIImage {
+    func createResultImage(baseImage: UIImage, distance: String, trashCount: String) -> UIImage {
         let ploggingInfoViewCreater = PloggingInfoViewCreater()
-        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance, trashCount)
+        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance: distance, trashCount: trashCount)
         return ImageRenderingMaker.render(baseImage, ploggingInfoView, CGPoint(x: 0, y: 0))
     }
 }
