@@ -24,19 +24,19 @@ class CameraViewController: UIViewController {
     }()
     
     private let cameraButton : UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named: "cameraButton"), for: .normal)
-        btn.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
-        return btn
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cameraButton"), for: .normal)
+        button.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
+        return button
     }()
     
     private let cameraSwitchButton : UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named: "cameraSwitch"), for: .normal)
-        btn.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
-        return btn
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cameraSwitch"), for: .normal)
+        button.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
+        return button
     }()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

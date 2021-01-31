@@ -20,7 +20,7 @@ class PloggingMainViewController: UIViewController {
             self.dismiss(animated: false, completion: { [self] in
                 let ploggingResultData = createPloggingResultData()
                 
-                let ploggingResult = UIStoryboard(name: "PloggingResult", bundle: nil)
+                let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
                 guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }

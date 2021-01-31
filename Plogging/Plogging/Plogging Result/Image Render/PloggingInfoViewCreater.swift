@@ -42,14 +42,14 @@ class PloggingInfoViewCreater {
     }
     
     func addTrashCountView(_ trashCount: String) {
-        let timerIconImageView =  UIImageView(image: UIImage(named: "trash"))
-        timerIconImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 1/3 + 22, y: DeviceInfo.screenWidth * 6/7, width: 32, height: 32)
-        ploggingInfoBaseView.addSubview(timerIconImageView)
+        let trashIconImageView =  UIImageView(image: UIImage(named: "trash"))
+        trashIconImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 1/3 + 22, y: DeviceInfo.screenWidth * 6/7, width: 32, height: 32)
+        ploggingInfoBaseView.addSubview(trashIconImageView)
         
-        let timeLabel = UILabel(frame: CGRect(x: DeviceInfo.screenWidth * 1/3 + 57, y: DeviceInfo.screenWidth * 6/7, width: 100, height: 32))
-        timeLabel.text = trashCount
-        timeLabel.font = UIFont(name: "SFProDisplay-Black", size: 23)
-        timeLabel.textColor = UIColor.white
-        ploggingInfoBaseView.addSubview(timeLabel)
+        let trashLabel = UILabel(frame: CGRect(x: DeviceInfo.screenWidth * 1/3 + 57, y: DeviceInfo.screenWidth * 6/7, width: 100, height: 32))
+        trashLabel.text = trashCount
+        trashLabel.font = UIFont(name: "SFProDisplay-Black", size: 23)
+        trashLabel.textColor = UIColor.white
+        ploggingInfoBaseView.addSubview(trashLabel)
     }
 }

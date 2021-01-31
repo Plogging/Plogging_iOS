@@ -18,14 +18,6 @@ class PloggingResultPhotoViewController: UIViewController {
     var ploggingResultData: PloggingList?
     var trashCountSum: Int = 0
     
-    @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func moveToPloggingResultViewController(_ sender: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.unwindToPloggingResult, sender: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(thumbnailImageView)
@@ -40,6 +32,14 @@ class PloggingResultPhotoViewController: UIViewController {
         let ploggingResultImage = ploggingResultImageMaker.createResultImage(resizedBaseImage, "\(distance)", "\(trashCountSum)")
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func moveToPloggingResultViewController(_ sender: UIButton) {
+        performSegue(withIdentifier: SegueIdentifier.unwindToPloggingResult, sender: self)
     }
    
     private func setUpThumbnailImageViewLayout() {
