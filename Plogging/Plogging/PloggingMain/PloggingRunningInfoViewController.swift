@@ -26,4 +26,8 @@ class PloggingRunningInfoViewController: UIViewController {
         stopButton.backgroundColor = .gray
         stopButton.setTitle("종료", for: .normal)
     }
+    
+    @IBAction func backToStart() {
+        dismiss(animated: true, completion: nil)
+    }
 }

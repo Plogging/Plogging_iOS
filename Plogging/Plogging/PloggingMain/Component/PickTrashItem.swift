@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable
+
 class PickTrashItem: UIView {
     
     private var rootView: UIView?

@@ -16,20 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLZ-mF-rOV" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="109" y="618" width="196" height="78"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="dB5-c9-Kdh"/>
-                                    <constraint firstAttribute="width" constant="196" id="qgp-8f-lbw"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="presentModal:" destination="LsG-j0-skQ" eventType="touchUpInside" id="aHk-4f-zLM"/>
-                                    <segue destination="Qbt-66-Vq9" kind="show" id="iHz-hG-7gg"/>
-                                </connections>
-                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-Sj-bwq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVp-qM-Ers" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="109" y="726" width="196" height="78"/>
+                                <rect key="frame" x="109" y="651" width="196" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="gmz-NV-am4"/>
                                     <constraint firstAttribute="height" constant="78" id="s3g-No-mGE"/>
@@ -43,15 +34,18 @@
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kVp-qM-Ers" firstAttribute="top" secondItem="GLZ-mF-rOV" secondAttribute="bottom" constant="30" id="OZW-z1-c8N"/>
-                            <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="GLZ-mF-rOV" secondAttribute="bottom" constant="166" id="s4s-pY-NQD"/>
-                            <constraint firstItem="GLZ-mF-rOV" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="u6k-nj-5Jf"/>
-                            <constraint firstItem="kVp-qM-Ers" firstAttribute="leading" secondItem="GLZ-mF-rOV" secondAttribute="leading" id="y6q-yK-Yeb"/>
+                            <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="kVp-qM-Ers" secondAttribute="bottom" constant="133" id="4wm-Ti-oJb"/>
+                            <constraint firstItem="kVp-qM-Ers" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="7JD-Z8-ehr"/>
+                            <constraint firstItem="gOF-4b-UF3" firstAttribute="top" secondItem="GXP-Sj-bwq" secondAttribute="top" constant="88" id="N6N-L6-EYY"/>
+                            <constraint firstItem="GXP-Sj-bwq" firstAttribute="centerY" secondItem="bHg-Id-0Y1" secondAttribute="centerY" id="gpH-a6-JOF"/>
+                            <constraint firstItem="GXP-Sj-bwq" firstAttribute="leading" secondItem="gOF-4b-UF3" secondAttribute="leading" id="hqe-e9-YlO"/>
+                            <constraint firstItem="GXP-Sj-bwq" firstAttribute="centerX" secondItem="kVp-qM-Ers" secondAttribute="centerX" id="sl3-jO-2A0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                     <connections>
-                        <outlet property="presentIntroduceModal" destination="GLZ-mF-rOV" id="u6W-7M-EPZ"/>
+                        <outlet property="mapView" destination="GXP-Sj-bwq" id="U4w-Pg-Mtx"/>
+                        <outlet property="presentIntroduceModal" destination="kVp-qM-Ers" id="oMA-Mv-bfK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0K-c9-4nf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,18 +61,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
-                                <rect key="frame" x="0.0" y="147" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="287" width="414" height="68"/>
+                                        <rect key="frame" x="0.0" y="309" width="414" height="68"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="398" width="414" height="244"/>
+                                        <rect key="frame" x="0.0" y="442" width="414" height="244"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -240,6 +234,9 @@
                                             <constraint firstAttribute="width" constant="118" id="Wvv-Yw-7MF"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="backToStart" destination="iDk-36-o5o" eventType="touchUpInside" id="621-3A-yCV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -7,9 +7,11 @@ import UIKit
 import MapKit
 
 class PloggingStartViewController: UIViewController {
+    
+    var pathManager: PathManager?
 
     @IBOutlet weak var presentIntroduceModal: ConfirmButton!
-    
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func presentModal(_ sender: Any) {
         let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
@@ -19,9 +21,12 @@ class PloggingStartViewController: UIViewController {
         }
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        pathManager = PathManager(on: mapView)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        pathManager?.startLocationUpdate()
     }
     
 }
