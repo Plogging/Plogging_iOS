@@ -15,7 +15,7 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var continueButton: ConfirmButton!
     @IBOutlet weak var stopButton: ConfirmButton!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var summeryStack: UIStackView!
+    
     
     var pathManager = PathManager.pathManager
     
@@ -24,6 +24,7 @@ class PloggingRunningInfoViewController: UIViewController {
         setupView()
     }
     
+    
     func setupView() {
         summeryDistance.setupView(unit: "킬로미터", value: "100")
         summeryTime.setupView(unit: "분", value: "12:34")
@@ -31,21 +32,25 @@ class PloggingRunningInfoViewController: UIViewController {
         stopButton.backgroundColor = .gray
         stopButton.setTitle("종료", for: .normal)
         
+        summeryStackView.layer.cornerRadius = 20
+        summeryStackView.backgroundColor = .clear
+        
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()
         
+    
+        
     }
     
-    func createGradation() {
+    func addGradation(to: UIView) {
         let gradation = CAGradientLayer()
         gradation.colors = [
-            UIColor.fromInt(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor,
-            UIColor.fromInt(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 0.75).cgColor,
+            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 1).cgColor
         ]
+        gradation.frame = to.bounds
         
-        gradation.frame = summeryStack.bounds
-        
-        summeryStack.layer.addSublayer(gradation)
+        to.layer.addSublayer(gradation)
     }
     
     @IBAction func backToStart() {
