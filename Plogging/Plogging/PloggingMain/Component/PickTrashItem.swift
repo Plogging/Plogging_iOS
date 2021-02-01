@@ -26,7 +26,7 @@ class PickTrashItem: UIView {
         count>0 ? count -= 1 : nil
     }
     
-    private var count: Int = 0 {
+    public var count: Int = 0 {
         didSet {
             countLabel.text = String(count)
         }

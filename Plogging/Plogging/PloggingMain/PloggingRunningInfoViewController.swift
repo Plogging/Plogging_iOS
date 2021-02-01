@@ -15,9 +15,11 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var continueButton: ConfirmButton!
     @IBOutlet weak var stopButton: ConfirmButton!
     @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var countLabel: UILabel!
+    
     var timer: Timer?
     var startDate: Date?
+    public var count: Int = 0
     
     var pathManager = PathManager.pathManager
     
@@ -27,6 +29,8 @@ class PloggingRunningInfoViewController: UIViewController {
         setupSummeryDataUpdate()
         startUpdate()
     }
+    
+    
 
 
     @IBAction func backToStart() {
@@ -49,6 +53,7 @@ class PloggingRunningInfoViewController: UIViewController {
             }
         }
     }
+
 
     func setupView() {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")

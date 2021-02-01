@@ -55,7 +55,7 @@ extension PathManager: MKMapViewDelegate {
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.isEqual(mapView.userLocation) {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
-            annotationView.image = UIImage(named: "combinedShape-1")
+            annotationView.image = UIImage(named: "UserLocation")
             return annotationView
         }
         return nil

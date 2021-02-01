@@ -312,6 +312,7 @@
                     <navigationItem key="navigationItem" id="ZCB-kh-8P6"/>
                     <connections>
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
+                        <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
                         <outlet property="stopButton" destination="6eF-DA-V2s" id="pzC-DF-qWc"/>
                         <outlet property="summeryDistance" destination="FvQ-dZ-Ldi" id="Rgq-Fi-bMP"/>

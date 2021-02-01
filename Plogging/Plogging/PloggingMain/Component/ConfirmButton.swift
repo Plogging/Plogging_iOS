@@ -25,13 +25,7 @@ class ConfirmButton: UIButton {
 
         layer.cornerRadius = 40
         setTitleColor(.white, for: .normal)
-        
-        // todo - shadow 적용하기
-        layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowColor = UIColor.fromInt(red: 55, green: 213, blue: 172, alpha: 0.67).cgColor
-        layer.shadowRadius = 75
-        
-        // todo - click 이벤트 확인
+        titleLabel?.font = .boldSystemFont(ofSize: 19)
     }
 
     func setupLayout() {
@@ -44,26 +38,3 @@ class ConfirmButton: UIButton {
         ])
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-@available(iOS 13.0, *)
-struct ViewRepresentable: UIViewRepresentable {
-
-    typealias UIViewType = ConfirmButton
-
-    func makeUIView(context: UIViewRepresentableContext<ViewRepresentable>) -> UIViewType {
-        ConfirmButton()
-    }
-
-    func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<ViewRepresentable>) {
-
-    }
-}
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-        ViewRepresentable()
-            .padding(10)
-    }
-}
-#endif

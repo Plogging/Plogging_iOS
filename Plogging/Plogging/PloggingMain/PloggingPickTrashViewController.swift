@@ -17,13 +17,26 @@ class PloggingPickTrashViewController: UIViewController {
     @IBOutlet weak var extra: PickTrashItem!
     @IBOutlet weak var confirmButton: ConfirmButton!
     
+    var items: [PickTrashItem]?
+    
+    
     @IBAction func saveInput(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let destination = storyboard?.instantiateViewController(identifier: "PloggingRunningInfoViewController") as? PloggingRunningInfoViewController
+        
+        var sum = 0;
+
+        items?.forEach{ item in
+            sum += item.count
+        }
+
+        destination?.count += sum
+        dismiss(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        items = [vinil, glass, paper, plastic, can, extra]
     }
     
     func setupView() {

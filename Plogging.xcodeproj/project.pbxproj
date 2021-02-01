@@ -48,11 +48,9 @@
 		3D51ABFAE5503DCA16848354 /* PloggingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A02A6272ECC3E5A01437 /* PloggingMain.storyboard */; };
 		3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */; };
 		3D51AC8584B703C4B9929581 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A796B6221B925D0A8021 /* FormatDisplay.swift */; };
-		3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */; };
 		3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A4D3DA91775A4DCD9228 /* PathManager.swift */; };
 		3D51ADF661F4494D472AF2B9 /* SummeryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ABED64871BEA7244591A /* SummeryItem.swift */; };
 		3D51AE6D4B0AC27B78748277 /* IntroduceModalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AE3ED63FD4152FD9F0C7 /* IntroduceModalItem.swift */; };
-		3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */; };
 		3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */; };
 		3D51AF1CEFCC282053522F9A /* PloggingRunningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A5A1F2919D5A91404486 /* PloggingRunningInfoView.swift */; };
 		7A4AA8EE25C703B000521E4E /* PickTrashItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A4AA8ED25C703B000521E4E /* PickTrashItem.xib */; };
@@ -145,7 +143,6 @@
 		3D51A23D19EC393721239E0F /* PloggingRunningInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingRunningInfoViewController.swift; sourceTree = "<group>"; };
 		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
 		3D51A400E0AAA5812F69351E /* ConfirmButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
-		3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPS.storyboard; sourceTree = "<group>"; };
 		3D51A4D3DA91775A4DCD9228 /* PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
 		3D51A5A1F2919D5A91404486 /* PloggingRunningInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingRunningInfoView.swift; sourceTree = "<group>"; };
 		3D51A796B6221B925D0A8021 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
@@ -158,7 +155,6 @@
 		3D51ADBFBB66B888E2555064 /* PloggingIntroduceModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingIntroduceModalViewController.swift; sourceTree = "<group>"; };
 		3D51AE25984433F5F05B2702 /* PloggingStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingStartViewController.swift; sourceTree = "<group>"; };
 		3D51AE3ED63FD4152FD9F0C7 /* IntroduceModalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroduceModalItem.swift; sourceTree = "<group>"; };
-		3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
 		7A4AA8ED25C703B000521E4E /* PickTrashItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTrashItem.xib; sourceTree = "<group>"; };
 		7A4AA8EF25C703BD00521E4E /* PickTrashItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickTrashItem.swift; sourceTree = "<group>"; };
 		7A79264C25C71DD0005C8039 /* PloggingPickTrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingPickTrashViewController.swift; sourceTree = "<group>"; };
@@ -419,7 +415,6 @@
 		3D51A0932B7C1EAA461372FD /* GPS */ = {
 			isa = PBXGroup;
 			children = (
-				3D51A40BD7C876AA13CAEAC1 /* GPS.storyboard */,
 				3D51A4D3DA91775A4DCD9228 /* PathManager.swift */,
 				3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */,
 				3D51A98D1552E6F9909BEE64 /* BackupManager.swift */,
@@ -427,7 +422,6 @@
 				3D51A7E0A7FA13E27EBE1131 /* UnitExtensions.swift */,
 				3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */,
 				3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */,
-				3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */,
 				3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */,
 			);
 			path = GPS;
@@ -725,7 +719,6 @@
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
 				1CE928D825BDD0980083FB62 /* RankingTableViewCell.xib in Resources */,
 				1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */,
-				3D51AE6DA518F14B1B81CDE2 /* GPS.storyboard in Resources */,
 				3D51ABFAE5503DCA16848354 /* PloggingMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -904,7 +897,6 @@
 				3D51A17861695869455D76E2 /* UnitExtensions.swift in Sources */,
 				3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */,
 				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
-				3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */,
 				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
 				3D51ADF661F4494D472AF2B9 /* SummeryItem.swift in Sources */,
 				3D51A67928A29C6CEDB08196 /* ConfirmButton.swift in Sources */,
