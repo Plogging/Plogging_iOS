@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             SNSLoginManager.shared.setupLoginWithKakao()
           
             DispatchQueue.main.async {
-                self.window?.rootViewController?.showPloggingViewController()
+                self.window?.rootViewController?.showOnboardingViewController()
             }
         }
     }
