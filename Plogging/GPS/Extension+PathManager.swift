@@ -25,7 +25,8 @@ extension PathManager: CLLocationManagerDelegate{
 
         if let lastLocation = locationList.last {
             let delta = currentLocation.distance(from: lastLocation)
-            distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+            let temp = Float(delta/1000)
+            distance = distance + temp
         }
 
         locationList.append(currentLocation)
@@ -46,8 +47,17 @@ extension PathManager: MKMapViewDelegate {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .black
+        renderer.strokeColor = .fromInt(red: 255, green: 128, blue: 144, alpha: 1)
         renderer.lineWidth = 5
         return renderer
+    }
+
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isEqual(mapView.userLocation) {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
+            annotationView.image = UIImage(named: "combinedShape-1")
+            return annotationView
+        }
+        return nil
     }
 }

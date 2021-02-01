@@ -11,7 +11,14 @@ class PathManager: NSObject {
     static var pathManager = PathManager()
     
     var locationList: [CLLocation] = []
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var distance: Float = 0.0 {
+        didSet {
+            NotificationCenter.default.post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
+        }
+    }
+
+    let updateDistance: Notification.Name = Notification.Name("UpdateDistance")
+
     var mapView: MKMapView?
     var backupManager = BackupManager()
     let locationManager = LocationManager.shared
@@ -78,7 +85,7 @@ class PathManager: NSObject {
 
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
+        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 1400)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {

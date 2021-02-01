@@ -15,6 +15,11 @@ class PloggingPickTrashViewController: UIViewController {
     @IBOutlet weak var plastic: PickTrashItem!
     @IBOutlet weak var can: PickTrashItem!
     @IBOutlet weak var extra: PickTrashItem!
+    @IBOutlet weak var confirmButton: ConfirmButton!
+    
+    @IBAction func saveInput(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +27,15 @@ class PloggingPickTrashViewController: UIViewController {
     }
     
     func setupView() {
+        
+        confirmButton.setTitle("저장", for: .normal)
+        confirmButton.layer.cornerRadius = 12
+        
         view.backgroundColor = .fromInt(red: 248, green: 250, blue: 252, alpha: 1)
-        vinil.setupResource(icon: UIImage(named: "RoundIndex2")!, category: "비닐")
+        vinil.setupResource(icon: UIImage(named: "Vinil")!, category: "비닐")
     }
+    
+    
     
     
 
