@@ -14,4 +14,5 @@ struct SegueIdentifier {
     static let renderingAlbumPhoto = "renderingAlbumPhoto"
     static let unwindToPloggingResult = "unwindToPloggingResult"
     static let nickNameChange = "NickNameViewController"
+    static let findPasswordCompletion = "PasswordCompletionViewController"
 }

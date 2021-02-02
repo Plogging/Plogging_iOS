@@ -17,6 +17,10 @@ class PasswordCompletionViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 
     private func setupUI() {
         confirmButton.clipsToBounds = true

@@ -27,7 +27,9 @@ class FindPasswordViewController: UIViewController {
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
+        // reqeust API
         
-        
+        // success
+        self.performSegue(withIdentifier: SegueIdentifier.findPasswordCompletion, sender: nil)
     }
 }
