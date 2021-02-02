@@ -8,27 +8,40 @@
 import UIKit
 
 class PloggingMainViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func moveToPloggingResult(_ sender: UIButton) {
-        
         let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "아니오", style: .default) { _ in
+        let no = UIAlertAction(title: "아니오", style: .default) { _ in
         }
-        let no = UIAlertAction(title: "네", style: .default) { _ in
-            self.dismiss(animated: false, completion: {
-                let ploggingResult = UIStoryboard(name: "PloggingResult", bundle: nil)
-                let ploggingResultViewController = ploggingResult.instantiateViewController(identifier: "PloggingResultViewController")
-                ploggingResultViewController.modalPresentationStyle = .fullScreen
-                ploggingResultViewController.modalTransitionStyle = .crossDissolve
-                self.rootViewController?.present(ploggingResultViewController, animated: false, completion: nil)
+        let yes = UIAlertAction(title: "네", style: .default) { _ in
+            self.dismiss(animated: false, completion: { [self] in
+                let ploggingResultData = createPloggingResultData()
+                
+                let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
+                guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
+                    return
+                }
+                ploggingResultViewController.ploggingResultData = ploggingResultData
+                let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
+                ploggingResultNavigationController.modalPresentationStyle = .fullScreen
+                ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
+                self.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
             })
         }
-        alert.addAction(yes)
         alert.addAction(no)
+        alert.addAction(yes)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func createPloggingResultData() -> PloggingList {
+        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImg: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
+        let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
+        
+        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
+    
+        return ploggingList
     }
 }

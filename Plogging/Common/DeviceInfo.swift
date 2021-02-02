@@ -1,5 +1,5 @@
 //
-//  DeviceScreen.swift
+//  DeviceInfo.swift
 //  Plogging
 //
 //  Created by 전소영 on 2021/01/18.

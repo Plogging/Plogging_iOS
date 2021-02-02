@@ -8,17 +8,50 @@
 import UIKit
 import AVFoundation
 
+enum Camera {
+    case back
+    case front
+    
+    var position: String {
+        switch self {
+        case .back:
+            return "back"
+        case .front:
+            return "front"
+        }
+    }
+}
+
 class CameraViewController: UIViewController {
     private var captureSession: AVCaptureSession!
     private var stillImageOutput: AVCapturePhotoOutput!
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    private var currentCamera = Camera.back.position
+    var baseImage: UIImage?
+    var ploggingResultData: PloggingList?
+    var trashCountSum: Int = 0
+    
     private let cameraFrameView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private var currentCamera = Camera.back.position
-    var baseImage: UIImage?
+    
+    private let cameraButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cameraButton"), for: .normal)
+        button.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
+        return button
+    }()
+    
+    private let cameraSwitchButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cameraSwitch"), for: .normal)
+        button.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
+        return button
+    }()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -27,17 +60,23 @@ class CameraViewController: UIViewController {
                 return
             }
             PloggingResultPhotoViewController.baseImage = baseImage
+            PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
+            PloggingResultPhotoViewController.trashCountSum = trashCountSum
         }
     }
-   
-    @IBAction func takePhoto(_ sender: Any) {
+    
+    @objc func takePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         stillImageOutput.capturePhoto(with: settings, delegate: self)
     }
     
-    @IBAction func switchCamera(_ sender: UIButton) {
+    @objc func switchCamera(_ sender: UIButton) {
         currentCamera = currentCamera == Camera.back.position ? Camera.front.position : Camera.back.position
         showCameraInView()
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -46,7 +85,11 @@ extension CameraViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(cameraFrameView)
+        view.addSubview(cameraButton)
+        view.addSubview(cameraSwitchButton)
         setUpCameraFrameViewLayout()
+        setUpCameraButtonLayout()
+        setUpCameraSwitchButtonLayout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,13 +110,29 @@ private extension CameraViewController {
         cameraFrameView.widthAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
         cameraFrameView.heightAnchor.constraint(equalToConstant: DeviceInfo.screenWidth).isActive = true
         cameraFrameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cameraFrameView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        cameraFrameView.topAnchor.constraint(equalTo: view.topAnchor, constant: 107).isActive = true
+    }
+    
+    func setUpCameraButtonLayout() {
+        cameraButton.widthAnchor.constraint(equalToConstant: 72).isActive = true
+        cameraButton.heightAnchor.constraint(equalToConstant: 72).isActive = true
+        cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceInfo.screenWidth + 107 + 98).isActive = true
+    }
+    
+    func setUpCameraSwitchButtonLayout() {
+        cameraSwitchButton.widthAnchor.constraint(equalToConstant: 38).isActive = true
+        cameraSwitchButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        cameraSwitchButton.leftAnchor.constraint(equalTo: cameraButton.rightAnchor, constant: 88).isActive = true
+        cameraSwitchButton.topAnchor.constraint(equalTo: view.topAnchor, constant: DeviceInfo.screenWidth + 107 + 114).isActive = true
     }
     
     func addPloggingResultInfoView() {
         let ploggingInfoViewCreater = PloggingInfoViewCreater()
-        // 거리 시간 전달 필요
-        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(2.13, "13:30")
+        guard let distance = ploggingResultData?.meta.distance else {
+            return
+        }
+        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance: "\(distance)", trashCount: "\(trashCountSum)")
         ploggingInfoView.frame = CGRect(x: 0, y: cameraFrameView.frame.origin.y, width: 0, height: 0)
         view.addSubview(ploggingInfoView)
     }
