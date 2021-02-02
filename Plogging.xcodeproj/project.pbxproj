@@ -30,6 +30,7 @@
 		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
 		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
+		1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
 		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
@@ -126,6 +127,7 @@
 		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
+		1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCompletionViewController.swift; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				1C5C000125C46B30003144B1 /* SNSLoginViewController.swift */,
 				1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */,
 				1C31C03925C5C28C00413EBB /* NickNameViewController.swift */,
+				1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -873,6 +876,7 @@
 				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
 				3D51AD459C632A1B106DAD9F /* MapkitViewController.swift in Sources */,
 				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
+				1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
