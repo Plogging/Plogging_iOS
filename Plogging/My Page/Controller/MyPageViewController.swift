@@ -63,15 +63,22 @@ class MyPageViewController: UIViewController {
 }
 
 // MARK: UICollectionViewDataSource
-//extension MyPageViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
-//}
+extension MyPageViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
+        let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
+        guard let content = UIImage(named: "test") else {
+            return cell
+        }
+        ploggingResultPhotoCell?.updateUI(image: content)
+        
+        return cell
+    }
+}
 
 // MARK: UICollectionViewDelegate
 extension MyPageViewController: UICollectionViewDelegate {
@@ -83,9 +90,10 @@ extension MyPageViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDelegateFlowLayout
 extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSpacing: CGFloat = 8
-        let width = (collectionView.bounds.width - itemSpacing) / 2
-        let height = width + itemSpacing
+        let itemSpacing: CGFloat = 10
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height: CGFloat = width
+        
         return CGSize(width: width, height: height)
     }
 }

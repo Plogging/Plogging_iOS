@@ -78,6 +78,7 @@
 		9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0125AE0DE900B0B415 /* RankingViewController.swift */; };
 		9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */; };
 		9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */; };
+		9BBFF19A25C9479400D6636E /* PloggingResultPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */; };
 		9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		9B671E0125AE0DE900B0B415 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		9B671E0B25AE0E0300B0B415 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoCell.swift; sourceTree = "<group>"; };
 		9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProDisplay-Black.ttf"; path = "../../../../../../Downloads/SFProTTF/SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
 		B30387023FB6701DA6D40B34 /* Pods-PloggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.release.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.release.xcconfig"; sourceTree = "<group>"; };
 		D7A39D6CF0AD8CE6D114CE44 /* Pods_Plogging_PloggingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plogging_PloggingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -559,8 +561,9 @@
 		9B671DF025AE0D0400B0B415 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				1C8B320B25C48FAF0021A88D /* Controller */,
+				9BBFF19825C9470F00D6636E /* Model */,
 				1C8B320A25C48FA30021A88D /* View */,
+				1C8B320B25C48FAF0021A88D /* Controller */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -593,6 +596,14 @@
 				9B0C235725A4DA1D0084D27B /* PloggingResultPhotoViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BBFF19825C9470F00D6636E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -869,6 +880,7 @@
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
 				1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */,
 				1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */,
+				9BBFF19A25C9479400D6636E /* PloggingResultPhotoCell.swift in Sources */,
 				1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
