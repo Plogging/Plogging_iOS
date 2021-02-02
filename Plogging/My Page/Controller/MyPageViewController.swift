@@ -10,9 +10,6 @@ import UIKit
 class MyPageViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    let itemSpacing: CGFloat = 8
-    var width = 0
-    var height = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +58,10 @@ extension MyPageViewController: UICollectionViewDelegate {
 }
 // MARK: UICollectionViewDelegateFlowLayout
 extension MyPageViewController: UICollectionViewDelegateFlowLayout {
-    width = (collectionView.bounds.width - itemSpacing) / 2
-    height = width * 10/7 + itemSpacing
-    CGSize(width: width, height: height)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 8
+        let width = (collectionView.bounds.width - itemSpacing) / 2
+        let height = width + itemSpacing
+        return CGSize(width: width, height: height)
+    }
 }
