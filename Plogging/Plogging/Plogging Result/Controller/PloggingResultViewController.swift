@@ -121,9 +121,27 @@ extension PloggingResultViewController {
             }
             let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: commonImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
             //서버 통신 추가
-            ploggingResultPhoto.image = ploggingResultImage
+            ploggingResultPhoto.image = baseImage
         }
-        // self.navigationController?.dismiss(animated: true, completion: nil)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        let jsonData = try? encoder.encode(ploggingResultData)
+        if let jsonData = jsonData, let jsonString = String(data: jsonData, encoding: .utf8){
+            print(jsonString)
+            guard let baseImage = baseImage else {
+                return
+            }
+            let parameters: [String: Any] = [
+                "ploggingData" : jsonString
+            ]
+
+            APICollection.sharedAPI.registerPloggingRecord(param: parameters, image: baseImage) { (result) in
+                if let rc = try? result.get().rc {
+                    print("rc: \(rc)")
+                }
+            }
+        }
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {

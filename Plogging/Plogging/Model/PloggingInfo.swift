@@ -11,7 +11,7 @@ import Foundation
 struct PloggingInfo: Codable {
     let rc: Int
     let rcmsg: String
-    let plogging_list: [PloggingList]
+    let ploggingList: [PloggingList]
     
     enum PloggingInfoCodingKeys: String, CodingKey {
         case ploggingList = "plogging_list"
@@ -27,7 +27,7 @@ struct PloggingList: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case meta
-        case trashList = "trash_list"
+        case trashList = "pick_list"
     }
 }
 

@@ -15,9 +15,9 @@ class PloggingViewController: UIViewController {
     
     @IBAction func clickStartPloggingButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: Storyboard.WaitingScreen.rawValue, bundle: nil)
-        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
-            waitingScreenViewController.modalPresentationStyle = .fullScreen
-            self.present(waitingScreenViewController, animated: false, completion: nil)
-        }
+//        if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
+//            waitingScreenViewController.modalPresentationStyle = .fullScreen
+//            self.present(waitingScreenViewController, animated: false, completion: nil)
+//        }
     }
 }
