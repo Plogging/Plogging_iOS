@@ -16,11 +16,14 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var monthlyView: UIView!
     
+    var refresh: UIRefreshControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
         setupRankingTitle()
+        createRefreshControl()
     }
     
     private func setupRankingTitle() {
@@ -40,7 +43,6 @@ class RankingViewController: UIViewController {
         let rankinbRefreshNib = UINib(nibName: "RankingRefreshTableViewCell", bundle: nil)
         tableView.register(rankinbRefreshNib, forCellReuseIdentifier: "RankingRefreshTableViewCell")
 
-
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -49,6 +51,17 @@ class RankingViewController: UIViewController {
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
+    }
+    
+    private func createRefreshControl() {
+        refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateRanking), for: .valueChanged)
+        tableView.addSubview(refresh)
+    }
+    
+    @objc private func updateRanking() {
+        refresh.endRefreshing()
+        tableView.reloadData()
     }
     
     @IBAction func weeklyButtonClick(_ sender: UIButton) {
