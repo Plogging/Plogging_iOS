@@ -10,6 +10,10 @@ import UIKit
 class MyPageViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nickName: UILabel!
+    @IBOutlet weak var totalPloggingScore: UILabel!
+    @IBOutlet weak var totalPloggingDistance: UILabel!
+    @IBOutlet weak var totalTrashCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,26 @@ class MyPageViewController: UIViewController {
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
     }
 
+    @IBAction func sortingPloggingContents(_ sender: UIButton) {
+        let alert = UIAlertController(title: "플로깅 기록 정렬하기", message: "플로깅 기록의 정렬방식을 선택하세요.", preferredStyle: .actionSheet)
+        let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
+           
+        }
+        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { _ in
+            
+        }
+        
+        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(dateSorting)
+        alert.addAction(trashCountSorting)
+        alert.addAction(scoreSorting)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: UICollectionViewDataSource
