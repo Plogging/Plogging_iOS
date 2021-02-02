@@ -11,17 +11,29 @@ class MyPageViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let imageView = UIImageView(image: UIImage(named: "onboarding1"))
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         registerNib()
         setupCollectionView()
+        setupStickyHeader()
     }
     
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
+    }
+    
+    private func setupStickyHeader() {
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 300)
+        view.addSubview(imageView)
     }
     
     private func registerNib() {
@@ -58,5 +70,13 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
         let space: CGFloat = 40
         let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
         return CGSize(width: size, height: size)
+    }
+}
+
+extension MyPageViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = -scrollView.contentOffset.y
+        let height = max(offsetY, 130)
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: height)
     }
 }

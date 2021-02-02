@@ -35,14 +35,17 @@ class RankingViewController: UIViewController {
         rankingTitleLabel.attributedText = rankingTitleString
     }
     
-    private func setupTableView() {
+    private func registerNib() {
         let userRankingNib = UINib(nibName: "RankingTableViewCell", bundle: nil)
         tableView.register(userRankingNib, forCellReuseIdentifier: "RankingTableViewCell")
         let myRankingNib = UINib(nibName: "MyRankingTableViewCell", bundle: nil)
         tableView.register(myRankingNib, forCellReuseIdentifier: "MyRankingTableViewCell")
         let rankinbRefreshNib = UINib(nibName: "RankingRefreshTableViewCell", bundle: nil)
         tableView.register(rankinbRefreshNib, forCellReuseIdentifier: "RankingRefreshTableViewCell")
-
+    }
+    
+    private func setupTableView() {
+        registerNib()
         tableView.delegate = self
         tableView.dataSource = self
         
