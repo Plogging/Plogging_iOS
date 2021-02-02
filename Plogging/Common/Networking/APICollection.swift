@@ -60,7 +60,6 @@ struct APICollection {
 //            case .failure(let error):
 //                completion(error, nil)
 //            }
-            
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
             }
