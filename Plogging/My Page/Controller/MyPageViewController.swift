@@ -29,9 +29,9 @@ class MyPageViewController: UIViewController {
         let colors = [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor]
         gradientLayer.colors = colors
          
+        gradientLayer.locations = [0.5]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.locations = [0.5]
 
         navigationBarView.layer.addSublayer(gradientLayer)
         
