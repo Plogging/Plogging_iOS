@@ -33,7 +33,7 @@ class MyPageViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
 
-        navigationBarView.layer.addSublayer(gradientLayer)
+        navigationBarView.layer.insertSublayer(gradientLayer, at:0)
         
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
