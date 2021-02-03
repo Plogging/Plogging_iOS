@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIg-ZQ-qDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.9565217391305" y="34.821428571428569"/>
+            <point key="canvasLocation" x="868" y="769"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="oXt-2J-KQR">
@@ -268,7 +268,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGj-Vb-1p7">
                                 <rect key="frame" x="24" y="88" width="366" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wKJ-EF-5e4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디 (이메일)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wKJ-EF-5e4">
                                         <rect key="frame" x="18" y="0.0" width="348" height="60"/>
                                         <color key="tintColor" red="0.21568627450980393" green="0.83529411764705885" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -288,7 +288,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-fy-BfH">
                                 <rect key="frame" x="24" y="160" width="366" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SCr-Ue-rss">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SCr-Ue-rss">
                                         <rect key="frame" x="18" y="0.0" width="348" height="60"/>
                                         <color key="tintColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -357,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qn-u4-vGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="35"/>
+            <point key="canvasLocation" x="1893" y="-271"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="t9C-7i-EQz">
@@ -514,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PV6-Ym-VZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2941" y="35"/>
+            <point key="canvasLocation" x="1893" y="410"/>
         </scene>
         <!--Find Password View Controller-->
         <scene sceneID="R3u-qK-c8N">
@@ -593,7 +593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wat-zA-0fT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3642" y="35"/>
+            <point key="canvasLocation" x="2712" y="410"/>
         </scene>
         <!--Nick Name View Controller-->
         <scene sceneID="Kie-7p-gIK">
@@ -667,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypm-1r-F2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4330" y="35"/>
+            <point key="canvasLocation" x="2712" y="-271"/>
         </scene>
         <!--Password Completion View Controller-->
         <scene sceneID="8At-Jt-WwY">
@@ -771,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ive-NO-sHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3641" y="727"/>
+            <point key="canvasLocation" x="3541" y="410"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M4d-Nx-MCG">
