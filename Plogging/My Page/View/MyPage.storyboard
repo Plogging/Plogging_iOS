@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="892"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WbL-nn-vVN">
-                                        <rect key="frame" x="24" y="0.0" width="380" height="892"/>
+                                        <rect key="frame" x="24" y="187" width="380" height="892"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pb2-h6-GUH">
                                             <size key="itemSize" width="128" height="128"/>
@@ -69,7 +69,7 @@
                                         </connections>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-ki-Xkp" userLabel="NavigationBarView">
-                                        <rect key="frame" x="0.0" y="-88" width="428" height="316"/>
+                                        <rect key="frame" x="0.0" y="-50" width="428" height="316"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU6-nD-Ldn" userLabel="SettingButton">
                                                 <rect key="frame" x="25" y="61" width="27" height="29"/>
@@ -262,7 +262,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6Cc-Jq-jUn">
-                                        <rect key="frame" x="355.66666666666669" y="254" width="48.333333333333314" height="30"/>
+                                        <rect key="frame" x="355.66666666666669" y="316" width="48.333333333333314" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최신순" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2T-sV-trM">
                                                 <rect key="frame" x="0.0" y="0.0" width="36.333333333333336" height="30"/>
@@ -282,10 +282,10 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F76-qf-TP4" userLabel="정렬">
-                                        <rect key="frame" x="316" y="254" width="88" height="45"/>
+                                        <rect key="frame" x="335" y="306" width="88" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="88" id="9gV-Mq-bLI"/>
-                                            <constraint firstAttribute="height" constant="45" id="mSe-fE-bAo"/>
+                                            <constraint firstAttribute="height" constant="50" id="mSe-fE-bAo"/>
                                         </constraints>
                                         <connections>
                                             <action selector="sortingPloggingContents:" destination="wYV-BF-HDx" eventType="touchUpInside" id="Gaq-h0-zlg"/>
@@ -294,17 +294,17 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WbL-nn-vVN" firstAttribute="height" secondItem="IYc-3A-PVR" secondAttribute="height" id="22N-a3-055"/>
-                                    <constraint firstItem="6Cc-Jq-jUn" firstAttribute="top" secondItem="dOf-75-dJS" secondAttribute="bottom" constant="65" id="7xd-xf-PwC"/>
-                                    <constraint firstItem="kFd-ki-Xkp" firstAttribute="top" secondItem="y8w-th-dq9" secondAttribute="top" id="FMZ-YB-wAB"/>
+                                    <constraint firstItem="kFd-ki-Xkp" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="-50" id="FMZ-YB-wAB"/>
                                     <constraint firstItem="kFd-ki-Xkp" firstAttribute="width" secondItem="IYc-3A-PVR" secondAttribute="width" id="FbG-ms-djn"/>
                                     <constraint firstItem="6Cc-Jq-jUn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IYc-3A-PVR" secondAttribute="leading" constant="200" id="NUC-L8-5SY"/>
+                                    <constraint firstItem="6Cc-Jq-jUn" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="50" id="OLf-Kp-PY2"/>
                                     <constraint firstItem="kFd-ki-Xkp" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" id="WUh-Ed-lXL"/>
                                     <constraint firstAttribute="bottom" secondItem="WbL-nn-vVN" secondAttribute="bottom" id="b5l-nK-Ns2"/>
-                                    <constraint firstItem="F76-qf-TP4" firstAttribute="top" secondItem="dOf-75-dJS" secondAttribute="bottom" constant="65" id="cNX-36-eFJ"/>
                                     <constraint firstItem="WbL-nn-vVN" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" constant="24" id="dmi-CO-pod"/>
-                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" id="lEa-mT-17n"/>
+                                    <constraint firstItem="F76-qf-TP4" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="40" id="gDg-ft-D6P"/>
+                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="187" id="lEa-mT-17n"/>
                                     <constraint firstAttribute="trailing" secondItem="kFd-ki-Xkp" secondAttribute="trailing" id="lto-mH-LOa"/>
-                                    <constraint firstAttribute="trailing" secondItem="F76-qf-TP4" secondAttribute="trailing" constant="24" id="suK-Pc-GNy"/>
+                                    <constraint firstAttribute="trailing" secondItem="F76-qf-TP4" secondAttribute="trailing" constant="5" id="suK-Pc-GNy"/>
                                     <constraint firstAttribute="trailing" secondItem="WbL-nn-vVN" secondAttribute="trailing" constant="24" id="t3F-iq-o8J"/>
                                     <constraint firstItem="F76-qf-TP4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IYc-3A-PVR" secondAttribute="leading" constant="200" id="u6w-YO-TxF"/>
                                     <constraint firstAttribute="trailing" secondItem="6Cc-Jq-jUn" secondAttribute="trailing" constant="24" id="xbv-25-Ydf"/>
