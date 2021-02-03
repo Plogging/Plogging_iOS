@@ -327,6 +327,7 @@
                         <outlet property="collectionView" destination="WbL-nn-vVN" id="KJ1-yB-rGr"/>
                         <outlet property="navigationBarView" destination="kFd-ki-Xkp" id="fae-GL-2qL"/>
                         <outlet property="nickName" destination="4mh-TU-c5Q" id="xND-eV-DAf"/>
+                        <outlet property="scrollView" destination="IYc-3A-PVR" id="JdQ-UW-2hE"/>
                         <outlet property="totalPloggingDistance" destination="Siv-pd-zhM" id="aJQ-SM-9A3"/>
                         <outlet property="totalPloggingScore" destination="HHx-Ri-NwK" id="W1r-Uq-3qX"/>
                         <outlet property="totalTrashCount" destination="Nym-Hf-Lwc" id="Tkc-lv-gpy"/>

@@ -15,9 +15,11 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var totalPloggingDistance: UILabel!
     @IBOutlet weak var totalTrashCount: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
+        scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
     }
     
     func setUpNavigationBarUI() {
@@ -99,5 +101,13 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 170, left: 0, bottom: 0, right: 0)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension MyPageViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffSetY = scrollView.contentOffset.y
+        navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
     }
 }
