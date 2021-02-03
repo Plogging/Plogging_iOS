@@ -25,6 +25,8 @@ class PasswordCompletionViewController: UIViewController {
     private func setupUI() {
         confirmButton.clipsToBounds = true
         confirmButton.layer.cornerRadius = 12
+        
+        passwordTextField.isSecureTextEntry = true
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {

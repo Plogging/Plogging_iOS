@@ -48,6 +48,7 @@ class SignUpViewController: UIViewController {
         
         passwordView.clipsToBounds = true
         passwordView.layer.cornerRadius = 4
+        passwordTextField.isSecureTextEntry = true
         
         signUpButton.clipsToBounds = true
         signUpButton.layer.cornerRadius = 12
