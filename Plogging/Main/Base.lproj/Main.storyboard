@@ -12,7 +12,6 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXj-XR-DvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -112,6 +111,7 @@
                         <outlet property="tabBar" destination="EuL-s9-PTS" id="E2p-pW-DMJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304" y="58"/>
         </scene>
@@ -123,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="936" y="-80"/>
         </scene>
-        <!--Plogging-->
+        <!--PloggingStartViewController-->
         <scene sceneID="wzM-Pf-Bdp">
             <objects>
-                <viewControllerPlaceholder storyboardName="Plogging" id="t0p-XS-EL4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="PloggingMain" storyboardName="PloggingMain" referencedIdentifier="PloggingStartViewController" id="t0p-XS-EL4" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="941" y="10"/>
         </scene>

@@ -33,9 +33,29 @@ class PloggingRunningInfoViewController: UIViewController {
     
 
 
-    @IBAction func backToStart() {
+    @IBAction func finishPlogging() {
         pathManager.stopRunning()
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
+        let no = UIAlertAction(title: "아니오", style: .default) { _ in
+        }
+        let yes = UIAlertAction(title: "네", style: .default) { _ in
+            self.dismiss(animated: false, completion: { [self] in
+//                let ploggingResultData = createPloggingResultData()
+                
+                let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
+                guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
+                    return
+                }
+//                ploggingResultViewController.ploggingResultData = ploggingResultData
+                let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
+                ploggingResultNavigationController.modalPresentationStyle = .fullScreen
+                ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
+                self.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
+            })
+        }
+        alert.addAction(no)
+        alert.addAction(yes)
+        present(alert, animated: true, completion: nil)
     }
 
     func setupSummeryDataUpdate() {
@@ -92,5 +112,7 @@ class PloggingRunningInfoViewController: UIViewController {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", distance)
         }
     }
+    
+    
     
 }

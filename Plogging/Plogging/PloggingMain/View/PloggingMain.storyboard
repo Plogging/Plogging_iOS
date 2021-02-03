@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HGx-tp-GMd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-Sj-bwq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="-44" width="414" height="984"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVp-qM-Ers" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="109" y="651" width="196" height="78"/>
@@ -195,25 +195,6 @@
             </objects>
             <point key="canvasLocation" x="566.66666666666674" y="343.52678571428572"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gyd-UY-9P6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-tp-GMd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fBK-Rq-Yhe">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rxJ-u1-4of">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="LsG-j0-skQ" kind="relationship" relationship="rootViewController" id="Kxb-it-ZIF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nWV-Dd-i44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1210" y="-391"/>
-        </scene>
         <!--Plogging Running Info View Controller-->
         <scene sceneID="Nvt-tf-emK">
             <objects>
@@ -258,7 +239,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="backToStart" destination="iDk-36-o5o" eventType="touchUpInside" id="621-3A-yCV"/>
+                                            <action selector="finishPlogging" destination="iDk-36-o5o" eventType="touchUpInside" id="EP3-38-BDq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -314,7 +295,7 @@
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
                         <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
-                        <outlet property="stopButton" destination="6eF-DA-V2s" id="pzC-DF-qWc"/>
+                        <outlet property="stopButton" destination="6eF-DA-V2s" id="FXj-Ej-TA3"/>
                         <outlet property="summeryDistance" destination="FvQ-dZ-Ldi" id="Rgq-Fi-bMP"/>
                         <outlet property="summeryKcal" destination="Rny-Ru-w5A" id="Qmc-hx-kly"/>
                         <outlet property="summeryStackView" destination="Mbw-af-PWV" id="5sM-4N-cT3"/>
