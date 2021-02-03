@@ -34,11 +34,11 @@ class PloggingRunningInfoViewController: UIViewController {
 
 
     @IBAction func finishPlogging() {
-        pathManager.stopRunning()
         let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default) { _ in
         }
         let yes = UIAlertAction(title: "네", style: .default) { _ in
+            self.pathManager.stopRunning()
             self.dismiss(animated: false, completion: { [self] in
 //                let ploggingResultData = createPloggingResultData()
                 

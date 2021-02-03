@@ -228,7 +228,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="L58-d0-Xxa" kind="show" id="mej-vC-8cd"/>
+                                            <segue destination="L58-d0-Xxa" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
