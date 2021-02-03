@@ -23,6 +23,7 @@ class SNSLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarClear()
         setupButtonsUI()
     }
     
@@ -68,12 +69,10 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickSignUpWithEmailButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SegueIdentifier.signUpViewController, sender: nil)
 
     }
     
     @IBAction func clickSignInButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SegueIdentifier.loginViewController, sender: nil)
+
     }
-    
 }
