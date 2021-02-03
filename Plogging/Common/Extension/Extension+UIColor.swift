@@ -13,4 +13,5 @@ extension UIColor {
     static let veryLightPinkTwo = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
     static let tintGreen = UIColor(red: 55/255, green: 213/255, blue: 172/255, alpha: 1)
     static let loginGray = UIColor(red: 207/255, green: 216/255, blue: 214/255, alpha: 1)
+    static let onboardingPaleGreen = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
 }

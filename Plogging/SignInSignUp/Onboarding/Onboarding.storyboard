@@ -34,7 +34,7 @@
                                     <action selector="ClickedSkipButton:" destination="9ms-uq-Xa8" eventType="touchUpInside" id="dMp-Ki-Erh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="weB-8p-1AI">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="weB-8p-1AI" customClass="OnboardingCustomPageControl" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="146" y="704" width="122.5" height="28"/>
                                 <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.96470588235294119" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.21568627450980393" green="0.83529411764705885" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
