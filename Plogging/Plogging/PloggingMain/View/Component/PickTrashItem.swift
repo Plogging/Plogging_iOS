@@ -58,7 +58,7 @@ class PickTrashItem: UIView {
     }
     
     func configView() {
-        self.countLabel.text = String.init(count)
+        self.countLabel.text = "\(count)"
     }
     
     func setupResource(icon: UIImage, category: String) {

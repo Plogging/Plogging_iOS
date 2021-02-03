@@ -17,7 +17,7 @@ extension PathManager: CLLocationManagerDelegate{
         let howRecent = currentLocation.timestamp.timeIntervalSinceNow
         guard abs(howRecent) < 10 else { return }
 
-        if(isRecord == false) {
+        if !isRecord {
             pointResentLocation(location: currentLocation.coordinate)
             print("skip location")
             return
@@ -33,7 +33,7 @@ extension PathManager: CLLocationManagerDelegate{
 
         print("[BACKUP] update count : \(locations.count)")
 
-        if (locationList.count % 10) == 0 {
+        if locationList.count % 10 == 0 {
             backupPath()
         }
         guard let mapView = mapView else {return}

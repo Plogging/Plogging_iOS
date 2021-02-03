@@ -34,9 +34,9 @@ class PloggingPickTrashViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        items = [vinil, glass, paper, plastic, can, extra]
         super.viewDidLoad()
         setupView()
-        items = [vinil, glass, paper, plastic, can, extra]
     }
     
     func setupView() {

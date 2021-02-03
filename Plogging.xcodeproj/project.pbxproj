@@ -45,7 +45,6 @@
 		3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */; };
 		3D51A8C85F928A82EC7E3ECE /* PickTrashItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A5C5518A2AA16488BB30 /* PickTrashItem.xib */; };
 		3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A98D1552E6F9909BEE64 /* BackupManager.swift */; };
-		3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */; };
 		3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A40EDF721D23827E5FD1 /* PloggingIntroduceModalViewController.swift */; };
 		3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A4D3DA91775A4DCD9228 /* PathManager.swift */; };
 		3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A1AAB16BC9DC4AF03783 /* PloggingRunningInfoViewController.swift */; };
@@ -153,7 +152,6 @@
 		3D51A64BE30481EF1230392E /* ConfirmButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
 		3D51A98D1552E6F9909BEE64 /* BackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
 		3D51AA7DB7C490898DCDC735 /* SummeryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummeryItem.swift; sourceTree = "<group>"; };
-		3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
 		3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,7 +416,6 @@
 				3D51A4D3DA91775A4DCD9228 /* PathManager.swift */,
 				3D51ACE379B1C576394FBFBD /* Backup.xcdatamodeld */,
 				3D51A98D1552E6F9909BEE64 /* BackupManager.swift */,
-				3D51AB80275FCB81D7F8D3B8 /* LocationManager.swift */,
 				3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */,
 				3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */,
 			);
@@ -955,7 +952,6 @@
 				3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */,
 				3D51A410A03C5277B3E45C67 /* Backup.xcdatamodeld in Sources */,
 				3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */,
-				3D51AC2644A05220C2BBA307 /* LocationManager.swift in Sources */,
 				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
 				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
 				3D51A662CEEFD31F10D5EEF5 /* SummeryItem.swift in Sources */,

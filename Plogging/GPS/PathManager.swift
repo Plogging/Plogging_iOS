@@ -21,7 +21,7 @@ class PathManager: NSObject {
 
     var mapView: MKMapView?
     var backupManager = BackupManager()
-    let locationManager = LocationManager.shared
+    let locationManager = CLLocationManager()
 
     var isRecord = false
 
