@@ -13,4 +13,5 @@ enum Storyboard: String {
     case WaitingScreen
     case PopUp
     case PloggingMain
+    case PloggingResult
 }
