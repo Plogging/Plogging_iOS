@@ -64,7 +64,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
         if checkValidation() {
-            self.performSegue(withIdentifier: SegueIdentifier.nickNameChange, sender: nil)
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController, sender: nil)
         }
     }
 }

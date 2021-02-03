@@ -78,7 +78,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="i86-Um-ous" kind="show" id="rBP-Jy-NTj"/>
+                                            <action selector="clickSignUpWithEmailButton:" destination="QnJ-2f-PcS" eventType="touchUpInside" id="Izv-0B-7a1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-cO-8oi">
@@ -92,7 +92,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="emF-za-emW" kind="show" id="uJx-QG-Zp6"/>
+                                            <action selector="clickSignInButton:" destination="QnJ-2f-PcS" eventType="touchUpInside" id="NRK-E6-yku"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -146,6 +146,8 @@
                         <outlet property="signInButton" destination="V2c-cO-8oi" id="R9p-a4-D9w"/>
                         <outlet property="signUpWithEmailButton" destination="WdE-Zp-jWa" id="94I-sz-oyl"/>
                         <outlet property="snsLoginStackView" destination="Ypu-gG-TR6" id="Owl-Cs-iie"/>
+                        <segue destination="i86-Um-ous" kind="show" identifier="SignUpViewController" id="Bpv-u9-IcT"/>
+                        <segue destination="emF-za-emW" kind="show" identifier="LoginViewController" id="oHh-er-xNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfJ-1m-mwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

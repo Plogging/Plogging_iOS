@@ -30,6 +30,6 @@ class FindPasswordViewController: UIViewController {
         // reqeust API
         
         // success
-        self.performSegue(withIdentifier: SegueIdentifier.findPasswordCompletion, sender: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.passwordCompletionViewController, sender: nil)
     }
 }

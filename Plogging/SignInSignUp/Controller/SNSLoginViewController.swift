@@ -66,4 +66,14 @@ class SNSLoginViewController: UIViewController {
     @IBAction func clickAppleLoginButton(_ sender: UIButton) {
         SNSLoginManager.shared.setupLoginWithApple()
     }
+    
+    @IBAction func clickSignUpWithEmailButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: SegueIdentifier.signUpViewController, sender: nil)
+
+    }
+    
+    @IBAction func clickSignInButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: SegueIdentifier.loginViewController, sender: nil)
+    }
+    
 }
