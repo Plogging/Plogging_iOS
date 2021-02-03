@@ -8,31 +8,60 @@ import MapKit
 
 class PathManager: NSObject {
 
+    static var pathManager = PathManager()
+    
     var locationList: [CLLocation] = []
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var mapView: MKMapView
-    var backupManager = BackupManager()
-    let locationManager = LocationManager.shared
-
-    init(on mapView: MKMapView) {
-        self.mapView = mapView
-        super.init()
-        mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+    var distance: Float = 0.0 {
+        didSet {
+            NotificationCenter.default.post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
+        }
     }
 
+    let updateDistance: Notification.Name = Notification.Name("UpdateDistance")
 
-    func startLocationUpdate() {
+    var mapView: MKMapView?
+    var backupManager = BackupManager()
+    let locationManager = CLLocationManager()
+
+    var isRecord = false
+
+    override init() {
+        super.init()
+    }
+    
+    func setupMapview(on mapView: MKMapView) {
+        self.mapView = mapView
+        self.mapView?.delegate = self
+        pointResentLocation(location: mapView.userLocation.coordinate)
+    }
+
+    func pointResentLocation(location: CLLocationCoordinate2D) {
+        guard let region = measureMapRegion(curLocation: location) else { return }
+        mapView?.setRegion(region, animated: true)
+    }
+
+    func startLocationUpdate () {
+        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         print("[BACKUP] success restore count : \(locationList.count)")
+        print("start location")
     }
 
     func stopLocationUpdate() {
         locationManager.stopUpdatingLocation()
+    }
+
+    func startRunning() {
+        self.isRecord = true
+    }
+    
+    func stopRunning() {
+        self.isRecord = false
+        locationList = []
         backupManager.removePathData()
     }
 
@@ -46,6 +75,7 @@ class PathManager: NSObject {
 
     func retrievePath() {
         locationList = backupManager.restorePathData()
+        guard let mapView = mapView else {return}
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
 
@@ -55,7 +85,7 @@ class PathManager: NSObject {
 
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-        MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 1400)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {

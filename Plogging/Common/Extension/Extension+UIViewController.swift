@@ -39,4 +39,12 @@ extension UIViewController {
             self.present(onboardingViewController, animated: true, completion: nil)
         }
     }
+    
+    func showPloggingViewController() {
+        let storyboard = UIStoryboard(name: Storyboard.PloggingMain.rawValue, bundle: nil)
+        if let ploggingStartViewControl = storyboard.instantiateViewController(withIdentifier: "PloggingStartViewController") as? PloggingStartViewController {
+            ploggingStartViewControl.modalPresentationStyle = .fullScreen
+            self.present(ploggingStartViewControl, animated: true, completion: nil)
+        }
+    }
 }

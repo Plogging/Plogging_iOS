@@ -62,7 +62,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="top" secondItem="14t-un-sOC" secondAttribute="top" id="1KY-qa-77e"/>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="FME-Lh-V2O"/>
