@@ -598,6 +598,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="KvB-lv-bOe" id="tkM-g6-UGD"/>
+                        <outlet property="emailView" destination="BW2-7F-acK" id="9VY-2N-gTn"/>
                         <segue destination="11q-i8-LRe" kind="show" identifier="PasswordCompletionViewController" id="Eoj-wF-UrF"/>
                     </connections>
                 </viewController>
@@ -778,7 +779,9 @@
                     <connections>
                         <outlet property="confirmButton" destination="XaM-IY-OkZ" id="Uu0-Gg-4qR"/>
                         <outlet property="emailTextField" destination="Rta-DN-hCy" id="eB5-i0-gt5"/>
+                        <outlet property="emailView" destination="vAg-Sv-aAb" id="u2O-5r-hA2"/>
                         <outlet property="passwordTextField" destination="TSa-sy-zmb" id="FZz-tY-T7H"/>
+                        <outlet property="passwordView" destination="3cs-cQ-GTW" id="lIQ-Iw-z22"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ive-NO-sHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

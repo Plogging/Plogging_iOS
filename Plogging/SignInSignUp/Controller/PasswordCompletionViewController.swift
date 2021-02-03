@@ -9,6 +9,8 @@ import UIKit
 
 class PasswordCompletionViewController: UIViewController {
 
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
@@ -26,6 +28,11 @@ class PasswordCompletionViewController: UIViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.cornerRadius = 12
         
+        emailView.clipsToBounds = true
+        emailView.layer.cornerRadius = 4
+        
+        passwordView.clipsToBounds = true
+        passwordView.layer.cornerRadius = 4
         passwordTextField.isSecureTextEntry = true
     }
     

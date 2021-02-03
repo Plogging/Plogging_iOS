@@ -9,6 +9,7 @@ import UIKit
 
 class FindPasswordViewController: UIViewController {
 
+    @IBOutlet var emailView: UIView!
     @IBOutlet weak var confirmButton: UIButton!
     
     override func viewDidLoad() {
@@ -24,6 +25,9 @@ class FindPasswordViewController: UIViewController {
     private func setupUI() {
         confirmButton.clipsToBounds = true
         confirmButton.layer.cornerRadius = 12
+        
+        emailView.clipsToBounds = true
+        emailView.layer.cornerRadius = 4
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
