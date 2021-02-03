@@ -12,6 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXj-XR-DvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -61,7 +62,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="top" secondItem="14t-un-sOC" secondAttribute="top" id="1KY-qa-77e"/>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="FME-Lh-V2O"/>
@@ -111,7 +112,6 @@
                         <outlet property="tabBar" destination="EuL-s9-PTS" id="E2p-pW-DMJ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304" y="58"/>
         </scene>
