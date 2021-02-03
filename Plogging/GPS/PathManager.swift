@@ -61,6 +61,7 @@ class PathManager: NSObject {
     
     func stopRunning() {
         self.isRecord = false
+        stopLocationUpdate()
         locationList = []
         backupManager.removePathData()
     }
