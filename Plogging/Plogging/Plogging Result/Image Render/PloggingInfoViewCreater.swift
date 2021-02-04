@@ -42,12 +42,13 @@ class PloggingInfoViewCreater {
     }
     
     func addTrashCountView(_ trashCount: String) {
-        let trashIconImageView =  UIImageView(image: UIImage(named: "trash"))
+        let trashIconImageView =  UIImageView(image: UIImage(named: "trashCan"))
         trashIconImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 1/3 + 22, y: DeviceInfo.screenWidth * 6/7, width: 32, height: 32)
         ploggingInfoBaseView.addSubview(trashIconImageView)
         
         let trashLabel = UILabel(frame: CGRect(x: DeviceInfo.screenWidth * 1/3 + 57, y: DeviceInfo.screenWidth * 6/7, width: 100, height: 32))
         trashLabel.text = trashCount
+        trashLabel.text?.append("개")
         trashLabel.font = UIFont(name: "SFProDisplay-Black", size: 23)
         trashLabel.textColor = UIColor.white
         ploggingInfoBaseView.addSubview(trashLabel)

@@ -113,13 +113,14 @@ extension PloggingResultViewController {
         if baseImage == nil {
             self.showPopUpViewController(with: .사진없이저장팝업)
             let ploggingResultImageMaker = PloggingResultImageMaker()
-            guard let commonImage = UIImage(named: "test") else {
+            guard let basicImage = UIImage(named: "basicImage") else {
                 return
             }
+            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
             guard let distance = ploggingResultData?.meta.distance else {
                 return
             }
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: commonImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
             //서버 통신 추가
             ploggingResultPhoto.image = ploggingResultImage
         }
