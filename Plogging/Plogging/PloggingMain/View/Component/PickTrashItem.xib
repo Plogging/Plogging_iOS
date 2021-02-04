@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+            <connections>
+                <outlet property="categoryLabel" destination="bge-qZ-I41" id="lE4-Ds-9UO"/>
+                <outlet property="countLabel" destination="WLT-pb-k0Z" id="fFD-Eh-wdC"/>
+                <outlet property="decreaseButton" destination="3F3-EZ-t5L" id="Bzx-vE-Prc"/>
+                <outlet property="iconImage" destination="6gx-Dt-KPZ" id="4FF-gu-7q6"/>
+                <outlet property="increaseButton" destination="lXi-88-rQE" id="e0l-nx-k4b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleAspectFit" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="174" height="182"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oKR-7a-L3e">
+                    <rect key="frame" x="18" y="125" width="138" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F3-EZ-t5L">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <state key="normal" image="decrease"/>
+                            <connections>
+                                <action selector="decreaseCount" destination="-1" eventType="touchUpInside" id="H3F-xE-102"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLT-pb-k0Z">
+                            <rect key="frame" x="61" y="0.0" width="16.5" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXi-88-rQE">
+                            <rect key="frame" x="98" y="0.0" width="40" height="40"/>
+                            <state key="normal" image="increase"/>
+                            <connections>
+                                <action selector="increaseCount" destination="-1" eventType="touchUpInside" id="mHh-0P-AJq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종이" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bge-qZ-I41">
+                    <rect key="frame" x="72.5" y="90.5" width="29.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-Dt-KPZ">
+                    <rect key="frame" x="57.5" y="19" width="59.5" height="59.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6gx-Dt-KPZ" secondAttribute="height" multiplier="1:1" priority="750" id="Zc9-Jg-JgF"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="bge-qZ-I41" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="A4c-AK-elt"/>
+                <constraint firstItem="oKR-7a-L3e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P9T-ch-YTS"/>
+                <constraint firstAttribute="trailing" secondItem="oKR-7a-L3e" secondAttribute="trailing" constant="18" id="Rjp-cN-QKV"/>
+                <constraint firstItem="oKR-7a-L3e" firstAttribute="top" secondItem="bge-qZ-I41" secondAttribute="bottom" constant="14" id="S8a-SI-XCF"/>
+                <constraint firstItem="oKR-7a-L3e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="Tdh-x4-C0Y"/>
+                <constraint firstItem="bge-qZ-I41" firstAttribute="top" secondItem="6gx-Dt-KPZ" secondAttribute="bottom" constant="12" id="Zqb-Ck-ixy"/>
+                <constraint firstItem="6gx-Dt-KPZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fqn-pU-8fD"/>
+                <constraint firstAttribute="bottom" secondItem="oKR-7a-L3e" secondAttribute="bottom" constant="17" id="uy6-8J-VfQ"/>
+                <constraint firstItem="6gx-Dt-KPZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="w9K-bf-Eyx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-156.52173913043478" y="229.6875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="decrease" width="40" height="40"/>
+        <image name="increase" width="40" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

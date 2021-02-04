@@ -9,74 +9,92 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
+    @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nickName: UILabel!
+    @IBOutlet weak var totalPloggingScore: UILabel!
+    @IBOutlet weak var totalPloggingDistance: UILabel!
+    @IBOutlet weak var totalTrashCount: UILabel!
     
-    let imageView = UIImageView(image: UIImage(named: "onboarding1"))
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBarUI()
+    }
+    
+    func setUpNavigationBarUI() {
+        self.navigationController?.navigationBar.isHidden = true
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = navigationBarView.bounds
+        
+        let colors = [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor]
+        gradientLayer.colors = colors
+         
+        gradientLayer.locations = [0.5]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
 
+        navigationBarView.layer.addSublayer(gradientLayer)
         
-        registerNib()
-        setupCollectionView()
-        setupStickyHeader()
+        navigationBarView.clipsToBounds = true
+        navigationBarView.layer.cornerRadius = 37
+        navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
     }
-    
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+
+    @IBAction func sortingPloggingContents(_ sender: UIButton) {
+        let alert = UIAlertController(title: "플로깅 기록 정렬하기", message: "플로깅 기록의 정렬방식을 선택하세요.", preferredStyle: .actionSheet)
+        let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
+           
+        }
+        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { _ in
+            
+        }
         
-        collectionView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
-    }
-    
-    private func setupStickyHeader() {
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 300)
-        view.addSubview(imageView)
-    }
-    
-    private func registerNib() {
-        let nib = UINib(nibName: "PloggingMyListCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "PloggingMyListCollectionViewCell")
+        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(dateSorting)
+        alert.addAction(trashCountSorting)
+        alert.addAction(scoreSorting)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
 }
 
-extension MyPageViewController: UICollectionViewDelegate {
-    
-}
-
+// MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: PloggingMyListCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingMyListCollectionViewCell", for: indexPath) as! PloggingMyListCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
+        let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
+        guard let content = UIImage(named: "test") else {
+            return cell
+        }
+        ploggingResultPhotoCell?.updateUI(image: content)
         
         return cell
     }
 }
 
-extension MyPageViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+// MARK: UICollectionViewDelegate
+extension MyPageViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 40
-        let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
-        return CGSize(width: size, height: size)
-    }
 }
-
-extension MyPageViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = -scrollView.contentOffset.y
-        let height = max(offsetY, 130)
-        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: height)
+// MARK: UICollectionViewDelegateFlowLayout
+extension MyPageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height: CGFloat = width
+        
+        return CGSize(width: width, height: height)
     }
 }

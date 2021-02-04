@@ -12,36 +12,55 @@ struct PloggingInfo: Codable {
     let rc: Int
     let rcmsg: String
     let plogging_list: [PloggingList]
+    
+    enum PloggingInfoCodingKeys: String, CodingKey {
+        case ploggingList = "plogging_list"
+    }
 }
 
 // MARK: - PloggingList
 struct PloggingList: Codable {
-    let id: String
+    let id: String?
     let meta: Meta
-    let trash_list: [TrashList]
+    let trashList: [TrashList]
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case meta
-        case trash_list
+        case trashList = "trash_list"
     }
 }
 
 // MARK: - Meta
 struct Meta: Codable {
-    let user_id: String
-    let create_time: Int
+    let userId: String?
+    let createTime: Int?
     let distance: Int
     let calories: Int
-    let plogging_time: Int
-    let plogging_img: String
-    let plogging_total_score: Int
-    let plogging_activity_score: Int
-    let plogging_environment_score: Int
+    let ploggingTime: Int
+    let ploggingImg: String?
+    let ploggingTotalScore: Int?
+    let ploggingActivityScore: Int?
+    let ploggingEnvironmentScore: Int?
+    
+    enum MetaCodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case createTime = "create_time"
+        case ploggingTime = "plogging_time"
+        case ploggingImg = "plogging_img"
+        case ploggingTotalScore = "plogging_total_score"
+        case ploggingActivityScore = "plogging_activity_score"
+        case ploggingEnvironmentScore = "plogging_environment_score"
+    }
 }
 
 // MARK: - TrashList
 struct TrashList: Codable {
-    let trash_type: Int
-    let pick_count: Int
+    let trashType: Int
+    let pickCount: Int
+    
+    enum TrashListCodingKeys: String, CodingKey {
+        case trashType = "trash_type"
+        case pickCount = "pick_count"
+    }
 }
