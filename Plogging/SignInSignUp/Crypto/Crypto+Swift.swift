@@ -38,7 +38,7 @@ extension Cryptoable {
             let e64_data = Data(base64Encoded: chiperText) ?? Data()
             let decryptData = try aes.decrypt(e64_data.bytes)
             let decryptText = String(bytes: decryptData, encoding: .utf8)
-            print(decryptText)
+            print(decryptText ?? "")
         } catch {
             print(error)
         }
