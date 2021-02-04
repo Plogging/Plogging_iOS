@@ -27,6 +27,8 @@
 		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
 		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
+		1CA065E325CC731A00AEA836 /* RankingGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E225CC731A00AEA836 /* RankingGlobal.swift */; };
+		1CA065E525CC73AD00AEA836 /* RankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E425CC73AD00AEA836 /* RankingUser.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
 		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
@@ -124,6 +126,8 @@
 		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
+		1CA065E225CC731A00AEA836 /* RankingGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingGlobal.swift; sourceTree = "<group>"; };
+		1CA065E425CC73AD00AEA836 /* RankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUser.swift; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
@@ -353,6 +357,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1CA065E125CC730D00AEA836 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CA065E225CC731A00AEA836 /* RankingGlobal.swift */,
+				1CA065E425CC73AD00AEA836 /* RankingUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1CBE988925AC757B00CC247A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,6 +565,7 @@
 		9B671DEF25AE0CDC00B0B415 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				1CA065E125CC730D00AEA836 /* Model */,
 				1C5A68BB25BF239D00F096A9 /* Controller */,
 				1C5A68BA25BF238900F096A9 /* View */,
 			);
@@ -878,8 +892,10 @@
 				1CC281DC25B4C118003FBCCD /* PloggingUser.swift in Sources */,
 				9B51A63625B5C998000AA9FA /* DeviceInfo.swift in Sources */,
 				1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */,
+				1CA065E525CC73AD00AEA836 /* RankingUser.swift in Sources */,
 				1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */,
 				1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */,
+				1CA065E325CC731A00AEA836 /* RankingGlobal.swift in Sources */,
 				9BBFF19A25C9479400D6636E /* PloggingResultPhotoCell.swift in Sources */,
 				1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
