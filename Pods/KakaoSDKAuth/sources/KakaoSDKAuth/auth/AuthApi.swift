@@ -77,7 +77,13 @@ final public class AuthApi {
         }
         return false
     }
-    
+        
+    /// 사용자가 앞서 로그인을 통해 토큰을 발급 받은 상태인지 확인합니다.
+    /// 주의: 기존 토큰 존재 여부를 확인하는 기능으로, 사용자가 현재도 로그인 상태임을 보장하지 않습니다.
+    public static func hasToken() -> Bool {
+        return Auth.shared.tokenManager.getToken() != nil
+    }
+        
     /// 카카오톡 간편로그인을 실행합니다.
     /// - note: AuthApi.isKakaoTalkLoginAvailable() 메소드로 실행 가능한 상태인지 확인이 필요합니다. 카카오톡을 실행할 수 없을 경우 loginWithKakaoAccount() 메소드로 웹 로그인을 시도할 수 있습니다.
     public func loginWithKakaoTalk(channelPublicIds: [String]? = nil,
@@ -94,9 +100,13 @@ final public class AuthApi {
     // MARK: Login with Kakao Account
     
     /// iOS 11 이상에서 제공되는 (SF/ASWeb)AuthenticationSession 을 이용하여 로그인 페이지를 띄우고 쿠키 기반 로그인을 수행합니다. 이미 사파리에에서 로그인하여 카카오계정의 쿠키가 있다면 이를 활용하여 ID/PW 입력 없이 간편하게 로그인할 수 있습니다.
-    public func loginWithKakaoAccount(authType: AuthType? = nil, completion: @escaping (OAuthToken?, Error?) -> Void) {
-        AuthController.shared.authorizeWithAuthenticationSession(authType: authType, completion:completion)
+    /// - parameters:
+    ///   - prompts 동의 화면 요청 시 추가 상호작용을 요청하고자 할 때 전달. [Prompt]
+    
+    public func loginWithKakaoAccount(prompts : [Prompt]? = nil, completion: @escaping (OAuthToken?, Error?) -> Void) {
+        AuthController.shared.authorizeWithAuthenticationSession(prompts: prompts, completion:completion)
     }
+    
     
     // MARK: New Agreement
     
@@ -122,12 +132,12 @@ final public class AuthApi {
     }
     
     /// :nodoc: 카카오싱크 전용입니다. 자세한 내용은 카카오싱크 전용 개발가이드를 참고하시기 바랍니다.
-    public func loginWithKakaoAccount(authType: AuthType? = nil,
+    public func loginWithKakaoAccount(prompts : [Prompt]? = nil,
                                       channelPublicIds: [String]? = nil,
                                       serviceTerms: [String]? = nil,                                      
                                       completion: @escaping (OAuthToken?, Error?) -> Void) {
         
-        AuthController.shared.authorizeWithAuthenticationSession(authType: authType,
+        AuthController.shared.authorizeWithAuthenticationSession(prompts: prompts,
                                                                  channelPublicIds: channelPublicIds,
                                                                  serviceTerms: serviceTerms,
                                                                  completion: completion)
@@ -261,8 +271,9 @@ final public class AuthApi {
 }
 
 
-/// Kakao Account Authentication Type
-public enum AuthType : String {
-    /// 재로그인
-    case Reauthenticate = "reauthenticate"
+/// 인가 코드 요청 시 추가 상호작용을 요청하고자 할 때 전달하는 파라미터입니다.
+public enum Prompt : String {
+    
+    /// 기본 웹 브라우저에 카카오계정 쿠키(cookie)가 이미 있더라도 이를 무시하고 무조건 카카오계정 로그인 화면을 보여주도록 합니다.
+    case Login = "login"
 }
