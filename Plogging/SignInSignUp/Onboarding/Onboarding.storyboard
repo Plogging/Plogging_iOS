@@ -37,7 +37,11 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="weB-8p-1AI" customClass="OnboardingCustomPageControl" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="146" y="704" width="122.5" height="28"/>
                                 <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.96470588235294119" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.21568627450980393" green="0.83529411764705885" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="currentPageImage" value="onboardingSelected"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="otherPagesImage" value="onboardingUnselected"/>
+                                </userDefinedRuntimeAttributes>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sd4-aj-PW7"/>
@@ -55,7 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="defaultView" destination="Ace-ym-Vpp" id="ua0-Po-Bk0"/>
-                        <outlet property="pageControl" destination="weB-8p-1AI" id="UXf-Qq-Lsb"/>
+                        <outlet property="pageControl" destination="weB-8p-1AI" id="wR0-eU-N44"/>
                         <outlet property="skipButton" destination="UYN-rD-qHT" id="VXk-ab-jqr"/>
                     </connections>
                 </viewController>
@@ -65,6 +69,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="onboardingSelected" width="31" height="9"/>
+        <image name="onboardingUnselected" width="9" height="9"/>
         <image name="skip" width="136" height="78"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

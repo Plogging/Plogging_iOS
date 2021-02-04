@@ -9,8 +9,8 @@ import UIKit
 
 class OnboardingCustomPageControl: UIPageControl {
 
-    @IBInspectable var currentPageImage: UIImage? = UIImage(named: "onboardingSelected")
-    @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "onboardingSelected")
+    @IBInspectable let currentPageImage: UIImage? = UIImage(named: "onboardingSelected")
+    @IBInspectable let otherPagesImage: UIImage? = UIImage(named: "onboardingSelected")
     
     override var numberOfPages: Int {
         didSet {
@@ -29,22 +29,22 @@ class OnboardingCustomPageControl: UIPageControl {
         if #available(iOS 14.0, *) {
             defaultConfigurationForiOS14AndAbove()
         } else {
+            clipsToBounds = false
             pageIndicatorTintColor = .clear
             currentPageIndicatorTintColor = .clear
-            clipsToBounds = false
         }
     }
 
     private func defaultConfigurationForiOS14AndAbove() {
-        if #available(iOS 14.0, *) {
-            for index in 0..<numberOfPages {
-                let image = index == currentPage ? currentPageImage : otherPagesImage
-                setIndicatorImage(image, forPage: index)
+        for index in 0 ..< numberOfPages {
+            if index == currentPage {
+                setIndicatorImage(currentPageImage, forPage: index)
+            } else {
+                setIndicatorImage(otherPagesImage, forPage: index)
             }
-
-            pageIndicatorTintColor = UIColor.onboardingPaleGreen
-            currentPageIndicatorTintColor = UIColor.tintGreen
         }
+        pageIndicatorTintColor = UIColor.onboardingPaleGreen
+        currentPageIndicatorTintColor = UIColor.tintGreen
     }
 
     private func updateDots() {
@@ -62,7 +62,11 @@ class OnboardingCustomPageControl: UIPageControl {
                     subview.addSubview(imageView)
                     subview.clipsToBounds = false
                 }
-                imageView.image = currentPage == index ? currentPageImage : otherPagesImage
+                if index == currentPage {
+                    imageView.image = currentPageImage
+                } else {
+                    imageView.image = otherPagesImage
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: OnboardingCustomPageControl!
     
     private let scrollView = UIScrollView()
     
@@ -152,7 +152,7 @@ extension OnboardingViewController: UIScrollViewDelegate {
     func setIndiactorForCurrentPage()  {
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl?.currentPage = page
-        
+
         if page == onboardingTitleList.count - 1 {
             isLastPage = true
         } else {
