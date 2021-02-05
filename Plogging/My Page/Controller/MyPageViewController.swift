@@ -16,7 +16,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var totalTrashCount: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navigationBarViewHeight: NSLayoutConstraint!
-    
+    let array = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +89,8 @@ extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
-    
 }
+
 // MARK: UICollectionViewDelegateFlowLayout
 extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -98,52 +98,48 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
         let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
         let height: CGFloat = width
         
+        if indexPath.row == array.count-1, indexPath.row == array.count-2 {
+            return CGSize(width: collectionView.bounds.width, height: DeviceInfo.screenWidth/3)
+        }
+        
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 170, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 140, left: 0, bottom: 0, right: 0)
     }
 }
 
 // MARK: - UIScrollViewDelegate
 extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        scrollView.decelerationRate = .fast
         let contentOffSetY = scrollView.contentOffset.y
-//        guard contentOffSetY > 0 else {
-//            return
-//        }
-        if contentOffSetY > 0, contentOffSetY < 168 {
-            navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-            self.navigationBarView.layoutIfNeeded()
-            print("0~168 contentOffSetY : \(contentOffSetY)")
-        } else if contentOffSetY > 168 {
+        navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+        self.navigationBarView.layoutIfNeeded()
+        if /*contentOffSetY > 168*/ contentOffSetY > 0 {
             navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
             self.navigationBarViewHeight.constant = 129
             self.navigationBarView.layoutIfNeeded()
             
-        } else if contentOffSetY <= 0 {
-//            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            self.navigationBarViewHeight.constant = 316
-            self.navigationBarView.layoutIfNeeded()
+        } else if contentOffSetY <= 168 {
+            self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+            UIView.animate(withDuration: 0.3, animations: { [self] () -> Void in
+                self.navigationBarViewHeight.constant = 316
+                self.navigationBarView.layoutIfNeeded()
+            })
         }
         print("contentOffSetY: \(contentOffSetY)")
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         print("velocity: \(velocity.y)")
-//        scrollView.decelerationRate = .fast
         let contentOffSetY = scrollView.contentOffset.y
         if velocity.y > 0 { // 올릴 때
-            if contentOffSetY > 0, contentOffSetY < 168 {
-                if contentOffSetY == 168 {
-//                    UIView.animate(withDuration: 0.1, animations: { () -> Void in
-//                        self.navigationBarViewHeight.constant = 129
-//                        self.navigationBarView.layoutIfNeeded()
+//            if contentOffSetY > 0, contentOffSetY < 168 {
+//                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                        self.navigationBarViewHeight.constant = 129
+                        self.navigationBarView.layoutIfNeeded()
 //                    })
-                }
 //                navigationBarView.transform = CGAffineTransform(translationX: 0, y: -100)
 //                navigationBarView.layoutIfNeeded()
                 print("올릴 때contentOffSetY: \(contentOffSetY)")
@@ -152,18 +148,30 @@ extension MyPageViewController: UIScrollViewDelegate {
 //                    self.navigationBarViewHeight.constant = 129
 //                    self.navigationBarView.layoutIfNeeded()
 //                })
-            }
-        } else if contentOffSetY > 168 {
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.navigationBarViewHeight.constant = 129
-                self.navigationBarView.layoutIfNeeded()
-            })
-        } else {
+//            } else if contentOffSetY > 168 {
+//                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+//                    self.navigationBarViewHeight.constant = 129
+//                    self.navigationBarView.layoutIfNeeded()
+//                })
+//            }
+        } else { // 내릴 때
             if contentOffSetY <= 0 {
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.navigationBarViewHeight.constant = 316
+                UIView.animate(withDuration: 0.3, animations: { () -> Void in
+//                    self.navigationBarViewHeight.constant = 316
                     self.navigationBarView.layoutIfNeeded()
                     print("내릴 때 contentOffSetY: \(contentOffSetY)")
+                })
+            } else if contentOffSetY > 0, contentOffSetY < 168 {
+//                UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//                    self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+//                    self.navigationBarViewHeight.constant = 129
+//                    self.navigationBarView.layoutIfNeeded()
+//                })
+            } else if contentOffSetY <= 168 {
+                self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+                UIView.animate(withDuration: 0.3, animations: { [self] () -> Void in
+                    self.navigationBarViewHeight.constant = 316
+                    self.navigationBarView.layoutIfNeeded()
                 })
             }
         }
