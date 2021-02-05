@@ -39,12 +39,12 @@ extension APICollection {
 
 // MARK: - PLOGGING
 extension APICollection {
-    func requestTest(completion: @escaping (Result<Welcome, APIError>) -> Void) {
+    func requestTest(completion: @escaping () -> Void) {
         let header: HTTPHeaders = ["sessionKey": "_zfYaHZBM1URBKrJ7uOTl1FVRQRfGQ8F",
                                    "cookie": "connect.sid=s%3A_zfYaHZBM1URBKrJ7uOTl1FVRQRfGQ8F.zapHpj9aUTZSpBQ2IuXyVQRtS3aUw8D%2Flr61ZYSesYE"]
-        
+
         let data = "{\"meta\": { \"distance\": 100, \"calorie\": 200, \"flogging_time\": 20 }, \"pick_list\": [{ \"trash_type\": 3, \"pick_count\": 33 }, { \"trash_type\": 1, \"pick_count\": 12 }]}"
-        
+
         AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(Data(data.utf8), withName: "ploggingData")
         },
@@ -54,15 +54,12 @@ extension APICollection {
         ).responseJSON { response in
             print(response)
             guard let data = response.data else {
-                return completion(.failure(.dataFailed))
+                print(APIError.dataFailed)
+                return completion()
             }
-            
+
             print(data)
-            guard let value = try? JSONDecoder().decode(Welcome.self, from: data) else {
-                return completion(.failure(.decodingFailed))
-            }
-            
-            completion(.success(value))
+            completion()
         }
     }
 }
