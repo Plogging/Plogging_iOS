@@ -16,11 +16,11 @@
 		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
 		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
+		1C31C03225C54FEC00413EBB /* RankingRefreshTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03025C54FEC00413EBB /* RankingRefreshTableViewCell.swift */; };
+		1C31C03325C54FEC00413EBB /* RankingRefreshTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */; };
 		1C31C03525C5B60800413EBB /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */; };
 		1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */; };
 		1C31C03A25C5C28C00413EBB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03925C5C28C00413EBB /* NickNameViewController.swift */; };
-		1C31C03225C54FEC00413EBB /* RankingRefreshTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31C03025C54FEC00413EBB /* RankingRefreshTableViewCell.swift */; };
-		1C31C03325C54FEC00413EBB /* RankingRefreshTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */; };
 		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
 		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
@@ -34,9 +34,13 @@
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
 		1C7D1D7525CB2B6600FA621F /* OnboardingCustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D1D7425CB2B6600FA621F /* OnboardingCustomPageControl.swift */; };
 		1C88A44625CC536D003E979D /* Crypto+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44525CC536D003E979D /* Crypto+Swift.swift */; };
-		1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */; };
 		1C88A44D25CC65DD003E979D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C88A44A25CC65DD003E979D /* MyPage.storyboard */; };
 		1C88A44E25CC65DD003E979D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44C25CC65DD003E979D /* MyPageViewController.swift */; };
+		1C9A3A9D25CDCA5F00668058 /* Protocol+NibLodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */; };
+		1C9A3A9F25CDCA7800668058 /* Protocol+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */; };
+		1C9A3AA125CDCAA400668058 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3AA025CDCAA400668058 /* Extension+UICollectionView.swift */; };
+		1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */; };
+		1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
 		1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE98A325AF25A100CC247A /* PloggingInfo.swift */; };
@@ -124,11 +128,11 @@
 		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
 		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
 		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
+		1C31C03025C54FEC00413EBB /* RankingRefreshTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingRefreshTableViewCell.swift; sourceTree = "<group>"; };
+		1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingRefreshTableViewCell.xib; sourceTree = "<group>"; };
 		1C31C03425C5B60800413EBB /* FindPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
 		1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+LoginValidation.swift"; sourceTree = "<group>"; };
 		1C31C03925C5C28C00413EBB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
-		1C31C03025C54FEC00413EBB /* RankingRefreshTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingRefreshTableViewCell.swift; sourceTree = "<group>"; };
-		1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingRefreshTableViewCell.xib; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
 		1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRankingTableViewCell.xib; sourceTree = "<group>"; };
@@ -144,9 +148,13 @@
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
 		1C7D1D7425CB2B6600FA621F /* OnboardingCustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustomPageControl.swift; sourceTree = "<group>"; };
 		1C88A44525CC536D003E979D /* Crypto+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+Swift.swift"; sourceTree = "<group>"; };
-		1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCompletionViewController.swift; sourceTree = "<group>"; };
 		1C88A44A25CC65DD003E979D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1C88A44C25CC65DD003E979D /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+NibLodable.swift"; sourceTree = "<group>"; };
+		1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+ReusableCell.swift"; sourceTree = "<group>"; };
+		1C9A3AA025CDCAA400668058 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
+		1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
+		1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCompletionViewController.swift; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
@@ -285,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
+				1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */,
+				1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -446,6 +456,8 @@
 				1CC281BD25B4B121003FBCCD /* Extension+UIButton.swift */,
 				1C2184EB25B770130076CD14 /* Extension+String.swift */,
 				1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */,
+				1C9A3AA025CDCAA400668058 /* Extension+UICollectionView.swift */,
+				1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -952,6 +964,7 @@
 				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
 				1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */,
+				1C9A3AA125CDCAA400668058 /* Extension+UICollectionView.swift in Sources */,
 				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */,
@@ -984,8 +997,10 @@
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
+				1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
 				1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */,
+				1C9A3A9F25CDCA7800668058 /* Protocol+ReusableCell.swift in Sources */,
 				1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */,
 				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
@@ -1003,6 +1018,7 @@
 				1C7D1D7525CB2B6600FA621F /* OnboardingCustomPageControl.swift in Sources */,
 				1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */,
 				3D51A662CEEFD31F10D5EEF5 /* SummeryItem.swift in Sources */,
+				1C9A3A9D25CDCA5F00668058 /* Protocol+NibLodable.swift in Sources */,
 				3D51A51648641E00088FC2DA /* ConfirmButton.swift in Sources */,
 				3D51AED20F7B5C12359573EB /* IntroduceModalItem.swift in Sources */,
 				3D51AF47FCF97A628499C1BD /* PickTrashItem.swift in Sources */,
