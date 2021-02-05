@@ -9,10 +9,12 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,29 +48,43 @@ class SignUpViewController: UIViewController {
         
         passwordView.clipsToBounds = true
         passwordView.layer.cornerRadius = 4
+        passwordTextField.isSecureTextEntry = true
         
         signUpButton.clipsToBounds = true
         signUpButton.layer.cornerRadius = 12
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if signUpButtonBottomConstraint.constant == 36,
-           let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            signUpButtonBottomConstraint.constant = keyboardHeight + 6
-            
-            UIView.animate(withDuration: 0.1, animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
+
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        signUpButtonBottomConstraint.constant = 36
-        
-        UIView.animate(withDuration: 0.1, animations: {
-            self.view.layoutIfNeeded()
-        })
+
+    }
+    
+    @IBAction func clickSignUpButton(_ sender: UIButton) {
+        if checkValidation() {
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController, sender: nil)
+        }
+    }
+}
+
+extension SignUpViewController: LoginValidation {
+    func checkValidation() -> Bool {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            if !email.isValidEmail() {
+                warningLabel.isHidden = false
+                warningLabel.text = "올바르지 않은 형식의 이메일입니다."
+                return false
+            }
+            if !password.isValidpassword() {
+                warningLabel.isHidden = false
+                warningLabel.text = "대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상"
+                return false
+            }
+            warningLabel.isHidden = true
+            return true
+        }
+        return false
     }
 }

@@ -135,9 +135,9 @@ public class AuthController {
     }    
     
     /// :nodoc: iOS 11 이상에서 제공되는 (SF/ASWeb)AuthenticationSession 을 이용하여 로그인 페이지를 띄우고 쿠키 기반 로그인을 수행합니다. 이미 사파리에에서 로그인하여 카카오계정의 쿠키가 있다면 이를 활용하여 ID/PW 입력 없이 간편하게 로그인할 수 있습니다.
-    public func authorizeWithAuthenticationSession(authType: AuthType? = nil,
+    public func authorizeWithAuthenticationSession(prompts : [Prompt]? = nil,
                                                    completion: @escaping (OAuthToken?, Error?) -> Void) {
-        return self.authorizeWithAuthenticationSession(authType: authType,
+        return self.authorizeWithAuthenticationSession(prompts: prompts,
                                                        agtToken: nil,
                                                        scopes: nil,
                                                        channelPublicIds: nil,
@@ -146,11 +146,11 @@ public class AuthController {
     }
     
     /// :nodoc: 카카오싱크 전용입니다. 자세한 내용은 카카오싱크 전용 개발가이드를 참고하시기 바랍니다.
-    public func authorizeWithAuthenticationSession(authType: AuthType? = nil,
+    public func authorizeWithAuthenticationSession(prompts : [Prompt]? = nil,
                                                    channelPublicIds: [String]? = nil,
                                                    serviceTerms: [String]? = nil,
                                                    completion: @escaping (OAuthToken?, Error?) -> Void) {
-        return self.authorizeWithAuthenticationSession(authType: authType,
+        return self.authorizeWithAuthenticationSession(prompts: prompts,
                                                        agtToken: nil,
                                                        scopes: nil,
                                                        channelPublicIds: channelPublicIds,
@@ -181,7 +181,7 @@ public class AuthController {
     }
     
     /// :nodoc:
-    func authorizeWithAuthenticationSession(authType: AuthType? = nil,
+    func authorizeWithAuthenticationSession(prompts: [Prompt]? = nil,
                                             agtToken: String? = nil,
                                             scopes:[String]? = nil,
                                             channelPublicIds: [String]? = nil,
@@ -241,7 +241,7 @@ public class AuthController {
             }
         }
         
-        var parameters = self.makeParameters(authType: authType,
+        var parameters = self.makeParameters(prompts: prompts,
                                              agtToken: agtToken,
                                              scopes: scopes,
                                              channelPublicIds: channelPublicIds,
@@ -263,9 +263,9 @@ public class AuthController {
             SdkLog.d("request: \n url:\(url)\n parameters: \(parameters) \n")
             
             if #available(iOS 12.0, *) {
-                let authenticationSession = ASWebAuthenticationSession.init(url: url,
-                                                                             callbackURLScheme: KakaoSDKCommon.shared.redirectUri(),
-                                                                             completionHandler:authenticationSessionCompletionHandler)
+                let authenticationSession = ASWebAuthenticationSession(url: url,
+                                                                       callbackURLScheme: (try! KakaoSDKCommon.shared.scheme()),
+                                                                       completionHandler:authenticationSessionCompletionHandler)
                 if #available(iOS 13.0, *) {
                     authenticationSession.presentationContextProvider = authController.presentationContextProvider as? ASWebAuthenticationPresentationContextProviding
                     if agtToken != nil {
@@ -276,9 +276,9 @@ public class AuthController {
                 authController.authenticationSession = authenticationSession
             }
             else {
-                authController.authenticationSession = SFAuthenticationSession.init(url: url,
-                                                                          callbackURLScheme: KakaoSDKCommon.shared.redirectUri(),
-                                                                          completionHandler:authenticationSessionCompletionHandler)
+                authController.authenticationSession = SFAuthenticationSession(url: url,
+                                                                               callbackURLScheme: (try! KakaoSDKCommon.shared.scheme()),
+                                                                               completionHandler:authenticationSessionCompletionHandler)
                 (authController.authenticationSession as? SFAuthenticationSession)?.start()
             }
         }
@@ -329,7 +329,7 @@ extension AuthController {
     }
     
     
-    public func makeParameters(authType: AuthType? = nil,
+    public func makeParameters(prompts : [Prompt]? = nil,
                                agtToken: String? = nil,
                                scopes:[String]? = nil,
                                channelPublicIds: [String]? = nil,
@@ -355,8 +355,11 @@ extension AuthController {
             }
         }
         
-        if let authType = authType {
-            parameters["auth_type"] = authType.rawValue
+        if let prompts = prompts {
+            let promptsValues : [String]? = prompts.map { $0.rawValue }
+            if let prompt = promptsValues?.joined(separator: ",") {
+                parameters["prompt"] = prompt
+            }
         }
         
         if let channelPublicIds = channelPublicIds?.joined(separator: ",") {
