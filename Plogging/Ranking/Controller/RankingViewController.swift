@@ -35,11 +35,11 @@ class RankingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        requestRankingAPI()
+        requestRankingAPI(type: "weekly")
     }
     
-    private func requestRankingAPI() {
-        let param: [String: Any] = ["rankType": "weekly",
+    private func requestRankingAPI(type: String) {
+        let param: [String: Any] = ["rankType": type,
                                     "offset": 0,
                                     "limit": 10]
         
@@ -95,7 +95,8 @@ class RankingViewController: UIViewController {
         
         weeklyView.alpha = 1
         monthlyView.alpha = 0
-        refreshRankingList()
+        
+        requestRankingAPI(type: "weekly")
     }
     
     @IBAction func montlyButtonClick(_ sender: UIButton) {
@@ -104,7 +105,8 @@ class RankingViewController: UIViewController {
         
         weeklyView.alpha = 0
         monthlyView.alpha = 1
-        refreshRankingList()
+        
+        requestRankingAPI(type: "monthly")
     }
     
     private func refreshRankingList() {
