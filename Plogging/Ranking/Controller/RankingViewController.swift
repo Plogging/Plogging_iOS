@@ -13,11 +13,33 @@ class RankingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var ploggingList: RankingGlobal? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
         setupRankingTitle()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        requestRankingAPI()
+    }
+    
+    private func requestRankingAPI() {
+        let param: [String: Any] = ["rankType": "weekly",
+                                    "offset": 0,
+                                    "limit": 10]
+        
+        APICollection.sharedAPI.requestGlobalRanking(param: param) { (response) in
+            self.ploggingList = try? response.get()
+        }
     }
     
     private func setupRankingTitle() {
@@ -54,7 +76,10 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let count = ploggingList?.count else {
+            return 1
+        }
+        return count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +88,9 @@ extension RankingViewController: UITableViewDataSource {
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as! RankingTableViewCell
-            cell.config(index: indexPath)
+            if let model = ploggingList?.rankData[indexPath.row - 1]  {
+                cell.config(model, index: indexPath)
+            }
             return cell
         }
     }

@@ -20,5 +20,5 @@ struct RankingData: Codable {
     let userId: String
     let displayName: String
     let profileImg: String
-    let score: Int
+    let score: String
 }
