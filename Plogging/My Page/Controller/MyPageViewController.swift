@@ -108,48 +108,64 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UIScrollViewDelegate
 extension MyPageViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let contentOffSetY = scrollView.contentOffset.y
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.decelerationRate = .fast
+        let contentOffSetY = scrollView.contentOffset.y
 //        guard contentOffSetY > 0 else {
 //            return
 //        }
-//        if contentOffSetY > 0, contentOffSetY < 168 {
-//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-//            print("adfs: \(contentOffSetY)")
-//        } else {
-//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: -168)
-//
-//        }
-//
-//
-//        print("contentOffSetY: \(contentOffSetY)")
-//    }
+        if contentOffSetY > 0, contentOffSetY < 168 {
+            navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+            self.navigationBarView.layoutIfNeeded()
+            print("0~168 contentOffSetY : \(contentOffSetY)")
+        } else if contentOffSetY > 168 {
+            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.navigationBarViewHeight.constant = 129
+            self.navigationBarView.layoutIfNeeded()
+            
+        } else if contentOffSetY <= 0 {
+//            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.navigationBarViewHeight.constant = 316
+            self.navigationBarView.layoutIfNeeded()
+        }
+        print("contentOffSetY: \(contentOffSetY)")
+    }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         print("velocity: \(velocity.y)")
-        
+//        scrollView.decelerationRate = .fast
         let contentOffSetY = scrollView.contentOffset.y
         if velocity.y > 0 { // 올릴 때
-//            if contentOffSetY > 0, contentOffSetY < 168 {
-//                navigationBarView.transform = CGAffineTransform(translationX: 0, y: -250)
+            if contentOffSetY > 0, contentOffSetY < 168 {
+                if contentOffSetY == 168 {
+//                    UIView.animate(withDuration: 0.1, animations: { () -> Void in
+//                        self.navigationBarViewHeight.constant = 129
+//                        self.navigationBarView.layoutIfNeeded()
+//                    })
+                }
+//                navigationBarView.transform = CGAffineTransform(translationX: 0, y: -100)
 //                navigationBarView.layoutIfNeeded()
                 print("올릴 때contentOffSetY: \(contentOffSetY)")
-                
-                UIView.animate(withDuration: 0.5, animations: { () -> Void in
-                    self.navigationBarViewHeight.constant = 150
-                    self.navigationBarView.layoutIfNeeded()
-                })
-                
-//            }
-        } else { //내릴 때
-            if contentOffSetY < 190 {
-                UIView.animate(withDuration: 0.2, animations: { () -> Void in
+
+//                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+//                    self.navigationBarViewHeight.constant = 129
+//                    self.navigationBarView.layoutIfNeeded()
+//                })
+            }
+        } else if contentOffSetY > 168 {
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                self.navigationBarViewHeight.constant = 129
+                self.navigationBarView.layoutIfNeeded()
+            })
+        } else {
+            if contentOffSetY <= 0 {
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
                     self.navigationBarViewHeight.constant = 316
                     self.navigationBarView.layoutIfNeeded()
                     print("내릴 때 contentOffSetY: \(contentOffSetY)")
                 })
             }
         }
-        
     }
 }
