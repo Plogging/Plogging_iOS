@@ -135,8 +135,6 @@
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
 		1C88A44A25CC65DD003E979D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1C88A44C25CC65DD003E979D /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		1C8B31FD25C489B20021A88D /* PlogginListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogginListCollectionViewCell.swift; sourceTree = "<group>"; };
-		1C8B31FE25C489B20021A88D /* PlogginListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlogginListCollectionViewCell.xib; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		1CBE98A325AF25A100CC247A /* PloggingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingInfo.swift; sourceTree = "<group>"; };
@@ -349,8 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
-				1C8B31FD25C489B20021A88D /* PlogginListCollectionViewCell.swift */,
-				1C8B31FE25C489B20021A88D /* PlogginListCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
