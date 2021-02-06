@@ -16,18 +16,22 @@ struct APICollection {
 
 // MARK: - USER
 extension APICollection {
-    /// 로그인 하기
-    func requestSessionKey(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.user,
+    /// 자체 로그인
+    func requestSignInCustom(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(BaseURL.mainURL + BasePath.userSignIn,
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
-                   headers: temp
+                   headers: header
         ).responseJSON { response in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
             }
 
+            print(response)
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }

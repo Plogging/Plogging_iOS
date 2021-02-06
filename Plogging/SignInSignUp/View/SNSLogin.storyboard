@@ -450,6 +450,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="clickConfirmButton:" destination="emF-za-emW" eventType="touchUpInside" id="b7m-XE-okR"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="Sfn-mG-Y0e">
                                 <rect key="frame" x="69" y="631" width="276" height="56"/>
@@ -515,9 +518,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="ErrorLabel" destination="vs8-um-cwI" id="tC7-FM-yqY"/>
                         <outlet property="emailTextField" destination="p5o-3R-6ie" id="xSa-cI-vsN"/>
                         <outlet property="emailView" destination="DTY-em-avl" id="M86-fK-8aH"/>
+                        <outlet property="errorLabel" destination="vs8-um-cwI" id="otJ-Sc-mhU"/>
                         <outlet property="passwordTextField" destination="ivO-2j-fbi" id="wzU-JV-k40"/>
                         <outlet property="passwordView" destination="ivD-SA-Upj" id="eL2-ZR-UAK"/>
                         <outlet property="signInButton" destination="BnU-Nb-3kp" id="kIN-Ia-pgW"/>

@@ -11,9 +11,8 @@ import Foundation
 struct PloggingUser: Codable {
     let rc: Int
     let rcmsg: String
-    let session: String
-    let userImg: String
-    let userName: String
+    let userImg: String?
+    let userName: String?
 }
 
 /// SceneDelegate에서 if User.shared.isFirstTimeUser로 체크하고 OnboardingViewController를 시작점으로 만들어주기
