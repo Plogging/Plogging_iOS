@@ -18,7 +18,6 @@ struct APICollection {
 extension APICollection {
     /// 자체 로그인
     func requestSignInCustom(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        
         let header: HTTPHeaders = ["Content-Type": "application/json"]
         
         AF.request(BaseURL.mainURL + BasePath.userSignIn,
@@ -39,6 +38,30 @@ extension APICollection {
             completion(.success(value))
         }
     }
+    
+    /// 사용자 아이디 가입 확인
+    func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        AF.request(BaseURL.mainURL + BasePath.userCheck,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 임시 비밀번호 발급
     func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         let header: HTTPHeaders = ["Content-Type": "application/json"]

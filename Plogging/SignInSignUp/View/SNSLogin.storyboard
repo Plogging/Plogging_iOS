@@ -327,7 +327,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
-                                    <action selector="clickSignUpButton:" destination="i86-Um-ous" eventType="touchUpInside" id="keN-9D-HcO"/>
+                                    <action selector="clickSignUpButton:" destination="i86-Um-ous" eventType="touchUpInside" id="akP-5Y-Dex"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -16,6 +16,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
+    private var ploggingInfo: PloggingUser? {
+        didSet {
+            checkEmailValidation()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +48,39 @@ class SignUpViewController: UIViewController {
         )
     }
     
+    private func requestUserCheck() {
+        guard let email = emailTextField.text else {
+            return
+        }
+
+        let param: [String: Any] = ["userId": email]
+        
+        APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+    }
+    
+    private func checkEmailValidation() {
+        guard let model = ploggingInfo else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success")
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
+                              sender: nil)
+        case 400:
+            warningLabel.isHidden = false
+            warningLabel.text = "아이디가 존재합니다."
+            return
+        case 500:
+            print("서버 error")
+            return
+        default:
+            print("error")
+        }
+    }
+    
     func setupUI() {
         emailView.clipsToBounds = true
         emailView.layer.cornerRadius = 4
@@ -64,7 +103,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
         if checkValidation() {
-            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController, sender: nil)
+            requestUserCheck()
         }
     }
 }
