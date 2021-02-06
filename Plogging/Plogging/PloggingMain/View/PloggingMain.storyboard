@@ -111,13 +111,23 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
                                         <rect key="frame" x="0.0" y="0.0" width="378" height="171.66666666666666"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" userLabel="vinyl" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nud-Ee-kzk" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -127,10 +137,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-Qr-MfR" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf6-kk-QUL" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -140,10 +160,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-4Y-zXW" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLO-B8-j8i" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -188,7 +218,7 @@
                         <outlet property="glass" destination="nud-Ee-kzk" id="DRh-Dt-pgK"/>
                         <outlet property="paper" destination="ciP-Qr-MfR" id="azq-fy-JHI"/>
                         <outlet property="plastic" destination="Bf6-kk-QUL" id="cZ9-z8-oKr"/>
-                        <outlet property="vinil" destination="Cjt-AF-4aS" id="UHi-x2-lEz"/>
+                        <outlet property="vinyl" destination="Cjt-AF-4aS" id="ETc-qF-HXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5X-0d-wFx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,7 +258,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="L58-d0-Xxa" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
+                                            <segue destination="L58-d0-Xxa" kind="presentation" identifier="PresentPickTrashSegue" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">

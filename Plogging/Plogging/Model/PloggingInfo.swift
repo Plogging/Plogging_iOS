@@ -64,3 +64,11 @@ struct TrashList: Codable {
         case pickCount = "pick_count"
     }
 }
+
+// MARK: - PloggingResult
+struct PloggingResult {
+    let distance: Int?
+    let calories: Int?
+    let ploggingTime: Int?
+    let trashListGroup: [TrashList]?
+}

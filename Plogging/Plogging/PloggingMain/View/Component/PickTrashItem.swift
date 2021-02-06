@@ -11,6 +11,15 @@ import UIKit
 class PickTrashItem: UIView {
     
     private var rootView: UIView?
+    var trashType: TrashType = .extra
+    @IBInspectable var trashTypeAdapter: Int {
+        get {
+            trashType.rawValue
+        }
+        set(input) {
+            trashType = TrashType.init(rawValue: input) ?? TrashType.extra
+        }
+    }
     
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!

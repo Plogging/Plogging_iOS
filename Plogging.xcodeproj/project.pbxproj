@@ -43,6 +43,7 @@
 		3D51A575613680B1D137A894 /* PloggingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A519B74075540D997C55 /* PloggingMain.storyboard */; };
 		3D51A662CEEFD31F10D5EEF5 /* SummeryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AA7DB7C490898DCDC735 /* SummeryItem.swift */; };
 		3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */; };
+		3D51A8B61A5B48C05E220F1C /* Enum+PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A8B724A2856A2ACFF767 /* Enum+PloggingInfo.swift */; };
 		3D51A8C85F928A82EC7E3ECE /* PickTrashItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D51A5C5518A2AA16488BB30 /* PickTrashItem.xib */; };
 		3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A98D1552E6F9909BEE64 /* BackupManager.swift */; };
 		3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A40EDF721D23827E5FD1 /* PloggingIntroduceModalViewController.swift */; };
@@ -150,6 +151,7 @@
 		3D51A519B74075540D997C55 /* PloggingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PloggingMain.storyboard; sourceTree = "<group>"; };
 		3D51A5C5518A2AA16488BB30 /* PickTrashItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickTrashItem.xib; sourceTree = "<group>"; };
 		3D51A64BE30481EF1230392E /* ConfirmButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
+		3D51A8B724A2856A2ACFF767 /* Enum+PloggingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+PloggingInfo.swift"; sourceTree = "<group>"; };
 		3D51A98D1552E6F9909BEE64 /* BackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
 		3D51AA7DB7C490898DCDC735 /* SummeryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummeryItem.swift; sourceTree = "<group>"; };
 		3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
 				1C21852925B8C3480076CD14 /* Enum+PopUp.swift */,
 				1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */,
+				3D51A8B724A2856A2ACFF767 /* Enum+PloggingInfo.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -962,6 +965,7 @@
 				3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */,
 				3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */,
 				3D51A0B8A5A8FA8D47D1553D /* PloggingStartViewController.swift in Sources */,
+				3D51A8B61A5B48C05E220F1C /* Enum+PloggingInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

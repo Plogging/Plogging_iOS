@@ -126,8 +126,8 @@
         <!--PloggingStartViewController-->
         <scene sceneID="wzM-Pf-Bdp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="PloggingMain" storyboardName="PloggingMain" referencedIdentifier="PloggingStartViewController" id="t0p-XS-EL4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="941" y="10"/>
         </scene>

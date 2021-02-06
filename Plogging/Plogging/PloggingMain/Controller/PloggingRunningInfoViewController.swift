@@ -19,10 +19,21 @@ class PloggingRunningInfoViewController: UIViewController {
     
     var timer: Timer?
     var startDate: Date?
+
+    // todo: remove it
     public var count: Int = 0
+
+    var currentTrashList: [TrashItem] = [
+        TrashItem(trashType: .vinyl, pickCount: 0),
+        TrashItem(trashType: .can, pickCount: 0),
+        TrashItem(trashType: .extra, pickCount: 0),
+        TrashItem(trashType: .glass, pickCount: 0),
+        TrashItem(trashType: .paper, pickCount: 0),
+        TrashItem(trashType: .plastic, pickCount: 0),
+    ]
     
     var pathManager = PathManager.pathManager
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -31,7 +42,25 @@ class PloggingRunningInfoViewController: UIViewController {
     }
     
     
+    func updateCount() {
+        countLabel.text = "\(count)"
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "PresentPickTrashSegue": do {
+                if let destination = segue.destination as? PloggingPickTrashViewController {
+                    destination.trashItemList = self.currentTrashList
+                }
+            }
+            default:
+                break
+            }
+
+
+        }
+    }
 
     @IBAction func finishPlogging() {
         let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
@@ -40,13 +69,13 @@ class PloggingRunningInfoViewController: UIViewController {
         let yes = UIAlertAction(title: "네", style: .default) { _ in
             self.pathManager.stopRunning()
             self.dismiss(animated: false, completion: { [self] in
-//                let ploggingResultData = createPloggingResultData()
-                
+
                 let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
-                guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
+                guard let ploggingResultViewController
+                = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }
-//                ploggingResultViewController.ploggingResultData = ploggingResultData
+
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
@@ -112,7 +141,20 @@ class PloggingRunningInfoViewController: UIViewController {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", distance)
         }
     }
-    
-    
-    
 }
+
+struct TrashItem {
+    var trashType: TrashType
+    var pickCount: Int = 0
+}
+
+
+
+
+
+
+
+
+
+
+
