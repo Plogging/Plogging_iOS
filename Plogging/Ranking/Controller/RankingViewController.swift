@@ -16,14 +16,20 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var monthlyView: UIView!
     
-    private var ploggingList: RankingGlobal? {
+    private var ploggingRankingList: RankingGlobal? {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-    
+    private var userPloggingRankig: RankingUser? {
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
@@ -35,16 +41,25 @@ class RankingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        requestRankingAPI(type: "weekly")
+//        requestRankingAPI(type: "weekly")
+//        requestUserRanking(type: "weekly")
     }
     
     private func requestRankingAPI(type: String) {
         let param: [String: Any] = ["rankType": type,
-                                    "offset": 0,
-                                    "limit": 10]
+                                    "rankCntPerPage": 1,
+                                    "pageNumber": 1]
         
         APICollection.sharedAPI.requestGlobalRanking(param: param) { (response) in
-            self.ploggingList = try? response.get()
+            self.ploggingRankingList = try? response.get()
+        }
+    }
+    
+    private func requestUserRanking(type: String) {
+        let param: [String: Any] = ["rankType": type]
+        
+        APICollection.sharedAPI.requestUserRanking(param: param) { (response) in
+            self.userPloggingRankig = try? response.get()
         }
     }
     
@@ -58,12 +73,9 @@ class RankingViewController: UIViewController {
     }
     
     private func registerNib() {
-        let userRankingNib = UINib(nibName: "RankingTableViewCell", bundle: nil)
-        tableView.register(userRankingNib, forCellReuseIdentifier: "RankingTableViewCell")
-        let myRankingNib = UINib(nibName: "MyRankingTableViewCell", bundle: nil)
-        tableView.register(myRankingNib, forCellReuseIdentifier: "MyRankingTableViewCell")
-        let rankinbRefreshNib = UINib(nibName: "RankingRefreshTableViewCell", bundle: nil)
-        tableView.register(rankinbRefreshNib, forCellReuseIdentifier: "RankingRefreshTableViewCell")
+        tableView.register(RankingTableViewCell.self)
+        tableView.register(MyRankingTableViewCell.self)
+        tableView.register(RankingRefreshTableViewCell.self)
     }
     
     private func setupTableView() {
@@ -111,8 +123,6 @@ class RankingViewController: UIViewController {
     
     private func refreshRankingList() {
         // weekly
-        tableView.reloadData()
-        
         // monthly
     }
 }
@@ -125,7 +135,7 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = ploggingList?.count else {
+        guard let count = ploggingRankingList?.count else {
             return 2
         }
         return count + 2
@@ -133,37 +143,17 @@ extension RankingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyRankingTableViewCell", for: indexPath) as! MyRankingTableViewCell
+            let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             return cell
         } else if indexPath.row == 1 {
-            let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RankingRefreshTableViewCell", for: indexPath) as! RankingRefreshTableViewCell
+            let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             return cell
         } else {
-            let cell: RankingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as! RankingTableViewCell
-            if let model = ploggingList?.rankData[indexPath.row - 2]  {
+            let cell: RankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            if let model = ploggingRankingList?.rankData[indexPath.row - 2]  {
                 cell.config(model, index: indexPath)
             }
             return cell
         }
-    }
-}
-
-class RankigTabBar: UIView {
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .clear
-        return collection
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        addSubview(collectionView)
     }
 }
