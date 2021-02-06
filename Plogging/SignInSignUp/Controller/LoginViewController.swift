@@ -53,8 +53,7 @@ class LoginViewController: UIViewController {
               let password = passwordTextField.text else {
             return
         }
-        print(email)
-        print(password)
+
         let param: [String: Any] = [
             "userId": email,
             "secretKey": password
@@ -62,7 +61,6 @@ class LoginViewController: UIViewController {
         
         APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
             self.ploggingInfo = try? response.get()
-            print(self.ploggingInfo)
         }
     }
     
@@ -79,7 +77,7 @@ class LoginViewController: UIViewController {
         default:
             print("success")
             // 메인으로 이동
-            self.dismiss(animated: true, completion: nil)
+            makeDefaultRootViewController()
         }
     }
     
