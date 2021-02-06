@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="goz-QK-fB4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="goz-QK-fB4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,12 +61,21 @@
                                     <action selector="moveToPloggingResult:" destination="NSR-Km-DYo" eventType="touchUpInside" id="lV3-YN-tcF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFI-t5-RMa">
+                                <rect key="frame" x="172.5" y="438" width="69" height="30"/>
+                                <state key="normal" title="쓰레기 추가"/>
+                                <connections>
+                                    <segue destination="5P4-MB-nB3" kind="show" id="Zcb-4Q-kMr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="29o-OW-2JX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="29o-OW-2JX" firstAttribute="bottom" secondItem="c4u-9s-A8U" secondAttribute="bottom" constant="55" id="4ib-mb-aB7"/>
                             <constraint firstItem="c4u-9s-A8U" firstAttribute="centerX" secondItem="29o-OW-2JX" secondAttribute="centerX" id="6gY-Kp-6Jh"/>
+                            <constraint firstItem="NFI-t5-RMa" firstAttribute="centerY" secondItem="29o-OW-2JX" secondAttribute="centerY" id="WR2-Hx-4v8"/>
+                            <constraint firstItem="NFI-t5-RMa" firstAttribute="centerX" secondItem="29o-OW-2JX" secondAttribute="centerX" id="pt5-ea-aFz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bJG-2m-cNH"/>
@@ -74,6 +83,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dru-UW-8mL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2533" y="118"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kev-sr-TUc">
+            <objects>
+                <viewController id="5P4-MB-nB3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="67M-ex-Bm8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쓰레기 갯수 체크" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VY-ga-UGM">
+                                <rect key="frame" x="151" y="393.5" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lHO-zc-w1n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1VY-ga-UGM" firstAttribute="centerY" secondItem="lHO-zc-w1n" secondAttribute="centerY" id="68T-ei-X0N"/>
+                            <constraint firstItem="1VY-ga-UGM" firstAttribute="centerX" secondItem="lHO-zc-w1n" secondAttribute="centerX" id="dbx-SW-iRu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NJ5-gZ-8cO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f42-EL-VQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3345" y="123"/>
         </scene>
     </scenes>
     <resources>

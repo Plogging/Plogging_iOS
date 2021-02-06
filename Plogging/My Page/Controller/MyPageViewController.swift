@@ -17,6 +17,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navigationBarViewHeight: NSLayoutConstraint!
     @IBOutlet weak var fixHeaderView: UIView!
+    @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var sortingView: UIStackView!
     @IBOutlet weak var sortingButton: UIButton!
     
@@ -25,7 +26,7 @@ class MyPageViewController: UIViewController {
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
     }
-    
+ 
     func setUpNavigationBarUI() {
         self.navigationController?.navigationBar.isHidden = true
         
@@ -101,7 +102,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
         let itemSpacing: CGFloat = 10
         let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
         let height: CGFloat = width
-       
+        
         return CGSize(width: width, height: height)
     }
     
@@ -115,67 +116,41 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-//        sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-//        sortingButton.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-        self.navigationBarView.layoutIfNeeded()
-        if /*contentOffSetY > 168*/ contentOffSetY > 0 {
-            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            self.navigationBarViewHeight.constant = 82
-            self.navigationBarView.layoutIfNeeded()
-            
+        
+        if contentOffSetY > 0 {
+                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+                navigationBarViewHeight.constant = 82
+            UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
+                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
+                nickName.font = nickName.font.withSize(26)
+            })
+                
+                let frame = CGRect(x: 100, y: 100, width: 20, height: 20)
+                profilePhoto.frame = frame
+                profilePhoto.layoutIfNeeded()
         } else if contentOffSetY <= 168 {
-            self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            UIView.animate(withDuration: 0.3, animations: { [self] () -> Void in
-                self.navigationBarViewHeight.constant = 269
-                self.navigationBarView.layoutIfNeeded()
+                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+                navigationBarViewHeight.constant = 269
+            UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
+                nickName.transform = CGAffineTransform(translationX: 0, y: 0)
+                nickName.font = nickName.font.withSize(35)
             })
         }
-        print("contentOffSetY: \(contentOffSetY)")
+        navigationBarView.layoutIfNeeded()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        print("velocity: \(velocity.y)")
         let contentOffSetY = scrollView.contentOffset.y
         if velocity.y > 0 { // 올릴 때
-//            if contentOffSetY > 0, contentOffSetY < 168 {
-//                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                        self.navigationBarViewHeight.constant = 82
-                        self.navigationBarView.layoutIfNeeded()
-//                    })
-//                navigationBarView.transform = CGAffineTransform(translationX: 0, y: -100)
-//                navigationBarView.layoutIfNeeded()
-                print("올릴 때contentOffSetY: \(contentOffSetY)")
-
-//                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-//                    self.navigationBarViewHeight.constant = 82
-//                    self.navigationBarView.layoutIfNeeded()
-//                })
-//            } else if contentOffSetY > 168 {
-//                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-//                    self.navigationBarViewHeight.constant = 82
-//                    self.navigationBarView.layoutIfNeeded()
-//                })
-//            }
+            navigationBarViewHeight.constant = 82
         } else { // 내릴 때
-            if contentOffSetY <= 0 {
-                UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                    self.navigationBarViewHeight.constant = 269
-                    self.navigationBarView.layoutIfNeeded()
-                    print("내릴 때 contentOffSetY: \(contentOffSetY)")
-                })
-            } else if contentOffSetY > 0, contentOffSetY < 168 {
-//                UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//                    self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-//                    self.navigationBarViewHeight.constant = 82
-//                    self.navigationBarView.layoutIfNeeded()
-//                })
-            } else if contentOffSetY <= 168 {
-                self.navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-                UIView.animate(withDuration: 0.3, animations: { [self] () -> Void in
-                    self.navigationBarViewHeight.constant = 269
-                    self.navigationBarView.layoutIfNeeded()
+            if contentOffSetY <= 168 {
+                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+                UIView.animate(withDuration: 0.8, animations: { [self] () -> Void in
+                    navigationBarViewHeight.constant = 269
                 })
             }
         }
+        navigationBarView.layoutIfNeeded()
     }
 }
