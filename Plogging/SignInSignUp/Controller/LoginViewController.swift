@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var ErrorLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class LoginViewController: UIViewController {
         
         passwordView.clipsToBounds = true
         passwordView.layer.cornerRadius = 4
+        passwordTextField.isSecureTextEntry = true
         
         signInButton.clipsToBounds = true
         signInButton.layer.cornerRadius = 12
@@ -40,11 +43,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func clickedKakaoLoginButton(_ sender: UIButton) {
-
+        SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
+            print(loginData)
+        }
     }
     
     @IBAction func clickedNaverLoginButton(_ sender: UIButton) {
-
+        SNSLoginManager.shared.requestLoginWithNaver { (loginData) in
+            print(loginData)
+        }
     }
 
     @IBAction func clickedAppleLoginButton(_ sender: UIButton) {

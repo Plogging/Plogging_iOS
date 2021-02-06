@@ -12,7 +12,7 @@ class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: OnboardingCustomPageControl!
     
     private let scrollView = UIScrollView()
     
@@ -132,8 +132,15 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func ClickedSkipButton(_ sender: UIButton) {
-        User.shared.setIsNotFirstTimeUser()
-        dismiss(animated: true, completion: nil)
+//        User.shared.setIsNotFirstTimeUser()
+        let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
+        if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
+            let navigationController = UINavigationController()
+            navigationController.pushViewController(loginViewController, animated: false)
+            dismiss(animated: false, completion: {
+                UIApplication.shared.windows.first?.rootViewController = navigationController
+            })
+        }
     }
 }
 
@@ -145,26 +152,11 @@ extension OnboardingViewController: UIScrollViewDelegate {
     func setIndiactorForCurrentPage()  {
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl?.currentPage = page
-        
+
         if page == onboardingTitleList.count - 1 {
             isLastPage = true
         } else {
             isLastPage = false
         }
-    }
-}
-
-/// SceneDelegate에서 if User.shared.isFirstTimeUser로 체크하고 OnboardingViewController를 시작점으로 만들어주기
-/// 나중에 만들어논 User클래스랑 합치기
-/// key는 따로 static으로 만들기
-class User {
-    static let shared = User()
-    
-    func isFirstTimeUser() -> Bool {
-        return UserDefaults.standard.bool(forKey: "isFirstTimeUser")
-    }
-    
-    func setIsNotFirstTimeUser() {
-        UserDefaults.standard.setValue(true, forKey: "isFirstTimeUser")
     }
 }

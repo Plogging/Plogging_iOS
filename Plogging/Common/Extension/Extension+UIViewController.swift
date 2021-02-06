@@ -14,6 +14,16 @@ extension UIViewController {
 }
 
 extension UIViewController {
+    func setNavigationBarClear() {
+        if let navigationBar: UINavigationBar = self.navigationController?.navigationBar {
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.shadowImage = UIImage()
+            navigationBar.backgroundColor = UIColor.clear
+            navigationController?.navigationBar.barTintColor = .black
+            navigationController?.navigationBar.tintColor = .black
+        }
+    }
+    
     func showLoginViewController() {
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {

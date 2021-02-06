@@ -8,6 +8,7 @@
 import UIKit
 
 class MyPageViewController: UIViewController {
+
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickName: UILabel!

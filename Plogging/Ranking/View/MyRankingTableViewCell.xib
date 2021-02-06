@@ -13,12 +13,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyRankingTableViewCell" id="KGk-i7-Jjw" customClass="MyRankingTableViewCell" customModule="Plogging" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04a-nM-dbg">
-                        <rect key="frame" x="24" y="5.5" width="272" height="132"/>
+                        <rect key="frame" x="24" y="10" width="272" height="132"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgRanking" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-Oc-V04">
                                 <rect key="frame" x="0.0" y="0.0" width="272" height="132"/>
@@ -59,7 +59,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju0-We-0Q6">
-                                        <rect key="frame" x="108.5" y="19" width="34.5" height="26.5"/>
+                                        <rect key="frame" x="108.5" y="19" width="40.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                     <constraint firstItem="04a-nM-dbg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J4j-n2-8fD"/>
                     <constraint firstAttribute="bottom" secondItem="04a-nM-dbg" secondAttribute="bottom" constant="5.5" id="So3-EB-5Cr"/>
                     <constraint firstItem="04a-nM-dbg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Vo3-Uc-vrO"/>
-                    <constraint firstItem="04a-nM-dbg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5.5" id="nTy-0E-8rf"/>
+                    <constraint firstItem="04a-nM-dbg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="nTy-0E-8rf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
