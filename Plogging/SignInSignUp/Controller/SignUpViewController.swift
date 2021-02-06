@@ -29,6 +29,17 @@ class SignUpViewController: UIViewController {
         setupUI()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.nickNameViewController {
+            if let nickNameViewController = segue.destination as? NickNameViewController,
+               let email = emailTextField.text,
+               let password = passwordTextField.text{
+                nickNameViewController.userInfo = ["userId": email,
+                                                   "secretKey": password]
+            }
+        }
+     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -69,6 +80,7 @@ class SignUpViewController: UIViewController {
             print("success")
             self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
                               sender: nil)
+            
         case 400:
             warningLabel.isHidden = false
             warningLabel.text = "아이디가 존재합니다."

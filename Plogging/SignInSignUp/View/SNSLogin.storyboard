@@ -681,6 +681,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="YRF-qU-Gfh" id="SWD-Rr-ymP"/>
+                        <outlet property="errorLabel" destination="rgn-t3-qaA" id="IXF-iC-GuO"/>
                         <outlet property="nickNameInfoLabel" destination="hdO-11-u4g" id="fBJ-jd-NYb"/>
                         <outlet property="nickNameTextField" destination="87o-75-x4Z" id="btw-Pr-0Mc"/>
                     </connections>
