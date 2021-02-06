@@ -39,6 +39,28 @@ extension APICollection {
             completion(.success(value))
         }
     }
+    /// 임시 비밀번호 발급
+    func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+
+        AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
+                   method: .put,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: header
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
 }
 
 // MARK: - PLOGGING

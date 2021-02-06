@@ -604,6 +604,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="KvB-lv-bOe" id="tkM-g6-UGD"/>
+                        <outlet property="emailTextField" destination="VGv-S2-OV4" id="4mY-ia-Ybm"/>
                         <outlet property="emailView" destination="BW2-7F-acK" id="9VY-2N-gTn"/>
                         <segue destination="11q-i8-LRe" kind="show" identifier="PasswordCompletionViewController" id="Eoj-wF-UrF"/>
                     </connections>
