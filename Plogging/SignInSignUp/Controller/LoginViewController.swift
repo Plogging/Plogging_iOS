@@ -81,7 +81,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     @IBAction func clickedKakaoLoginButton(_ sender: UIButton) {
         SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
             print(loginData)
