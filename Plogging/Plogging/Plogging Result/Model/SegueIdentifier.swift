@@ -13,4 +13,5 @@ public struct SegueIdentifier {
     static let renderingCameraPhoto = "renderingCameraPhoto"
     static let renderingAlbumPhoto = "renderingAlbumPhoto"
     static let unwindToPloggingResult = "unwindToPloggingResult"
+    static let pickTrash = "pickTrash"
 }

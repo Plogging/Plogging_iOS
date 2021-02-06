@@ -14,7 +14,6 @@
 		1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21851625B8B7560076CD14 /* PopUp.storyboard */; };
 		1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21851B25B8B7630076CD14 /* PopUpViewController.swift */; };
 		1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21852925B8C3480076CD14 /* Enum+PopUp.swift */; };
-		1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */; };
 		1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */; };
 		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
 		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
@@ -115,7 +114,6 @@
 		1C21851625B8B7560076CD14 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
 		1C21851B25B8B7630076CD14 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		1C21852925B8C3480076CD14 /* Enum+PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+PopUp.swift"; sourceTree = "<group>"; };
-		1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingScreen.storyboard; sourceTree = "<group>"; };
 		1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
 		1C39979925A77CAD0077E19B /* PloggingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingDebug.entitlements; sourceTree = "<group>"; };
 		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
@@ -255,15 +253,6 @@
 				1C21851B25B8B7630076CD14 /* PopUpViewController.swift */,
 			);
 			path = PopUp;
-			sourceTree = "<group>";
-		};
-		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
-				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
-			);
-			path = WaitingScreen;
 			sourceTree = "<group>";
 		};
 		1C5A68BA25BF238900F096A9 /* View */ = {
@@ -458,6 +447,7 @@
 		3D51AFDCB8D1E6E563615DDD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
 				3D51A40EDF721D23827E5FD1 /* PloggingIntroduceModalViewController.swift */,
 				3D51A29DC232990A31871B96 /* PloggingPickTrashViewController.swift */,
 				3D51A1AAB16BC9DC4AF03783 /* PloggingRunningInfoViewController.swift */,
@@ -623,7 +613,6 @@
 				1C8B320F25C48FFD0021A88D /* Model */,
 				1C8B320D25C48FCF0021A88D /* View */,
 				1C8B320E25C48FD40021A88D /* Controller */,
-				1C21853A25B9F1750076CD14 /* WaitingScreen */,
 				9B0C235125A4D62F0084D27B /* Plogging Result */,
 				3D51AF8FFDDB42FBC0C207CD /* PloggingMain */,
 			);
@@ -767,7 +756,6 @@
 				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
-				1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */,
 				1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */,
 				1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,

@@ -22,7 +22,6 @@ class PloggingResultViewController: UIViewController {
     var ploggingResultData: PloggingList?
     var trashCountSum = 0
 
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
@@ -44,6 +43,7 @@ class PloggingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+
     }
     
     private func setUpUI() {

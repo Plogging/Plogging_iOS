@@ -49,9 +49,9 @@ class PloggingRunningInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "PresentPickTrashSegue": do {
+            case SegueIdentifier.pickTrash: do {
                 if let destination = segue.destination as? PloggingPickTrashViewController {
-                    destination.trashItemList = self.currentTrashList
+                    destination.trashItemList = currentTrashList
                 }
             }
             default:
@@ -60,6 +60,10 @@ class PloggingRunningInfoViewController: UIViewController {
 
 
         }
+    }
+
+    func createPloggingList () {
+        
     }
 
     @IBAction func finishPlogging() {
@@ -75,6 +79,8 @@ class PloggingRunningInfoViewController: UIViewController {
                 = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }
+                
+                
 
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
@@ -110,6 +116,8 @@ class PloggingRunningInfoViewController: UIViewController {
         summeryKcal.setupView(unit: "kcal", value: "0")
         stopButton.backgroundColor = .gray
         stopButton.setTitle("종료", for: .normal)
+        
+        continueButton.setTitle("쓰레기 기록하기", for: .normal)
         
         summeryStackView.layer.cornerRadius = 20
         summeryStackView.backgroundColor = .clear

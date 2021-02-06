@@ -69,8 +69,6 @@ class IntroduceModalItem: UIView {
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
             label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12),
-            label.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -56),
-            label.trailingAnchor.constraint(greaterThanOrEqualTo: trailingAnchor, constant: -73)
         ])
     }
 

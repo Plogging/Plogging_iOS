@@ -14,7 +14,8 @@ enum Trash {
     case 플라스틱
     case 캔
     case 그외
-    
+
+    // todo Enum+PloggingInfo 확인하기
     var type: String {
         switch self {
         case .비닐:
