@@ -14,6 +14,7 @@ struct BaseURL {
 struct BasePath {
     // USER
     static let user = "/user"
+    static let userSocial = "/user/social"
     static let userCheck = "/user/check"
     static let userSignIn = "/user/sign-in"
     static let userSignOut = "/user/sign-out"

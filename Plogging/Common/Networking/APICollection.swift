@@ -16,6 +16,27 @@ struct APICollection {
 
 // MARK: - USER
 extension APICollection {
+    /// SNS 로그인
+    func requestSignInSocial(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userSocial,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 자체 로그인
     func requestSignInCustom(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userSignIn,
