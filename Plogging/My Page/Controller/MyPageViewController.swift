@@ -20,6 +20,9 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var sortingView: UIStackView!
     @IBOutlet weak var sortingButton: UIButton!
+    let scrollDownNavigationViewHeight = 269
+    let scrollUpNavigationBarViewHeight = 82
+    let thresholdOffset = 168
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +122,8 @@ extension MyPageViewController: UIScrollViewDelegate {
         
         if contentOffSetY > 0 {
                 navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-                navigationBarViewHeight.constant = 82
+            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
+            
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
                 nickName.transform = CGAffineTransform(translationX: 40, y: -46)
                 nickName.font = nickName.font.withSize(26)
@@ -128,12 +132,14 @@ extension MyPageViewController: UIScrollViewDelegate {
                 let scaledAndTranslatedTransform = CGAffineTransform(translationX: 18, y: -40).scaledBy(x: 0.6, y: 0.6)
                 profilePhoto.transform = scaledAndTranslatedTransform
             })
-        } else if contentOffSetY <= 168 {
+        } else if contentOffSetY <= CGFloat(thresholdOffset) {
                 navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-                navigationBarViewHeight.constant = 269
+            navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
+            
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
                 nickName.transform = CGAffineTransform(translationX: 0, y: 0)
                 nickName.font = nickName.font.withSize(35)
+                
                 profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
         }
@@ -143,13 +149,11 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let contentOffSetY = scrollView.contentOffset.y
         if velocity.y > 0 { // 올릴 때
-            navigationBarViewHeight.constant = 82
+            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
         } else { // 내릴 때
-            if contentOffSetY <= 168 {
+            if contentOffSetY <= CGFloat(thresholdOffset) {
                 navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-                UIView.animate(withDuration: 0.8, animations: { [self] () -> Void in
-                    navigationBarViewHeight.constant = 269
-                })
+                navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
             }
         }
         navigationBarView.layoutIfNeeded()
