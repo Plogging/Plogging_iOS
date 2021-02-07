@@ -123,17 +123,18 @@ extension MyPageViewController: UIScrollViewDelegate {
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
                 nickName.transform = CGAffineTransform(translationX: 40, y: -46)
                 nickName.font = nickName.font.withSize(26)
-            })
+                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
                 
-                let frame = CGRect(x: 100, y: 100, width: 20, height: 20)
-                profilePhoto.frame = frame
-                profilePhoto.layoutIfNeeded()
+                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 18, y: -40).scaledBy(x: 0.6, y: 0.6)
+                profilePhoto.transform = scaledAndTranslatedTransform
+            })
         } else if contentOffSetY <= 168 {
                 navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
                 navigationBarViewHeight.constant = 269
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
                 nickName.transform = CGAffineTransform(translationX: 0, y: 0)
                 nickName.font = nickName.font.withSize(35)
+                profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
         }
         navigationBarView.layoutIfNeeded()
