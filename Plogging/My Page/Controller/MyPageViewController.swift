@@ -99,6 +99,7 @@ extension MyPageViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
         performSegue(withIdentifier: "showPloggingDetailInfo", sender: indexPath.item)
     }
 }

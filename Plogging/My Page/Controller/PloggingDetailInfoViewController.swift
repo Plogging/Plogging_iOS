@@ -10,11 +10,12 @@ import UIKit
 class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var navigationBarView: UIView!
-    let tabBarState = false
+    @IBOutlet var screenEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
+        self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
     func setUpNavigationBarUI() {
@@ -25,5 +26,16 @@ class PloggingDetailInfoViewController: UIViewController {
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+    }
+    
+    @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {
+        if gesture.state == UIGestureRecognizer.State.began {
+            (rootViewController as? MainViewController)?.setTabBarHidden(false)
+        }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        (rootViewController as? MainViewController)?.setTabBarHidden(false)
+        self.navigationController?.popViewController(animated: true)
     }
 }
