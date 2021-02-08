@@ -740,6 +740,9 @@
                                                 <state key="normal" image="buttonMore">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="managePloggingRecord:" destination="LwY-ux-eob" eventType="touchUpInside" id="FYo-sk-VL7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -787,7 +790,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="82"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMm-Py-LFP" userLabel="SettingButton">
-                                        <rect key="frame" x="25" y="23" width="27" height="29"/>
+                                        <rect key="frame" x="21" y="23" width="27" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="BCP-DE-n1j"/>
                                             <constraint firstAttribute="width" constant="27" id="lhn-9x-RU8"/>
@@ -810,7 +813,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3h-sN-eT1">
-                                        <rect key="frame" x="64" y="25" width="68" height="32"/>
+                                        <rect key="frame" x="53" y="25" width="68" height="32"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -823,16 +826,16 @@
                                     <constraint firstItem="H8S-G4-Zuy" firstAttribute="top" secondItem="srw-VF-Zgc" secondAttribute="top" constant="20" id="8k9-kg-5c6"/>
                                     <constraint firstItem="gMm-Py-LFP" firstAttribute="top" secondItem="srw-VF-Zgc" secondAttribute="top" constant="23" id="Hq4-rv-inO"/>
                                     <constraint firstAttribute="trailing" secondItem="H8S-G4-Zuy" secondAttribute="trailing" constant="24" id="J2E-fC-XAR"/>
-                                    <constraint firstItem="gMm-Py-LFP" firstAttribute="leading" secondItem="srw-VF-Zgc" secondAttribute="leading" constant="25" id="Xxf-n8-blF"/>
+                                    <constraint firstItem="gMm-Py-LFP" firstAttribute="leading" secondItem="srw-VF-Zgc" secondAttribute="leading" constant="21" id="Xxf-n8-blF"/>
                                     <constraint firstAttribute="height" constant="82" id="sGP-vx-Y8M"/>
-                                    <constraint firstItem="T3h-sN-eT1" firstAttribute="leading" secondItem="gMm-Py-LFP" secondAttribute="trailing" constant="12" id="yqW-cp-ARR"/>
+                                    <constraint firstItem="T3h-sN-eT1" firstAttribute="leading" secondItem="gMm-Py-LFP" secondAttribute="trailing" constant="5" id="yqW-cp-ARR"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvO-36-HLf" userLabel="FooterView">
-                                <rect key="frame" x="0.0" y="752" width="428" height="140"/>
+                                <rect key="frame" x="0.0" y="704" width="428" height="188"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-P2-lXk">
-                                        <rect key="frame" x="24" y="40" width="380" height="60"/>
+                                        <rect key="frame" x="24" y="84" width="380" height="60"/>
                                         <color key="backgroundColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="MMC-Oe-GDp"/>
@@ -846,13 +849,16 @@
                                                 <integer key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sharePloggingPhoto:" destination="LwY-ux-eob" eventType="touchUpInside" id="Wah-tQ-uDL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UHw-P2-lXk" secondAttribute="trailing" constant="24" id="6dT-6w-uEP"/>
-                                    <constraint firstItem="UHw-P2-lXk" firstAttribute="centerY" secondItem="cvO-36-HLf" secondAttribute="centerY" id="JTV-1Z-5Jq"/>
-                                    <constraint firstAttribute="height" constant="140" id="jvA-xe-4l7"/>
+                                    <constraint firstItem="UHw-P2-lXk" firstAttribute="top" secondItem="cvO-36-HLf" secondAttribute="top" constant="84" id="IxV-9N-GPp"/>
+                                    <constraint firstAttribute="height" constant="188" id="jvA-xe-4l7"/>
                                     <constraint firstItem="UHw-P2-lXk" firstAttribute="leading" secondItem="cvO-36-HLf" secondAttribute="leading" constant="24" id="zuq-dl-kVV"/>
                                 </constraints>
                             </view>
@@ -879,6 +885,7 @@
                     <navigationItem key="navigationItem" id="urf-vo-YKf"/>
                     <connections>
                         <outlet property="fixHeaderView" destination="iBw-ZT-dSU" id="ihZ-kf-RQz"/>
+                        <outlet property="footerView" destination="cvO-36-HLf" id="eRm-Wd-sq1"/>
                         <outlet property="navigationBarView" destination="srw-VF-Zgc" id="GHQ-iZ-k6g"/>
                     </connections>
                 </viewController>

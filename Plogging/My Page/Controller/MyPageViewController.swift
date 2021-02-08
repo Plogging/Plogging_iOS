@@ -31,9 +31,7 @@ class MyPageViewController: UIViewController {
                 return
             }
             if let indexPath = sender as? Int {
-//                let cookingDiary = viewModel.cookingDiaries(at: indexPath)
-//                diaryDetailViewController.saveButtonMode = "edit"
-//                diaryDetailViewController.viewModel.update(model: cookingDiary)
+               //서버 결과 전달
             }
         }
     }
@@ -56,7 +54,7 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
-        let alert = UIAlertController(title: "플로깅 기록 정렬하기", message: "플로깅 기록의 정렬방식을 선택하세요.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
             
         }

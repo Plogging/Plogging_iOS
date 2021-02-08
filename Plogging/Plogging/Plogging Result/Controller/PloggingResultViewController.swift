@@ -78,7 +78,7 @@ class PloggingResultViewController: UIViewController {
     }
     
     private func showPloggingPhotoResisterAlert() {
-        let alert = UIAlertController(title: "플로깅 사진 기록하기", message: "플로깅 사진 기록방식을 선택하세요.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
             self.setUpImagePicker()
         }
