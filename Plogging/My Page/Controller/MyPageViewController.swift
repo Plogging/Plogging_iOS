@@ -22,30 +22,33 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var sortingButton: UIButton!
     let scrollDownNavigationViewHeight = 269
     let scrollUpNavigationBarViewHeight = 82
-    let thresholdOffset = 168
+    let thresholdOffset = 70
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "showPloggingDetailInfo" {
+            guard let ploggingDetailInfoViewController = segue.destination as? PloggingDetailInfoViewController else {
+                return
+            }
+            if let indexPath = sender as? Int {
+//                let cookingDiary = viewModel.cookingDiaries(at: indexPath)
+//                diaryDetailViewController.saveButtonMode = "edit"
+//                diaryDetailViewController.viewModel.update(model: cookingDiary)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
     }
- 
+    
     func setUpNavigationBarUI() {
         self.navigationController?.navigationBar.isHidden = true
         
         fixHeaderView.backgroundColor = UIColor.tintGreen
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = navigationBarView.bounds
-        
-        let colors = [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor]
-        gradientLayer.colors = colors
-        
-        gradientLayer.locations = [0.5]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        
-        navigationBarView.layer.insertSublayer(gradientLayer, at:0)
+        setGradationView(view: navigationBarView, colors: [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint(x: 0.5, y: 1.0))
         
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
@@ -88,6 +91,7 @@ extension MyPageViewController: UICollectionViewDataSource {
         }
         ploggingResultPhotoCell?.updateUI(image: content)
         
+        cell.contentView.isUserInteractionEnabled = false
         return cell
     }
 }
@@ -95,7 +99,7 @@ extension MyPageViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showPloggingDetailInfo", sender: indexPath.item)
     }
 }
 
@@ -120,35 +124,31 @@ extension MyPageViewController: UIScrollViewDelegate {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
         
-        if contentOffSetY > 0 {
-                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-            
+        if contentOffSetY > CGFloat(thresholdOffset) {
+            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
+                navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
                 nickName.transform = CGAffineTransform(translationX: 40, y: -46)
                 nickName.font = nickName.font.withSize(26)
                 nickName.transform = CGAffineTransform(translationX: 40, y: -46)
                 
-                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 18, y: -40).scaledBy(x: 0.6, y: 0.6)
+                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 15, y: -40).scaledBy(x: 0.6, y: 0.6)
                 profilePhoto.transform = scaledAndTranslatedTransform
             })
         } else if contentOffSetY <= CGFloat(thresholdOffset) {
-                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
             navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
+            nickName.transform = CGAffineTransform(translationX: 0, y: 0)
+            nickName.font = nickName.font.withSize(35)
             
-            UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
-                nickName.transform = CGAffineTransform(translationX: 0, y: 0)
-                nickName.font = nickName.font.withSize(35)
-                
-                profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            })
+            profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         navigationBarView.layoutIfNeeded()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let contentOffSetY = scrollView.contentOffset.y
-        if velocity.y > 0 { // 올릴 때
+        if velocity.y > CGFloat(thresholdOffset) { // 올릴 때
             navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
         } else { // 내릴 때
             if contentOffSetY <= CGFloat(thresholdOffset) {

@@ -18,6 +18,7 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingCalorie: UILabel!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
     var ploggingResultData: PloggingList?
     var trashCountSum = 0
@@ -47,7 +48,7 @@ class PloggingResultViewController: UIViewController {
     
     private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
-
+        
         //서버 통신 필요
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
@@ -61,6 +62,8 @@ class PloggingResultViewController: UIViewController {
         let trashInfosCount = ploggingResultData?.trashList.count ?? 0
         contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
+        
+        setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
 
     public func getTrashCountSum() -> Int {
@@ -124,7 +127,7 @@ extension PloggingResultViewController {
             //서버 통신 추가
             ploggingResultPhoto.image = ploggingResultImage
         }
-        // self.navigationController?.dismiss(animated: true, completion: nil)
+//         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
