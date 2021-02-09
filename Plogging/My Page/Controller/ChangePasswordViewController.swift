@@ -11,7 +11,13 @@ class ChangePasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
+    @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {
+        if gesture.state == UIGestureRecognizer.State.began {
+            (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        }
+    }
 }

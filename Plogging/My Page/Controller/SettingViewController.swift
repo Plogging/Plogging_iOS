@@ -44,7 +44,7 @@ class SettingViewController: UIViewController {
         let camera = UIAlertAction(title: "카메라", style: .default) { _ in
             
         }
-        let album = UIAlertAction(title: "앨범", style: .default) { _ in
+        let album = UIAlertAction(title: "사진 앨범", style: .default) { _ in
             
         }
         
