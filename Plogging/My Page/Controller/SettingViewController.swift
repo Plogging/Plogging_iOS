@@ -12,10 +12,12 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var nickName: UILabel!
+    let imagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
+        imagePickerController.delegate = self
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
@@ -41,11 +43,13 @@ class SettingViewController: UIViewController {
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "카메라", style: .default) { _ in
-            
+        let camera = UIAlertAction(title: "카메라", style: .default) { [self] _ in
+            imagePickerController.sourceType = .camera
+            present(imagePickerController, animated: false, completion: nil)
         }
-        let album = UIAlertAction(title: "사진 앨범", style: .default) { _ in
-            
+        let album = UIAlertAction(title: "사진 앨범", style: .default) { [self] _ in
+            imagePickerController.sourceType = .photoLibrary
+            present(imagePickerController, animated: false, completion: nil)
         }
         
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -79,5 +83,23 @@ class SettingViewController: UIViewController {
         }
         navigationController?.pushViewController(signOutViewController, animated: true)
     }
+}
+
+
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+//        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+//            return
+//        }
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
+            profilePhoto.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
 }
