@@ -8,7 +8,7 @@
 import Foundation
 
 struct BaseURL {
-    static let mainURL = "http://nexters.plogging.kro.kr:20000"
+    static let mainURL = "https://nexters.plogging.kro.kr:20000"
 }
 
 struct BasePath {
