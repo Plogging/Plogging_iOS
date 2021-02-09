@@ -61,7 +61,12 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func changePassword(_ sender: Any) {
-    
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        guard let changePasswordViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController else {
+            return
+        }
+        navigationController?.pushViewController(changePasswordViewController, animated: true)
+        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -69,7 +74,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func signOut(_ sender: Any) {
-       
+        (rootViewController as? MainViewController)?.setTabBarHidden(false)
     }
     
 }
