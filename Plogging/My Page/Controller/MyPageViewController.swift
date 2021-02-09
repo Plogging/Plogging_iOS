@@ -53,6 +53,15 @@ class MyPageViewController: UIViewController {
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
     }
     
+    @IBAction func goToSetting(_ sender: Any) {
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        
+        guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") else {
+            return
+        }
+        navigationController?.pushViewController(settingViewController, animated: true)
+    }
+    
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
