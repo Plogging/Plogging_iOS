@@ -38,7 +38,7 @@ struct Meta: Codable {
     let distance: Int
     let calories: Int
     let ploggingTime: Int
-    let ploggingImg: String?
+    let ploggingImage: String?
     let ploggingTotalScore: Int?
     let ploggingActivityScore: Int?
     let ploggingEnvironmentScore: Int?
@@ -47,7 +47,7 @@ struct Meta: Codable {
         case userId = "user_id"
         case createTime = "create_time"
         case ploggingTime = "plogging_time"
-        case ploggingImg = "plogging_img"
+        case ploggingImage = "plogging_img"
         case ploggingTotalScore = "plogging_total_score"
         case ploggingActivityScore = "plogging_activity_score"
         case ploggingEnvironmentScore = "plogging_environment_score"
@@ -62,5 +62,11 @@ struct TrashList: Codable {
     enum TrashListCodingKeys: String, CodingKey {
         case trashType = "trash_type"
         case pickCount = "pick_count"
+    }
+}
+
+extension Array where Element == TrashList {
+    func getTrashPickTotalCount() -> Int {
+        reduce(0) { $0 + $1.pickCount }
     }
 }
