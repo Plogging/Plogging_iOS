@@ -13,8 +13,8 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var totalTrashCountTitle: UILabel!
     @IBOutlet weak var activityScore: UILabel!
     @IBOutlet weak var environmentScore: UILabel!
-    @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingDistance: UILabel!
+    @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingCalorie: UILabel!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!

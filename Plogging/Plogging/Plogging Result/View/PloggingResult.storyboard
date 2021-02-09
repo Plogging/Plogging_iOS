@@ -307,19 +307,20 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygV-sW-YdD" userLabel="TimeView">
                                                         <rect key="frame" x="5.0000000000000071" y="0.0" width="122.66666666666669" height="131"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99:99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnI-wF-VNX">
-                                                                <rect key="frame" x="31" y="41" width="61" height="31"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NnI-wF-VNX">
+                                                                <rect key="frame" x="16.333333333333336" y="41" width="90" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="31" id="3jQ-UK-luA"/>
+                                                                    <constraint firstAttribute="width" constant="90" id="WyJ-bk-t5g"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-Jl-Cv8">
-                                                                <rect key="frame" x="37.333333333333329" y="76" width="48" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="킬로미터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-Jl-Cv8">
+                                                                <rect key="frame" x="29" y="76" width="65" height="18"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="48" id="gBw-L9-p9N"/>
+                                                                    <constraint firstAttribute="width" constant="65" id="gBw-L9-p9N"/>
                                                                     <constraint firstAttribute="height" constant="18" id="y9e-oV-5HA"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -346,20 +347,20 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-YY-Dk6" userLabel="DistanceView">
                                                         <rect key="frame" x="128.66666666666666" y="0.0" width="122.66666666666666" height="131"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="99.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q05-aS-dYW">
-                                                                <rect key="frame" x="36.333333333333343" y="41" width="50" height="31"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="99:99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q05-aS-dYW">
+                                                                <rect key="frame" x="16.333333333333343" y="41" width="90" height="31"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="2tk-AR-eVt"/>
                                                                     <constraint firstAttribute="height" constant="31" id="5wk-aH-aSV"/>
+                                                                    <constraint firstAttribute="width" constant="90" id="88X-LU-rAR"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="킬로미터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzr-OL-Ko1">
-                                                                <rect key="frame" x="31.333333333333343" y="76" width="60" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzr-OL-Ko1">
+                                                                <rect key="frame" x="41.333333333333343" y="76" width="40" height="18"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="60" id="lJX-o4-uQV"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="O2K-cH-U0s"/>
                                                                     <constraint firstAttribute="height" constant="18" id="vRf-Hj-MhW"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -388,9 +389,9 @@
                                                         <rect key="frame" x="252.33333333333329" y="0.0" width="122.66666666666666" height="131"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otZ-kb-pO5">
-                                                                <rect key="frame" x="39.333333333333371" y="41" width="44" height="31"/>
+                                                                <rect key="frame" x="26.333333333333371" y="41" width="70" height="31"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="HQp-NC-JKo"/>
+                                                                    <constraint firstAttribute="width" constant="70" id="HQp-NC-JKo"/>
                                                                     <constraint firstAttribute="height" constant="31" id="yBN-0c-ZBf"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
@@ -743,9 +744,9 @@
                         <outlet property="environmentScore" destination="Yg4-N7-i1d" id="rAQ-hm-U0s"/>
                         <outlet property="footerView" destination="cvs-Oc-Umu" id="cuv-V0-MZm"/>
                         <outlet property="ploggingCalorie" destination="otZ-kb-pO5" id="e8B-QX-8W0"/>
-                        <outlet property="ploggingDistance" destination="Q05-aS-dYW" id="VlW-dm-cyd"/>
+                        <outlet property="ploggingDistance" destination="NnI-wF-VNX" id="NPT-Hr-Vh7"/>
                         <outlet property="ploggingResultPhoto" destination="SwS-f1-R3t" id="h0o-UE-ypJ"/>
-                        <outlet property="ploggingTime" destination="NnI-wF-VNX" id="ljW-e8-asm"/>
+                        <outlet property="ploggingTime" destination="Q05-aS-dYW" id="vd5-HV-Gm3"/>
                         <outlet property="totalTrashCount" destination="nuT-H2-sLb" id="Bti-2X-me8"/>
                         <outlet property="totalTrashCountTitle" destination="4Cn-br-FxU" id="R1s-qh-cpZ"/>
                         <outlet property="trashInfoViewHeight" destination="IXQ-vj-dLj" id="G3L-ch-f1T"/>
