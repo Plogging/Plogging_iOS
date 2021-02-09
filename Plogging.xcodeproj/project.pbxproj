@@ -51,6 +51,7 @@
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
 		9B00B3B325D26D7F006427DE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B225D26D7F006427DE /* SettingViewController.swift */; };
 		9B00B3B525D28582006427DE /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */; };
+		9B00B3B725D289A5006427DE /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B625D289A5006427DE /* SignOutViewController.swift */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
 		9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588425A0CB15003D3B7B /* SceneDelegate.swift */; };
 		9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588625A0CB15003D3B7B /* MainViewController.swift */; };
@@ -149,6 +150,7 @@
 		3D51AFFFEDA33159F388A67F /* MapkitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
 		9B00B3B225D26D7F006427DE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = "Plogging/My Page/Controller/SettingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		9B00B3B625D289A5006427DE /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignOutViewController.swift; path = "Plogging/My Page/Controller/SignOutViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
+				9B00B3B625D289A5006427DE /* SignOutViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				9B671E0C25AE0E0300B0B415 /* MyPageViewController.swift in Sources */,
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
+				9B00B3B725D289A5006427DE /* SignOutViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
 				1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */,

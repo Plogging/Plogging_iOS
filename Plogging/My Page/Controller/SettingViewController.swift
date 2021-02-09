@@ -66,7 +66,6 @@ class SettingViewController: UIViewController {
             return
         }
         navigationController?.pushViewController(changePasswordViewController, animated: true)
-        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -74,7 +73,11 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func signOut(_ sender: Any) {
-        (rootViewController as? MainViewController)?.setTabBarHidden(false)
+        (rootViewController as? MainViewController)?.setTabBarHidden(true)
+        guard let signOutViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignOutViewController") as? SignOutViewController else {
+            return
+        }
+        navigationController?.pushViewController(signOutViewController, animated: true)
     }
     
 }
