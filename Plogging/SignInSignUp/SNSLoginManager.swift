@@ -91,19 +91,6 @@ class SNSLoginManager: NSObject {
         completion?(loginData)
     }
     
-    // MARK: - getting user info
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            if let email = appleIDCredential.email {
-                self.checkEmailValidation(email: email,
-                                          type: SNSType.apple.rawValue)
-            }
-        default:
-            break
-        }
-    }
-    
     func getNaverInfo() {
         guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
             return
@@ -202,6 +189,19 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
 
 // MARK: - APPLE Delegate
 extension SNSLoginManager: ASAuthorizationControllerDelegate {
+    // MARK: - getting user info
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            if let email = appleIDCredential.email {
+                self.checkEmailValidation(email: email,
+                                          type: SNSType.apple.rawValue)
+            }
+        default:
+            break
+        }
+    }
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
     }
