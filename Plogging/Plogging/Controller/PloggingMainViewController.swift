@@ -37,7 +37,7 @@ class PloggingMainViewController: UIViewController {
     }
     
     func createPloggingResultData() -> PloggingList {
-        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImg: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
+        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
         let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
         
         let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)

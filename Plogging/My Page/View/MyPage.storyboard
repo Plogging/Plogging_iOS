@@ -112,7 +112,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="73C-oG-M9d">
-                                                                <rect key="frame" x="18.666666666666664" y="46" width="86" height="20"/>
+                                                                <rect key="frame" x="15.666666666666664" y="46" width="92.333333333333343" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="8iy-6C-0Dp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -122,7 +122,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000점" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHx-Ri-NwK">
-                                                                        <rect key="frame" x="24.000000000000007" y="0.0" width="61.999999999999993" height="20"/>
+                                                                        <rect key="frame" x="24" y="0.0" width="68.333333333333329" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="mp3-Hl-pSn"/>
                                                                         </constraints>
@@ -156,7 +156,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SMf-Lq-kFy">
-                                                                <rect key="frame" x="23.666666666666657" y="46" width="76" height="20"/>
+                                                                <rect key="frame" x="22.333333333333314" y="46" width="78.666666666666671" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="3ZE-wO-Jjl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -166,7 +166,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siv-pd-zhM">
-                                                                        <rect key="frame" x="24" y="0.0" width="52" height="20"/>
+                                                                        <rect key="frame" x="23.999999999999996" y="0.0" width="54.666666666666657" height="20"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -197,7 +197,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hu7-05-4Fh">
-                                                                <rect key="frame" x="23.333333333333314" y="46" width="76.666666666666671" height="20"/>
+                                                                <rect key="frame" x="21" y="46" width="81.333333333333329" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trashCan" translatesAutoresizingMaskIntoConstraints="NO" id="tXR-QO-4Z6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -207,7 +207,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000개" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nym-Hf-Lwc">
-                                                                        <rect key="frame" x="23.999999999999996" y="0.0" width="52.666666666666657" height="20"/>
+                                                                        <rect key="frame" x="24.000000000000004" y="0.0" width="57.333333333333343" height="20"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -658,6 +658,10 @@
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="LwY-ux-eob" id="h2O-hw-9Dc"/>
+                                                                    <outlet property="delegate" destination="LwY-ux-eob" id="cSs-pK-UfO"/>
+                                                                </connections>
                                                             </collectionView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJa-8s-DuU" userLabel="TotalCountView">
                                                                 <rect key="frame" x="0.0" y="95" width="320" height="80"/>
@@ -884,9 +888,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="urf-vo-YKf"/>
                     <connections>
+                        <outlet property="collectionView" destination="cIO-vB-q3v" id="nDN-xt-cme"/>
+                        <outlet property="contentViewHeight" destination="1Vh-vq-Exr" id="dz8-VB-JUw"/>
                         <outlet property="fixHeaderView" destination="iBw-ZT-dSU" id="ihZ-kf-RQz"/>
                         <outlet property="footerView" destination="cvO-36-HLf" id="eRm-Wd-sq1"/>
                         <outlet property="navigationBarView" destination="srw-VF-Zgc" id="GHQ-iZ-k6g"/>
+                        <outlet property="nickName" destination="T3h-sN-eT1" id="5u8-Ir-3We"/>
+                        <outlet property="ploggingDate" destination="d69-aD-aKb" id="HJp-Aa-T0k"/>
+                        <outlet property="ploggingDistance" destination="pDd-Li-nA1" id="PYL-m6-8Es"/>
+                        <outlet property="ploggingTatalScore" destination="UPX-yH-qdk" id="1r4-ch-FTL"/>
+                        <outlet property="ploggingTime" destination="Trr-hG-RXR" id="9lx-Q9-nOB"/>
+                        <outlet property="profilePhoto" destination="H8S-G4-Zuy" id="ibs-qy-3D8"/>
+                        <outlet property="totalTrashCount" destination="8cS-8u-6ma" id="KQh-Ez-G3H"/>
+                        <outlet property="totalTrashCountTitle" destination="VXC-L0-S2Q" id="Fy9-Ur-KoH"/>
+                        <outlet property="trashInfoViewHeight" destination="6ad-65-zqh" id="jsA-WD-cLc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0f-VO-Bbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
