@@ -358,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVG-pF-Six" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1174.7663551401868" y="66.738660907127439"/>
+            <point key="canvasLocation" x="1117" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lce-ae-VUw">
@@ -567,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGJ-6B-vPK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185.981308411215" y="777.53779697624191"/>
+            <point key="canvasLocation" x="1100" y="757"/>
         </scene>
         <!--Change Password View Controller-->
         <scene sceneID="XfX-rS-KhD">
@@ -710,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="go8-nb-WiO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2027" y="777"/>
+            <point key="canvasLocation" x="1888" y="758"/>
         </scene>
         <!--Sign Out View Controller-->
         <scene sceneID="5jd-0x-J67">
@@ -742,6 +742,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="agreeSignOut:" destination="OaF-GD-HJk" eventType="touchUpInside" id="GNK-x2-DGA"/>
                                     <action selector="completeChangePassword:" destination="jt1-Fa-SXH" eventType="touchUpInside" id="51O-BQ-jLH"/>
                                 </connections>
                             </button>
@@ -778,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiA-se-wAA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2770.0934579439249" y="775.59395248380133"/>
+            <point key="canvasLocation" x="2657" y="758"/>
         </scene>
         <!--Plogging Detail Info View Controller-->
         <scene sceneID="2Gb-Sf-wwl">
@@ -1311,7 +1312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0f-VO-Bbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990.6542056074766" y="63.498920086393092"/>
+            <point key="canvasLocation" x="1873" y="63"/>
         </scene>
     </scenes>
     <resources>

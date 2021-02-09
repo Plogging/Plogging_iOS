@@ -20,4 +20,8 @@ class SignOutViewController: UIViewController {
             (rootViewController as? MainViewController)?.setTabBarHidden(true)
         }
     }
+    
+    @IBAction func agreeSignOut(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }

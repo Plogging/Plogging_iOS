@@ -323,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				9B671DF725AE0DCB00B0B415 /* MyPage.storyboard */,
-				9B00B3B625D289A5006427DE /* SignOutViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +334,7 @@
 				9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */,
 				9B00B3B225D26D7F006427DE /* SettingViewController.swift */,
 				9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */,
+				9B00B3B625D289A5006427DE /* SignOutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
