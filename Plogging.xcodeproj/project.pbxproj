@@ -280,15 +280,6 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
-		1C21853A25B9F1750076CD14 /* WaitingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				1C21853B25B9F19B0076CD14 /* WaitingScreen.storyboard */,
-				1C21854025B9F1A50076CD14 /* WaitingScreenViewController.swift */,
-			);
-			path = WaitingScreen;
-			sourceTree = "<group>";
-		};
 		1C31C03625C5B9A000413EBB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,8 +807,6 @@
 			files = (
 				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
-				1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */,
-				9B671DF825AE0DCB00B0B415 /* MyPage.storyboard in Resources */,
 				1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */,
 				1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
@@ -1207,13 +1196,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HL8HKX2D8S;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.plogging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.plogginga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1229,13 +1218,13 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HL8HKX2D8S;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.plogging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.plogginga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

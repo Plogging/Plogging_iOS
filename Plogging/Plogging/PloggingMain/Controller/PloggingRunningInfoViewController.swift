@@ -19,6 +19,7 @@ class PloggingRunningInfoViewController: UIViewController {
     
     var timer: Timer?
     var startDate: Date?
+    var distance: Float?
 
     // todo: remove it
     public var count: Int = 0
@@ -62,11 +63,33 @@ class PloggingRunningInfoViewController: UIViewController {
         }
     }
 
-    func createPloggingList () {
-        
+    /// MARK: mockup
+    func createPloggingResultData() -> PloggingList {
+
+        let meta = Meta(userId: nil,
+                createTime: nil,
+                distance: Int(self.distance ?? 0),
+                calories: 250,
+                ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
+                ploggingImg: nil,
+                ploggingTotalScore: nil,
+                ploggingActivityScore: nil,
+                ploggingEnvironmentScore: nil
+        )
+
+        var trashList: [TrashList] = []
+
+        for item in currentTrashList {
+            trashList.append(TrashList(trashType: item.trashType.rawValue, pickCount: item.pickCount))
+        }
+
+        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
+
+        return ploggingList
     }
 
     @IBAction func finishPlogging() {
+        let vc = self.presentingViewController
         let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default) { _ in
         }
@@ -79,13 +102,12 @@ class PloggingRunningInfoViewController: UIViewController {
                 = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }
-                
-                
-
+                let data = createPloggingResultData()
+                ploggingResultViewController.ploggingResultData = data
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
-                self.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
+                vc?.present(ploggingResultNavigationController, animated: false, completion: nil)
             })
         }
         alert.addAction(no)
@@ -145,6 +167,7 @@ class PloggingRunningInfoViewController: UIViewController {
 
     @objc func didReceiveDistanceNotification(_ receive: Notification) {
         guard let distance = receive.userInfo?["distance"] as? Float else { return }
+        self.distance = distance
         DispatchQueue.main.async {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", distance)
         }

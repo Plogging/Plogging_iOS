@@ -281,7 +281,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="finishPlogging" destination="iDk-36-o5o" eventType="touchUpInside" id="EP3-38-BDq"/>
+                                            <action selector="finishPlogging" destination="iDk-36-o5o" eventType="touchUpInside" id="7hy-hr-GoV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -337,7 +337,7 @@
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
                         <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
-                        <outlet property="stopButton" destination="6eF-DA-V2s" id="FXj-Ej-TA3"/>
+                        <outlet property="stopButton" destination="6eF-DA-V2s" id="xPZ-qa-cgg"/>
                         <outlet property="summeryDistance" destination="FvQ-dZ-Ldi" id="Rgq-Fi-bMP"/>
                         <outlet property="summeryKcal" destination="Rny-Ru-w5A" id="Qmc-hx-kly"/>
                         <outlet property="summeryStackView" destination="Mbw-af-PWV" id="5sM-4N-cT3"/>
