@@ -13,14 +13,19 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var totalTrashCountTitle: UILabel!
     @IBOutlet weak var activityScore: UILabel!
     @IBOutlet weak var environmentScore: UILabel!
-    @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingDistance: UILabel!
+    @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var ploggingCalorie: UILabel!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
     var ploggingResultData: PloggingList?
-    var trashCountSum = 0
+    let contentViewOriginalHeight = 1280
+    let totalCountViewOriginalHeight = 80
+    let trashInfoViewTopConstraint = 40
+    let collectionViewCellLeading = 54
+    let collectionViewCellTrailing = 54
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -30,13 +35,13 @@ class PloggingResultViewController: UIViewController {
             }
             PloggingResultPhotoViewController.baseImage = baseImage
             PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
-            PloggingResultPhotoViewController.trashCountSum = trashCountSum
+            PloggingResultPhotoViewController.trashCountSum = getTrashPickTotalCount()
         } else if segue.identifier == SegueIdentifier.openCamera {
             guard let cameraViewController = segue.destination as? CameraViewController else {
                 return
             }
             cameraViewController.ploggingResultData = ploggingResultData
-            cameraViewController.trashCountSum = trashCountSum
+            cameraViewController.trashCountSum = getTrashPickTotalCount()
         }
     }
     
@@ -47,35 +52,36 @@ class PloggingResultViewController: UIViewController {
     
     private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
-
+        
         //서버 통신 필요
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
         ploggingTime.text = ploggingResultData?.meta.ploggingTime.description
         ploggingDistance.text = ploggingResultData?.meta.distance.description
         ploggingCalorie.text = ploggingResultData?.meta.calories.description
-        trashCountSum = getTrashCountSum()
-        totalTrashCount.text = "\(trashCountSum)개"
-        totalTrashCountTitle.text = "총 \(trashCountSum)개의 쓰레기를 주웠어요!"
+        
+        totalTrashCount.text = "\(getTrashPickTotalCount())개"
+        totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
         
         let trashInfosCount = ploggingResultData?.trashList.count ?? 0
-        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
-    }
-
-    public func getTrashCountSum() -> Int {
-        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
-        for i in 0..<trashInfosCount {
-            guard let trashPickCount = ploggingResultData?.trashList[i].pickCount else {
-                return 0
-            }
-            trashCountSum += trashPickCount
-        }
-        return trashCountSum
+        
+        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
+        
+        setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
     
+    private func getTrashPickTotalCount() -> Int {
+        guard let trashInfos = ploggingResultData?.trashList else {
+            return 0
+        }
+        
+        let trashCountSum = trashInfos.getTrashPickTotalCount()
+        return trashCountSum
+    }
+
     private func showPloggingPhotoResisterAlert() {
-        let alert = UIAlertController(title: "플로깅 사진 기록하기", message: "플로깅 사진 기록방식을 선택하세요.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
             self.setUpImagePicker()
         }
@@ -110,20 +116,21 @@ extension PloggingResultViewController {
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
-        if baseImage == nil {
-            self.showPopUpViewController(with: .사진없이저장팝업)
-            let ploggingResultImageMaker = PloggingResultImageMaker()
-            guard let commonImage = UIImage(named: "test") else {
-                return
-            }
-            guard let distance = ploggingResultData?.meta.distance else {
-                return
-            }
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: commonImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
-            //서버 통신 추가
-            ploggingResultPhoto.image = ploggingResultImage
-        }
-        // self.navigationController?.dismiss(animated: true, completion: nil)
+//        if baseImage == nil {
+//            self.showPopUpViewController(with: .사진없이저장팝업)
+//            let ploggingResultImageMaker = PloggingResultImageMaker()
+//            guard let basicImage = UIImage(named: "basicImage") else {
+//                return
+//            }
+//            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
+//            guard let distance = ploggingResultData?.meta.distance else {
+//                return
+//            }
+//            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
+//            //서버 통신 추가
+//            ploggingResultPhoto.image = ploggingResultImage
+//        }
+         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
@@ -157,14 +164,27 @@ extension PloggingResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
+
         guard let trashInfos = ploggingResultData?.trashList else {
             return cell
         }
+        
+        guard indexPath.item < trashInfos.count else {
+            return cell
+        }
+       
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
-        if indexPath.item == trashInfos.count-1 {
+        let isLastItem = indexPath.item == trashInfos.count - 1
+        if isLastItem {
             trashCountCell?.changeSeparatorColor()
         }
+ 
+        if trashInfos.getTrashPickTotalCount() == 0 {
+            //쓰레기 0개일 때 처리 추가
+//            trashCountCell?.pickUpZero()
+        }
+    
         return cell
     }
 }
@@ -172,6 +192,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PloggingResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: DeviceInfo.screenWidth - 108, height: 50)
+        
+        return CGSize(width: Int(DeviceInfo.screenWidth) - collectionViewCellLeading - collectionViewCellTrailing , height: 50)
     }
 }
