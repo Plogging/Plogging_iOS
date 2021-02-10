@@ -16,7 +16,7 @@ class NickNameViewController: UIViewController {
     
     var userInfo = [String: Any]()
     
-    private var ploggingInfo: PloggingUser? {
+    private var ploggingUserInfo: PloggingUser? {
         didSet {
             checkValidation()
         }
@@ -48,12 +48,12 @@ class NickNameViewController: UIViewController {
         userInfo.updateValue(nickName, forKey: "userName")
         
         APICollection.sharedAPI.requestUserSignUp(param: userInfo) { (response) in
-            self.ploggingInfo = try? response.get()
+            self.ploggingUserInfo = try? response.get()
         }
     }
     
     private func checkValidation() {
-        guard let model = ploggingInfo else {
+        guard let model = ploggingUserInfo else {
             return
         }
         switch model.rc {

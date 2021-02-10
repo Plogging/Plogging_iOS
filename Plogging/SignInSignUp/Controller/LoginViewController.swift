@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private var ploggingInfo: PloggingUser? {
+    private var ploggingUserInfo: PloggingUser? {
         didSet {
             checkValidation()
         }
@@ -60,12 +60,12 @@ class LoginViewController: UIViewController {
         ]
         
         APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
-            self.ploggingInfo = try? response.get()
+            self.ploggingUserInfo = try? response.get()
         }
     }
     
     private func checkValidation() {
-        guard let model = ploggingInfo else {
+        guard let model = ploggingUserInfo else {
             return
         }
         switch model.rc {

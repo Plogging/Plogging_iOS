@@ -11,7 +11,7 @@ class PloggingCookie {
     static let shared = PloggingCookie()
     
     func isFirstTimeUser() -> Bool {
-        return getUserCookie() == nil ? true : false
+        return getUserCookie() == nil 
     }
     
     func getUserCookie() -> String? {
