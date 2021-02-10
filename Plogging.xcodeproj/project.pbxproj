@@ -388,11 +388,11 @@
 		1C88A44B25CC65DD003E979D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1C88A44C25CC65DD003E979D /* MyPageViewController.swift */,
 				9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */,
 				9B00B3B225D26D7F006427DE /* SettingViewController.swift */,
 				9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */,
 				9B00B3B625D289A5006427DE /* SignOutViewController.swift */,
-				1C88A44C25CC65DD003E979D /* MyPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
