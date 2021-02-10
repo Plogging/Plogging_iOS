@@ -22,7 +22,7 @@ struct PloggingInfo: Codable {
 struct PloggingList: Codable {
     let id: String?
     let meta: Meta
-    let trashList: [TrashList]
+    let trashList: [Trash]
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -55,11 +55,11 @@ struct Meta: Codable {
 }
 
 // MARK: - TrashList
-struct TrashList: Codable {
+struct Trash: Codable {
     let trashType: Int
     let pickCount: Int
     
-    enum TrashListCodingKeys: String, CodingKey {
+    enum TrashCodingKeys: String, CodingKey {
         case trashType = "trash_type"
         case pickCount = "pick_count"
     }
@@ -70,10 +70,10 @@ struct PloggingResult {
     let distance: Int?
     let calories: Int?
     let ploggingTime: Int?
-    let trashListGroup: [TrashList]?
+    let trashListGroup: [Trash]?
 }
 
-extension Array where Element == TrashList {
+extension Array where Element == Trash {
     func getTrashPickTotalCount() -> Int {
         reduce(0) { $0 + $1.pickCount }
     }

@@ -7,57 +7,30 @@
 
 import UIKit
 
-enum Trash {
-    case 비닐
-    case 유리
-    case 종이
-    case 플라스틱
-    case 캔
-    case 그외
-
-    // todo Enum+PloggingInfo 확인하기
-    var type: String {
-        switch self {
-        case .비닐:
-            return "비닐"
-        case .유리:
-            return "유리"
-        case .종이:
-            return "종이"
-        case .플라스틱:
-            return "플라스틱"
-        case .캔:
-            return "캔"
-        case .그외:
-            return "그 외"
-        }
-    }
-}
-
 class TrashCountCell: UICollectionViewCell {
     @IBOutlet weak var trashName: UILabel!
     @IBOutlet weak var trashCount: UILabel!
     @IBOutlet weak var lineSeparotor: UIView!
     
-    func updateUI(_ trashInfo: TrashList) {
-        var trasTypehName = ""
+    func updateUI(_ trashInfo: Trash) {
+        var trashTypeName = ""
         switch trashInfo.trashType {
         case 1:
-            trasTypehName = Trash.비닐.type
+            trashTypeName = TrashType.vinyl.type
         case 2:
-            trasTypehName = Trash.유리.type
+            trashTypeName = TrashType.glass.type
         case 3:
-            trasTypehName = Trash.종이.type
+            trashTypeName = TrashType.paper.type
         case 4:
-            trasTypehName = Trash.플라스틱.type
+            trashTypeName = TrashType.plastic.type
         case 5:
-            trasTypehName = Trash.캔.type
+            trashTypeName = TrashType.can.type
         case 6:
-            trasTypehName = Trash.그외.type
+            trashTypeName = TrashType.extra.type
         default:
             break
         }
-        trashName.text = trasTypehName
+        trashName.text = trashTypeName
         trashCount.text = "\(trashInfo.pickCount)개"
     }
     

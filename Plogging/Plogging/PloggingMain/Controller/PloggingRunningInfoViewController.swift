@@ -77,10 +77,10 @@ class PloggingRunningInfoViewController: UIViewController {
                 ploggingEnvironmentScore: nil
         )
 
-        var trashList: [TrashList] = []
+        var trashList: [Trash] = []
 
         for item in currentTrashList {
-            trashList.append(TrashList(trashType: item.trashType.rawValue, pickCount: item.pickCount))
+            trashList.append(Trash(trashType: item.trashType.rawValue, pickCount: item.pickCount))
         }
 
         let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
