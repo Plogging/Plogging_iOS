@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Photos
 
-class PloggingDetailInfoViewController: UIViewController {
+class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionControllerDelegate {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var nickName: UILabel!
@@ -18,6 +19,7 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var ploggingTime: UILabel!
     @IBOutlet weak var totalTrashCountTitle: UILabel!
     @IBOutlet weak var totalTrashCount: UILabel!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
@@ -41,7 +43,7 @@ class PloggingDetailInfoViewController: UIViewController {
         let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
         
         let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-    
+        
         return ploggingList
     }
     
@@ -88,17 +90,17 @@ class PloggingDetailInfoViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let savePloggingPhoto = UIAlertAction(title: "사진 저장", style: .default) { [self] _ in
             
-//            guard let ploggingImageUrlString = self?.ploggingResultData?.meta.ploggingImage else {
-//                return
-//            }
-//            guard let url = URL(string: ploggingImageUrlString) else {
-//                return
-//            }
-//            var ploggingImage : UIImage?
-//            if let data = try? Data(contentsOf: url) {
-//                ploggingImage = UIImage(data: data)
-//                UIImageWriteToSavedPhotosAlbum(ploggingImage ?? UIImage() /*서버 연결 후 수정*/, nil, nil, nil)
-//            }
+            //            guard let ploggingImageUrlString = self?.ploggingResultData?.meta.ploggingImage else {
+            //                return
+            //            }
+            //            guard let url = URL(string: ploggingImageUrlString) else {
+            //                return
+            //            }
+            //            var ploggingImage : UIImage?
+            //            if let data = try? Data(contentsOf: url) {
+            //                ploggingImage = UIImage(data: data)
+            //                UIImageWriteToSavedPhotosAlbum(ploggingImage ?? UIImage() /*서버 연결 후 수정*/, nil, nil, nil)
+            //            }
         }
         let deletePloggingRecord = UIAlertAction(title: "기록 삭제", style: .default) { _ in
             // 네트워크 플로깅 기록 삭제 추가
@@ -113,15 +115,39 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     @IBAction func sharePloggingPhoto(_ sender: Any) {
-        guard let url = URL(string: "instagram-stories://share") else { return }
-        DispatchQueue.main.async {
+        guard let testImage = UIImage(named: "test") else {
+            return
+        }
+        
+        let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
+        let no = UIAlertAction(title: "아니오", style: .default)
+        let yes = UIAlertAction(title: "네", style: .default) { [self] _ in
+            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+        alert.addAction(no)
+        alert.addAction(yes)
+        present(alert, animated: true, completion: nil)
+    }
+
+    @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        
+        if let lastAsset = fetchResult.firstObject as? PHAsset {
+            guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
+                return
+            }
+            
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             } else {
-                print("Instagram is not installed")
+                let alertController = UIAlertController(title: nil, message: "인스타그램을 설치해 \n플로깅 사진을 공유해주세요!", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "네", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
             }
         }
-        
     }
 }
 
@@ -137,7 +163,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
-
+        
         guard let trashInfos = ploggingResultData?.trashList else {
             return cell
         }
@@ -145,19 +171,19 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
         guard indexPath.item < trashInfos.count else {
             return cell
         }
-       
+        
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
         let isLastItem = indexPath.item == trashInfos.count - 1
         if isLastItem {
             trashCountCell?.changeSeparatorColor()
         }
- 
+        
         if trashInfos.getTrashPickTotalCount() == 0 {
             //쓰레기 0개일 때 처리 추가 
-//            trashCountCell?.pickUpZero()
+            //            trashCountCell?.pickUpZero()
         }
-    
+        
         return cell
     }
 }
