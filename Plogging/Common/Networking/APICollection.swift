@@ -12,9 +12,9 @@ struct APICollection {
     static let sharedAPI = APICollection()
     
     func gettingHeader() -> HTTPHeaders {
-        if let a = PloggingCookie.shared.getUserCookie() {
+        if let cookie = PloggingCookie.shared.getUserCookie() {
             return [
-                "cookie": "\(a)",
+                "cookie": "\(cookie)",
                 "Content-Type": "application/json"
             ]
         } else {
@@ -23,11 +23,7 @@ struct APICollection {
             ]
         }
     }
-//    let defaultHeaderWithCookie: HTTPHeaders = [
-//        "cookie": "\(PloggingCookie.shared.getUserCookie()!)",
-//        "Content-Type": "application/json"
-//    ]
-//
+
     let defaultHeader: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
