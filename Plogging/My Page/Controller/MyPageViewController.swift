@@ -20,18 +20,18 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var sortingView: UIStackView!
     @IBOutlet weak var sortingButton: UIButton!
-    let scrollDownNavigationViewHeight = 269
-    let scrollUpNavigationBarViewHeight = 82
-    let thresholdOffset = 70
+    private let scrollDownNavigationViewHeight = 269
+    private let scrollUpNavigationBarViewHeight = 82
+    private let thresholdOffset = 70
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "showPloggingDetailInfo" {
+        if segue.identifier == SegueIdentifier.showPloggingDetailInfo {
             guard let ploggingDetailInfoViewController = segue.destination as? PloggingDetailInfoViewController else {
                 return
             }
             if let indexPath = sender as? Int {
-               //서버 결과 전달
+               //상세 페이지로 서버 결과 전달
             }
         }
     }
@@ -93,6 +93,7 @@ extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
+       
         guard let content = UIImage(named: "test") else {
             return cell
         }
@@ -107,7 +108,7 @@ extension MyPageViewController: UICollectionViewDataSource {
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        performSegue(withIdentifier: "showPloggingDetailInfo", sender: indexPath.item)
+        performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
     }
 }
 
@@ -122,7 +123,9 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 191, left: 0, bottom: 0, right: 0)
+        let startEdgeInsets = CGFloat(191)
+        
+        return UIEdgeInsets(top: startEdgeInsets, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -156,13 +159,11 @@ extension MyPageViewController: UIScrollViewDelegate {
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let contentOffSetY = scrollView.contentOffset.y
-        if velocity.y > CGFloat(thresholdOffset) { // 올릴 때
+        if velocity.y >= 0, contentOffSetY > CGFloat(thresholdOffset) { // 올릴 때
             navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-        } else { // 내릴 때
-            if contentOffSetY <= CGFloat(thresholdOffset) {
+        } else if velocity.y < 0, contentOffSetY <= CGFloat(thresholdOffset) { // 내릴 때
                 navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
                 navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
-            }
         }
         navigationBarView.layoutIfNeeded()
     }

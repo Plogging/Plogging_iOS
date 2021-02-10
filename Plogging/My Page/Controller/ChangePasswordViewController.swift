@@ -24,5 +24,4 @@ class ChangePasswordViewController: UIViewController {
     @IBAction func completeChangePassword(_ sender: Any) {
         showPopUpViewController(with: .비밀번호변경완료팝업)
     }
-    
 }

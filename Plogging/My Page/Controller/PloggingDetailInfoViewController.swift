@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionControllerDelegate {
+class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var nickName: UILabel!
@@ -28,6 +28,8 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //전달된 내용 필요
         ploggingResultData = createPloggingResultData()
         collectionView.reloadData()
         
@@ -38,12 +40,13 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
+    /* 테스트 */
     func createPloggingResultData() -> PloggingList {
         let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
         let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
-        
+
         let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-        
+
         return ploggingList
     }
     
@@ -60,11 +63,10 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
         guard let trashInfos = ploggingResultData?.trashList else {
             return
         }
-        
         let trashInfosCount = trashInfos.count
         
         contentViewHeight.constant = 1150 /* contentView Height */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */ + CGFloat((50 * trashInfosCount))
         
         let trashCountSum = trashInfos.getTrashPickTotalCount()
         totalTrashCount.text = "\(trashCountSum)개"
@@ -79,38 +81,6 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
         if gesture.state == UIGestureRecognizer.State.began {
             (rootViewController as? MainViewController)?.setTabBarHidden(false)
         }
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        (rootViewController as? MainViewController)?.setTabBarHidden(false)
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func managePloggingRecord(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let deletePloggingRecord = UIAlertAction(title: "기록 삭제", style: .default) { _ in
-            // 네트워크 플로깅 기록 삭제 추가
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-
-        alert.addAction(deletePloggingRecord)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func sharePloggingPhoto(_ sender: Any) {
-        guard let testImage = UIImage(named: "test") else {
-            return
-        }
-        
-        let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "아니오", style: .default)
-        let yes = UIAlertAction(title: "네", style: .default) { [self] _ in
-            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
     }
 
     @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
@@ -132,6 +102,42 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+}
+
+// MARK: IBAction
+extension PloggingDetailInfoViewController {
+    @IBAction func back(_ sender: Any) {
+        (rootViewController as? MainViewController)?.setTabBarHidden(false)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func deletePloggingRecord(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "기록 삭제", style: .default) { _ in
+            // 네트워크 플로깅 기록 삭제 추가
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func sharePloggingPhoto(_ sender: Any) {
+        //해당 imageView의 image
+        guard let testImage = UIImage(named: "test") else {
+            return
+        }
+        
+        let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
+        let no = UIAlertAction(title: "아니오", style: .default)
+        let yes = UIAlertAction(title: "네", style: .default) { [self] _ in
+            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+        alert.addAction(no)
+        alert.addAction(yes)
+        present(alert, animated: true, completion: nil)
     }
 }
 

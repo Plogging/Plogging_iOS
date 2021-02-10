@@ -12,13 +12,25 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var nickName: UILabel!
+    @IBOutlet weak var profilePhotoCoverView: UIView!
+    @IBOutlet weak var checkImage: UIImageView!
     let imagePickerController = UIImagePickerController()
+    let checkImageView = UIImageView(image: UIImage(named: "check"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
         imagePickerController.delegate = self
+        view.bringSubviewToFront(profilePhoto)
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
     }
     
     private func setUpNavigationBarUI() {
@@ -35,7 +47,10 @@ class SettingViewController: UIViewController {
             (rootViewController as? MainViewController)?.setTabBarHidden(false)
         }
     }
-    
+}
+
+// MARK: IBAction
+extension SettingViewController {
     @IBAction func back(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(false)
         self.navigationController?.popViewController(animated: true)
@@ -85,21 +100,24 @@ class SettingViewController: UIViewController {
     }
 }
 
-
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-//        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
-//            return
-//        }
-//        self.dismiss(animated: true, completion: nil)
-//    }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
             profilePhoto.image = image
         }
         dismiss(animated: true, completion: nil)
+        
+        UIView.animate(withDuration: 7, animations: { [self] in
+            view.bringSubviewToFront(profilePhotoCoverView)
+            view.bringSubviewToFront(checkImage)
+            
+//            self.checkImageView.frame = CGRect.init(x: 12, y: 12, width: 24, height: 24)
+//            self.profilePhoto.addSubview(self.checkImageView)
+        }, completion: {_ in
+            UIView.animate(withDuration: 3, animations: { [self] in
+                view.bringSubviewToFront(profilePhoto)
+            })
+        })
     }
-
 }
