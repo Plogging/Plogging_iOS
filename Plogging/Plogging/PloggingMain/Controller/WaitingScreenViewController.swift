@@ -33,7 +33,7 @@ class WaitingScreenViewController: UIViewController {
         
         if second == 0 {
             timer?.invalidate()
-            moveToPloggingRunningView()
+            moveToPloggingView()
         }
     }
     

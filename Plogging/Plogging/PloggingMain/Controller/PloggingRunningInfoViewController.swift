@@ -71,7 +71,7 @@ class PloggingRunningInfoViewController: UIViewController {
                 distance: Int(self.distance ?? 0),
                 calories: 250,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
-                ploggingImg: nil,
+                ploggingImage: nil,
                 ploggingTotalScore: nil,
                 ploggingActivityScore: nil,
                 ploggingEnvironmentScore: nil
