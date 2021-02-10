@@ -88,27 +88,11 @@ class PloggingDetailInfoViewController: UIViewController, UIDocumentInteractionC
     
     @IBAction func managePloggingRecord(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let savePloggingPhoto = UIAlertAction(title: "사진 저장", style: .default) { [self] _ in
-            
-            //            guard let ploggingImageUrlString = self?.ploggingResultData?.meta.ploggingImage else {
-            //                return
-            //            }
-            //            guard let url = URL(string: ploggingImageUrlString) else {
-            //                return
-            //            }
-            //            var ploggingImage : UIImage?
-            //            if let data = try? Data(contentsOf: url) {
-            //                ploggingImage = UIImage(data: data)
-            //                UIImageWriteToSavedPhotosAlbum(ploggingImage ?? UIImage() /*서버 연결 후 수정*/, nil, nil, nil)
-            //            }
-        }
         let deletePloggingRecord = UIAlertAction(title: "기록 삭제", style: .default) { _ in
             // 네트워크 플로깅 기록 삭제 추가
         }
-        
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
-        alert.addAction(savePloggingPhoto)
+
         alert.addAction(deletePloggingRecord)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
