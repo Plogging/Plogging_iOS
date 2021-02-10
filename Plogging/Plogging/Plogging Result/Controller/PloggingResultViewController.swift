@@ -21,6 +21,11 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
     var ploggingResultData: PloggingList?
+
+    // Plogging Running Info View Controller에서 넘어온 plogging 결과 값
+    // todo 관련 코드 변경
+    var ploggingResult: PloggingResult?
+
     let contentViewOriginalHeight = 1280
     let totalCountViewOriginalHeight = 80
     let trashInfoViewTopConstraint = 40

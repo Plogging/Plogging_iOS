@@ -24,13 +24,13 @@ class PloggingRunningInfoViewController: UIViewController {
     // todo: remove it
     public var count: Int = 0
 
-    var currentTrashList: [TrashItem] = [
-        TrashItem(trashType: .vinyl, pickCount: 0),
-        TrashItem(trashType: .can, pickCount: 0),
-        TrashItem(trashType: .extra, pickCount: 0),
-        TrashItem(trashType: .glass, pickCount: 0),
-        TrashItem(trashType: .paper, pickCount: 0),
-        TrashItem(trashType: .plastic, pickCount: 0),
+    var currentTrashList: [_Trash] = [
+        _Trash(trashType: .vinyl, pickCount: 0),
+        _Trash(trashType: .can, pickCount: 0),
+        _Trash(trashType: .extra, pickCount: 0),
+        _Trash(trashType: .glass, pickCount: 0),
+        _Trash(trashType: .paper, pickCount: 0),
+        _Trash(trashType: .plastic, pickCount: 0),
     ]
     
     var pathManager = PathManager.pathManager
@@ -64,32 +64,20 @@ class PloggingRunningInfoViewController: UIViewController {
     }
 
     /// MARK: mockup
-    func createPloggingResultData() -> PloggingList {
+    func createPloggingResult() -> PloggingResult {
 
-        let meta = Meta(userId: nil,
-                createTime: nil,
+        let ploggingResult = PloggingResult(
                 distance: Int(self.distance ?? 0),
                 calories: 250,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
-                ploggingImage: nil,
-                ploggingTotalScore: nil,
-                ploggingActivityScore: nil,
-                ploggingEnvironmentScore: nil
+                trashList: currentTrashList
         )
 
-        var trashList: [Trash] = []
-
-        for item in currentTrashList {
-            trashList.append(Trash(trashType: item.trashType.rawValue, pickCount: item.pickCount))
-        }
-
-        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-
-        return ploggingList
+        return ploggingResult
     }
 
     @IBAction func finishPlogging() {
-        let vc = self.presentingViewController
+        let rootViewController = presentingViewController
         let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default) { _ in
         }
@@ -102,12 +90,11 @@ class PloggingRunningInfoViewController: UIViewController {
                 = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }
-                let data = createPloggingResultData()
-                ploggingResultViewController.ploggingResultData = data
+                ploggingResultViewController.ploggingResult = createPloggingResult()
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
-                vc?.present(ploggingResultNavigationController, animated: false, completion: nil)
+                rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
             })
         }
         alert.addAction(no)
@@ -174,10 +161,7 @@ class PloggingRunningInfoViewController: UIViewController {
     }
 }
 
-struct TrashItem {
-    var trashType: TrashType
-    var pickCount: Int = 0
-}
+
 
 
 

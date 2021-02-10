@@ -65,12 +65,17 @@ struct Trash: Codable {
     }
 }
 
+struct _Trash {
+    var trashType: TrashType
+    var pickCount: Int = 0
+}
+
 // MARK: - PloggingResult
 struct PloggingResult {
     let distance: Int?
     let calories: Int?
     let ploggingTime: Int?
-    let trashListGroup: [Trash]?
+    let trashList: [_Trash]?
 }
 
 extension Array where Element == Trash {
