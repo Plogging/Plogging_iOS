@@ -21,7 +21,8 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         imagePickerController.delegate = self
-        view.bringSubviewToFront(profilePhoto)
+        profilePhotoCoverView.alpha = 0
+        checkImage.alpha = 0
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
@@ -108,16 +109,11 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         dismiss(animated: true, completion: nil)
         
-        UIView.animate(withDuration: 7, animations: { [self] in
-            view.bringSubviewToFront(profilePhotoCoverView)
-            view.bringSubviewToFront(checkImage)
-            
-//            self.checkImageView.frame = CGRect.init(x: 12, y: 12, width: 24, height: 24)
-//            self.profilePhoto.addSubview(self.checkImageView)
-        }, completion: {_ in
-            UIView.animate(withDuration: 3, animations: { [self] in
-                view.bringSubviewToFront(profilePhoto)
-            })
+        profilePhotoCoverView.alpha = 1
+        checkImage.alpha = 1
+        UIView.animate(withDuration: 0.8, animations: { [self] in
+            profilePhotoCoverView.alpha = 0
+            checkImage.alpha = 0
         })
     }
 }
