@@ -52,7 +52,9 @@ class PloggingRunningInfoViewController: UIViewController {
             switch id {
             case SegueIdentifier.pickTrash: do {
                 if let destination = segue.destination as? PloggingPickTrashViewController {
-                    destination.trashItemList = currentTrashList
+                    destination.trashItemList = currentTrashList.sorted { first, second in
+                        first.trashType.rawValue < second.trashType.rawValue
+                    }
                 }
             }
             default:

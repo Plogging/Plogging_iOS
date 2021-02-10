@@ -23,8 +23,31 @@ class PloggingResultViewController: UIViewController {
     var ploggingResultData: PloggingList?
 
     // Plogging Running Info View Controller에서 넘어온 plogging 결과 값
-    // todo 관련 코드 변경
-    var ploggingResult: PloggingResult?
+    // TODO: 관련 코드 변경
+    var ploggingResult: PloggingResult? {
+        
+        // ploggingResultData가 없으면, 사진 촬영 시 데이터가 안보여서,
+        // 뷰 전환 제대로 됨을 증명하고자, 모킹 함수를 만들었습니다. 변경 사항 적용 후 모킹 함수 지워주세요.
+        willSet(input) {
+            let meta = Meta(
+                    userId: nil,
+                    createTime: nil,
+                    distance: input?.distance ?? 0,
+                    calories: 250,
+                    ploggingTime: input?.ploggingTime ?? 0,
+                    ploggingImage: nil,
+                    ploggingTotalScore: nil,
+                    ploggingActivityScore: nil,
+                    ploggingEnvironmentScore: nil
+            )
+
+            let trashList = input?.trashList?.map { trash -> Trash in
+                Trash(trashType: trash.trashType.rawValue, pickCount: trash.pickCount)
+            }
+
+            ploggingResultData = PloggingList(id: nil, meta: meta, trashList: trashList ?? [])
+        }
+    }
 
     let contentViewOriginalHeight = 1280
     let totalCountViewOriginalHeight = 80

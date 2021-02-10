@@ -29,7 +29,7 @@ class PloggingPickTrashViewController: UIViewController {
         guard let trashItemList = self.trashItemList else {return}
         for trashItem in trashItemList {
             let index = trashItem.trashType.rawValue
-            items?[index].count = trashItem.pickCount
+            items?[index-1].count = trashItem.pickCount
         }
     }
     

@@ -5,7 +5,7 @@
 import Foundation
 
 enum TrashType: Int {
-    case vinyl = 0
+    case vinyl = 1
     case glass
     case paper
     case plastic

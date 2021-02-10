@@ -42,11 +42,11 @@ class PloggingStartViewController: UIViewController {
         super.viewDidLoad()
         pathManager = PathManager.pathManager
         pathManager?.setupMapview(on: mapView)
-
+        pathManager?.startLocationUpdate()
         setupView()
     }
     override func viewDidAppear(_ animated: Bool) {
-        pathManager?.startLocationUpdate()
+        
     }
     
 }

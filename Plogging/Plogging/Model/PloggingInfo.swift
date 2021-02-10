@@ -72,10 +72,12 @@ struct _Trash {
 
 // MARK: - PloggingResult
 struct PloggingResult {
+    // 플로깅 거리 (m)
     let distance: Int?
     let calories: Int?
+    // 플로깅 시간 (초)
     let ploggingTime: Int?
-    let trashList: [_Trash]?
+    var trashList: [_Trash]?
 }
 
 extension Array where Element == Trash {
