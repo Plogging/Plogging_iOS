@@ -64,4 +64,10 @@ class TrashCountCell: UICollectionViewCell {
     func changeSeparatorColor() {
         lineSeparotor.backgroundColor = UIColor.greenBlue
     }
+    
+    func pickUpZero() {
+        trashName.isHidden = true
+        trashCount.isHidden = true
+        lineSeparotor.backgroundColor = UIColor.greenBlue
+    }
 }

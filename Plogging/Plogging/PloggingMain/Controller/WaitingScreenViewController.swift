@@ -37,11 +37,13 @@ class WaitingScreenViewController: UIViewController {
         }
     }
     
-    private func moveToPloggingRunningView() {
-        let storyboard = UIStoryboard(name: Storyboard.PloggingMain.rawValue, bundle: nil)
-        if let ploggingRunningViewController = storyboard.instantiateViewController(withIdentifier: "PloggingRunningInfoViewController") as? PloggingRunningInfoViewController {
-            ploggingRunningViewController.modalPresentationStyle = .fullScreen
-            self.present(ploggingRunningViewController, animated: false, completion: nil)
+    private func moveToPloggingView() {
+        let storyboard = UIStoryboard(name: "Plogging", bundle: nil)
+        if let ploggingMainViewController = storyboard.instantiateViewController(withIdentifier: "PloggingMainViewController") as? PloggingMainViewController {
+            self.dismiss(animated: false, completion: {
+                ploggingMainViewController.modalPresentationStyle = .fullScreen
+                self.rootViewController?.present(ploggingMainViewController, animated: false, completion: nil)
+            })
         }
     }
 }

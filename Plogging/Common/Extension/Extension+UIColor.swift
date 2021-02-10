@@ -17,7 +17,10 @@ extension UIColor {
     static let greenBlue = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
     static let rankingGray = UIColor(red: 206/255, green: 206/255, blue: 206/255, alpha: 1)
     static let lightGreenishBlue = UIColor(red: 114/255, green: 236/255, blue: 201/255, alpha: 1)
-    
+    static let paleGrey = UIColor(red: 248/255, green: 250/255, blue: 252/255, alpha: 1)
+    static let paleGreyZero = UIColor(red: 248/255, green: 250/255, blue: 252/255, alpha: 0)
+
+
     static func fromInt(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }

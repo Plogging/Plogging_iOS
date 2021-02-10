@@ -68,6 +68,9 @@
 		3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A29DC232990A31871B96 /* PloggingPickTrashViewController.swift */; };
 		7A88803982B01E577D9600F3 /* Pods_Plogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E856C59342FFB1CD6308BEED /* Pods_Plogging.framework */; };
 		8D239B0AEA217D18E6B757C1 /* Pods_PloggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDF2AE3387C243FE395B79 /* Pods_PloggingTests.framework */; };
+		9B00B3B325D26D7F006427DE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B225D26D7F006427DE /* SettingViewController.swift */; };
+		9B00B3B525D28582006427DE /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */; };
+		9B00B3B725D289A5006427DE /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B00B3B625D289A5006427DE /* SignOutViewController.swift */; };
 		9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588225A0CB15003D3B7B /* AppDelegate.swift */; };
 		9B01588525A0CB15003D3B7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588425A0CB15003D3B7B /* SceneDelegate.swift */; };
 		9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01588625A0CB15003D3B7B /* MainViewController.swift */; };
@@ -84,6 +87,7 @@
 		9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */; };
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */; };
+		9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
 		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
 		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
@@ -180,6 +184,9 @@
 		3D51AA7DB7C490898DCDC735 /* SummeryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummeryItem.swift; sourceTree = "<group>"; };
 		3D51AC41DAC4C1BCD27E5054 /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
 		3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B00B3B225D26D7F006427DE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = "Plogging/My Page/Controller/SettingViewController.swift"; sourceTree = SOURCE_ROOT; };
+		9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		9B00B3B625D289A5006427DE /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignOutViewController.swift; path = "Plogging/My Page/Controller/SignOutViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9B01587F25A0CB15003D3B7B /* Plogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B01588225A0CB15003D3B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B01588425A0CB15003D3B7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +210,7 @@
 		9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCountCell.swift; sourceTree = "<group>"; };
+		9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailInfoViewController.swift; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
 		9B51A63525B5C998000AA9FA /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
@@ -278,6 +286,16 @@
 				1C21851B25B8B7630076CD14 /* PopUpViewController.swift */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
+		1C31C03625C5B9A000413EBB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
+				1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */,
+				1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		1C31C03625C5B9A000413EBB /* Protocol */ = {
@@ -373,6 +391,10 @@
 			isa = PBXGroup;
 			children = (
 				1C88A44C25CC65DD003E979D /* MyPageViewController.swift */,
+				9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */,
+				9B00B3B225D26D7F006427DE /* SettingViewController.swift */,
+				9B00B3B425D28581006427DE /* ChangePasswordViewController.swift */,
+				9B00B3B625D289A5006427DE /* SignOutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -807,6 +829,7 @@
 			files = (
 				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
+				1C21853C25B9F19B0076CD14 /* WaitingScreen.storyboard in Resources */,
 				1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */,
 				1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */,
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
@@ -983,10 +1006,12 @@
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */,
+				9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
+				9B00B3B725D289A5006427DE /* SignOutViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
@@ -996,8 +1021,10 @@
 				9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */,
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
+				9B00B3B525D28582006427DE /* ChangePasswordViewController.swift in Sources */,
 				1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */,
 				1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */,
+				9B00B3B325D26D7F006427DE /* SettingViewController.swift in Sources */,
 				1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */,
 				1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */,
 				3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */,

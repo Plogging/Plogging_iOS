@@ -17,6 +17,7 @@ class PloggingViewController: UIViewController {
         let storyboard = UIStoryboard(name: Storyboard.WaitingScreen.rawValue, bundle: nil)
         if let waitingScreenViewController = storyboard.instantiateViewController(withIdentifier: "WaitingScreenViewController") as? WaitingScreenViewController {
             waitingScreenViewController.modalPresentationStyle = .fullScreen
+            waitingScreenViewController.modalTransitionStyle = .crossDissolve
             self.present(waitingScreenViewController, animated: false, completion: nil)
         }
     }

@@ -15,13 +15,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
     
-    
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingStartViewController?
     var myPageViewController: MyPageViewController?
+    var ploggingDetailInfoViewController: PloggingDetailInfoViewController?
     
-    
-    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarUI()
@@ -51,6 +49,10 @@ class MainViewController: UIViewController {
         tabBar.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         tabBar.translatesAutoresizingMaskIntoConstraints = false
         view.bringSubviewToFront(shadowView)
+    }
+    
+    func setTabBarHidden(_ isHidden: Bool) {
+        tabBar.isHidden = isHidden
     }
 }
 
