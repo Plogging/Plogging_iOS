@@ -8,13 +8,25 @@
 import Foundation
 
 struct BaseURL {
-    static let mainURL = "http://nexters.plogging.kro.kr:20000"
+    static let mainURL = "https://nexters.plogging.kro.kr:20000"
 }
 
 struct BasePath {
-    static let plogging = "/plogging"
+    // USER
     static let user = "/user"
+    static let userSocial = "/user/social"
+    static let userCheck = "/user/check"
+    static let userSignIn = "/user/sign-in"
+    static let userSignOut = "/user/sign-out"
+    static let userPassword = "/user/password"
+    static let userPasswordTemp = "/user/password-temp"
     
+    // PLOGGING
+    static let plogging = "/plogging"
+
+    // RANKING
+    static let rankingGlobal = "/rank/global"
+    static let rankUserId = "/rank/users"
 }
 
 struct BaseHeader {

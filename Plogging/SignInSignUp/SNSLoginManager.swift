@@ -23,7 +23,7 @@ class SNSLoginManager: NSObject {
     func setupLoginWithApple() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
+        request.requestedScopes = [.email]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
@@ -60,10 +60,9 @@ class SNSLoginManager: NSObject {
                 if let error = error {
                     print(error)
                 } else {
-                    let loginData: SNSLoginData = SNSLoginData()
-                    loginData.token = oauthToken?.accessToken ?? ""
-                    completion?(loginData)
                     self.getKakaoInfo()
+                    let loginData: SNSLoginData = SNSLoginData()
+                    completion?(loginData)
                 }
             }
         } else {
@@ -71,10 +70,9 @@ class SNSLoginManager: NSObject {
                 if let error = error {
                     print(error)
                 } else {
-                    let loginData: SNSLoginData = SNSLoginData()
-                    loginData.token = oauthToken?.accessToken ?? ""
-                    completion?(loginData)
                     self.getKakaoInfo()
+                    let loginData: SNSLoginData = SNSLoginData()
+                    completion?(loginData)
                 }
             }
         }
@@ -91,22 +89,6 @@ class SNSLoginManager: NSObject {
         let loginData = SNSLoginData()
         
         completion?(loginData)
-        getNaverInfo()
-    }
-    
-    // MARK: - getting user info
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userFirstName = appleIDCredential.fullName?.givenName ?? ""
-            let userLastName = appleIDCredential.fullName?.familyName ?? ""
-            let userName = userLastName + userFirstName
-            let userEmail = appleIDCredential.email
-            print("userName \(userName) userFirstName \(userFirstName), userLastName \(userLastName), userEmail \(userEmail!)")
-            SNSLoginManager.shared.loginSuccess(type: "apple", email: userEmail!)
-        default:
-            break
-        }
     }
     
     func getNaverInfo() {
@@ -114,21 +96,21 @@ class SNSLoginManager: NSObject {
             return
         }
         
-        if !loginInstance.isValidAccessTokenExpireTimeNow() { return }
-
         guard let tokenType = loginInstance.tokenType else { return }
         guard let accessToken = loginInstance.accessToken else { return }
         guard let url = URL(string: Naver.Info.rawValue) else { return }
         
         let authorization = "\(tokenType) \(accessToken)"
         
-        AF.request(url,method: .get, headers: ["Authorization": authorization]).responseJSON { response in
+        AF.request(url,
+                   method: .get,
+                   headers: ["Authorization": authorization]
+        ).responseJSON { response in
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
-            guard let name = object["name"] as? String else { return }
             guard let email = object["email"] as? String else { return }
-            print("name: \(name), email: \(email)")
-            self.loginSuccess(type: "naver", email: email)
+            print("email: \(email)")
+            self.checkEmailValidation(email: email, type: SNSType.naver.rawValue)
         }
     }
     
@@ -139,63 +121,64 @@ class SNSLoginManager: NSObject {
             }
             else {
                 print("me() success.")
-
-                if let name = user?.kakaoAccount?.legalName, let email = user?.kakaoAccount?.email {
-                    print("name \(name)")
+                if let email = user?.kakaoAccount?.email {
                     print("email \(email)")
-                    self.loginSuccess(type: "kakao", email: email)
+                    self.checkEmailValidation(email: email, type: SNSType.kakao.rawValue)
                 }
             }
         }
     }
         
+    func checkEmailValidation(email: String, type: String) {
+        let param: [String: Any] = ["userId": "\(email):\(type)"]
+        
+        APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
+            let rc = try? response.get().rc
+            if rc == 200 {
+                // 닉네임 페이지로
+                print("닉네임 페이지")
+            } else if rc == 400  {
+                // 존재하는 아이디라고 알려줌
+            } else {
+                // 서버 에러
+            }
+        }
+    }
+    
     // MARK: - success
     func loginSuccess(type: String, email: String) {
-        let parameters: [String: Any] = [
-            "type" : type,
-            "email" : email,
+        let param: [String: Any] = [
+            "userId" : type,
+            "userName" : email,
         ]
-        
-        APICollection.sharedAPI.requestSessionKey(param: parameters) { (result) in
-            if let sessionKey = try? result.get().session {
-                UserDefaults.standard.set(sessionKey, forKey: "sessionKey")
-                print("success")
-            }
+
+        APICollection.sharedAPI.requestSignInSocial(param: param) { (result) in
+            print(result)
         }
     }
 }
 
 // MARK: - NAVER Delegate
 extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
-    
-    private func completionNaverLogin() {
-        guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
-            return
-        }
-        
-        let loginData: SNSLoginData = SNSLoginData()
-        loginData.token = loginInstance.accessToken ?? ""
-        completion?(loginData)
-    }
-    
-    // 로그인에 성공했을 경우 호출    
+    // 로그인에 성공했을 경우 호출
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
         
-        completionNaverLogin()
         getNaverInfo()
+
+        let loginData: SNSLoginData = SNSLoginData()
+        loginData.type = SNSType.naver.rawValue
+        completion?(loginData)
     }
     
     // 토큰 갱신
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("토큰 갱신")
-        completionNaverLogin()
     }
     
     // 로그아웃 할 경우 호출
     func oauth20ConnectionDidFinishDeleteToken() {
         print("토큰 삭제")
-        completionNaverLogin()
     }
     
     // ERROR
@@ -206,6 +189,19 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
 
 // MARK: - APPLE Delegate
 extension SNSLoginManager: ASAuthorizationControllerDelegate {
+    // MARK: - getting user info
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            if let email = appleIDCredential.email {
+                self.checkEmailValidation(email: email,
+                                          type: SNSType.apple.rawValue)
+            }
+        default:
+            break
+        }
+    }
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
     }

@@ -30,7 +30,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="카카오 로그인" image="iconKakao"/>
+                                        <state key="normal" title="카카오 로그인" image="iconKakao">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickKakaoLoginButton:" destination="QnJ-2f-PcS" eventType="touchUpInside" id="y5U-Pc-kQn"/>
                                         </connections>
@@ -327,7 +329,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
-                                    <action selector="clickSignUpButton:" destination="i86-Um-ous" eventType="touchUpInside" id="keN-9D-HcO"/>
+                                    <action selector="clickSignUpButton:" destination="i86-Um-ous" eventType="touchUpInside" id="akP-5Y-Dex"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -450,6 +452,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="clickConfirmButton:" destination="emF-za-emW" eventType="touchUpInside" id="b7m-XE-okR"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="Sfn-mG-Y0e">
                                 <rect key="frame" x="69" y="631" width="276" height="56"/>
@@ -515,9 +520,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="ErrorLabel" destination="vs8-um-cwI" id="tC7-FM-yqY"/>
                         <outlet property="emailTextField" destination="p5o-3R-6ie" id="xSa-cI-vsN"/>
                         <outlet property="emailView" destination="DTY-em-avl" id="M86-fK-8aH"/>
+                        <outlet property="errorLabel" destination="vs8-um-cwI" id="otJ-Sc-mhU"/>
                         <outlet property="passwordTextField" destination="ivO-2j-fbi" id="wzU-JV-k40"/>
                         <outlet property="passwordView" destination="ivD-SA-Upj" id="eL2-ZR-UAK"/>
                         <outlet property="signInButton" destination="BnU-Nb-3kp" id="kIN-Ia-pgW"/>
@@ -601,6 +606,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="KvB-lv-bOe" id="tkM-g6-UGD"/>
+                        <outlet property="emailTextField" destination="VGv-S2-OV4" id="4mY-ia-Ybm"/>
                         <outlet property="emailView" destination="BW2-7F-acK" id="9VY-2N-gTn"/>
                         <segue destination="11q-i8-LRe" kind="show" identifier="PasswordCompletionViewController" id="Eoj-wF-UrF"/>
                     </connections>
@@ -677,6 +683,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="YRF-qU-Gfh" id="SWD-Rr-ymP"/>
+                        <outlet property="errorLabel" destination="rgn-t3-qaA" id="IXF-iC-GuO"/>
                         <outlet property="nickNameInfoLabel" destination="hdO-11-u4g" id="fBJ-jd-NYb"/>
                         <outlet property="nickNameTextField" destination="87o-75-x4Z" id="btw-Pr-0Mc"/>
                     </connections>
@@ -746,7 +753,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaM-IY-OkZ">
-                                <rect key="frame" x="24" y="335" width="366" height="60"/>
+                                <rect key="frame" x="24" y="390.5" width="366" height="60"/>
                                 <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.83921568629999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="HKJ-VP-p6B"/>
@@ -757,21 +764,30 @@
                                     <action selector="clickConfirmButton:" destination="11q-i8-LRe" eventType="touchUpInside" id="RIL-RP-l3H"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입되지 않은 정보이거나  비밀번호가 다릅니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txd-1N-rTq">
+                                <rect key="frame" x="24" y="287" width="366" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ypm-qc-H9l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="txd-1N-rTq" firstAttribute="top" secondItem="3cs-cQ-GTW" secondAttribute="bottom" constant="18" id="0fl-D2-ufm"/>
                             <constraint firstItem="D8A-sh-t5j" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="2TH-ga-Jnu"/>
                             <constraint firstItem="Ypm-qc-H9l" firstAttribute="trailing" secondItem="vAg-Sv-aAb" secondAttribute="trailing" constant="24" id="3uA-00-2Cn"/>
                             <constraint firstItem="vAg-Sv-aAb" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="5H0-E2-2Ym"/>
+                            <constraint firstItem="txd-1N-rTq" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="BsP-mc-jFK"/>
                             <constraint firstItem="Ypm-qc-H9l" firstAttribute="trailing" secondItem="D8A-sh-t5j" secondAttribute="trailing" constant="24" id="DlT-zs-YsH"/>
                             <constraint firstItem="Ypm-qc-H9l" firstAttribute="trailing" secondItem="3Lx-TR-GqV" secondAttribute="trailing" constant="24" id="GDI-Py-J8J"/>
                             <constraint firstItem="D8A-sh-t5j" firstAttribute="top" secondItem="3Lx-TR-GqV" secondAttribute="bottom" constant="16" id="I9G-vb-TZQ"/>
+                            <constraint firstItem="Ypm-qc-H9l" firstAttribute="trailing" secondItem="txd-1N-rTq" secondAttribute="trailing" constant="24" id="JbY-Bw-7H7"/>
                             <constraint firstItem="XaM-IY-OkZ" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="P4D-EU-lCY"/>
                             <constraint firstItem="3Lx-TR-GqV" firstAttribute="top" secondItem="Ypm-qc-H9l" secondAttribute="top" constant="30" id="PAu-Ur-7qc"/>
-                            <constraint firstItem="XaM-IY-OkZ" firstAttribute="top" secondItem="3cs-cQ-GTW" secondAttribute="bottom" constant="66" id="R2i-z9-X78"/>
                             <constraint firstItem="Ypm-qc-H9l" firstAttribute="trailing" secondItem="3cs-cQ-GTW" secondAttribute="trailing" constant="24" id="TPP-Dq-nUK"/>
                             <constraint firstItem="3cs-cQ-GTW" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="ZRs-yD-Pge"/>
+                            <constraint firstItem="XaM-IY-OkZ" firstAttribute="top" secondItem="txd-1N-rTq" secondAttribute="bottom" constant="70" id="bWN-8P-Ymj"/>
                             <constraint firstItem="3cs-cQ-GTW" firstAttribute="top" secondItem="vAg-Sv-aAb" secondAttribute="bottom" constant="12" id="iye-1B-BTg"/>
                             <constraint firstItem="3Lx-TR-GqV" firstAttribute="leading" secondItem="Ypm-qc-H9l" secondAttribute="leading" constant="24" id="izF-u4-wCX"/>
                             <constraint firstItem="vAg-Sv-aAb" firstAttribute="top" secondItem="D8A-sh-t5j" secondAttribute="bottom" constant="18" id="lLw-j4-qow"/>
@@ -783,6 +799,7 @@
                         <outlet property="confirmButton" destination="XaM-IY-OkZ" id="Uu0-Gg-4qR"/>
                         <outlet property="emailTextField" destination="Rta-DN-hCy" id="eB5-i0-gt5"/>
                         <outlet property="emailView" destination="vAg-Sv-aAb" id="u2O-5r-hA2"/>
+                        <outlet property="errorLabel" destination="txd-1N-rTq" id="fAW-86-3v6"/>
                         <outlet property="passwordTextField" destination="TSa-sy-zmb" id="FZz-tY-T7H"/>
                         <outlet property="passwordView" destination="3cs-cQ-GTW" id="lIQ-Iw-z22"/>
                     </connections>
