@@ -72,12 +72,15 @@ class LoginViewController: UIViewController {
         case 400, 401:
             errorLabel.isHidden = false
             errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
+            return
         case 500:
             print("서버 error")
+            return
         default:
             print("success")
-            // 메인으로 이동
+            errorLabel.isHidden = true
             makeDefaultRootViewController()
+            return
         }
     }
     
