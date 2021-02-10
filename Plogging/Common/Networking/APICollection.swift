@@ -11,11 +11,23 @@ import Alamofire
 struct APICollection {
     static let sharedAPI = APICollection()
     
-    let defaultHeaderWithCookie: HTTPHeaders = [
-        "cookie": "\(PloggingCookie.shared.getUserCookie())",
-        "Content-Type": "application/json"
-    ]
-    
+    func gettingHeader() -> HTTPHeaders {
+        if let a = PloggingCookie.shared.getUserCookie() {
+            return [
+                "cookie": "\(a)",
+                "Content-Type": "application/json"
+            ]
+        } else {
+            return [
+                "Content-Type": "application/json"
+            ]
+        }
+    }
+//    let defaultHeaderWithCookie: HTTPHeaders = [
+//        "cookie": "\(PloggingCookie.shared.getUserCookie()!)",
+//        "Content-Type": "application/json"
+//    ]
+//
     let defaultHeader: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -55,8 +67,15 @@ extension APICollection {
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
             }
-
             print(response)
+
+            // 쿠키 설정
+            if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
+                DispatchQueue.main.async {
+                    PloggingCookie.shared.setUserCookie(cookie: "\(cookieName)=\(cookieValue)")
+                }
+            }
+            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
@@ -113,7 +132,7 @@ extension APICollection {
                    method: .put,
                    parameters: param,
                    encoding: JSONEncoding.default,
-                   headers: defaultHeaderWithCookie
+                   headers: gettingHeader()
         ).responseJSON { response in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
@@ -139,7 +158,7 @@ extension APICollection {
         },
         to: BaseURL.mainURL + BasePath.plogging,
         method: .post,
-        headers: defaultHeaderWithCookie
+        headers: gettingHeader()
         ).responseJSON { response in
             print(response)
             guard let data = response.data else {
@@ -161,7 +180,7 @@ extension APICollection {
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,
-                   headers: defaultHeaderWithCookie
+                   headers: gettingHeader()
         ).responseJSON { (response) in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
@@ -181,7 +200,7 @@ extension APICollection {
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,
-                   headers: defaultHeaderWithCookie
+                   headers: gettingHeader()
         ).responseJSON { (response) in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
