@@ -23,7 +23,12 @@ class SNSLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarClear()
         setupButtonsUI()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func setupButtonsUI() {
@@ -61,5 +66,13 @@ class SNSLoginViewController: UIViewController {
     
     @IBAction func clickAppleLoginButton(_ sender: UIButton) {
         SNSLoginManager.shared.setupLoginWithApple()
+    }
+    
+    @IBAction func clickSignUpWithEmailButton(_ sender: UIButton) {
+
+    }
+    
+    @IBAction func clickSignInButton(_ sender: UIButton) {
+
     }
 }
