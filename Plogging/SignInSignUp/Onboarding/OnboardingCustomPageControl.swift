@@ -9,8 +9,8 @@ import UIKit
 
 class OnboardingCustomPageControl: UIPageControl {
 
-    @IBInspectable let currentPageImage: UIImage? = UIImage(named: "onboardingSelected")
-    @IBInspectable let otherPagesImage: UIImage? = UIImage(named: "onboardingSelected")
+    @IBInspectable let currentPageImage: UIImage? = UIImage(named: "onboardingUnselected")
+    @IBInspectable let otherPagesImage: UIImage? = UIImage(named: "onboardingUnselected")
     
     override var numberOfPages: Int {
         didSet {
@@ -30,8 +30,8 @@ class OnboardingCustomPageControl: UIPageControl {
             defaultConfigurationForiOS14AndAbove()
         } else {
             clipsToBounds = false
-            pageIndicatorTintColor = .clear
-            currentPageIndicatorTintColor = .clear
+            pageIndicatorTintColor = .onboardingPaleGreen
+            currentPageIndicatorTintColor = .tintGreen
         }
     }
 

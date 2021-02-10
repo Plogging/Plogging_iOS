@@ -13,10 +13,18 @@ class PasswordCompletionViewController: UIViewController {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    private var ploggingInfo: PloggingUser? {
+        didSet {
+            checkValidation()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
     }
     
@@ -37,6 +45,35 @@ class PasswordCompletionViewController: UIViewController {
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
+
+        let param: [String: Any] = [
+            "userId": email,
+            "secretKey": password
+        ]
         
+        APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+    }
+    
+    private func checkValidation() {
+        guard let model = ploggingInfo else {
+            return
+        }
+        switch model.rc {
+        case 400, 401:
+            errorLabel.isHidden = false
+            errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+            // 메인으로 이동
+            makeDefaultRootViewController()
+        }
     }
 }
