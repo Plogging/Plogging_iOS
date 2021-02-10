@@ -27,6 +27,15 @@ struct APICollection {
     let defaultHeader: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
+    
+    func getCookies() {
+        // 쿠키 설정
+        if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
+            DispatchQueue.main.async {
+                PloggingCookie.shared.setUserCookie(cookie: "\(cookieName)=\(cookieValue)")
+            }
+        }
+    }
 }
 
 // MARK: - USER
@@ -44,6 +53,10 @@ extension APICollection {
             }
 
             print(response)
+            
+            // 쿠키 설정
+            getCookies()
+            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
@@ -66,11 +79,7 @@ extension APICollection {
             print(response)
 
             // 쿠키 설정
-            if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
-                DispatchQueue.main.async {
-                    PloggingCookie.shared.setUserCookie(cookie: "\(cookieName)=\(cookieValue)")
-                }
-            }
+            getCookies()
             
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
