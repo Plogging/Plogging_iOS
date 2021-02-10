@@ -21,6 +21,11 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
     var ploggingResultData: PloggingList?
+    let contentViewOriginalHeight = 1280
+    let totalCountViewOriginalHeight = 80
+    let trashInfoViewTopConstraint = 40
+    let collectionViewCellLeading = 54
+    let collectionViewCellTrailing = 54
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -59,8 +64,9 @@ class PloggingResultViewController: UIViewController {
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
         
         let trashInfosCount = ploggingResultData?.trashList.count ?? 0
-        contentViewHeight.constant = 1280 /* contentView Height */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */+ CGFloat((50 * trashInfosCount))
+        
+        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
         
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
@@ -186,9 +192,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PloggingResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leading = 54
-        let trailing = 54
         
-        return CGSize(width: Int(DeviceInfo.screenWidth) - leading - trailing , height: 50)
+        return CGSize(width: Int(DeviceInfo.screenWidth) - collectionViewCellLeading - collectionViewCellTrailing , height: 50)
     }
 }

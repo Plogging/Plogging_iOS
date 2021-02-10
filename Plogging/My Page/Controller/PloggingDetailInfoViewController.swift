@@ -25,6 +25,11 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     var ploggingResultData: PloggingList?
+    let contentViewOriginalHeight = 1150
+    let totalCountViewOriginalHeight = 80
+    let trashInfoViewTopConstraint = 40
+    let collectionViewCellLeading = 54
+    let collectionViewCellTrailing = 54
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +70,8 @@ class PloggingDetailInfoViewController: UIViewController {
         }
         let trashInfosCount = trashInfos.count
         
-        contentViewHeight.constant = 1150 /* contentView Height */ + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = 80 /* totalCountView height */ + 40 /* top constraint */ + CGFloat((50 * trashInfosCount))
+        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
+        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
         
         let trashCountSum = trashInfos.getTrashPickTotalCount()
         totalTrashCount.text = "\(trashCountSum)개"
@@ -181,9 +186,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PloggingDetailInfoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leading = 54
-        let trailing = 54
         
-        return CGSize(width: Int(DeviceInfo.screenWidth) - leading - trailing , height: 50)
+        return CGSize(width: Int(DeviceInfo.screenWidth) - collectionViewCellLeading - collectionViewCellTrailing , height: 50)
     }
 }
