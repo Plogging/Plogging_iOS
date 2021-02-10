@@ -19,17 +19,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        if let sessionKey = UserDefaults.standard.string(forKey: "sessionKey") {
-            print(sessionKey)
-        } else {
-            // 유저 처음인지 확인하는 작업 필요
-            SNSLoginManager.shared.setupLoginWithNaver()
-            SNSLoginManager.shared.setupLoginWithKakao()
-          
-            DispatchQueue.main.async {
-                self.window?.rootViewController?.showOnboardingViewController()
-            }
-        }
+//        if PloggingCookie.shared.isFirstTimeUser() {
+//            // 유저 처음인지 확인하는 작업 필요
+//            SNSLoginManager.shared.setupLoginWithNaver()
+//            SNSLoginManager.shared.setupLoginWithKakao()
+//
+//            DispatchQueue.main.async {
+//                self.window?.rootViewController?.showOnboardingViewController()
+//            }
+//        } else {
+            // Plogging 메인
+            self.window?.rootViewController?.makeDefaultRootViewController()
+//        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
