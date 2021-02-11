@@ -11,7 +11,7 @@ class PathManager: NSObject {
     static var pathManager = PathManager()
     
     var locationList: [CLLocation] = []
-    var distance: Float = 0.0 {
+    var distance: Int = 0 {
         didSet {
             NotificationCenter.default.post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
         }

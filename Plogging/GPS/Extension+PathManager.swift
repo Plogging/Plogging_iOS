@@ -24,9 +24,7 @@ extension PathManager: CLLocationManagerDelegate{
         }
 
         if let lastLocation = locationList.last {
-            let delta = currentLocation.distance(from: lastLocation)
-            let temp = Float(delta/1000)
-            distance = distance + temp
+            distance = distance + Int(currentLocation.distance(from: lastLocation))
         }
 
         locationList.append(currentLocation)
