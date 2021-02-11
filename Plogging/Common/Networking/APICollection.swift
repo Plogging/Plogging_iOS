@@ -29,14 +29,6 @@ struct APICollection {
     ]
 }
 
-
-//    let login: HTTPHeaders = ["Content-Type": "application/json"]
-//
-//    let plogging: HTTPHeaders = ["accept":"application/json",
-////                                 "sessionKey":"\(UserDefaults.standard.bool(forKey: "sessionKey"))",
-//                                 "sessionKey":"",
-//                                 "Content-Type": "multipart/form-data"]
-
 // MARK: - USER
 extension APICollection {
     /// SNS 로그인
@@ -87,8 +79,73 @@ extension APICollection {
             completion(.success(value))
         }
     }
+
+    /// 사용자 아이디 가입 확인
+    func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userCheck,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+
+    /// 회원가입
+    func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userCheck,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
     
-    
+    /// 임시 비밀번호 발급
+    func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
+                   method: .put,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+}
+
+// MARK: - PLOGGING
+extension APICollection {
     /// 플로깅 기록 등록하기
     func registerPloggingRecord(param: Parameters, image: UIImage, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
         AF.upload(multipartFormData: { multipartFormData in
@@ -149,84 +206,17 @@ extension APICollection {
         AF.request(BaseURL.mainURL + BasePath.plogging,
                    method: .get,
                    headers: gettingHeader())
-        }
-
-    /// 사용자 아이디 가입 확인
-    func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userCheck,
-                   method: .post,
-                   parameters: param,
-                   encoding: JSONEncoding.default,
-                   headers: defaultHeader
-        ).responseJSON { response in
-            guard let data = response.data else {
-                return completion(.failure(.dataFailed))
-            }
-
-            print(response)
-            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
-                return completion(.failure(.decodingFailed))
-            }
-            
-            completion(.success(value))
-        }
     }
-
-   
+    
     /// 플로깅 기록 삭제하기
     func deletePloggingRecord() {}
-
     
-    /// 회원가입
-    func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userCheck,
-                   method: .post,
-                   parameters: param,
-                   encoding: JSONEncoding.default,
-                   headers: defaultHeader
-        ).responseJSON { response in
-            guard let data = response.data else {
-                return completion(.failure(.dataFailed))
-            }
-
-            print(response)
-            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
-                return completion(.failure(.decodingFailed))
-            }
-            
-            completion(.success(value))
-        }
-    }
     
-    /// 임시 비밀번호 발급
-    func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
-                   method: .put,
-                   parameters: param,
-                   encoding: JSONEncoding.default,
-                   headers: gettingHeader()
-        ).responseJSON { response in
-            guard let data = response.data else {
-                return completion(.failure(.dataFailed))
-            }
-
-            print(response)
-            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
-                return completion(.failure(.decodingFailed))
-            }
-            
-            completion(.success(value))
-        }
-    }
-}
-
-// MARK: - PLOGGING
-extension APICollection {
-    func requestTest(completion: @escaping () -> Void) {
-        let data = "{\"meta\": { \"distance\": 100, \"calorie\": 200, \"flogging_time\": 20 }, \"pick_list\": [{ \"trash_type\": 3, \"pick_count\": 33 }, { \"trash_type\": 1, \"pick_count\": 12 }]}"
-
+    func requestRegisterPloggingResult(param: Parameters, imageData: Data, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
         AF.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(Data(data.utf8), withName: "ploggingData")
+            let json = param.toJsonString()
+            print("json: \(json)")
+            multipartFormData.append(Data(json!.utf8), withName: "ploggingData")
         },
         to: BaseURL.mainURL + BasePath.plogging,
         method: .post,
@@ -235,11 +225,13 @@ extension APICollection {
             print(response)
             guard let data = response.data else {
                 print(APIError.dataFailed)
-                return completion()
+                return completion(.failure(.dataFailed))
             }
-
             print(data)
-            completion()
+            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            completion(.success(value))
         }
     }
 }

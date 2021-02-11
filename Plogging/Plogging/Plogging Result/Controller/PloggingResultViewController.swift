@@ -26,6 +26,11 @@ class PloggingResultViewController: UIViewController {
     let trashInfoViewTopConstraint = 40
     let collectionViewCellLeading = 54
     let collectionViewCellTrailing = 54
+    private var ploggingInfo: PloggingInfo? {
+        didSet {
+            checkValidation()
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -130,9 +135,57 @@ extension PloggingResultViewController {
 //            //서버 통신 추가
 //            ploggingResultPhoto.image = ploggingResultImage
 //        }
+
+        
+        let meta: [String : Any] = [
+            "distance" : 1500,
+            "calorie" : 520,
+            "plogging_time" : 600
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        var trashList: [String : Any] = [
+            "trash_type" : 1,
+            "pick_count" : 11
+        ]
+        trashListArray.append(trashList)
+        
+        trashList = [
+            "trash_type" : 3,
+            "pick_count" : 33
+        ]
+        trashListArray.append(trashList)
+        
+        let param: [String: Any] = [
+                "meta" : meta,
+                "trash_list" : trashListArray
+        ]
+            
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: param) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+        
          self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    private func checkValidation() {
+        guard let model = ploggingInfo else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success!!")
+        case 401:
+            print("권한없음. 로그인 필요")
+            //로그인 페이지로 전환
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+        }
+    }
+
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PloggingResultPhotoViewController, let thumbnailImage = sourceViewController.thumbnailImage {
             ploggingResultPhoto.image = thumbnailImage

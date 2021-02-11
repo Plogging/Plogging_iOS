@@ -134,6 +134,7 @@ extension PloggingDetailInfoViewController {
         guard let testImage = UIImage(named: "test") else {
             return
         }
+        showPopUpViewController(with: .사진저장승인)
         
         let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default)
