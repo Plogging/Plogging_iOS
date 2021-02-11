@@ -324,6 +324,16 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		1C31C03625C5B9A000413EBB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
+				1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */,
+				1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		1C5A68BA25BF238900F096A9 /* View */ = {
 			isa = PBXGroup;
 			children = (

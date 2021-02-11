@@ -90,7 +90,6 @@ class PloggingResultViewController: UIViewController {
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
-
         let trashInfosCount = ploggingResultData?.trashList.count ?? 0
 
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
