@@ -9,7 +9,7 @@ import UIKit
 
 class PloggingPickTrashViewController: UIViewController {
 
-    @IBOutlet weak var vinil: PickTrashItem!
+    @IBOutlet weak var vinyl: PickTrashItem!
     @IBOutlet weak var glass: PickTrashItem!
     @IBOutlet weak var paper: PickTrashItem!
     @IBOutlet weak var plastic: PickTrashItem!
@@ -18,23 +18,43 @@ class PloggingPickTrashViewController: UIViewController {
     @IBOutlet weak var confirmButton: ConfirmButton!
     
     var items: [PickTrashItem]?
-    
+    var trashItemList: [TrashItem]?
     
     @IBAction func saveInput(_ sender: Any) {
-        let destination = storyboard?.instantiateViewController(identifier: "PloggingRunningInfoViewController") as? PloggingRunningInfoViewController
-        
-        var sum = 0;
-
-        items?.forEach{ item in
-            sum += item.count
-        }
-
-        destination?.count += sum
         dismiss(animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let trashItemList = self.trashItemList else {return}
+        for trashItem in trashItemList {
+            let index = trashItem.trashType.rawValue
+            items?[index-1].count = trashItem.pickCount
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let destination = presentingViewController as? PloggingRunningInfoViewController {
+            var count = 0
+            let result = items?.map { item -> TrashItem in
+                count += item.count
+                return TrashItem(trashType: item.trashType, pickCount: item.count)
+            }
+            
+            destination.count = count
+            if let result = result {
+                destination.currentTrashList = result
+            }
+            
+            DispatchQueue.main.async {
+                destination.updateCount()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
-        items = [vinil, glass, paper, plastic, can, extra]
+        items = [vinyl, glass, paper, plastic, can, extra]
         super.viewDidLoad()
         setupView()
     }
@@ -45,7 +65,6 @@ class PloggingPickTrashViewController: UIViewController {
         confirmButton.layer.cornerRadius = 12
         
         view.backgroundColor = .fromInt(red: 248, green: 250, blue: 252, alpha: 1)
-        vinil.setupResource(icon: UIImage(named: "Vinil")!, category: "비닐")
     }
     
     

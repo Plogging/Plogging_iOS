@@ -18,4 +18,5 @@ public struct SegueIdentifier {
     static let passwordCompletionViewController = "PasswordCompletionViewController"
     static let loginViewController = "LoginViewController"
     static let signUpViewController = "SignUpViewController"
+    static let pickTrash = "pickTrash"
 }

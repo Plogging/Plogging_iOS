@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,32 +14,32 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXj-XR-DvY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRy-ze-S5H" userLabel="RankingView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <connections>
                                     <segue destination="aAV-LN-e74" kind="embed" identifier="RankingSegue" id="YdK-XK-okV"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-L4-9eV" userLabel="MyPageView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <connections>
                                     <segue destination="xTK-tR-GKx" kind="embed" identifier="MypageSegue" id="kXz-wl-NRm"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-Aj-3tK" userLabel="PloggingView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <connections>
                                     <segue destination="t0p-XS-EL4" kind="embed" identifier="PloggingSegue" id="1bX-HR-C2k"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14t-un-sOC" userLabel="ShadowView">
-                                <rect key="frame" x="0.0" y="804" width="414" height="92"/>
+                                <rect key="frame" x="0.0" y="834" width="428" height="92"/>
                                 <subviews>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuL-s9-PTS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="YTn-0c-1Vc"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </tabBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-gS-pNf" userLabel="BottomCoverView">
-                                        <rect key="frame" x="0.0" y="58" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="58" width="428" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="936" y="-80"/>
         </scene>
-        <!--Plogging-->
+        <!--PloggingStartViewController-->
         <scene sceneID="wzM-Pf-Bdp">
             <objects>
-                <viewControllerPlaceholder storyboardName="Plogging" id="t0p-XS-EL4" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="PloggingMain" storyboardName="PloggingMain" referencedIdentifier="PloggingStartViewController" id="t0p-XS-EL4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOe-yW-DOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="946" y="33"/>
