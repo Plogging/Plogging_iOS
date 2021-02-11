@@ -26,6 +26,7 @@ class PloggingResultViewController: UIViewController {
     let trashInfoViewTopConstraint = 40
     let collectionViewCellLeading = 54
     let collectionViewCellTrailing = 54
+    var forwardingImage = UIImage()
     private var ploggingInfo: PloggingInfo? {
         didSet {
             checkValidation()
@@ -121,21 +122,29 @@ extension PloggingResultViewController {
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
-//        if baseImage == nil {
+        if baseImage == nil {
 //            self.showPopUpViewController(with: .사진없이저장팝업)
-//            let ploggingResultImageMaker = PloggingResultImageMaker()
-//            guard let basicImage = UIImage(named: "basicImage") else {
-//                return
-//            }
-//            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
+            let ploggingResultImageMaker = PloggingResultImageMaker()
+            guard let basicImage = UIImage(named: "basicImage") else {
+                return
+            }
+            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
 //            guard let distance = ploggingResultData?.meta.distance else {
 //                return
 //            }
-//            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
-//            //서버 통신 추가
-//            ploggingResultPhoto.image = ploggingResultImage
-//        }
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
+            //서버 통신 추가
+            ploggingResultPhoto.image = ploggingResultImage
+            forwardingImage = ploggingResultImage
+        } else {
+            forwardingImage = ploggingResultPhoto.image!
+        }
 
+        guard let forwardingImageData = forwardingImage.pngData() else {
+            print("no forwardingImageData")
+            return
+        }
+        
         
         let meta: [String : Any] = [
             "distance" : 1500,
@@ -162,7 +171,7 @@ extension PloggingResultViewController {
                 "trash_list" : trashListArray
         ]
             
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: param) { (response) in
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
             self.ploggingInfo = try? response.get()
         }
         

@@ -217,6 +217,9 @@ extension APICollection {
             let json = param.toJsonString()
             print("json: \(json)")
             multipartFormData.append(Data(json!.utf8), withName: "ploggingData")
+            
+            multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/png")
+
         },
         to: BaseURL.mainURL + BasePath.plogging,
         method: .post,
