@@ -41,13 +41,13 @@ class RankingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        requestRankingAPI(type: "weekly")
-//        requestUserRanking(type: "weekly")
+        requestRankingAPI(type: "weekly")
+        requestUserRanking(type: "weekly")
     }
     
     private func requestRankingAPI(type: String) {
         let param: [String: Any] = ["rankType": type,
-                                    "rankCntPerPage": 1,
+                                    "rankCntPerPage": 10,
                                     "pageNumber": 1]
         
         APICollection.sharedAPI.requestGlobalRanking(param: param) { (response) in
@@ -135,7 +135,7 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = ploggingRankingList?.count else {
+        guard let count = ploggingRankingList?.data.count else {
             return 2
         }
         return count + 2
@@ -150,7 +150,7 @@ extension RankingViewController: UITableViewDataSource {
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            if let model = ploggingRankingList?.rankData[indexPath.row - 2]  {
+            if let model = ploggingRankingList?.data[indexPath.row - 2]  {
                 cell.config(model, index: indexPath)
             }
             return cell
