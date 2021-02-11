@@ -16,6 +16,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
+    private var ploggingInfo: PloggingUser? {
+        didSet {
+            checkEmailValidation()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +29,17 @@ class SignUpViewController: UIViewController {
         setupUI()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.nickNameViewController {
+            if let nickNameViewController = segue.destination as? NickNameViewController,
+               let email = emailTextField.text,
+               let password = passwordTextField.text{
+                nickNameViewController.userInfo = ["userId": email,
+                                                   "secretKey": password]
+            }
+        }
+     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -40,6 +57,40 @@ class SignUpViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+    }
+    
+    private func requestUserCheck() {
+        guard let email = emailTextField.text else {
+            return
+        }
+
+        let param: [String: Any] = ["userId": email]
+        
+        APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+    }
+    
+    private func checkEmailValidation() {
+        guard let model = ploggingInfo else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success")
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
+                              sender: nil)
+            
+        case 400:
+            warningLabel.isHidden = false
+            warningLabel.text = "아이디가 존재합니다."
+            return
+        case 500:
+            print("서버 error")
+            return
+        default:
+            print("error")
+        }
     }
     
     func setupUI() {
@@ -63,28 +114,18 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
-        if checkValidation() {
-            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController, sender: nil)
+        if let email = emailTextField.text,
+           let password = passwordTextField.text {
+            let waring = checkWarningValidation(email: email, password: password)
+            if waring == nil {
+                warningLabel.isHidden = true
+                requestUserCheck()
+            } else {
+                warningLabel.isHidden = false
+                warningLabel.text = waring
+            }
         }
     }
 }
 
-extension SignUpViewController: LoginValidation {
-    func checkValidation() -> Bool {
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            if !email.isValidEmail() {
-                warningLabel.isHidden = false
-                warningLabel.text = "올바르지 않은 형식의 이메일입니다."
-                return false
-            }
-            if !password.isValidpassword() {
-                warningLabel.isHidden = false
-                warningLabel.text = "대/소문자, 숫자, 특수문자중 2가지 이상의 조합으로 8자이상"
-                return false
-            }
-            warningLabel.isHidden = true
-            return true
-        }
-        return false
-    }
-}
+extension SignUpViewController: LoginValidation {}

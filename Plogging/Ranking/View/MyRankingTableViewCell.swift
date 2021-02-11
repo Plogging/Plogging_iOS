@@ -29,6 +29,16 @@ class MyRankingTableViewCell: UITableViewCell {
 
     }
     
+    func config(model: UserRankData) {
+        if let url = URL(string: model.profileImg),
+           let data = try? Data(contentsOf: url) {
+            profileImageView.image = UIImage(data: data)
+        }
+        
+        rankLabel.text = "\(model.rank)위"
+        scoreLabel.text = "\(model.score)"
+    }
+    
     @IBAction func clickRankingScoreInfoButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {

@@ -46,7 +46,19 @@ class RankingTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = 22.5
     }
     
-    func config(index: IndexPath) {
+    func config(_ model: RankingData,index: IndexPath) {
+        setupListUI(index: index)
+
+        if let url = URL(string: model.profileImg),
+           let data = try? Data(contentsOf: url) {
+            profileImageView.image = UIImage(data: data)
+        }
+
+        nickNameLabel.text = model.displayName
+        scoreLabel.text = "\(model.score)"
+    }
+
+    func setupListUI(index: IndexPath) {
         let imageIndex = index.row - 1
         if index.row == 2 {
             rankingImageView.isHidden = false

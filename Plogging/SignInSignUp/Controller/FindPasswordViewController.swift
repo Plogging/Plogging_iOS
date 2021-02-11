@@ -10,6 +10,7 @@ import UIKit
 class FindPasswordViewController: UIViewController {
 
     @IBOutlet var emailView: UIView!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     
     override func viewDidLoad() {
@@ -31,7 +32,17 @@ class FindPasswordViewController: UIViewController {
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
+        guard let email = emailTextField.text else {
+            return
+        }
+
         // reqeust API
+        let param: [String: Any] = ["email": email]
+        
+        APICollection.sharedAPI.requestUserPasswordTemp(param: param) { (response) in
+            let result = try? response.get()
+            print(result)
+        }
         
         // success
         self.performSegue(withIdentifier: SegueIdentifier.passwordCompletionViewController, sender: nil)

@@ -11,10 +11,16 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
-    @IBOutlet weak var ErrorLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    private var ploggingUserInfo: PloggingUser? {
+        didSet {
+            checkValidation()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +46,39 @@ class LoginViewController: UIViewController {
     
     @IBAction func clickedFindPasswordButton(_ sender: UIButton) {
 
+    }
+    
+    @IBAction func clickConfirmButton(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
+
+        let param: [String: Any] = [
+            "userId": email,
+            "secretKey": password
+        ]
+        
+        APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
+            self.ploggingUserInfo = try? response.get()
+        }
+    }
+    
+    private func checkValidation() {
+        guard let model = ploggingUserInfo else {
+            return
+        }
+        switch model.rc {
+        case 400, 401:
+            errorLabel.isHidden = false
+            errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+            // 메인으로 이동
+            makeDefaultRootViewController()
+        }
     }
     
     @IBAction func clickedKakaoLoginButton(_ sender: UIButton) {
