@@ -12,7 +12,7 @@ struct RankingGlobal: Codable {
     let rc: Int
     let rcmsg: String
     let meta: RankingMeta
-    let data: [RankingData]
+    let data: RankingData
 }
 
 // MARK: - RankingMeta
@@ -24,7 +24,7 @@ struct RankingMeta: Codable {
 
 // MARK: - RankingData
 struct RankingData: Codable {
-    let userId: String?
+    let userId: String
     let displayName: String
     let profileImg: String
     let score: Int
