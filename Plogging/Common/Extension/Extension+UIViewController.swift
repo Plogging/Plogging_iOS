@@ -35,7 +35,7 @@ extension UIViewController {
             navigationController?.navigationBar.tintColor = .black
         }
     }
-
+    
     func showLoginViewController() {
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
@@ -67,6 +67,21 @@ extension UIViewController {
         if let ploggingStartViewControl = storyboard.instantiateViewController(withIdentifier: "PloggingStartViewController") as? PloggingStartViewController {
             ploggingStartViewControl.modalPresentationStyle = .fullScreen
             self.present(ploggingStartViewControl, animated: true, completion: nil)
+        }
+    }
+    
+    func makeDefaultRootViewController() {
+        let storyboard = UIStoryboard(name: Storyboard.Main.rawValue, bundle: nil)
+        if let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController,
+           let first = UIApplication.shared.windows.first {
+            
+            first.rootViewController = mainViewController
+            first.makeKeyAndVisible()
+            UIView.transition(with: first,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: nil,
+                              completion: nil)
         }
     }
 }

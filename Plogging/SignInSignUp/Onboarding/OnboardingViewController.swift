@@ -134,12 +134,19 @@ class OnboardingViewController: UIViewController {
     @IBAction func ClickedSkipButton(_ sender: UIButton) {
 //        User.shared.setIsNotFirstTimeUser()
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
-        if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
+        if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController,
+           let first = UIApplication.shared.windows.first {
+            
             let navigationController = UINavigationController()
             navigationController.pushViewController(loginViewController, animated: false)
-            dismiss(animated: false, completion: {
-                UIApplication.shared.windows.first?.rootViewController = navigationController
-            })
+            
+            first.rootViewController = navigationController
+            first.makeKeyAndVisible()
+            UIView.transition(with: first,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: nil,
+                              completion: nil)
         }
     }
 }

@@ -7,8 +7,14 @@
 
 import Foundation
 
+enum SNSType: String {
+    case naver
+    case kakao
+    case apple
+}
+
 class SNSLoginData {
-    var token: String = ""
-    var name: String = ""
-    var email: String = ""
+    var type: String = ""
+    var userId: String = ""
+    var userName: String = ""
 }
