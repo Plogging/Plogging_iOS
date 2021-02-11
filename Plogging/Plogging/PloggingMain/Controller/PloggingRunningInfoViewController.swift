@@ -24,13 +24,13 @@ class PloggingRunningInfoViewController: UIViewController {
     // todo: remove it
     public var count: Int = 0
 
-    var currentTrashList: [_Trash] = [
-        _Trash(trashType: .vinyl, pickCount: 0),
-        _Trash(trashType: .can, pickCount: 0),
-        _Trash(trashType: .extra, pickCount: 0),
-        _Trash(trashType: .glass, pickCount: 0),
-        _Trash(trashType: .paper, pickCount: 0),
-        _Trash(trashType: .plastic, pickCount: 0),
+    var currentTrashList: [TrashItem] = [
+        TrashItem(trashType: .vinyl, pickCount: 0),
+        TrashItem(trashType: .can, pickCount: 0),
+        TrashItem(trashType: .extra, pickCount: 0),
+        TrashItem(trashType: .glass, pickCount: 0),
+        TrashItem(trashType: .paper, pickCount: 0),
+        TrashItem(trashType: .plastic, pickCount: 0),
     ]
     
     var pathManager = PathManager.pathManager

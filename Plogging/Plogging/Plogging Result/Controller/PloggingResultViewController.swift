@@ -193,18 +193,13 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
 
-        guard let trashInfos = ploggingResultData?.trashList else {
-            return cell
-        }
-
-        guard indexPath.item < trashInfos.count else {
+        guard let trashInfos = ploggingResultData?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
 
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
-        let isLastItem = indexPath.item == trashInfos.count - 1
-        if isLastItem {
+        if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
 

@@ -18,7 +18,7 @@ class PloggingPickTrashViewController: UIViewController {
     @IBOutlet weak var confirmButton: ConfirmButton!
     
     var items: [PickTrashItem]?
-    var trashItemList: [_Trash]?
+    var trashItemList: [TrashItem]?
     
     @IBAction func saveInput(_ sender: Any) {
         dismiss(animated: true)
@@ -37,9 +37,9 @@ class PloggingPickTrashViewController: UIViewController {
         super.viewWillDisappear(animated)
         if let destination = presentingViewController as? PloggingRunningInfoViewController {
             var count = 0
-            let result = items?.map { item -> _Trash in
+            let result = items?.map { item -> TrashItem in
                 count += item.count
-                return _Trash(trashType: item.trashType, pickCount: item.count)
+                return TrashItem(trashType: item.trashType, pickCount: item.count)
             }
             
             destination.count = count
