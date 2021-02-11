@@ -13,6 +13,7 @@ enum PopUpType {
     case 운동점수안내팝업
     case 랭킹점수안내팝업
     case 비밀번호변경완료팝업
+    case 인스타그램설치팝업
     
     // 아니요, 네
     // 2 Yes No Button
@@ -20,6 +21,7 @@ enum PopUpType {
     case 사진없이저장팝업
     case 기록삭제팝업
     case 로그아웃팝업
+    case 사진저장승인
 }
 
 extension PopUpType {
@@ -39,6 +41,10 @@ extension PopUpType {
             return "정산 기록을 삭제하시겠어요?"
         case .로그아웃팝업:
             return "로그아웃 하시겠어요?"
+        case .인스타그램설치팝업:
+            return "인스타그램을 설치해주세요"
+        case .사진저장승인:
+            return "사진을 저장하시겠어요?"
         }
     }
     
@@ -58,6 +64,10 @@ extension PopUpType {
             return "진행한 플로깅을 삭제한 후에는\n기록을 복구할 수 없습니다."
         case .로그아웃팝업:
             return "사용중인 플로깅 앱에서\n로그아웃 하려고 합니다."
+        case .인스타그램설치팝업:
+            return "인스타그램을 설치한 뒤\n플로깅 사진을 공유해주세요."
+        case .사진저장승인:
+            return "공유를 하기 위해\n사용자 기기에 사진이 저장됩니다."
         }
     }
     
@@ -77,14 +87,18 @@ extension PopUpType {
             return UIImage(named: "removeRecord")
         case .로그아웃팝업:
             return UIImage(named: "logout")
+        case .인스타그램설치팝업:
+            return UIImage(named: "instagramInstall")
+        case .사진저장승인:
+            return UIImage(named: "savePhoto")
         }
     }
     
     func numberOfButton() -> CGFloat {
         switch self {
-        case .운동점수안내팝업, .랭킹점수안내팝업, .비밀번호변경완료팝업:
+        case .운동점수안내팝업, .랭킹점수안내팝업, .비밀번호변경완료팝업, .인스타그램설치팝업:
             return 1
-        case .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업:
+        case .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .사진저장승인:
             return 2
         }
     }
@@ -93,7 +107,7 @@ extension PopUpType {
         switch self {
         case .운동점수안내팝업, .랭킹점수안내팝업:
             return 427
-        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업:
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
             return 367
         }
     }
@@ -102,7 +116,7 @@ extension PopUpType {
         switch self {
         case .운동점수안내팝업, .랭킹점수안내팝업:
             return 356
-        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업:
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
             return 281
         }
     }

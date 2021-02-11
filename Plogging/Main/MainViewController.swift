@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingViewController?
     var myPageViewController: MyPageViewController?
-    var ploggingDetailInfoViewController: PloggingDetailInfoViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
