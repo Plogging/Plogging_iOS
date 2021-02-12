@@ -219,8 +219,8 @@ extension APICollection {
     }
     
     // URL에 id(path variable)추가
-    func requestUserRanking(param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {        
-        AF.request(BaseURL.mainURL + BasePath.rankUserId,
+    func requestUserRanking(id: String, param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.rankUserId + "/\(id)",
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,

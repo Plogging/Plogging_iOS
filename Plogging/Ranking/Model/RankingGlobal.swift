@@ -12,10 +12,10 @@ struct RankingGlobal: Codable {
     let rc: Int
     let rcmsg: String
     let meta: RankingMeta
-    let data: RankingData
+    let data: [RankingData]
 }
 
-// MARK: - RankingMeta
+// MARK: - RankingMetas
 struct RankingMeta: Codable {
     let startPageNumber: Int
     let endPageNumber: Int

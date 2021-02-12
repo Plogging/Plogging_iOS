@@ -58,7 +58,7 @@ class RankingViewController: UIViewController {
     private func requestUserRanking(type: String) {
         let param: [String: Any] = ["rankType": type]
         
-        APICollection.sharedAPI.requestUserRanking(param: param) { (response) in
+        APICollection.sharedAPI.requestUserRanking(id: "hyer1k@naver.com:custom", param: param) { (response) in
             self.userPloggingRankig = try? response.get()
         }
     }
@@ -135,11 +135,10 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let count = ploggingRankingList?.data.count else {
-//            return 2
-//        }
-//        return count + 2
-        return 2
+        guard let count = ploggingRankingList?.data.count else {
+            return 2
+        }
+        return count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,9 +150,9 @@ extension RankingViewController: UITableViewDataSource {
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-////            if let model = ploggingRankingList?.data[indexPath.row - 2]  {
-//                cell.config(model, index: indexPath)
-//            }
+            if let model = ploggingRankingList?.data[indexPath.row - 2]  {
+                cell.config(model, index: indexPath)
+            }
             return cell
         }
     }
