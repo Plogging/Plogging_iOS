@@ -58,7 +58,7 @@ class RankingViewController: UIViewController {
     private func requestUserRanking(type: String) {
         let param: [String: Any] = ["rankType": type]
         
-        APICollection.sharedAPI.requestUserRanking(id: "hyer1k@naver.com:custom", param: param) { (response) in
+        APICollection.sharedAPI.requestUserRanking(id: "jsu3417@naver.com:custom", param: param) { (response) in
             self.userPloggingRankig = try? response.get()
         }
     }

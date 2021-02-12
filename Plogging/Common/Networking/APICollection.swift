@@ -214,7 +214,6 @@ extension APICollection {
 // MARK: - RANKING
 extension APICollection {
     func requestGlobalRanking(param: Parameters, completion: @escaping (Result<RankingGlobal, APIError>) -> Void) {
-        
         AF.request(BaseURL.mainURL + BasePath.rankingGlobal,
                    method: .get,
                    parameters: param,
