@@ -36,7 +36,7 @@ class MyRankingTableViewCell: UITableViewCell {
         }
         
         rankLabel.text = "\(model.rank)위"
-        scoreLabel.text = "\(model.score)"
+        scoreLabel.text = "\(model.score)점"
     }
     
     @IBAction func clickRankingScoreInfoButton(_ sender: UIButton) {

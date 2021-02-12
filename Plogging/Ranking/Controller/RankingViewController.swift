@@ -38,11 +38,12 @@ class RankingViewController: UIViewController {
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
+        requestBothRankingAPI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        requestRankingAPI(type: "weekly")
-//        requestUserRanking(type: "weekly")
+    private func requestBothRankingAPI() {
+        requestRankingAPI(type: "weekly")
+        requestUserRanking(type: "weekly")
     }
     
     private func requestRankingAPI(type: String) {
@@ -150,6 +151,9 @@ extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            if let model = userPloggingRankig?.data {
+                cell.config(model: model)
+            }
             return cell
         } else if indexPath.row == 1 {
             let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(for: indexPath)
