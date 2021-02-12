@@ -151,6 +151,25 @@ extension APICollection {
             completion(.success(value))
         }
     }
+    
+    func requestUserSignOut(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userSignOut,
+                   method: .put,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
 }
 
 // MARK: - PLOGGING
