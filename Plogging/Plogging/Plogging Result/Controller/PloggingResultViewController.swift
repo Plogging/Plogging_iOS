@@ -145,24 +145,23 @@ extension PloggingResultViewController {
             return
         }
         
-        
         let meta: [String : Any] = [
-            "distance" : 1500,
-            "calorie" : 520,
-            "plogging_time" : 600
+            "distance" : 1000,
+            "calorie" : 300,
+            "plogging_time" : 5500
         ]
         
         var trashListArray: [[String : Any]] = []
         
         var trashList: [String : Any] = [
             "trash_type" : 1,
-            "pick_count" : 11
+            "pick_count" : 8
         ]
         trashListArray.append(trashList)
         
         trashList = [
-            "trash_type" : 3,
-            "pick_count" : 33
+            "trash_type" : 2,
+            "pick_count" : 8
         ]
         trashListArray.append(trashList)
         
@@ -174,8 +173,7 @@ extension PloggingResultViewController {
         APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
             self.ploggingInfo = try? response.get()
         }
-        
-         self.navigationController?.dismiss(animated: true, completion: nil)
+         navigationController?.dismiss(animated: true, completion: nil)
     }
     
     private func checkValidation() {
@@ -193,6 +191,19 @@ extension PloggingResultViewController {
         default:
             print("success")
         }
+    }
+    
+    @IBAction func deletePloggingResult(_ sender: UIButton) {
+//        navigationController?.dismiss(animated: true, completion: nil)
+        let param: [String: Any] = [
+                "searchType" : 0,
+                "ploggingCntPerPage" : 50,
+                "pageNumber" : 1
+        ]
+        APICollection.sharedAPI.requestGetPloggingResult(param: param) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+        
     }
 
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {

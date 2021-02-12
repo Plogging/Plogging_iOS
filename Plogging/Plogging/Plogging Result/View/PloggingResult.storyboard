@@ -692,6 +692,9 @@
                                                 <integer key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deletePloggingResult:" destination="82H-Q8-kGh" eventType="touchUpInside" id="LOz-uH-OIU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WES-YO-gv4">
                                         <rect key="frame" x="191" y="86" width="213" height="60"/>
