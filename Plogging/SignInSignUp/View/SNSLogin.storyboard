@@ -147,6 +147,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="appleLoginButton" destination="i4A-Ce-mbw" id="365-sE-sI4"/>
+                        <outlet property="informationButton" destination="2uL-He-YRY" id="9S0-Qw-He3"/>
                         <outlet property="kakaoLoginButton" destination="bT9-lj-PNY" id="uhZ-Es-6Jx"/>
                         <outlet property="naverLoginButton" destination="leP-lV-oCQ" id="OBn-59-vyh"/>
                         <outlet property="signInButton" destination="V2c-cO-8oi" id="R9p-a4-D9w"/>
