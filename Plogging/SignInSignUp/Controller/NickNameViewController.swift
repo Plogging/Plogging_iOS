@@ -40,8 +40,23 @@ class NickNameViewController: UIViewController {
     private func setupUI() {
         confirmButton.clipsToBounds = true
         confirmButton.layer.cornerRadius = 12
+        
+        if let text = nickNameInfoLabel.text {
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.addAttribute(.foregroundColor, value: UIColor.darkGray, range: (text as NSString).range(of:"9자까지"))
+            nickNameInfoLabel.attributedText = attributedString
+        }
     }
 
+    private func setupErrorLabel(message: String?) {
+        if message != nil {
+            errorLabel.isHidden = false
+            errorLabel.text = message
+        } else {
+            errorLabel.isHidden = true
+        }
+    }
+    
     private func requestUserSignUp() {
         guard let nickName = nickNameTextField.text else { return }
         
@@ -57,25 +72,18 @@ class NickNameViewController: UIViewController {
             return
         }
         switch model.rc {
-        case 200:
-            print("success")
+        case 201:
             makeDefaultRootViewController()
-        case 400:
-            print("userID이상")
             return
-        case 401:
-            if model.rcmsg.contains("UserId") {
-                // userId 중복
-                errorLabel.isHidden = false
-            } else {
-                // userName 중복
-            }
+        case 409:
+            setupErrorLabel(message: "이미 사용중인 이메일입니다.")
             return
-        case 500:
-            print("서버 error")
+        case 410:
+            setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
             return
         default:
             print("error")
+            return
         }
     }
     

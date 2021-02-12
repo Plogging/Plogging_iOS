@@ -118,7 +118,7 @@ class OnboardingViewController: UIViewController {
             descriptionLabel.textAlignment = .center
             descriptionLabel.numberOfLines = 2
             descriptionLabel.text = onboardingDescriptionList[x]
-            descriptionLabel.textColor = UIColor.lightGrayColor
+            descriptionLabel.textColor = UIColor.lightGray
 
             // 포함
             scrollView.addSubview(pageView)
