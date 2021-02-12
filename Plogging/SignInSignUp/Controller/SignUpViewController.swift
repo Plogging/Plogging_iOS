@@ -23,11 +23,21 @@ class SignUpViewController: UIViewController {
             checkEmailValidation()
         }
     }
+    private var isValidate: Bool = false {
+        didSet {
+            if isValidate {
+                signUpButton.backgroundColor = UIColor.tintGreen
+            } else {
+                signUpButton.backgroundColor = UIColor.loginGray
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
+        setupTextFieldDelegate()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,8 +105,15 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.cornerRadius = 12
     }
     
+    func setupTextFieldDelegate() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordCheckTextField.delegate = self
+    }
+    
     func setupWarningLabel(message: String?) {
         if message != nil {
+            isValidate = false
             warningLabel.isHidden = false
             warningLabel.text = message
         } else {
@@ -105,30 +122,43 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
-        if let email = emailTextField.text,
-           let password = passwordTextField.text {
-            let waring = checkWarningValidation(email: email, password: password)
-            if waring == nil {
-                setupWarningLabel(message: nil)
-                requestUserCheck()
-            } else {
-                setupWarningLabel(message: waring)
-            }
+        if isValidate {
+            requestUserCheck()
         }
     }
 }
 
 extension SignUpViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let pass1 = passwordTextField.text, let pass2 = passwordCheckTextField.text, pass1.count > 7, pass2.count > 7 else {
-            return
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // 이메일 체크
+        if let email = emailTextField.text {
+            if let message = checkEmailVaidation(email: email) {
+                setupWarningLabel(message: message)
+                return
+            }
+            setupWarningLabel(message: nil)
         }
         
-        if checkPasswordEqual(pass1, pass2) {
+        // 비밀번호 validation check 8자 이상
+        if let password = passwordTextField.text, password.count > 7 {
+            if let message = checkPasswordValidation(password: password) {
+                setupWarningLabel(message: message)
+                return
+            }
             setupWarningLabel(message: nil)
-        } else {
-            setupWarningLabel(message: "입력하신 비밀번호와 일치하지 않습니다.")
         }
+        
+        // 비밀번호 동일한지 체크
+        if let pass1 = passwordTextField.text,
+           let pass2 = passwordCheckTextField.text {
+            if let message = checkPasswordEqual(pass1, pass2) {
+                setupWarningLabel(message: message)
+                return
+            }
+            setupWarningLabel(message: nil)
+        }
+        
+        isValidate = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
