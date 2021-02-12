@@ -10,7 +10,8 @@ import Alamofire
 
 struct APICollection {
     static let sharedAPI = APICollection()
-    
+    let defaultHeader: HTTPHeaders = ["Content-Type": "application/json"]
+
     func gettingHeader() -> HTTPHeaders {
         if let cookie = PloggingCookie.shared.getUserCookie() {
             return [
@@ -18,15 +19,9 @@ struct APICollection {
                 "Content-Type": "application/json"
             ]
         } else {
-            return [
-                "Content-Type": "application/json"
-            ]
+            return defaultHeader
         }
     }
-
-    let defaultHeader: HTTPHeaders = [
-        "Content-Type": "application/json"
-    ]
     
     func getCookies() {
         // 쿠키 설정
@@ -218,7 +213,6 @@ extension APICollection {
         }
     }
     
-    // URL에 id(path variable)추가
     func requestUserRanking(id: String, param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.rankUserId + "/\(id)",
                    method: .get,

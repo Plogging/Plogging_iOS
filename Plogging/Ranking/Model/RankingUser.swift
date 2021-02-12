@@ -11,7 +11,7 @@ import Foundation
 struct RankingUser: Codable {
     let rc: Int
     let rcmsg: String
-    let userRankData: UserRankData
+    let data: UserRankData
 }
 
 // MARK: - UserRankData
