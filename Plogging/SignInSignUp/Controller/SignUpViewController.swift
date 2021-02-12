@@ -121,6 +121,15 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    func setupViewRoundBorder(_ layer: CALayer, _ valid: Bool) {
+        layer.borderWidth = 1
+        if valid {
+            layer.borderColor = UIColor.tintGreen.cgColor
+        } else {
+            layer.borderColor = UIColor.strawberry.cgColor
+        }
+    }
+    
     @IBAction func clickSignUpButton(_ sender: UIButton) {
         if isValidate {
             requestUserCheck()
@@ -140,8 +149,12 @@ extension SignUpViewController: UITextFieldDelegate {
         }
         
         // 비밀번호 validation check 8자 이상
-        if let password = passwordTextField.text, password.count > 7 {
+        if let password = passwordTextField.text {
             if let message = checkPasswordValidation(password: password) {
+                if password.count < 8 {
+                    setupWarningLabel(message: message)
+                    return
+                }
                 setupWarningLabel(message: message)
                 return
             }
