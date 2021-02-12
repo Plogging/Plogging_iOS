@@ -150,11 +150,9 @@ extension APICollection {
 extension APICollection {
     /// 플로깅 점수 계산
     func requestPloggingScore(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
-//        let jsonString = "{\"meta\": { \"distance\": \"100\", \"calorie\": \"200\", \"plogging_time\": \"20\" }, \"trash_list\": [{ \"trash_type\": \"3\", \"pick_count\": \"33\" }, { \"trash_type\": \"1\", \"pick_count\": \"12\" }]}"
         guard let jsonString = param.toJsonString() else {
             return
         }
-//        let params: [String: Any] = ["ploggingData" : jsonString]
         AF.request(BaseURL.mainURL + BasePath.ploggingScore,
                    method: .post,
                    parameters: ["ploggingData" : jsonString],
