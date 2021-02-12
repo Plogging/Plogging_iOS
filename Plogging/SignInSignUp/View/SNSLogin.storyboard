@@ -593,7 +593,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvB-lv-bOe">
-                                <rect key="frame" x="24" y="254" width="366" height="60"/>
+                                <rect key="frame" x="24" y="255.5" width="366" height="60"/>
                                 <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.83921568627450982" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cLf-aI-rj4"/>
@@ -610,21 +610,30 @@
                                 <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입되지 않은 정보이거나  비밀번호가 다릅니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzW-ak-I2f">
+                                <rect key="frame" x="24" y="206" width="366" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xA9-uk-LXe"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BW2-7F-acK" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="93o-QR-Vm1"/>
+                            <constraint firstItem="yzW-ak-I2f" firstAttribute="top" secondItem="BW2-7F-acK" secondAttribute="bottom" constant="18" id="BPL-WI-KrV"/>
                             <constraint firstItem="xA9-uk-LXe" firstAttribute="trailing" secondItem="BW2-7F-acK" secondAttribute="trailing" constant="24" id="Cef-LX-LRz"/>
                             <constraint firstItem="J7w-xP-4eg" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="E4I-f0-eEx"/>
+                            <constraint firstItem="KvB-lv-bOe" firstAttribute="top" secondItem="yzW-ak-I2f" secondAttribute="bottom" constant="16" id="F1n-K7-t1l"/>
                             <constraint firstItem="J7w-xP-4eg" firstAttribute="top" secondItem="Ft8-OV-Npw" secondAttribute="bottom" constant="16" id="G5u-gt-ipV"/>
                             <constraint firstItem="KvB-lv-bOe" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="IYz-O9-jMd"/>
+                            <constraint firstItem="xA9-uk-LXe" firstAttribute="trailing" secondItem="yzW-ak-I2f" secondAttribute="trailing" constant="24" id="YGv-Cd-gr2"/>
                             <constraint firstItem="Ft8-OV-Npw" firstAttribute="top" secondItem="xA9-uk-LXe" secondAttribute="top" constant="30" id="Yol-tb-j8S"/>
-                            <constraint firstItem="KvB-lv-bOe" firstAttribute="top" secondItem="BW2-7F-acK" secondAttribute="bottom" constant="66" id="ccy-yM-eqH"/>
                             <constraint firstItem="BW2-7F-acK" firstAttribute="top" secondItem="J7w-xP-4eg" secondAttribute="bottom" constant="29" id="h2W-Dh-hCe"/>
                             <constraint firstItem="xA9-uk-LXe" firstAttribute="trailing" secondItem="KvB-lv-bOe" secondAttribute="trailing" constant="24" id="kwx-zF-T1o"/>
                             <constraint firstItem="Ft8-OV-Npw" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="qBU-xk-BEP"/>
                             <constraint firstItem="xA9-uk-LXe" firstAttribute="trailing" secondItem="J7w-xP-4eg" secondAttribute="trailing" constant="24" id="rLd-Kn-bus"/>
+                            <constraint firstItem="yzW-ak-I2f" firstAttribute="leading" secondItem="xA9-uk-LXe" secondAttribute="leading" constant="24" id="z4k-qn-zxt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Amf-jc-orJ">
@@ -634,6 +643,7 @@
                         <outlet property="confirmButton" destination="KvB-lv-bOe" id="tkM-g6-UGD"/>
                         <outlet property="emailTextField" destination="VGv-S2-OV4" id="4mY-ia-Ybm"/>
                         <outlet property="emailView" destination="BW2-7F-acK" id="9VY-2N-gTn"/>
+                        <outlet property="errorLabel" destination="yzW-ak-I2f" id="SAZ-8b-0MR"/>
                         <segue destination="11q-i8-LRe" kind="show" identifier="PasswordCompletionViewController" id="Eoj-wF-UrF"/>
                     </connections>
                 </viewController>
