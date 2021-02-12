@@ -73,19 +73,14 @@ class SignUpViewController: UIViewController {
         }
         switch model.rc {
         case 200:
-            print("success")
             self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
                               sender: nil)
-            
-        case 400:
-            warningLabel.isHidden = false
-            warningLabel.text = "아이디가 존재합니다."
-            return
-        case 500:
-            print("서버 error")
+        case 201:
+            setupWarningLabel(message: "아이디가 존재합니다.")
             return
         default:
             print("error")
+            return
         }
     }
     
