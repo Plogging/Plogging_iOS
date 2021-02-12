@@ -155,13 +155,13 @@ extension PloggingResultViewController {
         
         var trashList: [String : Any] = [
             "trash_type" : 1,
-            "pick_count" : 8
+            "pick_count" : 4
         ]
         trashListArray.append(trashList)
         
         trashList = [
             "trash_type" : 2,
-            "pick_count" : 8
+            "pick_count" : 4
         ]
         trashListArray.append(trashList)
         
@@ -170,9 +170,14 @@ extension PloggingResultViewController {
                 "trash_list" : trashListArray
         ]
             
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
+//        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
+//            self.ploggingInfo = try? response.get()
+//        }
+        
+        APICollection.sharedAPI.requestPloggingScore(param: param) { (response) in
             self.ploggingInfo = try? response.get()
         }
+
          navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -203,7 +208,6 @@ extension PloggingResultViewController {
         APICollection.sharedAPI.requestGetPloggingResult(param: param) { (response) in
             self.ploggingInfo = try? response.get()
         }
-        
     }
 
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {

@@ -15,7 +15,9 @@ struct APICollection {
         if let cookie = PloggingCookie.shared.getUserCookie() {
             return [
                 "cookie": "\(cookie)",
-                "Content-Type": "application/json"
+//                "Content-Type": "application/json",
+//                "accept" : "application/json",
+                "Content-Type" : "application/x-www-form-urlencoded"
             ]
         } else {
             return [
@@ -147,8 +149,32 @@ extension APICollection {
 // MARK: - PLOGGING
 extension APICollection {
     /// 플로깅 점수 계산
+    func requestPloggingScore(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
+//        let jsonString = "{\"meta\": { \"distance\": \"100\", \"calorie\": \"200\", \"plogging_time\": \"20\" }, \"trash_list\": [{ \"trash_type\": \"3\", \"pick_count\": \"33\" }, { \"trash_type\": \"1\", \"pick_count\": \"12\" }]}"
+        guard let jsonString = param.toJsonString() else {
+            return
+        }
+//        let params: [String: Any] = ["ploggingData" : jsonString]
+        AF.request(BaseURL.mainURL + BasePath.ploggingScore,
+                   method: .post,
+                   parameters: ["ploggingData" : jsonString],
+                   encoding: URLEncoding(destination: .httpBody),
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            print(response)
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+            print(data)
+            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            completion(.success(value))
+        }
+    }
     
-    /// 플로깅 기록 등록
+    /// 플로깅 결과 등록
     func requestRegisterPloggingResult(param: Parameters, imageData: Data, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
         AF.upload(multipartFormData: { (multipartFormData) in
             guard let jsonString = param.toJsonString() else {
@@ -157,7 +183,6 @@ extension APICollection {
             print("jsonString: \(jsonString)")
             multipartFormData.append(Data(jsonString.utf8), withName: "ploggingData")
             multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/png")
-            
         },
         to: BaseURL.mainURL + BasePath.plogging,
         method: .post,
@@ -176,15 +201,28 @@ extension APICollection {
         }
     }
     
-    
-    /// 플로깅 기록 조회
-    func getPloggingRecord(completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.plogging,
+    /// 플로깅 결과 조회
+    func requestGetPloggingResult(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.ploggingResult,
                    method: .get,
-                   headers: gettingHeader())
+                   parameters: param,
+                   encoding: URLEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { (response) in
+            print(response)
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+            print(data)
+            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
     }
     
-    /// 플로깅 기록 삭제
+    /// 플로깅 결과 삭제
     func deletePloggingRecord() {
         
     }
