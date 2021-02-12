@@ -126,6 +126,25 @@ extension APICollection {
         }
     }
     
+    /// 사용자 정보 가져오기
+    func requestUserInfo(id: String, completion: @escaping (Result<PloggingUserInfo, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.user + "/\(id)",
+                   method: .get,
+                   encoding: URLEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { (response) in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            guard let value = try? JSONDecoder().decode(PloggingUserInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 임시 비밀번호 발급
     func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
@@ -147,6 +166,7 @@ extension APICollection {
         }
     }
     
+    /// 로그아웃
     func requestUserSignOut(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userSignOut,
                    method: .put,
