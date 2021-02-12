@@ -89,7 +89,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func setupUI() {
+    private func setupUI() {
         emailView.clipsToBounds = true
         emailView.layer.cornerRadius = 4
         
@@ -105,13 +105,13 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.cornerRadius = 12
     }
     
-    func setupTextFieldDelegate() {
+    private func setupTextFieldDelegate() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
     }
     
-    func setupWarningLabel(message: String?) {
+    private func setupWarningLabel(message: String?) {
         if message != nil {
             isValidate = false
             warningLabel.isHidden = false
@@ -121,7 +121,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func setupViewRoundBorder(_ layer: CALayer, _ valid: Bool) {
+    private func setupViewRoundBorder(_ layer: CALayer, _ valid: Bool) {
         layer.borderWidth = 1
         if valid {
             layer.borderColor = UIColor.tintGreen.cgColor
@@ -130,15 +130,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @IBAction func clickSignUpButton(_ sender: UIButton) {
-        if isValidate {
-            requestUserCheck()
-        }
-    }
-}
-
-extension SignUpViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    private func checkAllValidation(_ textField: UITextField) {
         // 이메일 체크
         if let email = emailTextField.text {
             if let message = checkEmailVaidation(email: email) {
@@ -172,6 +164,23 @@ extension SignUpViewController: UITextFieldDelegate {
         }
         
         isValidate = true
+    }
+    
+    @IBAction func clickSignUpButton(_ sender: UIButton) {
+        if isValidate {
+            requestUserCheck()
+        }
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkAllValidation(textField)
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        checkAllValidation(textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
