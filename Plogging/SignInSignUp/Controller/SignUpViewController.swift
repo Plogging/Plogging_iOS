@@ -14,6 +14,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var passwordCheckView: UIView!
+    @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
     private var ploggingInfo: PloggingUser? {
@@ -25,7 +27,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addNotification()
         setupUI()
     }
 
@@ -42,21 +43,6 @@ class SignUpViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    func addNotification() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
     }
     
     private func requestUserCheck() {
@@ -101,16 +87,21 @@ class SignUpViewController: UIViewController {
         passwordView.layer.cornerRadius = 4
         passwordTextField.isSecureTextEntry = true
         
+        passwordCheckView.clipsToBounds = true
+        passwordCheckView.layer.cornerRadius = 4
+        passwordCheckTextField.isSecureTextEntry = true
+        
         signUpButton.clipsToBounds = true
         signUpButton.layer.cornerRadius = 12
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
-
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-
+    func setupWarningLabel(message: String?) {
+        if message != nil {
+            warningLabel.isHidden = false
+            warningLabel.text = message
+        } else {
+            warningLabel.isHidden = true
+        }
     }
     
     @IBAction func clickSignUpButton(_ sender: UIButton) {
@@ -118,13 +109,31 @@ class SignUpViewController: UIViewController {
            let password = passwordTextField.text {
             let waring = checkWarningValidation(email: email, password: password)
             if waring == nil {
-                warningLabel.isHidden = true
+                setupWarningLabel(message: nil)
                 requestUserCheck()
             } else {
-                warningLabel.isHidden = false
-                warningLabel.text = waring
+                setupWarningLabel(message: waring)
             }
         }
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let pass1 = passwordTextField.text, let pass2 = passwordCheckTextField.text, pass1.count > 7, pass2.count > 7 else {
+            return
+        }
+        
+        if checkPasswordEqual(pass1, pass2) {
+            setupWarningLabel(message: nil)
+        } else {
+            setupWarningLabel(message: "입력하신 비밀번호와 일치하지 않습니다.")
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

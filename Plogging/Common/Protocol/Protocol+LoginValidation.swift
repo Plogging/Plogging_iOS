@@ -26,4 +26,8 @@ extension LoginValidation {
         }
         return nil
     }
+    
+    func checkPasswordEqual(_ password: String, _ passwordCheck: String) -> Bool {
+        return password.elementsEqual(passwordCheck)
+    }
 }
