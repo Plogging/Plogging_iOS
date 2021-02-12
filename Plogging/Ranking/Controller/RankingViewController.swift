@@ -41,8 +41,8 @@ class RankingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        requestRankingAPI(type: "weekly")
-        requestUserRanking(type: "weekly")
+//        requestRankingAPI(type: "weekly")
+//        requestUserRanking(type: "weekly")
     }
     
     private func requestRankingAPI(type: String) {
@@ -122,8 +122,14 @@ class RankingViewController: UIViewController {
     }
     
     private func refreshRankingList() {
-        // weekly
-        // monthly
+        // weekly, monthly enum화
+        if weeklyView.alpha == 1 {
+            requestRankingAPI(type: "weekly")
+            requestUserRanking(type: "weekly")
+        } else {
+            requestRankingAPI(type: "monthly")
+            requestUserRanking(type: "monthly")
+        }
     }
 }
 
@@ -147,6 +153,7 @@ extension RankingViewController: UITableViewDataSource {
             return cell
         } else if indexPath.row == 1 {
             let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.delegate = self
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
@@ -155,5 +162,11 @@ extension RankingViewController: UITableViewDataSource {
             }
             return cell
         }
+    }
+}
+
+extension RankingViewController: RefreshCellDelegate {
+    func refreshButtonCall() {
+        refreshRankingList()
     }
 }

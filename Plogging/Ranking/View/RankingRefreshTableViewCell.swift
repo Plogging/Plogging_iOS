@@ -9,6 +9,8 @@ import UIKit
 
 class RankingRefreshTableViewCell: UITableViewCell {
 
+    weak var delegate: RefreshCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,6 +30,6 @@ class RankingRefreshTableViewCell: UITableViewCell {
     }
     
     private func refreshCollecView() {
-        
+        delegate?.refreshButtonCall()
     }
 }
