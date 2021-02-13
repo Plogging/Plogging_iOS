@@ -62,6 +62,21 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func clickYesButton(_ sender: UIButton) {
+        switch type {
+        case .로그아웃팝업:
+            APICollection.sharedAPI.requestUserSignOut { (response) in
+                if let result = try? response.get() {
+                    if result.rc == 200 {
+                        self.dismiss(animated: false, completion: nil)
+                    } else {
+                        print(result.rcmsg)
+                    }
+                }
+            }
+        default:
+            print("")
+        }
+        
         self.dismiss(animated: false, completion: nil)
     }
 }
