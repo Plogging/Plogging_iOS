@@ -171,7 +171,7 @@ extension APICollection {
         AF.request(BaseURL.mainURL + BasePath.userSignOut,
                    method: .put,
                    encoding: JSONEncoding.default,
-                   headers: defaultHeader
+                   headers: gettingHeader()
         ).responseJSON { response in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
