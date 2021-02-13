@@ -19,12 +19,15 @@ class SNSLoginViewController: UIViewController {
     // 자체 회원가입 및 로그인
     @IBOutlet weak var signUpWithEmailButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
-    
+    // 이용 약관
+    @IBOutlet weak var informationButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationBarClear()
         setupButtonsUI()
+        setupInformation()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,6 +53,17 @@ class SNSLoginViewController: UIViewController {
 
         signInButton.clipsToBounds = true
         signInButton.layer.cornerRadius = 12
+    }
+    
+    private func setupInformation() {
+        let text = "로그인하여 쓰담쓰담 서비스 이용약관, 쓰담쓰담 개인정보수집이용, 쓰담쓰담 개인정보제공에 동의합니다."
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0)], range: (text as NSString).range(of: text))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], range: (text as NSString).range(of: text))
+        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: (text as NSString).range(of:"쓰담쓰담 서비스 이용약관, 쓰담쓰담 개인정보수집이용, 쓰담쓰담 개인정보제공"))
+        attributedString.addAttribute(.underlineColor, value: UIColor.darkGray, range: (text as NSString).range(of:"쓰담쓰담 서비스 이용약관, 쓰담쓰담 개인정보수집이용, 쓰담쓰담 개인정보제공"))
+
+        informationButton.setAttributedTitle(attributedString, for: .normal)
     }
     
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {

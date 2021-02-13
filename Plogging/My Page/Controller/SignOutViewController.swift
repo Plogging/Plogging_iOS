@@ -22,6 +22,15 @@ class SignOutViewController: UIViewController {
     }
     
     @IBAction func agreeSignOut(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        APICollection.sharedAPI.requestDeleteUser { (response) in
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    PloggingCookie.shared.removeUserCookie()
+                    self.dismiss(animated: false, completion: nil)
+                } else {
+                    print(result.rcmsg)
+                }
+            }
+        }
     }
 }

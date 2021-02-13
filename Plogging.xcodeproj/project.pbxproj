@@ -22,6 +22,8 @@
 		1C5A68BE25BF25A100F096A9 /* MyRankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */; };
 		1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */; };
 		1C5B0DDB25D428DA008560FA /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0DDA25D428D9008560FA /* Cookie.swift */; };
+		1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */; };
+		1C5B0E0B25D704B0008560FA /* PloggingUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
@@ -31,7 +33,6 @@
 		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
 		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
-		1C7D1D7525CB2B6600FA621F /* OnboardingCustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D1D7425CB2B6600FA621F /* OnboardingCustomPageControl.swift */; };
 		1C88A44625CC536D003E979D /* Crypto+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44525CC536D003E979D /* Crypto+Swift.swift */; };
 		1C88A44D25CC65DD003E979D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C88A44A25CC65DD003E979D /* MyPage.storyboard */; };
 		1C88A44E25CC65DD003E979D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44C25CC65DD003E979D /* MyPageViewController.swift */; };
@@ -142,6 +143,8 @@
 		1C5A68BC25BF25A100F096A9 /* MyRankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRankingTableViewCell.swift; sourceTree = "<group>"; };
 		1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRankingTableViewCell.xib; sourceTree = "<group>"; };
 		1C5B0DDA25D428D9008560FA /* Cookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
+		1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+RefreshCellDelegate.swift"; sourceTree = "<group>"; };
+		1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUserInfo.swift; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
@@ -152,7 +155,6 @@
 		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
-		1C7D1D7425CB2B6600FA621F /* OnboardingCustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCustomPageControl.swift; sourceTree = "<group>"; };
 		1C88A44525CC536D003E979D /* Crypto+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+Swift.swift"; sourceTree = "<group>"; };
 		1C88A44A25CC65DD003E979D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1C88A44C25CC65DD003E979D /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +282,6 @@
 			children = (
 				1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */,
 				1C2184E325B75C880076CD14 /* Onboarding.storyboard */,
-				1C7D1D7425CB2B6600FA621F /* OnboardingCustomPageControl.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -300,6 +301,7 @@
 				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
 				1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */,
 				1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */,
+				1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -417,6 +419,7 @@
 			children = (
 				1CBE98A325AF25A100CC247A /* PloggingInfo.swift */,
 				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
+				1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
 				1C31C03825C5BA3D00413EBB /* Protocol+LoginValidation.swift in Sources */,
 				1C9A3AA125CDCAA400668058 /* Extension+UICollectionView.swift in Sources */,
+				1C5B0E0B25D704B0008560FA /* PloggingUserInfo.swift in Sources */,
 				1C5C000825C46B31003144B1 /* SNSLoginViewController.swift in Sources */,
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				1C5B0DDB25D428DA008560FA /* Cookie.swift in Sources */,
@@ -993,6 +997,7 @@
 				1C88A44625CC536D003E979D /* Crypto+Swift.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
+				1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
@@ -1042,7 +1047,6 @@
 				3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */,
 				1C88A44E25CC65DD003E979D /* MyPageViewController.swift in Sources */,
 				3D51A6FF314ACB2092B62D23 /* Extension+PathManager.swift in Sources */,
-				1C7D1D7525CB2B6600FA621F /* OnboardingCustomPageControl.swift in Sources */,
 				1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */,
 				3D51A662CEEFD31F10D5EEF5 /* SummeryItem.swift in Sources */,
 				1C9A3A9D25CDCA5F00668058 /* Protocol+NibLodable.swift in Sources */,
