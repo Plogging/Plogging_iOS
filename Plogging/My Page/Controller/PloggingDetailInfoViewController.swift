@@ -65,7 +65,7 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     private func setUpTrashInfoViewUI() {
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return
         }
         let trashInfosCount = trashInfos.count
@@ -150,7 +150,7 @@ extension PloggingDetailInfoViewController {
 // MARK: UICollectionViewDataSource
 extension PloggingDetailInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return 0
         }
         return trashInfos.count
@@ -160,7 +160,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
         
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return cell
         }
         

@@ -17,7 +17,6 @@ struct PagingAPI {
 class PloggingDataSource<T> {
     var api: PagingAPI
     var countPerPage: Int
-//    var requestClosure: ((_ completion: @escaping (() -> Void)) -> Void)?
     
     private(set) var pageNumber: Int = 1
     private(set) var contents: [T] = []
@@ -47,7 +46,7 @@ class PloggingDataSource<T> {
                 completion()
                 return
             }
-            guard let loadedContents = value.plogging_list as? [T] else {
+            guard let loadedContents = value.ploggingList as? [T] else {
                 completion()
                 return
             }

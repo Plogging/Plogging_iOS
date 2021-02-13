@@ -62,14 +62,14 @@ class PloggingResultViewController: UIViewController {
         //서버 통신 필요
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
-        ploggingTime.text = ploggingResultData?.meta.plogging_time.description
+        ploggingTime.text = ploggingResultData?.meta.ploggingTime.description
         ploggingDistance.text = ploggingResultData?.meta.distance.description
         ploggingCalorie.text = ploggingResultData?.meta.calorie.description
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
         
-        let trashInfosCount = ploggingResultData?.trash_list.count ?? 0
+        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
         
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
@@ -78,7 +78,7 @@ class PloggingResultViewController: UIViewController {
     }
     
     private func getTrashPickTotalCount() -> Int {
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return 0
         }
         
@@ -224,7 +224,7 @@ extension PloggingResultViewController: UIImagePickerControllerDelegate, UINavig
 // MARK: UICollectionViewDataSource
 extension PloggingResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return 0
         }
         return trashInfos.count
@@ -234,7 +234,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
 
-        guard let trashInfos = ploggingResultData?.trash_list else {
+        guard let trashInfos = ploggingResultData?.trashList else {
             return cell
         }
         
