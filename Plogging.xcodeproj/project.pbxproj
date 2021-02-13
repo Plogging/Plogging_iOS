@@ -33,7 +33,6 @@
 		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
 		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
-		1C88A44625CC536D003E979D /* Crypto+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44525CC536D003E979D /* Crypto+Swift.swift */; };
 		1C88A44D25CC65DD003E979D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C88A44A25CC65DD003E979D /* MyPage.storyboard */; };
 		1C88A44E25CC65DD003E979D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44C25CC65DD003E979D /* MyPageViewController.swift */; };
 		1C9A3A9D25CDCA5F00668058 /* Protocol+NibLodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */; };
@@ -155,7 +154,6 @@
 		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
-		1C88A44525CC536D003E979D /* Crypto+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+Swift.swift"; sourceTree = "<group>"; };
 		1C88A44A25CC65DD003E979D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1C88A44C25CC65DD003E979D /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+NibLodable.swift"; sourceTree = "<group>"; };
@@ -369,14 +367,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1C88A44425CC534D003E979D /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				1C88A44525CC536D003E979D /* Crypto+Swift.swift */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
 		1C88A44925CC65DD003E979D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,7 +437,6 @@
 		1CC08DBA25A4B55B00EE3505 /* SignInSignUp */ = {
 			isa = PBXGroup;
 			children = (
-				1C88A44425CC534D003E979D /* Crypto */,
 				1C5CFFFE25C46B30003144B1 /* Controller */,
 				1C5C000225C46B30003144B1 /* Model */,
 				1C5C000425C46B31003144B1 /* View */,
@@ -994,7 +983,6 @@
 				9B0C238B25A6F0680084D27B /* PloggingInfoViewCreater.swift in Sources */,
 				1C5B0DDB25D428DA008560FA /* Cookie.swift in Sources */,
 				1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */,
-				1C88A44625CC536D003E979D /* Crypto+Swift.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
 				1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */,
