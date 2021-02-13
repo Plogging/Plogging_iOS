@@ -89,7 +89,7 @@ class RankingViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
+        tableView.estimatedRowHeight = 28
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
@@ -140,6 +140,13 @@ class RankingViewController: UIViewController {
 
 extension RankingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row > 1 else { return }
+        
+        let storyboard = UIStoryboard(name: Storyboard.MyPage.rawValue,
+                                      bundle: nil)
+        if let rankingViewController = storyboard.instantiateViewController(withIdentifier: "MyPage") as? MyPageViewController {
+            self.navigationController?.pushViewController(rankingViewController, animated: true)
+        }
         print(indexPath.row)
     }
 }
@@ -176,9 +183,9 @@ extension RankingViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             return 132
         } else if indexPath.row == 1 {
-            return 44
+            return 28
         } else {
-            return 105
+            return 95
         }
     }
 }
