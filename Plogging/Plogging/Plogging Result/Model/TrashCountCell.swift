@@ -40,7 +40,7 @@ class TrashCountCell: UICollectionViewCell {
     
     func updateUI(_ trashInfo: TrashList) {
         var trasTypehName = ""
-        switch trashInfo.trashType {
+        switch trashInfo.trash_type {
         case 1:
             trasTypehName = Trash.비닐.type
         case 2:
@@ -57,7 +57,7 @@ class TrashCountCell: UICollectionViewCell {
             break
         }
         trashName.text = trasTypehName
-        trashCount.text = "\(trashInfo.pickCount)개"
+        trashCount.text = "\(trashInfo.pick_count)개"
     }
     
     func changeSeparatorColor() {

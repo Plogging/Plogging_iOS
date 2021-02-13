@@ -47,7 +47,7 @@ class PloggingDataSource<T> {
                 completion()
                 return
             }
-            guard let loadedContents = value.ploggingList as? [T] else {
+            guard let loadedContents = value.plogging_list as? [T] else {
                 completion()
                 return
             }
