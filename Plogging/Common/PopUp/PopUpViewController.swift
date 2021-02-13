@@ -68,7 +68,7 @@ class PopUpViewController: UIViewController {
                 if let result = try? response.get() {
                     if result.rc == 200 {
                         PloggingCookie.shared.removeUserCookie()
-                        self.dismiss(animated: false, completion: nil)
+                        // 로그인 화면으로 이동
                     } else {
                         print(result.rcmsg)
                     }
