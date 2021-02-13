@@ -98,16 +98,16 @@ class OnboardingViewController: UIViewController {
             
             // 이미지
             let imageView = UIImageView(frame: CGRect(x: 0,
-                                                      y: 60,
+                                                      y: 80,
                                                       width: 330,
-                                                      height: 225))
+                                                      height: 240))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
             imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
             
             // 제목
             let titleLabel = UILabel(frame: CGRect(x: 0,
-                                                   y: imageView.frame.origin.y + imageView.frame.height + 48,
+                                                   y: imageView.frame.origin.y + imageView.frame.height + 36,
                                                    width: defaultView.frame.size.width,
                                                    height: 80))
             titleLabel.textAlignment = .center
@@ -116,7 +116,7 @@ class OnboardingViewController: UIViewController {
 
             // 부제목
             let descriptionLabel = UILabel(frame: CGRect(x: 0,
-                                                         y: imageView.frame.origin.y + imageView.frame.height + 48 + titleLabel.frame.height + 16,
+                                                         y: imageView.frame.origin.y + imageView.frame.height + 36 + titleLabel.frame.height + 16,
                                                          width: defaultView.frame.size.width,
                                                          height: 46))
             descriptionLabel.textAlignment = .center
