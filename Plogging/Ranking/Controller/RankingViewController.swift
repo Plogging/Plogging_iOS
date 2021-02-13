@@ -59,11 +59,13 @@ class RankingViewController: UIViewController {
     }
     
     private func requestUserRanking(type: String) {
-        let param: [String: Any] = ["rankType": type]
-        
-        APICollection.sharedAPI.requestUserRanking(id: "jsu3417@naver.com:custom", param: param) { (response) in
-            self.userPloggingRankig = try? response.get()
-        }
+        // TODO: - id는 저장된 유저 정보
+
+//        let param: [String: Any] = ["rankType": type]
+
+//        APICollection.sharedAPI.requestUserRanking(id: "", param: param) { (response) in
+//            self.userPloggingRankig = try? response.get()
+//        }
     }
     
     private func setupRankingTitle() {
