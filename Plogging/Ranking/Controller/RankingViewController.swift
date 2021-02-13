@@ -37,6 +37,7 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBarClear()
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
