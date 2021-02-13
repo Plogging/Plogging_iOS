@@ -67,6 +67,7 @@ class PopUpViewController: UIViewController {
             APICollection.sharedAPI.requestUserSignOut { (response) in
                 if let result = try? response.get() {
                     if result.rc == 200 {
+                        PloggingCookie.shared.removeUserCookie()
                         self.dismiss(animated: false, completion: nil)
                     } else {
                         print(result.rcmsg)
