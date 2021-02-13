@@ -64,18 +64,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else {
-            return
-        }
+        if isValidate {
+            guard let email = emailTextField.text,
+                  let password = passwordTextField.text else {
+                return
+            }
 
-        let param: [String: Any] = [
-            "userId": email,
-            "secretKey": password
-        ]
-        
-        APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
-            self.ploggingUserInfo = try? response.get()
+            let param: [String: Any] = [
+                "userId": email,
+                "secretKey": password
+            ]
+            
+            APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
+                self.ploggingUserInfo = try? response.get()
+            }
         }
     }
     
