@@ -64,7 +64,7 @@ class PloggingResultViewController: UIViewController {
 //        echoScore.text = ploggingResultData?.score.eco
         ploggingTime.text = ploggingResultData?.meta.ploggingTime.description
         ploggingDistance.text = ploggingResultData?.meta.distance.description
-        ploggingCalorie.text = ploggingResultData?.meta.calories.description
+        ploggingCalorie.text = ploggingResultData?.meta.calorie.description
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
@@ -170,13 +170,13 @@ extension PloggingResultViewController {
                 "trash_list" : trashListArray
         ]
             
-//        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
-//            self.ploggingInfo = try? response.get()
-//        }
-        
-        APICollection.sharedAPI.requestPloggingScore(param: param) { (response) in
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
             self.ploggingInfo = try? response.get()
         }
+        
+//        APICollection.sharedAPI.requestPloggingScore(param: param) { (response) in
+//            self.ploggingInfo = try? response.get()
+//        }
 
          navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -199,15 +199,7 @@ extension PloggingResultViewController {
     }
     
     @IBAction func deletePloggingResult(_ sender: UIButton) {
-//        navigationController?.dismiss(animated: true, completion: nil)
-        let param: [String: Any] = [
-                "searchType" : 0,
-                "ploggingCntPerPage" : 50,
-                "pageNumber" : 1
-        ]
-        APICollection.sharedAPI.requestGetPloggingResult(param: param) { (response) in
-            self.ploggingInfo = try? response.get()
-        }
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {

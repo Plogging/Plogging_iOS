@@ -201,20 +201,22 @@ extension APICollection {
     
     /// 플로깅 결과 조회
     func requestGetPloggingResult(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
+//        let param: Parameters = [:]
         AF.request(BaseURL.mainURL + BasePath.ploggingResult,
                    method: .get,
                    parameters: param,
-                   encoding: URLEncoding.default,
                    headers: gettingHeader()
         ).responseJSON { (response) in
             print(response)
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))
             }
-            print(data)
+//            print(data)
             guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
+            //value에서 currentPage 찾아서 저장
+            //pageManager.paging(currentPage)
             
             completion(.success(value))
         }

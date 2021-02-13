@@ -11,11 +11,18 @@ import Foundation
 struct PloggingInfo: Codable {
     let rc: Int
     let rcmsg: String
+    let meta: PagingMeta
     let ploggingList: [PloggingList]
     
     enum PloggingInfoCodingKeys: String, CodingKey {
         case ploggingList = "plogging_list"
     }
+}
+
+struct PagingMeta: Codable {
+    var startPageNumber: Int
+    var endPageNumber: Int
+    var currentPageNumber: Int
 }
 
 // MARK: - PloggingList
@@ -27,21 +34,21 @@ struct PloggingList: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case meta
-        case trashList = "pick_list"
+        case trashList = "trash_list"
     }
 }
 
 // MARK: - Meta
 struct Meta: Codable {
     let userId: String?
-    let createTime: Int?
+    let createTime: String?
     let distance: Int
-    let calories: Int
+    let calorie: Int
     let ploggingTime: Int
     let ploggingImage: String?
     let ploggingTotalScore: Int?
-    let ploggingActivityScore: Int?
-    let ploggingEnvironmentScore: Int?
+    let ploggingTrashCount: Int?
+ 
     
     enum MetaCodingKeys: String, CodingKey {
         case userId = "user_id"
@@ -49,8 +56,7 @@ struct Meta: Codable {
         case ploggingTime = "plogging_time"
         case ploggingImage = "plogging_img"
         case ploggingTotalScore = "plogging_total_score"
-        case ploggingActivityScore = "plogging_activity_score"
-        case ploggingEnvironmentScore = "plogging_environment_score"
+        case ploggingTrashCount = "plogging_trash_count"
     }
 }
 

@@ -23,6 +23,12 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    private var ploggingInfo: PloggingInfo? {
+        didSet {
+            checkValidation()
+        }
+    }
+    private let dataSource = PloggingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0], header: APICollection.sharedAPI.gettingHeader()))
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -40,6 +46,34 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
+        
+//        let requestPloggingData = APICollection.sharedAPI.requestGetPloggingResult(param: [:]) { (response) in
+//            self.ploggingInfo = try? response.get()
+//        }
+        dataSource.loadFromFirst {
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        collectionView.reloadData()
+    }
+    
+    private func checkValidation() {
+        guard let model = ploggingInfo else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success!!")
+        case 401:
+            print("권한없음. 로그인 필요")
+            //로그인 페이지로 전환
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+        }
     }
     
     func setUpNavigationBarUI() {
@@ -87,17 +121,19 @@ class MyPageViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return dataSource.contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
        
-        guard let content = UIImage(named: "test") else {
+        guard indexPath.item < dataSource.contents.count else {
             return cell
         }
-        ploggingResultPhotoCell?.updateUI(image: content)
+        let content = dataSource.contents[indexPath.item]
+        
+        ploggingResultPhotoCell?.updateUI(image: UIImage(named: "test")!)
         
         cell.contentView.isUserInteractionEnabled = false
         return cell
@@ -134,7 +170,7 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-        
+        print("contentOffSetY: \(contentOffSetY)")
         if contentOffSetY > CGFloat(thresholdOffset) {
             navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in

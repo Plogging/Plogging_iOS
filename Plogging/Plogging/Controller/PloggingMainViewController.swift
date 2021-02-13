@@ -18,13 +18,13 @@ class PloggingMainViewController: UIViewController {
         }
         let yes = UIAlertAction(title: "네", style: .default) { _ in
             self.dismiss(animated: false, completion: { [self] in
-                let ploggingResultData = createPloggingResultData()
+//                let ploggingResultData = createPloggingResultData()
                 
                 let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
                 guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
                     return
                 }
-                ploggingResultViewController.ploggingResultData = ploggingResultData
+//                ploggingResultViewController.ploggingResultData = ploggingResultData
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
@@ -36,12 +36,12 @@ class PloggingMainViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func createPloggingResultData() -> PloggingList {
-        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
-        let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
-        
-        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-    
-        return ploggingList
-    }
+//    func createPloggingResultData() -> PloggingList {
+//        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
+//        let trashList = [TrashList(trashType: 1, pickCount: 5), TrashList(trashType: 3, pickCount: 4)]
+//        
+//        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
+//    
+//        return ploggingList
+//    }
 }

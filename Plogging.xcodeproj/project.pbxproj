@@ -91,6 +91,7 @@
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */; };
 		9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */; };
+		9B3F9DA725D7A69200E41F95 /* PloggingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F9DA625D7A69100E41F95 /* PloggingDataSource.swift */; };
 		9B51A5AC25B20FD8000AA9FA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */; };
 		9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */; };
 		9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */; };
@@ -217,6 +218,7 @@
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCountCell.swift; sourceTree = "<group>"; };
 		9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailInfoViewController.swift; sourceTree = "<group>"; };
+		9B3F9DA625D7A69100E41F95 /* PloggingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDataSource.swift; sourceTree = "<group>"; };
 		9B51A5AB25B20FD8000AA9FA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B51A5C425B32C2B000AA9FA /* PloggingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultViewController.swift; sourceTree = "<group>"; };
 		9B51A63525B5C998000AA9FA /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				1CBE988F25AC7B4800CC247A /* BaseURL.swift */,
 				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
 				1C5B0DDA25D428D9008560FA /* Cookie.swift */,
+				9B3F9DA625D7A69100E41F95 /* PloggingDataSource.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				9B00B3B525D28582006427DE /* ChangePasswordViewController.swift in Sources */,
 				1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */,
 				1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */,
+				9B3F9DA725D7A69200E41F95 /* PloggingDataSource.swift in Sources */,
 				9B00B3B325D26D7F006427DE /* SettingViewController.swift in Sources */,
 				1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */,
 				1CBE98AC25AF2DFA00CC247A /* APIError.swift in Sources */,
