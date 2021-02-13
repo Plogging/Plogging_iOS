@@ -131,7 +131,13 @@ class PloggingRunningInfoViewController: UIViewController {
         continueButton.setTitle("쓰레기 기록하기", for: .normal)
         
         summeryStackView.layer.cornerRadius = 20
-        summeryStackView.backgroundColor = .clear
+        setGradationView(
+                view: summeryStackView,
+                colors: [UIColor(red: 255, green: 255, blue: 255, alpha: 0.85).cgColor, UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor],
+                location: 0.0,
+                startPoint: .init(x: 0.0, y: 0.0),
+                endPoint: .init(x: 0.0, y: 1.0)
+        )
         
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()
@@ -142,17 +148,6 @@ class PloggingRunningInfoViewController: UIViewController {
         timer?.fire()
     }
 
-    
-    func addGradation(to: UIView) {
-        let gradation = CAGradientLayer()
-        gradation.colors = [
-            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 0.75).cgColor,
-            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 1).cgColor
-        ]
-        gradation.frame = to.bounds
-        
-        to.layer.addSublayer(gradation)
-    }
 
     @objc func didReceiveDistanceNotification(_ receive: Notification) {
         guard let distance = receive.userInfo?["distance"] as? Int else { return }

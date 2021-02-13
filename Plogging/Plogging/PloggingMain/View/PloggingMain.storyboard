@@ -316,19 +316,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" alpha="0.75" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-af-PWV">
-                                <rect key="frame" x="0.0" y="244" width="414" height="151"/>
+                                <rect key="frame" x="0.0" y="284" width="414" height="111"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvQ-dZ-Ldi" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="138" height="51"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="0.0" y="30" width="138" height="51"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwo-GI-cFb" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="138" y="50" width="138" height="51"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="138" y="30" width="138" height="51"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rny-Ru-w5A" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="276" y="50" width="138" height="51"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="276" y="30" width="138" height="51"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -345,7 +342,7 @@
                             <constraint firstAttribute="trailing" secondItem="Mbw-af-PWV" secondAttribute="trailing" id="cRq-pp-yeU"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="345" id="eLh-im-638"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="Pji-qO-zIH" secondAttribute="trailing" id="fsm-3s-vCX"/>
-                            <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="244" id="mdF-Fb-hxs"/>
+                            <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="284" id="mdF-Fb-hxs"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="bottom" secondItem="syo-Hv-PFH" secondAttribute="bottom" id="neW-X5-x2G"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="leading" secondItem="Pji-qO-zIH" secondAttribute="leading" id="yHp-7N-5vb"/>
                         </constraints>
