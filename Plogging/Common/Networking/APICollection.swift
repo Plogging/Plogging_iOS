@@ -185,6 +185,26 @@ extension APICollection {
             completion(.success(value))
         }
     }
+    
+    /// 회원탈퇴
+    func requestDeleteUser(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.user,
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
 }
 
 // MARK: - PLOGGING
