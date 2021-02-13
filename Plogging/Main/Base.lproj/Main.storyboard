@@ -45,9 +45,15 @@
                                             <constraint firstAttribute="height" constant="58" id="YTn-0c-1Vc"/>
                                         </constraints>
                                         <items>
-                                            <tabBarItem title="" image="rankingTabDefault" selectedImage="rankingTab" id="d1E-af-L5A"/>
-                                            <tabBarItem tag="1" title="" image="ploggingTabDefault" selectedImage="ploggingTab" id="Xmu-sR-zg9"/>
-                                            <tabBarItem tag="2" title="" image="mypageTabDefault" selectedImage="mypageTab" id="Qf3-Pp-gdX"/>
+                                            <tabBarItem title="" image="rankingTabDefault" selectedImage="rankingTab" id="d1E-af-L5A">
+                                                <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                            </tabBarItem>
+                                            <tabBarItem tag="1" title="" image="ploggingTabDefault" selectedImage="ploggingTab" id="Xmu-sR-zg9">
+                                                <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                            </tabBarItem>
+                                            <tabBarItem tag="2" title="" image="mypageTabDefault" selectedImage="mypageTab" id="Qf3-Pp-gdX">
+                                                <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                            </tabBarItem>
                                         </items>
                                         <color key="tintColor" name="AccentColor"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
