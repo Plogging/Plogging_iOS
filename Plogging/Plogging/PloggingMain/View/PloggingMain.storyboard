@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-Sj-bwq">
-                                <rect key="frame" x="0.0" y="-44" width="414" height="984"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-Sj-bwq">
+                                <rect key="frame" x="0.0" y="-20" width="414" height="936"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVp-qM-Ers" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="109" y="651" width="196" height="78"/>
@@ -40,14 +40,31 @@
                                     <action selector="presentIntroduceModal:" destination="LsG-j0-skQ" eventType="touchUpInside" id="fV0-d5-vqt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-ch-fk9">
+                                <rect key="frame" x="338" y="91" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="56" id="Agy-Hs-QsI"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="56" id="NwU-Wg-yDk"/>
+                                    <constraint firstAttribute="width" secondItem="1lp-ch-fk9" secondAttribute="height" multiplier="1:1" id="bFa-7b-7Bx"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="17" minY="17" maxX="17" maxY="17"/>
+                                <state key="normal" image="iconFocus"/>
+                                <connections>
+                                    <action selector="focusCurrentLocation:" destination="LsG-j0-skQ" eventType="touchUpInside" id="z6M-TI-9QY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gOF-4b-UF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gOF-4b-UF3" firstAttribute="trailing" secondItem="1lp-ch-fk9" secondAttribute="trailing" constant="20" id="4Fh-wY-huT"/>
                             <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="kVp-qM-Ers" secondAttribute="bottom" constant="133" id="4wm-Ti-oJb"/>
                             <constraint firstItem="kVp-qM-Ers" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="7JD-Z8-ehr"/>
-                            <constraint firstItem="gOF-4b-UF3" firstAttribute="top" secondItem="GXP-Sj-bwq" secondAttribute="top" constant="88" id="N6N-L6-EYY"/>
+                            <constraint firstAttribute="top" secondItem="GXP-Sj-bwq" secondAttribute="top" constant="20" symbolic="YES" id="N6N-L6-EYY"/>
                             <constraint firstItem="kVp-qM-Ers" firstAttribute="top" secondItem="gd3-bk-qzr" secondAttribute="bottom" constant="22" id="Zqw-w3-Vpx"/>
+                            <constraint firstItem="1lp-ch-fk9" firstAttribute="top" secondItem="gOF-4b-UF3" secondAttribute="top" constant="47" id="ciF-tl-aTl"/>
                             <constraint firstItem="GXP-Sj-bwq" firstAttribute="centerY" secondItem="bHg-Id-0Y1" secondAttribute="centerY" id="gpH-a6-JOF"/>
                             <constraint firstItem="GXP-Sj-bwq" firstAttribute="leading" secondItem="gOF-4b-UF3" secondAttribute="leading" id="hqe-e9-YlO"/>
                             <constraint firstItem="gd3-bk-qzr" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="ohj-VU-mdI"/>
@@ -56,6 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="1lp-ch-fk9" id="gUd-ae-GAT"/>
                         <outlet property="mapView" destination="GXP-Sj-bwq" id="U4w-Pg-Mtx"/>
                         <outlet property="showIntroduceModalButton" destination="gd3-bk-qzr" id="2H5-cX-Cnc"/>
                     </connections>
@@ -244,7 +262,7 @@
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syo-Hv-PFH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-qO-zIH">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-qO-zIH">
                                 <rect key="frame" x="-5" y="0.0" width="414" height="395"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4u-Rg-oEV">
@@ -392,6 +410,7 @@
     <resources>
         <image name="3" width="116" height="142"/>
         <image name="IntrouduceButton" width="237" height="68"/>
+        <image name="iconFocus" width="21" height="21"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,8 +18,8 @@ extension PathManager: CLLocationManagerDelegate{
         guard abs(howRecent) < 10 else { return }
 
         if !isRecord {
-            pointResentLocation(location: currentLocation.coordinate)
-            print("skip location")
+//            pointResentLocation(location: currentLocation.coordinate)
+//            print("skip location")
             return
         }
 

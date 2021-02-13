@@ -32,7 +32,8 @@ class PathManager: NSObject {
     func setupMapview(on mapView: MKMapView) {
         self.mapView = mapView
         self.mapView?.delegate = self
-        pointResentLocation(location: mapView.userLocation.coordinate)
+        self.mapView?.isUserInteractionEnabled = true
+        self.mapView?.setUserTrackingMode(.follow, animated: true)
     }
 
     func pointResentLocation(location: CLLocationCoordinate2D) {
@@ -83,7 +84,6 @@ class PathManager: NSObject {
     func backupPath() {
         backupManager.savePathData(to: locationList)
     }
-
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
         MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 1400)
