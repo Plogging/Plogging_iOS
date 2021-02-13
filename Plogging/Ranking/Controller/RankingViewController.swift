@@ -85,7 +85,7 @@ class RankingViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 86
+        tableView.estimatedRowHeight = 44
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
@@ -165,6 +165,16 @@ extension RankingViewController: UITableViewDataSource {
                 cell.config(model, index: indexPath)
             }
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 132
+        } else if indexPath.row == 1 {
+            return 44
+        } else {
+            return 105
         }
     }
 }
