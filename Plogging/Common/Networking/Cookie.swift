@@ -9,16 +9,21 @@ import Foundation
 
 class PloggingCookie {
     static let shared = PloggingCookie()
+    let cookie = "cookie"
     
     func isFirstTimeUser() -> Bool {
         return getUserCookie() == nil 
     }
     
     func getUserCookie() -> String? {
-        return UserDefaults.standard.string(forKey: "cookie")
+        return UserDefaults.standard.string(forKey: cookie)
     }
     
     func setUserCookie(cookie: String) {
-        UserDefaults.standard.setValue(cookie, forKey: "cookie")
+        UserDefaults.standard.setValue(cookie, forKey: cookie)
+    }
+    
+    func removeUserCookie() {
+        UserDefaults.standard.removeObject(forKey: cookie)
     }
 }
