@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeoEB.ttf">
+            <string>AppleSDGothicNeoEB00</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Ranking View Controller-->
         <scene sceneID="ies-88-ssy">
@@ -48,14 +53,14 @@
                                         <rect key="frame" x="0.0" y="204" width="414" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RSM-Dz-swy">
-                                                <rect key="frame" x="24" y="0.5" width="130" height="49"/>
+                                                <rect key="frame" x="24" y="-1.5" width="139" height="53"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ob0-0n-ogH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="49"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="53"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2Y-9s-cQg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="48"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="26"/>
                                                                 <state key="normal" title="주간">
                                                                     <color key="titleColor" red="0.0" green="0.72156862745098038" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -64,7 +69,7 @@
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-Es-DqI">
-                                                                <rect key="frame" x="0.0" y="44" width="54" height="5"/>
+                                                                <rect key="frame" x="0.0" y="48" width="54" height="5"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.72156862745098038" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="5" id="V7U-rj-FzN"/>
@@ -73,11 +78,11 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="e1E-p2-ry7">
-                                                        <rect key="frame" x="76" y="0.0" width="54" height="49"/>
+                                                        <rect key="frame" x="76" y="0.0" width="63" height="53"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jS-hK-9yl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="63" height="48"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="26"/>
                                                                 <state key="normal" title="월간">
                                                                     <color key="titleColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -86,7 +91,7 @@
                                                                 </connections>
                                                             </button>
                                                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJc-GJ-eka">
-                                                                <rect key="frame" x="0.0" y="44" width="54" height="5"/>
+                                                                <rect key="frame" x="0.0" y="48" width="63" height="5"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.72156862749999995" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="5" id="cBa-0o-HLl"/>

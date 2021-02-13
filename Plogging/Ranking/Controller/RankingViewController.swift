@@ -70,10 +70,10 @@ class RankingViewController: UIViewController {
     
     private func setupRankingTitle() {
         let rankingTitleString = NSMutableAttributedString()
-            .bold("연쇄쓰담마", fontSize: 35)
-            .normal("님의", fontSize: 35)
+            .heavy("연쇄쓰담마", fontSize: 35)
+            .medium("님의", fontSize: 35)
             .newLine(fontSize: 35)
-            .normal("랭킹을 확인하세요!", fontSize: 35)
+            .medium("랭킹을 확인하세요!", fontSize: 35)
         rankingTitleLabel.attributedText = rankingTitleString
     }
     

@@ -31,6 +31,12 @@ extension NSMutableAttributedString {
         self.append(NSMutableAttributedString(string: text, attributes: attrs))
         return self
     }
+    
+    func medium(_ text: String, fontSize: CGFloat) -> NSMutableAttributedString {
+        let attrs: [NSAttributedString.Key: Any] = [.font: UIFont(name: "AppleSDGothicNeo-Medium", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)]
+        self.append(NSMutableAttributedString(string: text, attributes: attrs))
+        return self
+    }
 }
 
 extension String {
