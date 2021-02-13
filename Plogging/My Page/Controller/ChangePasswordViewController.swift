@@ -9,10 +9,37 @@ import UIKit
 
 class ChangePasswordViewController: UIViewController {
 
+    @IBOutlet weak var nowPasswordOuterView: UIView!
+    @IBOutlet weak var nowPasswordTextField: UITextField!
+   
+    @IBOutlet weak var changePasswordOuterView: UIView!
+    @IBOutlet weak var changePasswordTextField: UITextField!
+    
+    @IBOutlet weak var checkPasswordOuterView: UIView!
+    @IBOutlet weak var checkPasswordTextField: UITextField!
+    @IBOutlet weak var confirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
+        self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(handlePopGesture))
+        setupUI()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    private func setupUI() {
+        nowPasswordOuterView.clipsToBounds = true
+        changePasswordOuterView.clipsToBounds = true
+        checkPasswordOuterView.clipsToBounds = true
+        confirmButton.clipsToBounds = true
+        
+        nowPasswordOuterView.layer.cornerRadius = 4
+        changePasswordOuterView.layer.cornerRadius = 4
+        checkPasswordOuterView.layer.cornerRadius = 4
+        confirmButton.layer.cornerRadius = 4
     }
     
     @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {
