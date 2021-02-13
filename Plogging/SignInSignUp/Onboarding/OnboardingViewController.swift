@@ -21,25 +21,25 @@ class OnboardingViewController: UIViewController {
     
     private let onboardingTitleList: [NSMutableAttributedString] = [
         NSMutableAttributedString()
-            .bold("조깅", fontSize: 26)
+            .heavy("조깅", fontSize: 26)
             .normal("하며", fontSize: 26)
             .newLine(fontSize: 26)
-            .bold("쓰레기", fontSize: 26)
+            .heavy("쓰레기", fontSize: 26)
             .normal("를 주워요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .bold("플로깅", fontSize: 26)
+            .heavy("플로깅", fontSize: 26)
             .normal("이 끝난 후", fontSize: 26)
             .newLine(fontSize: 26)
             .normal("내", fontSize: 26)
-            .bold("랭킹", fontSize: 26)
+            .heavy("랭킹", fontSize: 26)
             .normal("을 확인해요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .bold("SNS", fontSize: 26)
+            .heavy("SNS", fontSize: 26)
             .normal("를 통해", fontSize: 26)
             .newLine(fontSize: 26)
-            .bold("플로깅 기록", fontSize: 26)
+            .heavy("플로깅 기록", fontSize: 26)
             .normal("을 공유해요!", fontSize: 26)
     ]
     
@@ -107,21 +107,23 @@ class OnboardingViewController: UIViewController {
             
             // 제목
             let titleLabel = UILabel(frame: CGRect(x: 0,
-                                                   y: imageView.frame.origin.y + imageView.frame.height + 54,
+                                                   y: imageView.frame.origin.y + imageView.frame.height + 48,
                                                    width: defaultView.frame.size.width,
-                                                   height: 68))
+                                                   height: 80))
             titleLabel.textAlignment = .center
             titleLabel.numberOfLines = 2
             titleLabel.attributedText = onboardingTitleList[x]
 
             // 부제목
             let descriptionLabel = UILabel(frame: CGRect(x: 0,
-                                                         y: imageView.frame.origin.y + imageView.frame.height + 54 + titleLabel.frame.height + 18,
+                                                         y: imageView.frame.origin.y + imageView.frame.height + 48 + titleLabel.frame.height + 16,
                                                          width: defaultView.frame.size.width,
                                                          height: 46))
             descriptionLabel.textAlignment = .center
             descriptionLabel.numberOfLines = 2
             descriptionLabel.text = onboardingDescriptionList[x]
+            descriptionLabel.font = UIFont(name: "AppleSDGothicNeo-Medium",
+                                           size: 16)
             descriptionLabel.textColor = UIColor.lightGray
 
             // 포함

@@ -87,12 +87,10 @@ class LoginViewController: UIViewController {
         }
         switch model.rc {
         case 200:
-            errorLabel.isHidden = true
             makeDefaultRootViewController()
             return
         case 401:
-            errorLabel.isHidden = false
-            errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
+            setupWarningLabel(message: "가입되지 않은 정보이거나 비밀번호가 다릅니다.")
             return
         default:
             print("error")
