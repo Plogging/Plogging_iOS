@@ -171,7 +171,7 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         checkAllValidation(textField)
-        
+
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -107,7 +107,7 @@ extension APICollection {
     
     /// 회원가입
     func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userCheck,
+        AF.request(BaseURL.mainURL + BasePath.user,
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,

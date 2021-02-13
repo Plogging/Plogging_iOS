@@ -73,7 +73,7 @@ class NickNameViewController: UIViewController {
         }
         switch model.rc {
         case 201:
-            makeDefaultRootViewController()
+            showLoginViewController()
             return
         case 409:
             setupErrorLabel(message: "이미 사용중인 이메일입니다.")
@@ -90,7 +90,7 @@ class NickNameViewController: UIViewController {
     
     @IBAction func clickConfirmButton(_ sender: UIButton) {
         guard let nickName = nickNameTextField.text else { return }
-        if nickName.count > 0 {
+        if nickName.count > 0, nickName.count < 10 {
             // reqeust API
             requestUserSignUp()
         }
@@ -100,6 +100,13 @@ class NickNameViewController: UIViewController {
 extension NickNameViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         nickNameInfoLabel.isHidden = true
+        if let count = textField.text?.count {
+            if count > 0, count < 10 {
+                confirmButton.backgroundColor = UIColor.tintGreen
+            } else {
+                confirmButton.backgroundColor = UIColor.loginGray
+            }
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
