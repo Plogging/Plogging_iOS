@@ -77,6 +77,7 @@ class OnboardingViewController: UIViewController {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true
+        scrollView.bounces = false
     }
     
     private func setupButtonUI() {
