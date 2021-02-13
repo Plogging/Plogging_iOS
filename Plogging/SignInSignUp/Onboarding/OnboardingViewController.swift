@@ -98,9 +98,9 @@ class OnboardingViewController: UIViewController {
             
             // 이미지
             let imageView = UIImageView(frame: CGRect(x: 0,
-                                                      y: 100,
+                                                      y: 60,
                                                       width: 330,
-                                                      height: 253))
+                                                      height: 225))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
             imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
