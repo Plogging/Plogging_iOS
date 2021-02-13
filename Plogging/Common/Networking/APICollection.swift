@@ -27,7 +27,7 @@ struct APICollection {
         // 쿠키 설정
         if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
             DispatchQueue.main.async {
-                PloggingCookie.shared.setUserCookie(cookie: "\(cookieName)=\(cookieValue)")
+                PloggingCookie.shared.setUserCookie("\(cookieName)=\(cookieValue)")
             }
         }
     }

@@ -23,8 +23,8 @@ class PloggingCookie {
     }
     
     /// 유저 쿠키 저장
-    func setUserCookie(cookie: String) {
-        UserDefaults.standard.setValue(cookie, forKey: cookie)
+    func setUserCookie(_ userCookie: String) {
+        UserDefaults.standard.setValue(userCookie, forKey: cookie)
     }
     
     /// 유저 쿠키 삭제
