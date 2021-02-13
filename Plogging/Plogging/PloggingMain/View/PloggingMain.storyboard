@@ -263,25 +263,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-qO-zIH">
-                                <rect key="frame" x="-5" y="0.0" width="414" height="395"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4u-Rg-oEV">
-                                <rect key="frame" x="0.0" y="395" width="414" height="501"/>
+                                <rect key="frame" x="0.0" y="345" width="414" height="551"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaW-X0-LeJ">
-                                        <rect key="frame" x="183.33333333333334" y="45" width="47.333333333333343" height="86"/>
+                                        <rect key="frame" x="183.33333333333334" y="92" width="47.333333333333343" height="86"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
                                         <color key="textColor" red="0.13333499430000001" green="0.13333114979999999" blue="0.13333195449999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모은 쓰레기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c93-nv-24t">
-                                        <rect key="frame" x="174.66666666666666" y="139" width="64.666666666666657" height="17"/>
+                                        <rect key="frame" x="174.66666666666666" y="187" width="64.666666666666657" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.53333872559999995" green="0.53729087109999996" blue="0.53332841399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Nd-hrh" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="109" y="182" width="196" height="78"/>
+                                        <rect key="frame" x="109" y="230" width="196" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="196" id="VVF-Z2-RVM"/>
                                             <constraint firstAttribute="height" constant="78" id="kKz-CE-ytc"/>
@@ -292,7 +292,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="148" y="364" width="118" height="78"/>
+                                        <rect key="frame" x="148" y="414" width="118" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="78" id="BD5-eG-csr"/>
                                             <constraint firstAttribute="width" constant="118" id="Wvv-Yw-7MF"/>
@@ -308,26 +308,26 @@
                                     <constraint firstItem="vrk-Nd-hrh" firstAttribute="centerX" secondItem="6eF-DA-V2s" secondAttribute="centerX" id="Dzv-tm-5tq"/>
                                     <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="D4u-Rg-oEV" secondAttribute="centerX" id="FZF-3j-pUD"/>
                                     <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="c93-nv-24t" secondAttribute="centerX" id="J5E-Ab-wG9"/>
+                                    <constraint firstItem="vrk-Nd-hrh" firstAttribute="top" secondItem="c93-nv-24t" secondAttribute="bottom" constant="26" id="Rf6-hX-W7g"/>
                                     <constraint firstAttribute="bottom" secondItem="6eF-DA-V2s" secondAttribute="bottom" constant="59" id="YeU-7Y-AME"/>
-                                    <constraint firstItem="c93-nv-24t" firstAttribute="top" secondItem="KaW-X0-LeJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ffP-ff-vh8"/>
+                                    <constraint firstItem="c93-nv-24t" firstAttribute="top" secondItem="KaW-X0-LeJ" secondAttribute="bottom" constant="9" id="gJt-Mc-H3o"/>
                                     <constraint firstItem="vrk-Nd-hrh" firstAttribute="centerX" secondItem="KaW-X0-LeJ" secondAttribute="centerX" id="jZw-q0-8fv"/>
-                                    <constraint firstItem="vrk-Nd-hrh" firstAttribute="top" secondItem="c93-nv-24t" secondAttribute="bottom" constant="26" id="phl-xl-DKS"/>
-                                    <constraint firstItem="KaW-X0-LeJ" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="top" constant="45" id="qaD-Sa-AVv"/>
+                                    <constraint firstItem="6eF-DA-V2s" firstAttribute="top" secondItem="vrk-Nd-hrh" secondAttribute="bottom" constant="106" id="rBT-2S-HAo"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" alpha="0.75" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-af-PWV">
+                            <stackView opaque="NO" alpha="0.75" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-af-PWV">
                                 <rect key="frame" x="0.0" y="244" width="414" height="151"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvQ-dZ-Ldi" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="151"/>
+                                        <rect key="frame" x="0.0" y="50" width="138" height="51"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwo-GI-cFb" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="151"/>
+                                        <rect key="frame" x="138" y="50" width="138" height="51"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rny-Ru-w5A" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="151"/>
+                                        <rect key="frame" x="276" y="50" width="138" height="51"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -336,18 +336,18 @@
                         <viewLayoutGuide key="safeArea" id="wY2-NV-ZFd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="Pji-qO-zIH" secondAttribute="bottom" id="3yX-fY-vQp"/>
+                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="Pji-qO-zIH" secondAttribute="bottom" constant="-30" id="3yX-fY-vQp"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="leading" secondItem="Mbw-af-PWV" secondAttribute="leading" id="EZQ-Jp-4nY"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="Mbw-af-PWV" secondAttribute="trailing" id="MJz-5b-riA"/>
-                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="Mbw-af-PWV" secondAttribute="bottom" id="MyJ-xl-7Tj"/>
+                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="Mbw-af-PWV" secondAttribute="bottom" constant="-50" id="MyJ-xl-7Tj"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="PpU-pf-zlu"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" id="TAc-PW-XJl"/>
                             <constraint firstAttribute="trailing" secondItem="Mbw-af-PWV" secondAttribute="trailing" id="cRq-pp-yeU"/>
-                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="395" id="eLh-im-638"/>
-                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="Pji-qO-zIH" secondAttribute="trailing" constant="5" id="fsm-3s-vCX"/>
+                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="345" id="eLh-im-638"/>
+                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="Pji-qO-zIH" secondAttribute="trailing" id="fsm-3s-vCX"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="244" id="mdF-Fb-hxs"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="bottom" secondItem="syo-Hv-PFH" secondAttribute="bottom" id="neW-X5-x2G"/>
-                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="leading" secondItem="Pji-qO-zIH" secondAttribute="leading" constant="5" id="yHp-7N-5vb"/>
+                            <constraint firstItem="D4u-Rg-oEV" firstAttribute="leading" secondItem="Pji-qO-zIH" secondAttribute="leading" id="yHp-7N-5vb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZCB-kh-8P6"/>
