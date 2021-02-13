@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ace-ym-Vpp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="660.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYN-rD-qHT">
@@ -34,26 +34,17 @@
                                     <action selector="ClickedSkipButton:" destination="9ms-uq-Xa8" eventType="touchUpInside" id="dMp-Ki-Erh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="weB-8p-1AI" customClass="OnboardingCustomPageControl" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="146" y="704.5" width="122.5" height="27.5"/>
-                                <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.96470588235294119" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="currentPageImage" value="onboardingSelected"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="otherPagesImage" value="onboardingUnselected"/>
-                                </userDefinedRuntimeAttributes>
-                            </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hSl-m9-h5g">
-                                <rect key="frame" x="170.5" y="704.5" width="73" height="27.5"/>
+                                <rect key="frame" x="170.5" y="723" width="73" height="9"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingSelected" translatesAutoresizingMaskIntoConstraints="NO" id="WI0-Mv-swE">
-                                        <rect key="frame" x="0.0" y="9.5" width="31" height="9"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="9"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="1t5-E1-vB6">
-                                        <rect key="frame" x="43" y="9.5" width="9" height="9"/>
+                                        <rect key="frame" x="43" y="0.0" width="9" height="9"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="670-lc-xVm">
-                                        <rect key="frame" x="64" y="9.5" width="9" height="9"/>
+                                        <rect key="frame" x="64" y="0.0" width="9" height="9"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -64,14 +55,11 @@
                             <constraint firstItem="UYN-rD-qHT" firstAttribute="top" secondItem="hSl-m9-h5g" secondAttribute="bottom" constant="16" id="5R1-J7-gd3"/>
                             <constraint firstItem="sd4-aj-PW7" firstAttribute="trailing" secondItem="Ace-ym-Vpp" secondAttribute="trailing" id="5xX-qk-6FT"/>
                             <constraint firstItem="UYN-rD-qHT" firstAttribute="centerX" secondItem="lJb-pO-o9c" secondAttribute="centerX" id="AqB-W2-0cW"/>
-                            <constraint firstItem="weB-8p-1AI" firstAttribute="top" secondItem="Ace-ym-Vpp" secondAttribute="bottom" id="Eza-nd-ft5"/>
-                            <constraint firstItem="UYN-rD-qHT" firstAttribute="top" secondItem="weB-8p-1AI" secondAttribute="bottom" constant="16" id="KFt-lo-xCg"/>
                             <constraint firstItem="hSl-m9-h5g" firstAttribute="centerX" secondItem="sd4-aj-PW7" secondAttribute="centerX" id="NNC-3M-76l"/>
                             <constraint firstItem="sd4-aj-PW7" firstAttribute="bottom" secondItem="UYN-rD-qHT" secondAttribute="bottom" constant="36" id="UaA-9t-fLV"/>
                             <constraint firstItem="Ace-ym-Vpp" firstAttribute="leading" secondItem="sd4-aj-PW7" secondAttribute="leading" id="WGr-QI-4B4"/>
                             <constraint firstItem="Ace-ym-Vpp" firstAttribute="top" secondItem="sd4-aj-PW7" secondAttribute="top" id="ePB-qm-uHy"/>
                             <constraint firstItem="hSl-m9-h5g" firstAttribute="top" secondItem="Ace-ym-Vpp" secondAttribute="bottom" id="gwI-j0-q7u"/>
-                            <constraint firstItem="weB-8p-1AI" firstAttribute="centerX" secondItem="UYN-rD-qHT" secondAttribute="centerX" id="wHo-g8-fnm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -80,7 +68,6 @@
                         <outlet property="onboardingStackView" destination="hSl-m9-h5g" id="4bu-D9-a9d"/>
                         <outlet property="onboardingUnselectedImage1" destination="1t5-E1-vB6" id="P8E-NG-YEJ"/>
                         <outlet property="onboardingUnselectedImage2" destination="670-lc-xVm" id="9A5-5H-7iN"/>
-                        <outlet property="pageControl" destination="weB-8p-1AI" id="wR0-eU-N44"/>
                         <outlet property="skipButton" destination="UYN-rD-qHT" id="VXk-ab-jqr"/>
                     </connections>
                 </viewController>
