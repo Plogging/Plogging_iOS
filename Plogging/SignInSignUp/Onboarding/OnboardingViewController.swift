@@ -13,6 +13,10 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var pageControl: OnboardingCustomPageControl!
+    @IBOutlet weak var onboardingStackView: UIStackView!
+    @IBOutlet weak var onboardingSelectedImage: UIImageView!
+    @IBOutlet weak var onboardingUnselectedImage1: UIImageView!
+    @IBOutlet weak var onboardingUnselectedImage2: UIImageView!
     
     private let scrollView = UIScrollView()
     
@@ -132,7 +136,6 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func ClickedSkipButton(_ sender: UIButton) {
-//        User.shared.setIsNotFirstTimeUser()
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController,
            let first = UIApplication.shared.windows.first {
@@ -149,11 +152,36 @@ class OnboardingViewController: UIViewController {
                               completion: nil)
         }
     }
+    
+    private func rearrangeStackView() {
+        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+        var temp = page
+        
+        if page == 0 {
+            temp = 1
+        } else if page == 1 {
+            let img = onboardingStackView.arrangedSubviews[0]
+            if img == onboardingSelectedImage {
+                temp = 0
+            } else {
+                temp = 2
+            }
+        } else if page == 2 {
+            temp = 1
+        }
+        
+        let image = onboardingStackView.arrangedSubviews[temp]
+        if image == onboardingSelectedImage {
+            image.removeFromSuperview()
+            onboardingStackView.insertArrangedSubview(onboardingSelectedImage, at: page)
+        }
+    }
 }
 
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndiactorForCurrentPage()
+        rearrangeStackView()
     }
 
     func setIndiactorForCurrentPage()  {
