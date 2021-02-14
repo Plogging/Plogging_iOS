@@ -11,8 +11,15 @@ import Foundation
 struct RankingGlobal: Codable {
     let rc: Int
     let rcmsg: String
-    let count: Int
-    let rankData: [RankingData]
+    let meta: RankingMeta
+    let data: [RankingData]
+}
+
+// MARK: - RankingMetas
+struct RankingMeta: Codable {
+    let startPageNumber: Int
+    let endPageNumber: Int
+    let currentPageNumber: Int
 }
 
 // MARK: - RankingData

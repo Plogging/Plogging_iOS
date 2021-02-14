@@ -26,7 +26,9 @@ class RankingViewController: UIViewController {
     private var userPloggingRankig: RankingUser? {
         didSet{
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                let indexPathRow = 0
+                let indexPosition = IndexPath(row: indexPathRow, section: 0)
+                self.tableView.reloadRows(at: [indexPosition], with: .none)
             }
         }
     }
@@ -38,16 +40,17 @@ class RankingViewController: UIViewController {
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
+        requestBothRankingAPI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        requestRankingAPI(type: "weekly")
-//        requestUserRanking(type: "weekly")
+    private func requestBothRankingAPI() {
+        requestRankingAPI(type: "weekly")
+        requestUserRanking(type: "weekly")
     }
     
     private func requestRankingAPI(type: String) {
         let param: [String: Any] = ["rankType": type,
-                                    "rankCntPerPage": 1,
+                                    "rankCntPerPage": 10,
                                     "pageNumber": 1]
         
         APICollection.sharedAPI.requestGlobalRanking(param: param) { (response) in
@@ -56,11 +59,13 @@ class RankingViewController: UIViewController {
     }
     
     private func requestUserRanking(type: String) {
-        let param: [String: Any] = ["rankType": type]
-        
-        APICollection.sharedAPI.requestUserRanking(param: param) { (response) in
-            self.userPloggingRankig = try? response.get()
-        }
+        // TODO: - id는 저장된 유저 정보
+
+//        let param: [String: Any] = ["rankType": type]
+
+//        APICollection.sharedAPI.requestUserRanking(id: "", param: param) { (response) in
+//            self.userPloggingRankig = try? response.get()
+//        }
     }
     
     private func setupRankingTitle() {
@@ -84,7 +89,7 @@ class RankingViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 86
+        tableView.estimatedRowHeight = 44
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
@@ -122,8 +127,14 @@ class RankingViewController: UIViewController {
     }
     
     private func refreshRankingList() {
-        // weekly
-        // monthly
+        // weekly, monthly enum화
+        if weeklyView.alpha == 1 {
+            requestRankingAPI(type: "weekly")
+            requestUserRanking(type: "weekly")
+        } else {
+            requestRankingAPI(type: "monthly")
+            requestUserRanking(type: "monthly")
+        }
     }
 }
 
@@ -135,7 +146,7 @@ extension RankingViewController: UITableViewDelegate {
 
 extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = ploggingRankingList?.count else {
+        guard let count = ploggingRankingList?.data.count else {
             return 2
         }
         return count + 2
@@ -144,16 +155,36 @@ extension RankingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            if let model = userPloggingRankig?.data {
+                cell.config(model: model)
+            }
             return cell
         } else if indexPath.row == 1 {
             let cell: RankingRefreshTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.delegate = self
             return cell
         } else {
             let cell: RankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            if let model = ploggingRankingList?.rankData[indexPath.row - 2]  {
+            if let model = ploggingRankingList?.data[indexPath.row - 2]  {
                 cell.config(model, index: indexPath)
             }
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 132
+        } else if indexPath.row == 1 {
+            return 44
+        } else {
+            return 105
+        }
+    }
+}
+
+extension RankingViewController: RefreshCellDelegate {
+    func refreshButtonCall() {
+        refreshRankingList()
     }
 }

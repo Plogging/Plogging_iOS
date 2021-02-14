@@ -55,7 +55,7 @@ class RankingTableViewCell: UITableViewCell {
         }
         
         nickNameLabel.text = model.displayName
-        scoreLabel.text = "\(model.score)"
+        scoreLabel.text = "\(model.score)점"
     }
     
     func setupListUI(index: IndexPath) {
@@ -83,7 +83,15 @@ class RankingTableViewCell: UITableViewCell {
             rankingLabel.isHidden = false
             rankingLabel.text = "\(imageIndex)"
             outerView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            makeShadow(outerView)
             profileOuterView.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 207/255, alpha: 1)
         }
+    }
+    
+    func makeShadow(_ view: UIView) {
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 1, height: 0)
+        view.layer.shadowRadius = 5
+        view.layer.masksToBounds = false
     }
 }

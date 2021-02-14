@@ -45,7 +45,7 @@
                                 <rect key="frame" x="99" y="34" width="161" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1위" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-SY-8LT">
-                                        <rect key="frame" x="20" y="19" width="30.5" height="26.5"/>
+                                        <rect key="frame" x="14" y="19" width="36.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -66,10 +66,10 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Yje-zi-2mn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cw5-SY-8LT" secondAttribute="trailing" constant="29.5" id="GNj-lD-CED"/>
+                                    <constraint firstItem="Yje-zi-2mn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cw5-SY-8LT" secondAttribute="trailing" priority="999" constant="29.5" id="GNj-lD-CED"/>
                                     <constraint firstItem="Yje-zi-2mn" firstAttribute="centerY" secondItem="Iqb-qg-GjU" secondAttribute="centerY" id="KyL-GG-Aw4"/>
                                     <constraint firstAttribute="trailing" secondItem="Ju0-We-0Q6" secondAttribute="trailing" constant="12" id="Ynl-6O-jB4"/>
-                                    <constraint firstItem="cw5-SY-8LT" firstAttribute="leading" secondItem="Iqb-qg-GjU" secondAttribute="leading" constant="20" id="bfT-F3-szM"/>
+                                    <constraint firstItem="cw5-SY-8LT" firstAttribute="leading" secondItem="Iqb-qg-GjU" secondAttribute="leading" constant="14" id="bfT-F3-szM"/>
                                     <constraint firstItem="Yje-zi-2mn" firstAttribute="centerX" secondItem="Iqb-qg-GjU" secondAttribute="centerX" id="oNL-se-gfF"/>
                                     <constraint firstItem="Ju0-We-0Q6" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Yje-zi-2mn" secondAttribute="trailing" constant="27.5" id="xg8-A5-Jv2"/>
                                 </constraints>

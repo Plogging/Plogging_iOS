@@ -12,31 +12,34 @@ class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var pageControl: OnboardingCustomPageControl!
+    @IBOutlet weak var onboardingStackView: UIStackView!
+    @IBOutlet weak var onboardingSelectedImage: UIImageView!
+    @IBOutlet weak var onboardingUnselectedImage1: UIImageView!
+    @IBOutlet weak var onboardingUnselectedImage2: UIImageView!
     
     private let scrollView = UIScrollView()
     
     private let onboardingTitleList: [NSMutableAttributedString] = [
         NSMutableAttributedString()
-            .bold("조깅", fontSize: 26)
+            .heavy("조깅", fontSize: 26)
             .normal("하며", fontSize: 26)
             .newLine(fontSize: 26)
-            .bold("쓰레기", fontSize: 26)
+            .heavy("쓰레기", fontSize: 26)
             .normal("를 주워요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .bold("플로깅", fontSize: 26)
+            .heavy("플로깅", fontSize: 26)
             .normal("이 끝난 후", fontSize: 26)
             .newLine(fontSize: 26)
             .normal("내", fontSize: 26)
-            .bold("랭킹", fontSize: 26)
+            .heavy("랭킹", fontSize: 26)
             .normal("을 확인해요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .bold("SNS", fontSize: 26)
+            .heavy("SNS", fontSize: 26)
             .normal("를 통해", fontSize: 26)
             .newLine(fontSize: 26)
-            .bold("플로깅 기록", fontSize: 26)
+            .heavy("플로깅 기록", fontSize: 26)
             .normal("을 공유해요!", fontSize: 26)
     ]
     
@@ -74,6 +77,7 @@ class OnboardingViewController: UIViewController {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true
+        scrollView.bounces = false
     }
     
     private func setupButtonUI() {
@@ -94,31 +98,33 @@ class OnboardingViewController: UIViewController {
             
             // 이미지
             let imageView = UIImageView(frame: CGRect(x: 0,
-                                                      y: 100,
+                                                      y: 80,
                                                       width: 330,
-                                                      height: 253))
+                                                      height: 240))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
             imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
             
             // 제목
             let titleLabel = UILabel(frame: CGRect(x: 0,
-                                                   y: imageView.frame.origin.y + imageView.frame.height + 54,
+                                                   y: imageView.frame.origin.y + imageView.frame.height + 36,
                                                    width: defaultView.frame.size.width,
-                                                   height: 68))
+                                                   height: 80))
             titleLabel.textAlignment = .center
             titleLabel.numberOfLines = 2
             titleLabel.attributedText = onboardingTitleList[x]
 
             // 부제목
             let descriptionLabel = UILabel(frame: CGRect(x: 0,
-                                                         y: imageView.frame.origin.y + imageView.frame.height + 54 + titleLabel.frame.height + 18,
+                                                         y: imageView.frame.origin.y + imageView.frame.height + 36 + titleLabel.frame.height + 16,
                                                          width: defaultView.frame.size.width,
                                                          height: 46))
             descriptionLabel.textAlignment = .center
             descriptionLabel.numberOfLines = 2
             descriptionLabel.text = onboardingDescriptionList[x]
-            descriptionLabel.textColor = UIColor.lightGrayColor
+            descriptionLabel.font = UIFont(name: "AppleSDGothicNeo-Medium",
+                                           size: 16)
+            descriptionLabel.textColor = UIColor.lightGray
 
             // 포함
             scrollView.addSubview(pageView)
@@ -132,7 +138,6 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func ClickedSkipButton(_ sender: UIButton) {
-//        User.shared.setIsNotFirstTimeUser()
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let loginViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController,
            let first = UIApplication.shared.windows.first {
@@ -149,17 +154,41 @@ class OnboardingViewController: UIViewController {
                               completion: nil)
         }
     }
+    
+    private func rearrangeStackView() {
+        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+        var temp = page
+        
+        if page == 0 {
+            temp = 1
+        } else if page == 1 {
+            let img = onboardingStackView.arrangedSubviews[0]
+            if img == onboardingSelectedImage {
+                temp = 0
+            } else {
+                temp = 2
+            }
+        } else if page == 2 {
+            temp = 1
+        }
+        
+        let image = onboardingStackView.arrangedSubviews[temp]
+        if image == onboardingSelectedImage {
+            image.removeFromSuperview()
+            onboardingStackView.insertArrangedSubview(onboardingSelectedImage, at: page)
+        }
+    }
 }
 
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndiactorForCurrentPage()
+        rearrangeStackView()
     }
 
     func setIndiactorForCurrentPage()  {
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        pageControl?.currentPage = page
-
+        
         if page == onboardingTitleList.count - 1 {
             isLastPage = true
         } else {

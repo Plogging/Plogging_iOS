@@ -16,9 +16,18 @@ class PasswordCompletionViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
-    private var ploggingInfo: PloggingUser? {
+    private var ploggingUserInfo: PloggingUser? {
         didSet {
-            checkValidation()
+            checkAPIResponse()
+        }
+    }
+    private var isValidate: Bool = false {
+        didSet {
+            if isValidate {
+                confirmButton.backgroundColor = UIColor.tintGreen
+            } else {
+                confirmButton.backgroundColor = UIColor.loginGray
+            }
         }
     }
     
@@ -26,6 +35,7 @@ class PasswordCompletionViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        setupDelegate()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,6 +54,21 @@ class PasswordCompletionViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
     }
     
+    private func setupDelegate() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    private func setupWarningLabel(message: String?) {
+        if message != nil {
+            isValidate = false
+            errorLabel.isHidden = false
+            errorLabel.text = message
+        } else {
+            errorLabel.isHidden = true
+        }
+    }
+    
     @IBAction func clickConfirmButton(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
@@ -56,24 +81,56 @@ class PasswordCompletionViewController: UIViewController {
         ]
         
         APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
-            self.ploggingInfo = try? response.get()
+            self.ploggingUserInfo = try? response.get()
         }
     }
     
-    private func checkValidation() {
-        guard let model = ploggingInfo else {
+    private func checkAPIResponse() {
+        guard let model = ploggingUserInfo else {
             return
         }
         switch model.rc {
+        case 200:
+            errorLabel.isHidden = true
+            makeDefaultRootViewController()
+            return
         case 400, 401:
             errorLabel.isHidden = false
             errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
-        case 500:
-            print("서버 error")
+            return
         default:
-            print("success")
-            // 메인으로 이동
-            makeDefaultRootViewController()
+            print("error")
+            return
         }
     }
 }
+
+extension PasswordCompletionViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // 이메일 체크
+        if let email = emailTextField.text {
+            if let message = checkEmailVaidation(email: email) {
+                setupWarningLabel(message: message)
+                return
+            }
+            setupWarningLabel(message: nil)
+        }
+        
+        // 비밀번호 validation check 8자 이상
+        if let password = passwordTextField.text {
+            if let message = checkPasswordValidation(password: password) {
+                if password.count < 8 {
+                    setupWarningLabel(message: message)
+                    return
+                }
+                setupWarningLabel(message: message)
+                return
+            }
+            setupWarningLabel(message: nil)
+        }
+        
+        isValidate = true
+    }
+}
+
+extension PasswordCompletionViewController: LoginValidation {}
