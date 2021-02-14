@@ -204,3 +204,10 @@ extension MyPageViewController: UIScrollViewDelegate {
         navigationBarView.layoutIfNeeded()
     }
 }
+
+extension UIScrollView {
+    func requestNextPage(minimumBottomArea: CGFloat = 50) -> Bool {
+        let maxY = bounds.height + contentOffset.y
+        return contentSize.height - maxY < minimumBottomArea
+    }
+}
