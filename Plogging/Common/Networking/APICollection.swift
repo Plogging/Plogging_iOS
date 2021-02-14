@@ -32,7 +32,7 @@ struct APICollection {
         } else {
             return defaultHeader
         }
-
+    }
     func getCookies() {
         // 쿠키 설정
         if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
@@ -41,7 +41,7 @@ struct APICollection {
             }
         }
     }
-
+}
 // MARK: - USER
 extension APICollection {
     /// SNS 로그인

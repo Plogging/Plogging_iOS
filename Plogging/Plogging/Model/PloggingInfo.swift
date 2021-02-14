@@ -52,7 +52,7 @@ struct PloggingList: Codable {
         let values = try decoder.container(keyedBy: PloggingListCodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
         meta = try values.decode(Meta.self, forKey: .meta)
-        trashList = try values.decode([TrashList].self, forKey: .trashList)
+        trashList = try values.decode([Trash].self, forKey: .trashList)
     }
 }
 
@@ -102,7 +102,7 @@ struct Trash: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: TrashListCodingKeys.self)
+        let values = try decoder.container(keyedBy: TrashCodingKeys.self)
         trashType = try values.decode(Int.self, forKey: .trashType)
         pickCount = try values.decode(Int.self, forKey: .pickCount)
     }
@@ -123,7 +123,7 @@ struct PloggingResult {
     var trashList: [TrashItem]?
 }
 
-extension Array where Element == Trash {
+extension Array where Element == TrashItem {
     func getTrashPickTotalCount() -> Int {
         reduce(0) { $0 + $1.pickCount }
     }

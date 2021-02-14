@@ -20,35 +20,7 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
-    var ploggingResultData: PloggingList?
-
-    // Plogging Running Info View Controller에서 넘어온 plogging 결과 값
-    // TODO: 관련 코드 변경
-    var ploggingResult: PloggingResult? {
-
-        // ploggingResultData가 없으면, 사진 촬영 시 데이터가 안보여서,
-        // 뷰 전환 제대로 됨을 증명하고자, 모킹 함수를 만들었습니다. 변경 사항 적용 후 모킹 함수 지워주세요.
-        willSet(input) {
-            let meta = Meta(
-                    userId: nil,
-                    createTime: nil,
-                    distance: input?.distance ?? 0,
-                    calories: 250,
-                    ploggingTime: input?.ploggingTime ?? 0,
-                    ploggingImage: nil,
-                    ploggingTotalScore: nil,
-                    ploggingActivityScore: nil,
-                    ploggingEnvironmentScore: nil
-            )
-
-            let trashList = input?.trashList?.map { trash -> Trash in
-                Trash(trashType: trash.trashType.rawValue, pickCount: trash.pickCount)
-            }
-
-            ploggingResultData = PloggingList(id: nil, meta: meta, trashList: trashList ?? [])
-        }
-    }
-
+    var ploggingResult: PloggingResult?
     let contentViewOriginalHeight = 1280
     let totalCountViewOriginalHeight = 80
     let trashInfoViewTopConstraint = 40
@@ -68,13 +40,13 @@ class PloggingResultViewController: UIViewController {
                 return
             }
             PloggingResultPhotoViewController.baseImage = baseImage
-            PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
+            PloggingResultPhotoViewController.ploggingResult = ploggingResult
             PloggingResultPhotoViewController.trashCountSum = getTrashPickTotalCount()
         } else if segue.identifier == SegueIdentifier.openCamera {
             guard let cameraViewController = segue.destination as? CameraViewController else {
                 return
             }
-            cameraViewController.ploggingResultData = ploggingResultData
+            cameraViewController.ploggingResult = ploggingResult
             cameraViewController.trashCountSum = getTrashPickTotalCount()
         }
     }
@@ -90,27 +62,28 @@ class PloggingResultViewController: UIViewController {
         //서버 통신 필요
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
-        ploggingTime.text = ploggingResultData?.meta.ploggingTime.description
-        ploggingDistance.text = ploggingResultData?.meta.distance.description
-        ploggingCalorie.text = ploggingResultData?.meta.calorie.description
+        
+        ploggingTime.text = "\(ploggingResult?.ploggingTime ?? 0)"
+        ploggingDistance.text = String(ploggingResult?.distance ?? 0)
+        ploggingCalorie.text = String(ploggingResult?.calories ?? 0)
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
 
-        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
+        let trashListCount = ploggingResult?.trashList?.count ?? 0
 
-        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
+        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashListCount))
+        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashListCount))
 
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
 
     private func getTrashPickTotalCount() -> Int {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashList = ploggingResult?.trashList else {
             return 0
         }
 
-        let trashCountSum = trashInfos.getTrashPickTotalCount()
+        let trashCountSum = trashList.getTrashPickTotalCount()
         return trashCountSum
     }
 
@@ -252,7 +225,7 @@ extension PloggingResultViewController: UIImagePickerControllerDelegate, UINavig
 // MARK: UICollectionViewDataSource
 extension PloggingResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingResult?.trashList else {
             return 0
         }
         return trashInfos.count
@@ -262,7 +235,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
 
-        guard let trashInfos = ploggingResultData?.trashList, indexPath.item < trashInfos.count else {
+        guard let trashInfos = ploggingResult?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
 
