@@ -1,5 +1,5 @@
 //
-//  PloggingDataSource.swift
+//  PagingDataSource.swift
 //  Plogging
 //
 //  Created by 전소영 on 2021/02/13.
@@ -14,54 +14,63 @@ struct PagingAPI {
     var header: HTTPHeaders
 }
 
-class PloggingDataSource<T> {
-    var api: PagingAPI
-    var countPerPage: Int
-    var isLoadable = true
+enum PagingDataType<T> {
+    case mypage
+    case ranking
     
-    private(set) var pageNumber: Int = 1
+    func createParser() -> Parser {
+        switch self {
+        case .mypage:
+            return PloggingParser<T>.init()
+        case .ranking:
+            //랭킹 Parser로 변경
+            return PloggingParser<T>.init()
+        }
+    }
+}
+
+class PagingDataSource<T> {
+    var api: PagingAPI
+    var isLastPage = false
+    var isLoading = false
+    
+    private(set) var pageNumber = 1
     private(set) var contents: [T] = []
     
-    init(api: PagingAPI, countPerPage: Int) {
+    var parser: Parser
+    
+    init(api: PagingAPI, type: PagingDataType<T>) {
         self.api = api
-        self.countPerPage = countPerPage
+        self.parser = type.createParser()
     }
     
     private func request(_ completion: @escaping (() -> Void)) {
         var params = self.api.params
-        params["ploggingCntPerPage"] = countPerPage
         params["pageNumber"] = self.pageNumber
         
+        isLoading = true
         AF.request(api.url,
                    method: .get,
                    parameters: params,
                    headers: api.header
         ).responseJSON { [self] (response) in
             print("response: \(response)")
+            isLoading = false
             guard let data = response.data else {
                 completion()
                 return
             }
-            print(String.init(data: data, encoding: .utf8))
-            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
-                completion()
-                return
-            }
-            let endPageNumber = value.meta.endPageNumber
-            guard let loadedContents = value.ploggingList as? [T] else {
-                completion()
-                return
-            }
+            let loadedContents: [T] = parser.parseList(from: data)
+            let endPageNumber: Int = parser.getEndPageNumber(from: data)
+
             self.contents.append(contentsOf: loadedContents)
+            
             if self.pageNumber < endPageNumber {
-                completion()
                 self.pageNumber += 1
             } else {
-                if isLoadable == true {
-                    completion()
-                }
-                self.isLoadable = false
+                self.isLastPage = true
             }
+            completion()
         }
     }
     
@@ -77,7 +86,6 @@ class PloggingDataSource<T> {
     }
     
     func isNextLoadable() -> Bool {
-        return isLoadable
+        return !isLastPage && !isLoading
     }
-    
 }
