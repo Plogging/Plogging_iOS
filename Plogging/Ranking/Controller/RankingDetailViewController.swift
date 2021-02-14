@@ -51,7 +51,6 @@ class RankingDetailViewController: UIViewController {
     private func registerNib() {
         collectionView.register(RankingDetailCollectionViewCell.self)
     }
-
 }
 
 extension RankingDetailViewController: UIScrollViewDelegate {
@@ -59,14 +58,14 @@ extension RankingDetailViewController: UIScrollViewDelegate {
         // 헤더 뷰 증가
         if scrollView.contentOffset.y < 0 {
             self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-            headerView.incrementColorAlpha(offset: self.headerHeightConstraint.constant)
-            headerView.incrementAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.decrementNotDefaultAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.incrementDefaultAlpha(offset: self.headerHeightConstraint.constant)
         }
         // 헤더 뷰 감소
         else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
             self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
-            headerView.decrementColorAlpha(offset: scrollView.contentOffset.y)
-            headerView.decrementAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.incrementNotDefaultAlpha(offset: self.headerHeightConstraint.constant)
+            headerView.decrementDefualtAlpha(offset: self.headerHeightConstraint.constant)
             
             if self.headerHeightConstraint.constant < 65 {
                 self.headerHeightConstraint.constant = 65
@@ -104,9 +103,13 @@ extension RankingDetailViewController: UICollectionViewDelegate {
 
 extension RankingDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-//        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-        let size:CGFloat = (collectionView.frame.size.width - 40) / 2.0
+        let size:CGFloat = (collectionView.frame.size.width - 16) / 2.0
         return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
 }

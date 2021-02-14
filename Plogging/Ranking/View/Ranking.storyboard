@@ -53,13 +53,13 @@
                                         <rect key="frame" x="0.0" y="204" width="414" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RSM-Dz-swy">
-                                                <rect key="frame" x="24" y="-1.5" width="139" height="53"/>
+                                                <rect key="frame" x="24" y="1" width="139" height="48"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ob0-0n-ogH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="53"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="48"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2Y-9s-cQg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="48"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="43"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="26"/>
                                                                 <state key="normal" title="주간">
                                                                     <color key="titleColor" red="0.0" green="0.72156862745098038" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,7 +69,7 @@
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkm-Es-DqI">
-                                                                <rect key="frame" x="0.0" y="48" width="54" height="5"/>
+                                                                <rect key="frame" x="0.0" y="43" width="54" height="5"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.72156862745098038" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="5" id="V7U-rj-FzN"/>
@@ -78,10 +78,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="e1E-p2-ry7">
-                                                        <rect key="frame" x="76" y="0.0" width="63" height="53"/>
+                                                        <rect key="frame" x="76" y="0.0" width="63" height="48"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jS-hK-9yl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="63" height="48"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="63" height="43"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="26"/>
                                                                 <state key="normal" title="월간">
                                                                     <color key="titleColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,7 +91,7 @@
                                                                 </connections>
                                                             </button>
                                                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJc-GJ-eka">
-                                                                <rect key="frame" x="0.0" y="48" width="63" height="5"/>
+                                                                <rect key="frame" x="0.0" y="43" width="63" height="5"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.72156862749999995" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="5" id="cBa-0o-HLl"/>
@@ -160,14 +160,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zil-HF-17M">
-                                <rect key="frame" x="0.0" y="300" width="414" height="562"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zil-HF-17M">
+                                <rect key="frame" x="24" y="300" width="366" height="562"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vd3-g4-2SG">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -183,12 +183,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g9L-pB-p8f" firstAttribute="bottom" secondItem="zil-HF-17M" secondAttribute="bottom" id="3kM-sh-Qma"/>
-                            <constraint firstItem="zil-HF-17M" firstAttribute="top" secondItem="EGg-eZ-ip5" secondAttribute="bottom" id="99l-o4-bVx"/>
-                            <constraint firstItem="g9L-pB-p8f" firstAttribute="trailing" secondItem="zil-HF-17M" secondAttribute="trailing" id="EAr-ms-dGX"/>
+                            <constraint firstItem="g9L-pB-p8f" firstAttribute="trailing" secondItem="zil-HF-17M" secondAttribute="trailing" constant="24" id="EAr-ms-dGX"/>
                             <constraint firstItem="EGg-eZ-ip5" firstAttribute="leading" secondItem="g9L-pB-p8f" secondAttribute="leading" id="OLK-1g-yDQ"/>
-                            <constraint firstItem="zil-HF-17M" firstAttribute="leading" secondItem="g9L-pB-p8f" secondAttribute="leading" id="g5D-FP-IPx"/>
+                            <constraint firstItem="zil-HF-17M" firstAttribute="leading" secondItem="g9L-pB-p8f" secondAttribute="leading" constant="24" id="g5D-FP-IPx"/>
                             <constraint firstItem="EGg-eZ-ip5" firstAttribute="top" secondItem="dWH-lp-RY1" secondAttribute="top" id="kTA-Hu-wl3"/>
                             <constraint firstItem="g9L-pB-p8f" firstAttribute="trailing" secondItem="EGg-eZ-ip5" secondAttribute="trailing" id="oSb-yf-fVd"/>
+                            <constraint firstItem="zil-HF-17M" firstAttribute="top" secondItem="EGg-eZ-ip5" secondAttribute="bottom" id="y4O-dJ-Wz4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IYI-3v-AVc">

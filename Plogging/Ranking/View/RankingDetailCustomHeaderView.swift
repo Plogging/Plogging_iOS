@@ -10,8 +10,9 @@ import UIKit
 class CustomHeaderView: UIView {
 
     var imageView:UIImageView!
-    var userIcon:UIImageView!
-    
+    let defaultView = UIView()
+    let notDefaultView = UIView()
+
     override init(frame:CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -27,26 +28,44 @@ class CustomHeaderView: UIView {
     
     func setUpView() {
         self.backgroundColor = .clear
+    
         // 배경 이미지 설정
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
         
-        let constraints:[NSLayoutConstraint] = [
+        let imageViewConstraints:[NSLayoutConstraint] = [
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ]
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate(imageViewConstraints)
         
         imageView.image = UIImage(named: "header")
         imageView.contentMode = .scaleAspectFill
+        
+        defaultHeaderUI()
+        notDefaultHeaderUI()
+    }
+    
+    func defaultHeaderUI() {
+        defaultView.translatesAutoresizingMaskIntoConstraints = false
+        defaultView.backgroundColor = .clear
+        self.addSubview(defaultView)
 
+        let defaultViewConstraints:[NSLayoutConstraint] = [
+            defaultView.topAnchor.constraint(equalTo: self.topAnchor),
+            defaultView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            defaultView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            defaultView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(defaultViewConstraints)
+        
         // 뒤로가기 버튼
         let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(backButton)
+        defaultView.addSubview(backButton)
         let backButtonConstraints:[NSLayoutConstraint] = [
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 21),
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 63),
@@ -57,7 +76,7 @@ class CustomHeaderView: UIView {
         // 유저 닉네임
         let nickNameLabel = UILabel()
         nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(nickNameLabel)
+        defaultView.addSubview(nickNameLabel)
         
         let nickNameConstraints:[NSLayoutConstraint] = [
             nickNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
@@ -70,9 +89,9 @@ class CustomHeaderView: UIView {
         nickNameLabel.textAlignment = .left
         
         // 유저 아이콘
-        userIcon = UIImageView()
+        let userIcon = UIImageView()
         userIcon.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(userIcon)
+        defaultView.addSubview(userIcon)
         
         let imageConstraints:[NSLayoutConstraint] = [
             userIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
@@ -84,35 +103,78 @@ class CustomHeaderView: UIView {
         userIcon.image = UIImage(named: "ranking")
     }
     
-    func createStackView() {
+    func notDefaultHeaderUI() {
+        notDefaultView.alpha = 0
+        notDefaultView.translatesAutoresizingMaskIntoConstraints = false
+        notDefaultView.backgroundColor = .clear
+        self.addSubview(notDefaultView)
+
+        let notDefaultViewViewConstraints:[NSLayoutConstraint] = [
+            notDefaultView.topAnchor.constraint(equalTo: self.topAnchor),
+            notDefaultView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            notDefaultView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            notDefaultView.heightAnchor.constraint(equalToConstant: 150)
+        ]
+        NSLayoutConstraint.activate(notDefaultViewViewConstraints)
         
+        // 뒤로가기 버튼
+        let backButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        notDefaultView.addSubview(backButton)
+        let backButtonConstraints:[NSLayoutConstraint] = [
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 21),
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 63),
+        ]
+        NSLayoutConstraint.activate(backButtonConstraints)
+        backButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+        
+        // 유저 닉네임
+        let nickNameLabel = UILabel()
+        nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        notDefaultView.addSubview(nickNameLabel)
+        
+        let nickNameConstraints:[NSLayoutConstraint] = [
+            nickNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
+            nickNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
+        ]
+        NSLayoutConstraint.activate(nickNameConstraints)
+        nickNameLabel.text = "나는혜리💙"
+        nickNameLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 26)
+        nickNameLabel.textColor = .white
+        nickNameLabel.textAlignment = .left
+        
+        // 유저 아이콘
+        let userIcon = UIImageView()
+        userIcon.translatesAutoresizingMaskIntoConstraints = false
+        notDefaultView.addSubview(userIcon)
+        
+        let imageConstraints:[NSLayoutConstraint] = [
+            userIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            userIcon.topAnchor.constraint(equalTo: topAnchor, constant: 78),
+            userIcon.widthAnchor.constraint(equalToConstant: 48),
+            userIcon.heightAnchor.constraint(equalToConstant: 48)
+        ]
+        NSLayoutConstraint.activate(imageConstraints)
+        userIcon.image = UIImage(named: "ranking")
     }
     
-    func decrementColorAlpha(offset: CGFloat) {
-//        if self.colorView.alpha <= 1 {
-//            let alphaOffset = (offset/500)/85
-//            self.colorView.alpha += alphaOffset
-//        }
-    }
-    
-    func decrementAlpha(offset: CGFloat) {
-        if self.userIcon.alpha >= 0 {
+    func decrementDefualtAlpha(offset: CGFloat) {
+        if self.defaultView.alpha >= 0 {
             let alphaOffset = max((offset - 65)/85.0, 0)
-            self.userIcon.alpha = alphaOffset
+            self.defaultView.alpha = alphaOffset
+        }
+        if defaultView.alpha == 0 {
+            self.notDefaultView.alpha = 1
         }
     }
-    
-    func incrementColorAlpha(offset: CGFloat) {
-//        if self.colorView.alpha >= 0.6 {
-//            let alphaOffset = (offset/200)/85
-//            self.colorView.alpha -= alphaOffset
-//        }
-    }
-    
-    func incrementAlpha(offset: CGFloat) {
-        if self.userIcon.alpha <= 1 {
+
+    func incrementDefaultAlpha(offset: CGFloat) {
+        if self.defaultView.alpha <= 1 {
             let alphaOffset = max((offset - 65)/85, 0)
-            self.userIcon.alpha = alphaOffset
+            self.defaultView.alpha = alphaOffset
+        }
+        if defaultView.alpha >= 0.2 {
+            self.notDefaultView.alpha = 0
         }
     }
 }
