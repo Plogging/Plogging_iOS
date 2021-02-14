@@ -24,6 +24,9 @@
 		1C5B0DDB25D428DA008560FA /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0DDA25D428D9008560FA /* Cookie.swift */; };
 		1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */; };
 		1C5B0E0B25D704B0008560FA /* PloggingUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */; };
+		1C5B0E0E25D95C1C008560FA /* RankingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */; };
+		1C5B0E1125D95CBB008560FA /* RankingDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */; };
+		1C5B0E1225D95CBB008560FA /* RankingDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
@@ -144,6 +147,9 @@
 		1C5B0DDA25D428D9008560FA /* Cookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+RefreshCellDelegate.swift"; sourceTree = "<group>"; };
 		1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUserInfo.swift; sourceTree = "<group>"; };
+		1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailViewController.swift; sourceTree = "<group>"; };
+		1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
@@ -314,6 +320,8 @@
 				1C5A68BD25BF25A100F096A9 /* MyRankingTableViewCell.xib */,
 				1C31C03025C54FEC00413EBB /* RankingRefreshTableViewCell.swift */,
 				1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */,
+				1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */,
+				1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
+				1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -826,6 +835,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5B0E1225D95CBB008560FA /* RankingDetailCollectionViewCell.xib in Resources */,
 				9B0C235325A4DA010084D27B /* PloggingResult.storyboard in Resources */,
 				9B01588F25A0CB19003D3B7B /* LaunchScreen.storyboard in Resources */,
 				1C5A68BF25BF25A100F096A9 /* MyRankingTableViewCell.xib in Resources */,
@@ -1024,6 +1034,7 @@
 				9B51A61525B56F2C000AA9FA /* Extension+UIImage.swift in Sources */,
 				1C5B304825A604E100413115 /* APIKey.swift in Sources */,
 				9B00B3B525D28582006427DE /* ChangePasswordViewController.swift in Sources */,
+				1C5B0E1125D95CBB008560FA /* RankingDetailCollectionViewCell.swift in Sources */,
 				1C5C000625C46B31003144B1 /* SignUpViewController.swift in Sources */,
 				1C5C000725C46B31003144B1 /* LoginViewController.swift in Sources */,
 				9B00B3B325D26D7F006427DE /* SettingViewController.swift in Sources */,
@@ -1044,6 +1055,7 @@
 				3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */,
 				3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */,
 				3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */,
+				1C5B0E0E25D95C1C008560FA /* RankingDetailViewController.swift in Sources */,
 				3D51A0B8A5A8FA8D47D1553D /* PloggingStartViewController.swift in Sources */,
 				3D51AE726AFED7A079E41CCD /* Enum+PloggingInfo.swift in Sources */,
 			);
@@ -1224,7 +1236,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1246,7 +1258,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
