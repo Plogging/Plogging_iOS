@@ -125,7 +125,7 @@ extension LinkApi {
                                                                 "validation_action":action,
                                                                 "validation_params":parameters?.toJsonString(),
                                                                 "ka":Constants.kaHeader,
-                                                                "lcba":serverCallbackArgs].filterNil())
+                                                                "lcba":serverCallbackArgs?.toJsonString()].filterNil())
     }
 }
 

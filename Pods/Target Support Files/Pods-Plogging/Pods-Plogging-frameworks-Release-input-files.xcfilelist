@@ -9,4 +9,5 @@ ${BUILT_PRODUCTS_DIR}/KakaoSDKStory/KakaoSDKStory.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKTalk/KakaoSDKTalk.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKTemplate/KakaoSDKTemplate.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework
