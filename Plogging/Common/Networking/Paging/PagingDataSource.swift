@@ -18,26 +18,24 @@ enum PagingDataType<T> {
     case mypage
     case ranking
     
-    func createParser() -> Parser {
+    func createParser() -> PagingParsable {
         switch self {
         case .mypage:
-            return PloggingParser<T>.init()
+            return MypageParser<T>()
         case .ranking:
             //랭킹 Parser로 변경
-            return PloggingParser<T>.init()
+            return MypageParser<T>()
         }
     }
 }
 
 class PagingDataSource<T> {
-    var api: PagingAPI
-    var isLastPage = false
-    var isLoading = false
-    
+    private(set) var api: PagingAPI
+    private(set) var isLastPage = false
+    private(set) var isLoading = false
     private(set) var pageNumber = 1
     private(set) var contents: [T] = []
-    
-    var parser: Parser
+    private(set) var parser: PagingParsable
     
     init(api: PagingAPI, type: PagingDataType<T>) {
         self.api = api
@@ -53,15 +51,17 @@ class PagingDataSource<T> {
                    method: .get,
                    parameters: params,
                    headers: api.header
-        ).responseJSON { [self] (response) in
-            print("response: \(response)")
-            isLoading = false
+        ).responseJSON { [weak self] response in
+            guard let self = self else {
+                return
+            }
+            self.isLoading = false
             guard let data = response.data else {
                 completion()
                 return
             }
-            let loadedContents: [T] = parser.parseList(from: data)
-            let endPageNumber: Int = parser.getEndPageNumber(from: data)
+            let loadedContents: [T] = self.parser.parseList(from: data)
+            let endPageNumber: Int = self.parser.getEndPageNumber(from: data)
 
             self.contents.append(contentsOf: loadedContents)
             

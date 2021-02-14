@@ -1,5 +1,5 @@
 //
-//  PloggingParser.swift
+//  MypageParser.swift
 //  Plogging
 //
 //  Created by 전소영 on 2021/02/15.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PloggingParser<T>: Parser {
+class MypageParser<T>: PagingParsable {
     func parseList<T>(from data: Data) -> [T] {
         guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data),
               let loadedContents = value.ploggingList as? [T] else {
