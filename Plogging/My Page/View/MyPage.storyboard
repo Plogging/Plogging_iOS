@@ -17,7 +17,7 @@
         <!--My Page View Controller-->
         <scene sceneID="q1n-fq-wDs">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRL-nI-UWH">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -732,10 +732,10 @@
             </objects>
             <point key="canvasLocation" x="1888" y="758"/>
         </scene>
-        <!--Sign Out View Controller-->
+        <!--Delete User View Controller-->
         <scene sceneID="5jd-0x-J67">
             <objects>
-                <viewController storyboardIdentifier="SignOutViewController" id="OaF-GD-HJk" customClass="SignOutViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeleteUserViewController" id="OaF-GD-HJk" customClass="DeleteUserViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beI-Hk-fp2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
