@@ -13,7 +13,8 @@ class PloggingStartViewController: UIViewController {
     @IBOutlet weak var showIntroduceModalButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
-
+    @IBOutlet weak var startButton: ConfirmButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pathManager = PathManager.pathManager
@@ -28,6 +29,10 @@ class PloggingStartViewController: UIViewController {
     }
     
     func setupView() {
+
+        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
+        currentLocationButton.backgroundColor = .white
+
         let title = UILabel()
         title.text = "플로깅 가이드 확인하기"
         title.font.withSize(17)
@@ -39,11 +44,9 @@ class PloggingStartViewController: UIViewController {
             title.topAnchor.constraint(equalTo: showIntroduceModalButton.topAnchor, constant: 19),
             title.trailingAnchor.constraint(equalTo: showIntroduceModalButton.trailingAnchor, constant: -20)
         ])
-        
-        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
-        currentLocationButton.backgroundColor = .white
-        
-        
+
+        startButton.title = "플로깅 시작하기"
+
     }
 
     @IBAction func presentIntroduceModal(_ sender: Any) {

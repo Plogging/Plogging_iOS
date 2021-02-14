@@ -125,11 +125,6 @@ class PloggingRunningInfoViewController: UIViewController {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")
         summeryTime.setupView(unit: "분", value: "00:00")
         summeryKcal.setupView(unit: "kcal", value: "0")
-        stopButton.backgroundColor = .gray
-        stopButton.setTitle("종료", for: .normal)
-        
-        continueButton.setTitle("쓰레기 기록하기", for: .normal)
-        
         summeryStackView.layer.cornerRadius = 20
         setGradationView(
                 view: summeryStackView,
@@ -138,7 +133,13 @@ class PloggingRunningInfoViewController: UIViewController {
                 startPoint: .init(x: 0.0, y: 0.0),
                 endPoint: .init(x: 0.0, y: 1.0)
         )
-        
+
+        stopButton.backgroundColor = .gray
+        stopButton.setAttributedTitle(NSMutableAttributedString().normal("종료", fontSize: 19), for: .normal)
+        stopButton.setTitleColor(.white, for: .normal)
+
+        continueButton.title = "쓰레기 기록하기"
+
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()
     }
