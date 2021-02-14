@@ -21,6 +21,34 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var footerView: UIView!
     var baseImage: UIImage?
     var ploggingResultData: PloggingList?
+
+    // Plogging Running Info View Controller에서 넘어온 plogging 결과 값
+    // TODO: 관련 코드 변경
+    var ploggingResult: PloggingResult? {
+
+        // ploggingResultData가 없으면, 사진 촬영 시 데이터가 안보여서,
+        // 뷰 전환 제대로 됨을 증명하고자, 모킹 함수를 만들었습니다. 변경 사항 적용 후 모킹 함수 지워주세요.
+        willSet(input) {
+            let meta = Meta(
+                    userId: nil,
+                    createTime: nil,
+                    distance: input?.distance ?? 0,
+                    calories: 250,
+                    ploggingTime: input?.ploggingTime ?? 0,
+                    ploggingImage: nil,
+                    ploggingTotalScore: nil,
+                    ploggingActivityScore: nil,
+                    ploggingEnvironmentScore: nil
+            )
+
+            let trashList = input?.trashList?.map { trash -> Trash in
+                Trash(trashType: trash.trashType.rawValue, pickCount: trash.pickCount)
+            }
+
+            ploggingResultData = PloggingList(id: nil, meta: meta, trashList: trashList ?? [])
+        }
+    }
+
     let contentViewOriginalHeight = 1280
     let totalCountViewOriginalHeight = 80
     let trashInfoViewTopConstraint = 40
@@ -58,7 +86,7 @@ class PloggingResultViewController: UIViewController {
     
     private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
-        
+
         //서버 통신 필요
 //        exerciseScore.text = ploggingResultData?.score.exercise
 //        echoScore.text = ploggingResultData?.score.eco
@@ -68,20 +96,20 @@ class PloggingResultViewController: UIViewController {
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
-        
+
         let trashInfosCount = ploggingResultData?.trashList.count ?? 0
-        
+
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
-        
+
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
-    
+
     private func getTrashPickTotalCount() -> Int {
         guard let trashInfos = ploggingResultData?.trashList else {
             return 0
         }
-        
+
         let trashCountSum = trashInfos.getTrashPickTotalCount()
         return trashCountSum
     }
@@ -234,26 +262,21 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
 
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingResultData?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
-        
-        guard indexPath.item < trashInfos.count else {
-            return cell
-        }
-       
+
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
-        let isLastItem = indexPath.item == trashInfos.count - 1
-        if isLastItem {
+        if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
- 
+
         if trashInfos.getTrashPickTotalCount() == 0 {
             //쓰레기 0개일 때 처리 추가
 //            trashCountCell?.pickUpZero()
         }
-    
+
         return cell
     }
 }
@@ -261,7 +284,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PloggingResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         return CGSize(width: Int(DeviceInfo.screenWidth) - collectionViewCellLeading - collectionViewCellTrailing , height: 50)
     }
 }

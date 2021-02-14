@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HGx-tp-GMd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-Sj-bwq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="-44" width="414" height="984"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVp-qM-Ers" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
                                 <rect key="frame" x="109" y="651" width="196" height="78"/>
@@ -27,7 +27,17 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="iDk-36-o5o" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="1P9-KW-9ZJ"/>
+                                    <segue destination="g4I-HC-mri" kind="presentation" modalPresentationStyle="fullScreen" id="VGP-tN-xRs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-bk-qzr">
+                                <rect key="frame" x="88.666666666666686" y="561" width="237" height="68"/>
+                                <state key="normal" image="IntrouduceButton">
+                                    <color key="titleColor" red="0.13333499430000001" green="0.13333114979999999" blue="0.13333195449999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentIntroduceModal:" destination="LsG-j0-skQ" eventType="touchUpInside" id="fV0-d5-vqt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,20 +47,22 @@
                             <constraint firstItem="gOF-4b-UF3" firstAttribute="bottom" secondItem="kVp-qM-Ers" secondAttribute="bottom" constant="133" id="4wm-Ti-oJb"/>
                             <constraint firstItem="kVp-qM-Ers" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="7JD-Z8-ehr"/>
                             <constraint firstItem="gOF-4b-UF3" firstAttribute="top" secondItem="GXP-Sj-bwq" secondAttribute="top" constant="88" id="N6N-L6-EYY"/>
+                            <constraint firstItem="kVp-qM-Ers" firstAttribute="top" secondItem="gd3-bk-qzr" secondAttribute="bottom" constant="22" id="Zqw-w3-Vpx"/>
                             <constraint firstItem="GXP-Sj-bwq" firstAttribute="centerY" secondItem="bHg-Id-0Y1" secondAttribute="centerY" id="gpH-a6-JOF"/>
                             <constraint firstItem="GXP-Sj-bwq" firstAttribute="leading" secondItem="gOF-4b-UF3" secondAttribute="leading" id="hqe-e9-YlO"/>
+                            <constraint firstItem="gd3-bk-qzr" firstAttribute="centerX" secondItem="bHg-Id-0Y1" secondAttribute="centerX" id="ohj-VU-mdI"/>
                             <constraint firstItem="GXP-Sj-bwq" firstAttribute="centerX" secondItem="kVp-qM-Ers" secondAttribute="centerX" id="sl3-jO-2A0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BQd-LL-Bif"/>
                     <connections>
                         <outlet property="mapView" destination="GXP-Sj-bwq" id="U4w-Pg-Mtx"/>
-                        <outlet property="presentIntroduceModal" destination="kVp-qM-Ers" id="oMA-Mv-bfK"/>
+                        <outlet property="showIntroduceModalButton" destination="gd3-bk-qzr" id="2H5-cX-Cnc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0K-c9-4nf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268.1159420289855" y="-391.07142857142856"/>
+            <point key="canvasLocation" x="-1064" y="-391"/>
         </scene>
         <!--Plogging Introduce Modal View Controller-->
         <scene sceneID="rWS-4A-ax1">
@@ -60,19 +72,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
                                 <rect key="frame" x="0.0" y="103" width="414" height="686"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="318" width="414" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="243" width="414" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="442" width="414" height="244"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="486" width="414" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -82,7 +94,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Iu8-Pr-tad" secondAttribute="trailing" id="Pi8-BS-Gdk"/>
-                            <constraint firstItem="fMK-Xs-Sqc" firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="73" id="r2n-BJ-feO"/>
+                            <constraint firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="107" id="r2n-BJ-feO"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" constant="59" id="tJ9-A6-Rj5"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="leading" secondItem="6wX-mt-Xj8" secondAttribute="leading" id="zyu-dT-LnD"/>
                         </constraints>
@@ -95,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQw-Sh-owb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="357"/>
+            <point key="canvasLocation" x="-1065" y="311"/>
         </scene>
         <!--Plogging Pick Trash View Controller-->
         <scene sceneID="Qgp-zd-MGM">
@@ -111,13 +123,23 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
                                         <rect key="frame" x="0.0" y="0.0" width="378" height="171.66666666666666"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" userLabel="vinyl" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nud-Ee-kzk" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -127,10 +149,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-Qr-MfR" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf6-kk-QUL" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -140,10 +172,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-4Y-zXW" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLO-B8-j8i" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
                                                 <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -188,31 +230,12 @@
                         <outlet property="glass" destination="nud-Ee-kzk" id="DRh-Dt-pgK"/>
                         <outlet property="paper" destination="ciP-Qr-MfR" id="azq-fy-JHI"/>
                         <outlet property="plastic" destination="Bf6-kk-QUL" id="cZ9-z8-oKr"/>
-                        <outlet property="vinil" destination="Cjt-AF-4aS" id="UHi-x2-lEz"/>
+                        <outlet property="vinyl" destination="Cjt-AF-4aS" id="ETc-qF-HXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5X-0d-wFx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="566.66666666666674" y="343.52678571428572"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gyd-UY-9P6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-tp-GMd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fBK-Rq-Yhe">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rxJ-u1-4of">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="LsG-j0-skQ" kind="relationship" relationship="rootViewController" id="Kxb-it-ZIF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nWV-Dd-i44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1210" y="-391"/>
         </scene>
         <!--Plogging Running Info View Controller-->
         <scene sceneID="Nvt-tf-emK">
@@ -247,7 +270,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="L58-d0-Xxa" kind="show" id="mej-vC-8cd"/>
+                                            <segue destination="L58-d0-Xxa" kind="presentation" identifier="pickTrash" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
@@ -258,7 +281,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="backToStart" destination="iDk-36-o5o" eventType="touchUpInside" id="621-3A-yCV"/>
+                                            <action selector="finishPlogging" destination="iDk-36-o5o" eventType="touchUpInside" id="7hy-hr-GoV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -314,7 +337,7 @@
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
                         <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
-                        <outlet property="stopButton" destination="6eF-DA-V2s" id="pzC-DF-qWc"/>
+                        <outlet property="stopButton" destination="6eF-DA-V2s" id="xPZ-qa-cgg"/>
                         <outlet property="summeryDistance" destination="FvQ-dZ-Ldi" id="Rgq-Fi-bMP"/>
                         <outlet property="summeryKcal" destination="Rny-Ru-w5A" id="Qmc-hx-kly"/>
                         <outlet property="summeryStackView" destination="Mbw-af-PWV" id="5sM-4N-cT3"/>
@@ -325,8 +348,50 @@
             </objects>
             <point key="canvasLocation" x="563.768115942029" y="-391.07142857142856"/>
         </scene>
+        <!--Waiting Screen View Controller-->
+        <scene sceneID="vsv-Hh-6cZ">
+            <objects>
+                <viewController storyboardIdentifier="WaitingScreenViewController" id="g4I-HC-mri" customClass="WaitingScreenViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jf5-c3-2ph">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플로깅이 곧 시작됩니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJL-7l-Jzr">
+                                <rect key="frame" x="16" y="551" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.38823529410000002" green="0.43137254899999999" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-AT-fvo">
+                                <rect key="frame" x="149" y="377" width="116" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="4z7-uf-pSm"/>
+                                    <constraint firstAttribute="height" constant="142" id="Vha-uB-gdy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a8z-1n-1Xx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UJL-7l-Jzr" firstAttribute="leading" secondItem="a8z-1n-1Xx" secondAttribute="leading" constant="16" id="4EC-Gm-ADw"/>
+                            <constraint firstItem="kk2-AT-fvo" firstAttribute="centerY" secondItem="jf5-c3-2ph" secondAttribute="centerY" id="lDD-Aa-QgL"/>
+                            <constraint firstItem="kk2-AT-fvo" firstAttribute="centerX" secondItem="jf5-c3-2ph" secondAttribute="centerX" id="tOR-gk-ZtV"/>
+                            <constraint firstItem="a8z-1n-1Xx" firstAttribute="trailing" secondItem="UJL-7l-Jzr" secondAttribute="trailing" constant="16" id="x4I-t4-afx"/>
+                            <constraint firstItem="UJL-7l-Jzr" firstAttribute="top" secondItem="kk2-AT-fvo" secondAttribute="bottom" constant="32" id="z5I-UV-wi5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="kk2-AT-fvo" id="15x-Q7-9A6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2a-jM-gx4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="-391"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="3" width="116" height="142"/>
+        <image name="IntrouduceButton" width="237" height="68"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

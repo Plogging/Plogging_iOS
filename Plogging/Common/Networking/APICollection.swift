@@ -10,7 +10,8 @@ import Alamofire
 
 struct APICollection {
     static let sharedAPI = APICollection()
-    
+    let defaultHeader: HTTPHeaders = ["Content-Type": "application/json"]
+
     func gettingHeader() -> HTTPHeaders {
         if let cookie = PloggingCookie.shared.getUserCookie() {
             return [
@@ -31,12 +32,15 @@ struct APICollection {
         } else {
             return defaultHeader
         }
-    }
 
-    let defaultHeader: HTTPHeaders = [
-        "Content-Type": "application/json"
-    ]
-}
+    func getCookies() {
+        // 쿠키 설정
+        if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
+            DispatchQueue.main.async {
+                PloggingCookie.shared.setUserCookie("\(cookieName)=\(cookieValue)")
+            }
+        }
+    }
 
 // MARK: - USER
 extension APICollection {
@@ -53,6 +57,10 @@ extension APICollection {
             }
 
             print(response)
+            
+            // 쿠키 설정
+            getCookies()
+            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
@@ -75,11 +83,7 @@ extension APICollection {
             print(response)
 
             // 쿠키 설정
-            if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
-                DispatchQueue.main.async {
-                    PloggingCookie.shared.setUserCookie(cookie: "\(cookieName)=\(cookieValue)")
-                }
-            }
+            getCookies()
             
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
@@ -112,7 +116,7 @@ extension APICollection {
 
     /// 회원가입
     func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userCheck,
+        AF.request(BaseURL.mainURL + BasePath.user,
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -131,11 +135,70 @@ extension APICollection {
         }
     }
     
+    /// 사용자 정보 가져오기
+    func requestUserInfo(id: String, completion: @escaping (Result<PloggingUserInfo, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.user + "/\(id)",
+                   method: .get,
+                   encoding: URLEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { (response) in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            guard let value = try? JSONDecoder().decode(PloggingUserInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 임시 비밀번호 발급
     func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
                    method: .put,
                    parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
+    /// 로그아웃
+    func requestUserSignOut(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userSignOut,
+                   method: .put,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
+    /// 회원탈퇴
+    func requestDeleteUser(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.user,
+                   method: .delete,
                    encoding: JSONEncoding.default,
                    headers: gettingHeader()
         ).responseJSON { response in
@@ -215,7 +278,6 @@ extension APICollection {
 // MARK: - RANKING
 extension APICollection {
     func requestGlobalRanking(param: Parameters, completion: @escaping (Result<RankingGlobal, APIError>) -> Void) {
-        
         AF.request(BaseURL.mainURL + BasePath.rankingGlobal,
                    method: .get,
                    parameters: param,
@@ -234,9 +296,8 @@ extension APICollection {
         }
     }
     
-    // URL에 id(path variable)추가
-    func requestUserRanking(param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {        
-        AF.request(BaseURL.mainURL + BasePath.rankUserId,
+    func requestUserRanking(id: String, param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.rankUserId + "/\(id)",
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,

@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
     
     var rankingViewController: RankingViewController?
-    var ploggingController: PloggingViewController?
+    var ploggingController: PloggingStartViewController?
     var myPageViewController: MyPageViewController?
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         case MainTab.ranking.segueIdentifier:
             rankingViewController = segue.destination as? RankingViewController
         case MainTab.plogging.segueIdentifier:
-            ploggingController = segue.destination as? PloggingViewController
+            ploggingController = segue.destination as? PloggingStartViewController
         case MainTab.myPage.segueIdentifier:
             myPageViewController = segue.destination as? MyPageViewController
         default:

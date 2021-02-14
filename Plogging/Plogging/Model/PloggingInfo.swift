@@ -40,7 +40,7 @@ struct PagingMeta: Codable {
 struct PloggingList: Codable {
     let id: String?
     let meta: Meta
-    let trashList: [TrashList]
+    let trashList: [Trash]
 
     enum PloggingListCodingKeys: String, CodingKey {
         case id = "_id"
@@ -92,11 +92,11 @@ struct Meta: Codable {
 }
 
 // MARK: - TrashList
-struct TrashList: Codable {
+struct Trash: Codable {
     let trashType: Int
     let pickCount: Int
     
-    enum TrashListCodingKeys: String, CodingKey {
+    enum TrashCodingKeys: String, CodingKey {
         case trashType = "trash_type"
         case pickCount = "pick_count"
     }
@@ -108,7 +108,22 @@ struct TrashList: Codable {
     }
 }
 
-extension Array where Element == TrashList {
+struct TrashItem {
+    var trashType: TrashType
+    var pickCount = 0
+}
+
+// MARK: - PloggingResult
+struct PloggingResult {
+    // 플로깅 거리 (m)
+    let distance: Int?
+    let calories: Int?
+    // 플로깅 시간 (초)
+    let ploggingTime: Int?
+    var trashList: [TrashItem]?
+}
+
+extension Array where Element == Trash {
     func getTrashPickTotalCount() -> Int {
         reduce(0) { $0 + $1.pickCount }
     }
