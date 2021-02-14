@@ -27,6 +27,7 @@
 		1C5B0E0E25D95C1C008560FA /* RankingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */; };
 		1C5B0E1125D95CBB008560FA /* RankingDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */; };
 		1C5B0E1225D95CBB008560FA /* RankingDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */; };
+		1C5B0E1425D9706F008560FA /* RankingDetailCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
@@ -150,6 +151,7 @@
 		1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailViewController.swift; sourceTree = "<group>"; };
 		1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailCustomHeaderView.swift; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */,
 				1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */,
 				1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */,
+				1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1019,6 +1022,7 @@
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */,
+				1C5B0E1425D9706F008560FA /* RankingDetailCustomHeaderView.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
