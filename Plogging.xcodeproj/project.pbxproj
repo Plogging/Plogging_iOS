@@ -452,8 +452,7 @@
 				1CBE988F25AC7B4800CC247A /* BaseURL.swift */,
 				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
 				1C5B0DDA25D428D9008560FA /* Cookie.swift */,
-				9B3F9DA625D7A69100E41F95 /* PagingDataSource.swift */,
-				9B2A87EB25D99F4E008EC772 /* PloggingParser.swift */,
+				9B2A87ED25D9A06D008EC772 /* Paging */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -651,6 +650,15 @@
 				9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9B2A87ED25D9A06D008EC772 /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				9B3F9DA625D7A69100E41F95 /* PagingDataSource.swift */,
+				9B2A87EB25D99F4E008EC772 /* PloggingParser.swift */,
+			);
+			path = Paging;
 			sourceTree = "<group>";
 		};
 		9B32B5AC25C27F4900CB25C0 /* Model */ = {
