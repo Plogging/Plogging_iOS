@@ -123,7 +123,7 @@ class PloggingRunningInfoViewController: UIViewController {
 
     func setupView() {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")
-        summeryTime.setupView(unit: "분", value: "00:00")
+        summeryTime.setupView(unit: "진행시간", value: "00:00")
         summeryKcal.setupView(unit: "칼로리", value: "0")
         summeryStackView.layer.cornerRadius = 20
         setGradationView(
