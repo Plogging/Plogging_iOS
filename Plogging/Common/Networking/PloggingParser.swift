@@ -1,16 +1,11 @@
 //
-//  Parser.swift
+//  PloggingParser.swift
 //  Plogging
 //
-//  Created by 전소영 on 2021/02/14.
+//  Created by 전소영 on 2021/02/15.
 //
 
 import Foundation
-
-protocol Parser {
-    func parseList<T>(from data: Data) -> [T]
-    func getEndPageNumber(from data: Data) -> Int
-}
 
 class PloggingParser<T>: Parser {
     func parseList<T>(from data: Data) -> [T] {

@@ -88,7 +88,8 @@
 		9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C238F25A6F1540084D27B /* ImageRenderingMaker.swift */; };
 		9B14C10D25BC6A4F0066B2B5 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */; };
 		9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */; };
-		9B2A87E825D952F3008EC772 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87E725D952F3008EC772 /* Parser.swift */; };
+		9B2A87E825D952F3008EC772 /* Protocol+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87E725D952F3008EC772 /* Protocol+Parser.swift */; };
+		9B2A87EC25D99F4E008EC772 /* PloggingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87EB25D99F4E008EC772 /* PloggingParser.swift */; };
 		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */; };
 		9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */; };
@@ -216,7 +217,8 @@
 		9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultImageMaker.swift; sourceTree = "<group>"; };
 		9B14C10B25BC6A3F0066B2B5 /* AppleSDGothicNeoH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoH.ttf; sourceTree = "<group>"; };
 		9B14C10C25BC6A4B0066B2B5 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
-		9B2A87E725D952F3008EC772 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		9B2A87E725D952F3008EC772 /* Protocol+Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+Parser.swift"; sourceTree = "<group>"; };
+		9B2A87EB25D99F4E008EC772 /* PloggingParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingParser.swift; sourceTree = "<group>"; };
 		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCountCell.swift; sourceTree = "<group>"; };
 		9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailInfoViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				1C31C03725C5BA3D00413EBB /* Protocol+LoginValidation.swift */,
 				1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */,
 				1C9A3A9E25CDCA7800668058 /* Protocol+ReusableCell.swift */,
+				9B2A87E725D952F3008EC772 /* Protocol+Parser.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -450,7 +453,7 @@
 				1CBE98AB25AF2DFA00CC247A /* APIError.swift */,
 				1C5B0DDA25D428D9008560FA /* Cookie.swift */,
 				9B3F9DA625D7A69100E41F95 /* PagingDataSource.swift */,
-				9B2A87E725D952F3008EC772 /* Parser.swift */,
+				9B2A87EB25D99F4E008EC772 /* PloggingParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1012,7 +1015,7 @@
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */,
-				9B2A87E825D952F3008EC772 /* Parser.swift in Sources */,
+				9B2A87E825D952F3008EC772 /* Protocol+Parser.swift in Sources */,
 				1CC281BE25B4B121003FBCCD /* Extension+UIButton.swift in Sources */,
 				9B01588325A0CB15003D3B7B /* AppDelegate.swift in Sources */,
 				1C31C03525C5B60800413EBB /* FindPasswordViewController.swift in Sources */,
@@ -1030,6 +1033,7 @@
 				1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */,
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
+				9B2A87EC25D99F4E008EC772 /* PloggingParser.swift in Sources */,
 				1C21854125B9F1A50076CD14 /* WaitingScreenViewController.swift in Sources */,
 				9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
