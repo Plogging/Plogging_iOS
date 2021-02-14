@@ -19,16 +19,13 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var sortingView: UIStackView!
+    @IBOutlet weak var sortingLabel: UILabel!
     @IBOutlet weak var sortingButton: UIButton!
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
-    private var ploggingInfo: PloggingInfo? {
-        didSet {
-            checkValidation()
-        }
-    }
-    private let dataSource = PloggingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0], header: APICollection.sharedAPI.gettingHeader()))
+    
+    private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -56,23 +53,6 @@ class MyPageViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    private func checkValidation() {
-        guard let model = ploggingInfo else {
-            return
-        }
-        switch model.rc {
-        case 200:
-            print("success!!")
-        case 401:
-            print("권한없음. 로그인 필요")
-            //로그인 페이지로 전환
-        case 500:
-            print("서버 error")
-        default:
-            print("success")
-        }
-    }
-    
     func setUpNavigationBarUI() {
         self.navigationController?.navigationBar.isHidden = true
         
@@ -96,20 +76,31 @@ class MyPageViewController: UIViewController {
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
-            
+            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self.pagingDataSource.loadFromFirst {
+                self.updateUI()
+            }
+            self.sortingLabel.text = "최신순"
+        }
+        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
+            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self.pagingDataSource.loadFromFirst {
+                self.updateUI()
+            }
+            self.sortingLabel.text = "점수순"
         }
         let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { _ in
-            
-        }
-        
-        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
-            
+            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self.pagingDataSource.loadFromFirst {
+                self.updateUI()
+            }
+            self.sortingLabel.text = "모은 쓰레기 순"
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(dateSorting)
-        alert.addAction(trashCountSorting)
         alert.addAction(scoreSorting)
+        alert.addAction(trashCountSorting)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
@@ -118,20 +109,41 @@ class MyPageViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.contents.count
+        return pagingDataSource.contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
        
-        guard indexPath.item < dataSource.contents.count else {
+        guard indexPath.item < pagingDataSource.contents.count else {
             return cell
         }
-        let content = dataSource.contents[indexPath.item]
         
-        ploggingResultPhotoCell?.updateUI(image: UIImage(named: "test")!)
+        // 페이징 테스트용
+        guard let ploggingImageUrl = pagingDataSource.contents[indexPath.item].meta.ploggingImage else {
+            return cell
+        }
         
+        guard let createdTime = pagingDataSource.contents[indexPath.item].meta.createdTime else {
+            return cell
+        }
+        
+        guard let ploggingTotalScore = pagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
+            return cell
+        }
+        
+        guard let ploggingTrashCount = pagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
+            return cell
+        }
+        
+        
+        guard let url = URL(string: ploggingImageUrl) else {
+            return cell
+        }
+        
+        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url, time: createdTime, scroe: ploggingTotalScore, trash: ploggingTrashCount)
+
         cell.contentView.isUserInteractionEnabled = false
         return cell
     }
