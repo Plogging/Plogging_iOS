@@ -61,7 +61,7 @@ class PloggingPickTrashViewController: UIViewController {
     
     func setupView() {
         
-        confirmButton.setTitle("저장", for: .normal)
+        confirmButton.title = "저장"
         confirmButton.layer.cornerRadius = 12
         
         view.backgroundColor = .fromInt(red: 248, green: 250, blue: 252, alpha: 1)

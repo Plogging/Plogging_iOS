@@ -44,7 +44,7 @@ class PloggingRunningInfoViewController: UIViewController {
     
     
     func updateCount() {
-        countLabel.text = "\(count)"
+        countLabel.attributedText = NSMutableAttributedString().heavy("\(count)", fontSize: 72)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,7 +124,7 @@ class PloggingRunningInfoViewController: UIViewController {
     func setupView() {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")
         summeryTime.setupView(unit: "분", value: "00:00")
-        summeryKcal.setupView(unit: "kcal", value: "0")
+        summeryKcal.setupView(unit: "칼로리", value: "0")
         summeryStackView.layer.cornerRadius = 20
         setGradationView(
                 view: summeryStackView,
