@@ -26,15 +26,21 @@ extension PathManager: CLLocationManagerDelegate{
         if let lastLocation = locationList.last {
             distance = distance + Int(currentLocation.distance(from: lastLocation))
         }
-
         locationList.append(currentLocation)
 
-        print("[BACKUP] update count : \(locations.count)")
-
         if locationList.count % 10 == 0 {
+            print("[BACKUP] update count : \(locations.count)")
             backupPath()
         }
+
         guard let mapView = mapView else {return}
+
+        if locationList.count == 1, let startLocation = locationList.first {
+            let point = MKPointAnnotation()
+            point.coordinate = startLocation.coordinate
+            point.title = "startPoint"
+            mapView.addAnnotation(point)
+        }
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
 }
@@ -51,11 +57,19 @@ extension PathManager: MKMapViewDelegate {
     }
 
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
         if annotation.isEqual(mapView.userLocation) {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
-            annotationView.image = UIImage(named: "UserLocation")
+            annotationView.image = UIImage(named: "ovalCopy")
             return annotationView
         }
+
+        if annotation.title == "startPoint" {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "startPoint")
+            annotationView.image = UIImage(named: "oval")
+            return annotationView
+        }
+
         return nil
     }
 }

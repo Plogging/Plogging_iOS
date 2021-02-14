@@ -92,7 +92,7 @@ class PathManager: NSObject {
     }
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 1400)
+        MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {
