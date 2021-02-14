@@ -13,19 +13,19 @@ class PloggingStartViewController: UIViewController {
     @IBOutlet weak var showIntroduceModalButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
-    @IBAction func presentIntroduceModal(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
-        if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController")
-                as? PloggingIntroduceModalViewController {
-            infoController.isModalInPresentation = false
-            present(infoController, animated: true, completion: nil)
-        }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pathManager = PathManager.pathManager
+        pathManager?.isSetPermissions()
+        setupView()
     }
 
-    @IBAction func focusCurrentLocation(_ sender: Any) {
-        pathManager?.pointResentLocation(location: mapView.userLocation.coordinate)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pathManager?.setupMapview(on: mapView)
+        pathManager?.startLocationUpdate()
     }
-    
     
     func setupView() {
         let title = UILabel()
@@ -45,18 +45,18 @@ class PloggingStartViewController: UIViewController {
         
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pathManager = PathManager.pathManager
-        
-        setupView()
+
+    @IBAction func presentIntroduceModal(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
+        if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController")
+                as? PloggingIntroduceModalViewController {
+            infoController.isModalInPresentation = false
+            present(infoController, animated: true, completion: nil)
+        }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        pathManager?.setupMapview(on: mapView)
-        pathManager?.startLocationUpdate()
+
+    @IBAction func focusCurrentLocation(_ sender: Any) {
+        pathManager?.pointResentLocation(location: mapView.userLocation.coordinate)
     }
     
 }

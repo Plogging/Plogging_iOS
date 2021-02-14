@@ -28,6 +28,12 @@ class PathManager: NSObject {
     override init() {
         super.init()
     }
+
+    func isSetPermissions() {
+        if locationManager.authorizationStatus.rawValue < CLAuthorizationStatus.authorizedAlways.rawValue {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
     func setupMapview(on mapView: MKMapView) {
         self.mapView = mapView
@@ -42,7 +48,6 @@ class PathManager: NSObject {
     }
 
     func startLocationUpdate () {
-        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
