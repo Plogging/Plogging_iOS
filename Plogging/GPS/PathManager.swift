@@ -29,6 +29,7 @@ class PathManager: NSObject {
         super.init()
     }
 
+    // todo 위치 연결 팝업 연결
     func isSetPermissions() {
         if locationManager.authorizationStatus.rawValue < CLAuthorizationStatus.authorizedAlways.rawValue {
             locationManager.requestWhenInUseAuthorization()
