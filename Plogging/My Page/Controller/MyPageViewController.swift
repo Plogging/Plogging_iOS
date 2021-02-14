@@ -46,11 +46,8 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
-        
-//        let requestPloggingData = APICollection.sharedAPI.requestGetPloggingResult(param: [:]) { (response) in
-//            self.ploggingInfo = try? response.get()
-//        }
-        dataSource.loadFromFirst {
+
+        pagingDataSource.loadFromFirst {
             self.updateUI()
         }
     }
