@@ -75,26 +75,26 @@ class MyPageViewController: UIViewController {
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
-            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self.pagingDataSource.loadFromFirst {
-                self.updateUI()
+        let dateSorting = UIAlertAction(title: "최신순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
             }
-            self.sortingLabel.text = "최신순"
+            self?.sortingLabel.text = "최신순"
         }
-        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
-            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self.pagingDataSource.loadFromFirst {
-                self.updateUI()
+        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
             }
-            self.sortingLabel.text = "점수순"
+            self?.sortingLabel.text = "점수순"
         }
-        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { _ in
-            self.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self.pagingDataSource.loadFromFirst {
-                self.updateUI()
+        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
             }
-            self.sortingLabel.text = "모은 쓰레기 순"
+            self?.sortingLabel.text = "모은 쓰레기 순"
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -221,8 +221,8 @@ extension MyPageViewController: UIScrollViewDelegate {
 }
 
 extension UIScrollView {
-    func requestNextPage(minimumBottomArea: CGFloat = 50) -> Bool {
-        let maxY = bounds.height + contentOffset.y
-        return contentSize.height - maxY < minimumBottomArea
+    func requestNextPage(minimumBottomValue: CGFloat = 50) -> Bool {
+        let offsetMaxY = contentOffset.y + bounds.height
+        return contentSize.height - offsetMaxY < minimumBottomValue
     }
 }

@@ -119,7 +119,7 @@ extension PloggingDetailInfoViewController {
     
     @IBAction func deletePloggingRecord(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let delete = UIAlertAction(title: "기록 삭제", style: .default) { _ in
+        let delete = UIAlertAction(title: "기록 삭제", style: .default) { [weak self] _ in
             // 네트워크 플로깅 기록 삭제 추가
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -138,8 +138,8 @@ extension PloggingDetailInfoViewController {
         
         let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default)
-        let yes = UIAlertAction(title: "네", style: .default) { [self] _ in
-            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        let yes = UIAlertAction(title: "네", style: .default) { [weak self] _ in
+            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self?.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
         }
         alert.addAction(no)
         alert.addAction(yes)
