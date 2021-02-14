@@ -191,6 +191,12 @@ extension MyPageViewController: UIScrollViewDelegate {
             profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         navigationBarView.layoutIfNeeded()
+        
+        if scrollView.requestNextPage() {
+            pagingDataSource.loadNext {
+                self.updateUI()
+            }
+        }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
