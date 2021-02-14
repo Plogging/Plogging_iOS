@@ -17,11 +17,12 @@ struct PagingAPI {
 class PloggingDataSource<T> {
     var api: PagingAPI
     var countPerPage: Int
+    var isLoadable = true
     
     private(set) var pageNumber: Int = 1
     private(set) var contents: [T] = []
     
-    init(api: PagingAPI, countPerPage: Int = 30) {
+    init(api: PagingAPI, countPerPage: Int) {
         self.api = api
         self.countPerPage = countPerPage
     }
@@ -35,7 +36,7 @@ class PloggingDataSource<T> {
                    method: .get,
                    parameters: params,
                    headers: api.header
-        ).responseJSON { (response) in
+        ).responseJSON { [self] (response) in
             print("response: \(response)")
             guard let data = response.data else {
                 completion()
@@ -46,15 +47,22 @@ class PloggingDataSource<T> {
                 completion()
                 return
             }
+            let endPageNumber = value.meta.endPageNumber
             guard let loadedContents = value.ploggingList as? [T] else {
                 completion()
                 return
             }
             self.contents.append(contentsOf: loadedContents)
-            self.pageNumber += 1
-            completion()
+            if self.pageNumber < endPageNumber {
+                completion()
+                self.pageNumber += 1
+            } else {
+                if isLoadable == true {
+                    completion()
+                }
+                self.isLoadable = false
+            }
         }
-        
     }
     
     func loadFromFirst(completion: @escaping (() -> Void)) {
@@ -63,14 +71,13 @@ class PloggingDataSource<T> {
     
     func loadNext(completion: @escaping (() -> Void)) {
         guard isNextLoadable() else {
-            completion()
             return
         }
         request(completion)
     }
     
     func isNextLoadable() -> Bool {
-        return true
+        return isLoadable
     }
     
 }
