@@ -15,14 +15,21 @@ struct APICollection {
         if let cookie = PloggingCookie.shared.getUserCookie() {
             return [
                 "cookie": "\(cookie)",
-//                "Content-Type": "application/json",
-//                "accept" : "application/json",
+                "Content-Type": "application/json"
+            ]
+        } else {
+            return defaultHeader
+        }
+    }
+    
+    func gettingUrlencodedHeader() -> HTTPHeaders {
+        if let cookie = PloggingCookie.shared.getUserCookie() {
+            return [
+                "cookie": "\(cookie)",
                 "Content-Type" : "application/x-www-form-urlencoded"
             ]
         } else {
-            return [
-                "Content-Type": "application/json"
-            ]
+            return defaultHeader
         }
     }
 
@@ -157,7 +164,7 @@ extension APICollection {
                    method: .post,
                    parameters: ["ploggingData" : jsonString],
                    encoding: URLEncoding(destination: .httpBody),
-                   headers: gettingHeader()
+                   headers: gettingUrlencodedHeader()
         ).responseJSON { response in
             print(response)
             guard let data = response.data else {
@@ -195,29 +202,6 @@ extension APICollection {
             guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
-            completion(.success(value))
-        }
-    }
-    
-    /// 플로깅 결과 조회
-    func requestGetPloggingResult(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
-//        let param: Parameters = [:]
-        AF.request(BaseURL.mainURL + BasePath.ploggingResult,
-                   method: .get,
-                   parameters: param,
-                   headers: gettingHeader()
-        ).responseJSON { (response) in
-            print(response)
-            guard let data = response.data else {
-                return completion(.failure(.dataFailed))
-            }
-//            print(data)
-            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
-                return completion(.failure(.decodingFailed))
-            }
-            //value에서 currentPage 찾아서 저장
-            //pageManager.paging(currentPage)
-            
             completion(.success(value))
         }
     }
