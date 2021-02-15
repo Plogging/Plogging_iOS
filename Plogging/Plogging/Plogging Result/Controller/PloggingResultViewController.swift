@@ -186,7 +186,7 @@ extension PloggingResultViewController {
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
-        if baseImage == nil {
+        if ploggingResultPhoto.image == nil {
 //            self.showPopUpViewController(with: .사진없이저장팝업)
             let ploggingResultImageMaker = PloggingResultImageMaker()
             guard let basicImage = UIImage(named: "basicImage") else {
