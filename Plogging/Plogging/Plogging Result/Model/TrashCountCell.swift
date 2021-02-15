@@ -10,7 +10,7 @@ import UIKit
 class TrashCountCell: UICollectionViewCell {
     @IBOutlet weak var trashName: UILabel!
     @IBOutlet weak var trashCount: UILabel!
-    @IBOutlet weak var lineSeparotor: UIView!
+    @IBOutlet weak var lineSeparator: UIView!
     
     var trash: Trash? {
         didSet {
@@ -42,6 +42,6 @@ class TrashCountCell: UICollectionViewCell {
     }
     
     func changeSeparatorColor() {
-        lineSeparotor.backgroundColor = UIColor.greenBlue
+        lineSeparator.backgroundColor = UIColor.greenBlue
     }
 }
