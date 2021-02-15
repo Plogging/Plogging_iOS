@@ -10,7 +10,8 @@ class IntroduceModalItem: UIView {
     let label = UILabel()
     let icon = UIImageView()
     let index = UIImageView()
-
+    var padding: CGFloat = 0.0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -21,10 +22,11 @@ class IntroduceModalItem: UIView {
         setupView()
     }
 
-    func setupResource(indexImage: UIImage?, iconImage: UIImage?, text: String) {
+    func setupResource(indexImage: UIImage?, iconImage: UIImage?, text: String, padding: CGFloat) {
         label.text = text
         index.image = indexImage
         icon.image = iconImage
+        self.padding = padding
     }
 
     func setupView() {
@@ -41,6 +43,7 @@ class IntroduceModalItem: UIView {
     func setupLayout() {
 
         icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             icon.centerXAnchor.constraint(equalTo: centerXAnchor),
             icon.topAnchor.constraint(equalTo: topAnchor),
@@ -69,6 +72,7 @@ class IntroduceModalItem: UIView {
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
             label.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: index.trailingAnchor, constant: 12),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: self.padding),
         ])
     }
 

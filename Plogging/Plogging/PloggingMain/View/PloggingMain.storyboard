@@ -100,27 +100,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
-                                <rect key="frame" x="0.0" y="103" width="414" height="686"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-Pr-tad">
+                                <rect key="frame" x="0.0" y="103" width="414" height="720"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4q-8g-MAN" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Yu-n7f" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="243" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="253" width="414" height="209.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-hB-Af7" customClass="IntroduceModalItem" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="486" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="505.66666666666657" width="414" height="214.33333333333331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="U4A-Yu-n7f" firstAttribute="top" secondItem="p4q-8g-MAN" secondAttribute="bottom" constant="43" id="frO-R1-HO1"/>
-                                    <constraint firstItem="U4A-Yu-n7f" firstAttribute="centerY" secondItem="Iu8-Pr-tad" secondAttribute="centerY" id="nSD-Nd-bJW"/>
-                                    <constraint firstItem="U4A-Yu-n7f" firstAttribute="top" secondItem="Iu8-Pr-tad" secondAttribute="top" constant="243" id="wGh-SF-e95"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fMK-Xs-Sqc"/>
@@ -128,7 +123,7 @@
                         <constraints>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="trailing" secondItem="fMK-Xs-Sqc" secondAttribute="trailing" id="94D-Vk-bTl"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="leading" secondItem="fMK-Xs-Sqc" secondAttribute="leading" id="gWg-9c-EPt"/>
-                            <constraint firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="107" id="r2n-BJ-feO"/>
+                            <constraint firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="73" id="r2n-BJ-feO"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" constant="59" id="tJ9-A6-Rj5"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="centerX" secondItem="fMK-Xs-Sqc" secondAttribute="centerX" id="wap-bm-7NW"/>
                         </constraints>
