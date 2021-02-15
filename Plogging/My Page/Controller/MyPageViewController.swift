@@ -35,7 +35,8 @@ class MyPageViewController: UIViewController {
                 return
             }
             if let indexPath = sender as? Int {
-               //상세 페이지로 서버 결과 전달
+                let ploggingList = pagingDataSource.contents[indexPath]
+                ploggingDetailInfoViewController.ploggingList = ploggingList
             }
         }
     }

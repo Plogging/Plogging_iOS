@@ -24,7 +24,7 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
-    var ploggingResultData: PloggingResult?
+    var ploggingList: PloggingList?
     let contentViewOriginalHeight = 1150
     let totalCountViewOriginalHeight = 80
     let trashInfoViewTopConstraint = 40
@@ -35,7 +35,6 @@ class PloggingDetailInfoViewController: UIViewController {
         super.viewDidLoad()
         
         //전달된 내용 필요
-//        ploggingResultData = createPloggingResultData()
         collectionView.reloadData()
         
         setUpNavigationBarUI()
@@ -44,17 +43,7 @@ class PloggingDetailInfoViewController: UIViewController {
         
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
-    
-    /* 테스트 */
-//    func createPloggingResultData() -> PloggingList {
-//        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
-//        let trashList = [Trash(trashType: 1, pickCount: 5), Trash(trashType: 3, pickCount: 4)]
-//
-//        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-//
-//        return ploggingList
-//    }
-    
+
     private func setUpNavigationBarUI() {
         fixHeaderView.backgroundColor = UIColor.tintGreen
         navigationBarView.backgroundColor = UIColor.tintGreen
@@ -65,7 +54,7 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     private func setUpTrashInfoViewUI() {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingList?.trashList else {
             return
         }
         let trashInfosCount = trashInfos.count
@@ -150,7 +139,7 @@ extension PloggingDetailInfoViewController {
 // MARK: UICollectionViewDataSource
 extension PloggingDetailInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingList?.trashList else {
             return 0
         }
         return trashInfos.count
@@ -160,7 +149,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
         
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingList?.trashList else {
             return cell
         }
         
@@ -168,7 +157,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
             return cell
         }
         
-        trashCountCell?.updateUI(trashInfos[indexPath.item])
+        trashCountCell?.trashItem = TrashItem(trash: trashInfos[indexPath.item])
         
         let isLastItem = indexPath.item == trashInfos.count - 1
         if isLastItem {

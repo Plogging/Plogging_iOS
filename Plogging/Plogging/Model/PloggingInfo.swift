@@ -111,6 +111,16 @@ struct Trash: Codable {
 struct TrashItem {
     var trashType: TrashType
     var pickCount = 0
+    
+    init(trashType: TrashType, pickCount: Int) {
+        self.trashType = trashType
+        self.pickCount = pickCount
+    }
+    
+    init(trash: Trash) {
+        self.trashType = TrashType(rawValue: trash.trashType) ?? .extra
+        self.pickCount = trash.pickCount
+    }
 }
 
 // MARK: - PloggingResult
@@ -124,6 +134,12 @@ struct PloggingResult {
 }
 
 extension Array where Element == TrashItem {
+    func getTrashPickTotalCount() -> Int {
+        reduce(0) { $0 + $1.pickCount }
+    }
+}
+
+extension Array where Element == Trash {
     func getTrashPickTotalCount() -> Int {
         reduce(0) { $0 + $1.pickCount }
     }
