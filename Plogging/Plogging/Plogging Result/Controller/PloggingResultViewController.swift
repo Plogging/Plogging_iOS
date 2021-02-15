@@ -29,7 +29,7 @@ class PloggingResultViewController: UIViewController {
     var forwardingImage = UIImage()
     private var ploggingResultScore: PloggingResultScore? {
         didSet {
-//            checkValidation()
+            checkScoreValidation()
         }
     }
     private var ploggingInfo: PloggingInfo? {
@@ -88,20 +88,37 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var ploggingActivityScore = 0
-        var ploggingEnvironmentScore = 0
+        
         APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
             guard let self = self else {
                 return
             }
             self.ploggingResultScore = try? response.get()
-            if let model = self.ploggingResultScore {
-                ploggingActivityScore = model.score.activityScore
-                ploggingEnvironmentScore = model.score.environmentScore
-                self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
-            }
         }
     }
+    
+    private func checkScoreValidation() {
+        guard let model = ploggingResultScore else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success!!")
+            var ploggingActivityScore = 0
+            var ploggingEnvironmentScore = 0
+            ploggingActivityScore = model.score.activityScore
+            ploggingEnvironmentScore = model.score.environmentScore
+            self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
+        case 401:
+            print("권한없음. 로그인 필요")
+            //로그인 페이지로 전환
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+        }
+    }
+    
     
     private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
@@ -194,23 +211,6 @@ extension PloggingResultViewController {
         }
         
          navigationController?.dismiss(animated: true, completion: nil)
-    }
-    
-    private func checkValidation() {
-        guard let model = ploggingInfo else {
-            return
-        }
-        switch model.rc {
-        case 200:
-            print("success!!")
-        case 401:
-            print("권한없음. 로그인 필요")
-            //로그인 페이지로 전환
-        case 500:
-            print("서버 error")
-        default:
-            print("success")
-        }
     }
     
     @IBAction func deletePloggingResult(_ sender: UIButton) {
