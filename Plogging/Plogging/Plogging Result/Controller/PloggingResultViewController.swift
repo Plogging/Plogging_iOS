@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingResultPhoto: UIImageView!
@@ -48,6 +49,8 @@ class PloggingResultViewController: UIViewController {
             ploggingResultData = PloggingList(id: nil, meta: meta, trashList: trashList ?? [])
         }
     }
+    let pathManager = PathManager.pathManager
+    var ploggingPathMapView: MKMapView?
 
     let contentViewOriginalHeight = 1280
     let totalCountViewOriginalHeight = 80
@@ -75,6 +78,10 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ploggingPathMapView = MKMapView()
+        pathManager.adaptCompactMapView(to: ploggingPathMapView!)
+        
         setUpUI()
     }
     

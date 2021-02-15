@@ -66,16 +66,13 @@ class PloggingRunningInfoViewController: UIViewController {
         }
     }
 
-    /// MARK: mockup
     func createPloggingResult() -> PloggingResult {
-
         let ploggingResult = PloggingResult(
                 distance: self.distance,
-                calories: 250,
+                calories: self.kcal,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
                 trashList: currentTrashList
         )
-
         return ploggingResult
     }
 
@@ -94,6 +91,7 @@ class PloggingRunningInfoViewController: UIViewController {
                     return
                 }
                 ploggingResultViewController.ploggingResult = createPloggingResult()
+                
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve

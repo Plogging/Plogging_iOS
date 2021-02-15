@@ -23,11 +23,6 @@ class PathManager: NSObject {
     var backupManager = BackupManager()
     let locationManager = CLLocationManager()
 
-//    var maxLon: CLLocationDegrees?
-//    var minLon: CLLocationDegrees?
-//    var maxLat: CLLocationDegrees?
-//    var maxLat: CLLocationDegrees?
-
     var isRecord = false
 
     override init() {
@@ -95,10 +90,37 @@ class PathManager: NSObject {
     func backupPath() {
         backupManager.savePathData(to: locationList)
     }
+    
+    func adaptCompactMapView(to mapView: MKMapView) {
+        
+        if locationList.isEmpty {return}
+        
+        let start = locationList.first!
+        
+        var maxLon: CLLocationDegrees = start.coordinate.longitude
+        var minLon: CLLocationDegrees = start.coordinate.longitude
+        var maxLat: CLLocationDegrees = start.coordinate.latitude
+        var minLat: CLLocationDegrees = start.coordinate.latitude
+        
+        for location in locationList {
+            maxLon = max(maxLon, location.coordinate.longitude)
+            maxLat = max(maxLat, location.coordinate.latitude)
+            minLon = min(minLon, location.coordinate.longitude)
+            minLat = min(minLat, location.coordinate.latitude)
+        }
+        
+        let region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: (maxLat + minLat)/2, longitude: (maxLon+minLon)/2),
+            span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.5, longitudeDelta: (maxLon - minLon) * 1.5))
+        
+        mapView.setRegion(region, animated: false)
+        let path = createPolyLine(locationList: locationList)
+        mapView.addOverlay(path)
+    }
+    
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-
-        MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        return MKCoordinateRegion(center: center, latitudinalMeters: (500), longitudinalMeters: 500)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {
