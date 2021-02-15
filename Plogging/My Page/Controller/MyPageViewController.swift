@@ -20,10 +20,13 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var sortingView: UIStackView!
+    @IBOutlet weak var sortingLabel: UILabel!
     @IBOutlet weak var sortingButton: UIButton!
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    
+    private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -41,6 +44,14 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
+
+        pagingDataSource.loadFromFirst {
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        collectionView.reloadData()
     }
     
     func setUpNavigationBarUI() {
@@ -65,21 +76,32 @@ class MyPageViewController: UIViewController {
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let dateSorting = UIAlertAction(title: "최신순", style: .default) { _ in
-            
+        let dateSorting = UIAlertAction(title: "최신순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
+            }
+            self?.sortingLabel.text = "최신순"
         }
-        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { _ in
-            
+        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
+            }
+            self?.sortingLabel.text = "점수순"
         }
-        
-        let scoreSorting = UIAlertAction(title: "점수순", style: .default) { _ in
-            
+        let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { [weak self] _ in
+            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            self?.pagingDataSource.loadFromFirst {
+                self?.updateUI()
+            }
+            self?.sortingLabel.text = "모은 쓰레기 순"
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(dateSorting)
-        alert.addAction(trashCountSorting)
         alert.addAction(scoreSorting)
+        alert.addAction(trashCountSorting)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
@@ -88,18 +110,41 @@ class MyPageViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return pagingDataSource.contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
        
-        guard let content = UIImage(named: "test") else {
+        guard indexPath.item < pagingDataSource.contents.count else {
             return cell
         }
-        ploggingResultPhotoCell?.updateUI(image: content)
         
+        // TODO: 페이징 테스트용 지우기
+        guard let ploggingImageUrl = pagingDataSource.contents[indexPath.item].meta.ploggingImage else {
+            return cell
+        }
+        
+        guard let createdTime = pagingDataSource.contents[indexPath.item].meta.createdTime else {
+            return cell
+        }
+        
+        guard let ploggingTotalScore = pagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
+            return cell
+        }
+        
+        guard let ploggingTrashCount = pagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
+            return cell
+        }
+        
+        
+        guard let url = URL(string: ploggingImageUrl) else {
+            return cell
+        }
+        
+        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url, time: createdTime, scroe: ploggingTotalScore, trash: ploggingTrashCount)
+
         cell.contentView.isUserInteractionEnabled = false
         return cell
     }
@@ -135,7 +180,7 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-        
+        print("contentOffSetY: \(contentOffSetY)")
         if contentOffSetY > CGFloat(thresholdOffset) {
             navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
             UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
@@ -156,6 +201,12 @@ extension MyPageViewController: UIScrollViewDelegate {
             profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         navigationBarView.layoutIfNeeded()
+        
+        if scrollView.requestNextPage() {
+            pagingDataSource.loadNext {
+                self.updateUI()
+            }
+        }
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -167,5 +218,12 @@ extension MyPageViewController: UIScrollViewDelegate {
                 navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
         }
         navigationBarView.layoutIfNeeded()
+    }
+}
+
+extension UIScrollView {
+    func requestNextPage(minimumBottomValue: CGFloat = 50) -> Bool {
+        let offsetMaxY = contentOffset.y + bounds.height
+        return contentSize.height - offsetMaxY < minimumBottomValue
     }
 }

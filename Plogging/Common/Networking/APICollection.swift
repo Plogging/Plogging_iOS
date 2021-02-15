@@ -23,6 +23,16 @@ struct APICollection {
         }
     }
     
+    func gettingUrlencodedHeader() -> HTTPHeaders {
+        if let cookie = PloggingCookie.shared.getUserCookie() {
+            return [
+                "cookie": "\(cookie)",
+                "Content-Type" : "application/x-www-form-urlencoded"
+            ]
+        } else {
+            return defaultHeader
+        }
+    }
     func getCookies() {
         // 쿠키 설정
         if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
@@ -32,7 +42,6 @@ struct APICollection {
         }
     }
 }
-
 // MARK: - USER
 extension APICollection {
     /// SNS 로그인
@@ -83,7 +92,7 @@ extension APICollection {
             completion(.success(value))
         }
     }
-    
+
     /// 사용자 아이디 가입 확인
     func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userCheck,
@@ -104,7 +113,7 @@ extension APICollection {
             completion(.success(value))
         }
     }
-    
+
     /// 회원가입
     func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.user,
@@ -209,11 +218,39 @@ extension APICollection {
 
 // MARK: - PLOGGING
 extension APICollection {
-    func requestTest(completion: @escaping () -> Void) {
-        let data = "{\"meta\": { \"distance\": 100, \"calorie\": 200, \"flogging_time\": 20 }, \"pick_list\": [{ \"trash_type\": 3, \"pick_count\": 33 }, { \"trash_type\": 1, \"pick_count\": 12 }]}"
+    /// 플로깅 점수 계산
+    func requestPloggingScore(param: Parameters, completion: @escaping (Result<PloggingResultScore, APIError>) -> Void) {
+        guard let jsonString = param.toJsonString() else {
+            return
+        }
+        AF.request(BaseURL.mainURL + BasePath.ploggingScore,
+                   method: .post,
+                   parameters: ["ploggingData" : jsonString],
+                   encoding: URLEncoding(destination: .httpBody),
+                   headers: gettingUrlencodedHeader()
+        ).responseJSON { response in
+            print(response)
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+            print(data)
+            guard let value = try? JSONDecoder().decode(PloggingResultScore.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
 
+            completion(.success(value))
+        }
+    }
+    
+    /// 플로깅 결과 등록
+    func requestRegisterPloggingResult(param: Parameters, imageData: Data, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
         AF.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(Data(data.utf8), withName: "ploggingData")
+            guard let jsonString = param.toJsonString() else {
+                return
+            }
+            print("jsonString: \(jsonString)")
+            multipartFormData.append(Data(jsonString.utf8), withName: "ploggingData")
+            multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/png")
         },
         to: BaseURL.mainURL + BasePath.plogging,
         method: .post,
@@ -222,12 +259,19 @@ extension APICollection {
             print(response)
             guard let data = response.data else {
                 print(APIError.dataFailed)
-                return completion()
+                return completion(.failure(.dataFailed))
             }
-
             print(data)
-            completion()
+            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            completion(.success(value))
         }
+    }
+    
+    /// 플로깅 결과 삭제
+    func deletePloggingRecord() {
+        
     }
 }
 

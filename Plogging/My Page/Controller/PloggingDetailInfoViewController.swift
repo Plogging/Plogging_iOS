@@ -24,7 +24,7 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
-    var ploggingResultData: PloggingList?
+    var ploggingResultData: PloggingResult?
     let contentViewOriginalHeight = 1150
     let totalCountViewOriginalHeight = 80
     let trashInfoViewTopConstraint = 40
@@ -35,7 +35,7 @@ class PloggingDetailInfoViewController: UIViewController {
         super.viewDidLoad()
         
         //전달된 내용 필요
-        ploggingResultData = createPloggingResultData()
+//        ploggingResultData = createPloggingResultData()
         collectionView.reloadData()
         
         setUpNavigationBarUI()
@@ -46,14 +46,14 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     /* 테스트 */
-    func createPloggingResultData() -> PloggingList {
-        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
-        let trashList = [Trash(trashType: 1, pickCount: 5), Trash(trashType: 3, pickCount: 4)]
-
-        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
-
-        return ploggingList
-    }
+//    func createPloggingResultData() -> PloggingList {
+//        let meta = Meta(userId: nil, createTime: nil, distance: 5, calories: 250, ploggingTime: 7, ploggingImage: nil, ploggingTotalScore: nil, ploggingActivityScore: nil, ploggingEnvironmentScore: nil)
+//        let trashList = [Trash(trashType: 1, pickCount: 5), Trash(trashType: 3, pickCount: 4)]
+//
+//        let ploggingList = PloggingList(id: nil, meta: meta, trashList: trashList)
+//
+//        return ploggingList
+//    }
     
     private func setUpNavigationBarUI() {
         fixHeaderView.backgroundColor = UIColor.tintGreen
@@ -119,7 +119,7 @@ extension PloggingDetailInfoViewController {
     
     @IBAction func deletePloggingRecord(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let delete = UIAlertAction(title: "기록 삭제", style: .default) { _ in
+        let delete = UIAlertAction(title: "기록 삭제", style: .default) { [weak self] _ in
             // 네트워크 플로깅 기록 삭제 추가
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -134,11 +134,12 @@ extension PloggingDetailInfoViewController {
         guard let testImage = UIImage(named: "test") else {
             return
         }
+        showPopUpViewController(with: .사진저장승인)
         
         let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
         let no = UIAlertAction(title: "아니오", style: .default)
-        let yes = UIAlertAction(title: "네", style: .default) { [self] _ in
-            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        let yes = UIAlertAction(title: "네", style: .default) { [weak self] _ in
+            UIImageWriteToSavedPhotosAlbum(testImage, self, #selector(self?.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
         }
         alert.addAction(no)
         alert.addAction(yes)
@@ -172,11 +173,6 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
         let isLastItem = indexPath.item == trashInfos.count - 1
         if isLastItem {
             trashCountCell?.changeSeparatorColor()
-        }
-        
-        if trashInfos.getTrashPickTotalCount() == 0 {
-            //쓰레기 0개일 때 처리 추가 
-            //            trashCountCell?.pickUpZero()
         }
         
         return cell

@@ -15,7 +15,7 @@ class PloggingResultPhotoViewController: UIViewController {
     }()
     var thumbnailImage: UIImage?
     var baseImage: UIImage?
-    var ploggingResultData: PloggingList?
+    var ploggingResult: PloggingResult?
     var trashCountSum: Int = 0
     
     override func viewDidLoad() {
@@ -26,10 +26,7 @@ class PloggingResultPhotoViewController: UIViewController {
             return
         }
         let ploggingResultImageMaker = PloggingResultImageMaker()
-        guard let distance = ploggingResultData?.meta.distance else {
-            return
-        }
-        let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBaseImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
+        let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBaseImage, distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(trashCountSum)")
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
     }

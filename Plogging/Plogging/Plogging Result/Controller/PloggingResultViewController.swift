@@ -19,41 +19,26 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
+    private var ploggingActivityScore = 0
+    private var ploggingEnvironmentScore = 0
+    private let contentViewOriginalHeight = 1280
+    private let totalCountViewOriginalHeight = 80
+    private let trashInfoViewTopConstraint = 40
+    private let collectionViewCellLeading = 54
+    private let collectionViewCellTrailing = 54
     var baseImage: UIImage?
-    var ploggingResultData: PloggingList?
-
-    // Plogging Running Info View Controller에서 넘어온 plogging 결과 값
-    // TODO: 관련 코드 변경
-    var ploggingResult: PloggingResult? {
-
-        // ploggingResultData가 없으면, 사진 촬영 시 데이터가 안보여서,
-        // 뷰 전환 제대로 됨을 증명하고자, 모킹 함수를 만들었습니다. 변경 사항 적용 후 모킹 함수 지워주세요.
-        willSet(input) {
-            let meta = Meta(
-                    userId: nil,
-                    createTime: nil,
-                    distance: input?.distance ?? 0,
-                    calories: 250,
-                    ploggingTime: input?.ploggingTime ?? 0,
-                    ploggingImage: nil,
-                    ploggingTotalScore: nil,
-                    ploggingActivityScore: nil,
-                    ploggingEnvironmentScore: nil
-            )
-
-            let trashList = input?.trashList?.map { trash -> Trash in
-                Trash(trashType: trash.trashType.rawValue, pickCount: trash.pickCount)
-            }
-
-            ploggingResultData = PloggingList(id: nil, meta: meta, trashList: trashList ?? [])
+    var ploggingResult: PloggingResult?
+    var forwardingImage = UIImage()
+    private var ploggingResultScore: PloggingResultScore? {
+        didSet {
+            checkScoreValidation()
         }
     }
-
-    let contentViewOriginalHeight = 1280
-    let totalCountViewOriginalHeight = 80
-    let trashInfoViewTopConstraint = 40
-    let collectionViewCellLeading = 54
-    let collectionViewCellTrailing = 54
+    private var ploggingInfo: PloggingInfo? {
+        didSet {
+//            checkValidation()
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -62,49 +47,127 @@ class PloggingResultViewController: UIViewController {
                 return
             }
             PloggingResultPhotoViewController.baseImage = baseImage
-            PloggingResultPhotoViewController.ploggingResultData = ploggingResultData
+            PloggingResultPhotoViewController.ploggingResult = ploggingResult
             PloggingResultPhotoViewController.trashCountSum = getTrashPickTotalCount()
         } else if segue.identifier == SegueIdentifier.openCamera {
             guard let cameraViewController = segue.destination as? CameraViewController else {
                 return
             }
-            cameraViewController.ploggingResultData = ploggingResultData
+            cameraViewController.ploggingResult = ploggingResult
             cameraViewController.trashCountSum = getTrashPickTotalCount()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
+        APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
+            guard let self = self else {
+                return
+            }
+            self.ploggingResultScore = try? response.get()
+        }
     }
     
-    private func setUpUI() {
+    private func getParam() -> [String : Any] {
+        guard var distance = Int(ploggingDistance.text ?? "0"), let calorie = Int(ploggingCalorie.text ?? "0"),
+              let ploggingTime = ploggingResult?.ploggingTime else {
+            return [:]
+        }
+     
+        if distance == 0 {
+            distance = 1
+        }
+        
+        let meta: [String : Any] = [
+            "distance" : distance,
+            "calorie" : calorie,
+            "plogging_time" : ploggingTime
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        guard let trashCount = ploggingResult?.trashList?.count else {
+            return [:]
+        }
+        
+        var trashType = 0
+        var pickCount = 0
+        
+        var trashList: [String : Any] = [
+            "trash_type" : trashType,
+            "pick_count" : pickCount
+        ]
+        
+        for i in 0 ..< trashCount {
+            trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
+            pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
+            
+            if pickCount > 0 {
+                trashList["trash_type"] = trashType
+                trashList["pick_count"] = pickCount
+                trashListArray.append(trashList)
+            }
+        }
+
+        let param: [String : Any] = [
+            "meta" : meta,
+            "trash_list" : trashListArray
+        ]
+        return param
+    }
+    
+    private func checkScoreValidation() {
+        guard let model = ploggingResultScore else {
+            return
+        }
+        switch model.rc {
+        case 200:
+            print("success!!")
+            ploggingActivityScore = model.score.activityScore
+            ploggingEnvironmentScore = model.score.environmentScore
+            self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
+        case 401:
+            print("권한없음. 로그인 필요")
+            //로그인 페이지로 전환
+        case 500:
+            print("서버 error")
+        default:
+            print("success")
+        }
+    }
+    
+    private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
 
-        //서버 통신 필요
-//        exerciseScore.text = ploggingResultData?.score.exercise
-//        echoScore.text = ploggingResultData?.score.eco
-        ploggingTime.text = ploggingResultData?.meta.ploggingTime.description
-        ploggingDistance.text = ploggingResultData?.meta.distance.description
-        ploggingCalorie.text = ploggingResultData?.meta.calories.description
+        activityScore.text = "\(ploggingActivityScore)점"
+        environmentScore.text = "\(ploggingEnvironmentScore)점"
+        
+//        ploggingTime.text = "\(ploggingResult?.ploggingTime ?? 0)"
+        
+        let minute = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) / 60)
+        let second = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) % 60)
+        ploggingTime.text = "\(minute):\(second)"
+        ploggingDistance.text = String(ploggingResult?.distance ?? 0)
+        ploggingCalorie.text = String(ploggingResult?.calories ?? 0)
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
 
-        let trashInfosCount = ploggingResultData?.trashList.count ?? 0
+        let trashListCount = ploggingResult?.trashList?.count ?? 0
 
-        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
+        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashListCount))
+        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashListCount))
 
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
 
     private func getTrashPickTotalCount() -> Int {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashList = ploggingResult?.trashList else {
             return 0
         }
 
-        let trashCountSum = trashInfos.getTrashPickTotalCount()
+        let trashCountSum = trashList.getTrashPickTotalCount()
         return trashCountSum
     }
 
@@ -144,23 +207,38 @@ extension PloggingResultViewController {
     }
     
     @IBAction func savePloggingResult(_ sender: Any) {
-//        if baseImage == nil {
+        if ploggingResultPhoto.image == nil {
 //            self.showPopUpViewController(with: .사진없이저장팝업)
-//            let ploggingResultImageMaker = PloggingResultImageMaker()
-//            guard let basicImage = UIImage(named: "basicImage") else {
-//                return
-//            }
-//            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-//            guard let distance = ploggingResultData?.meta.distance else {
-//                return
-//            }
-//            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCountSum)")
-//            //서버 통신 추가
-//            ploggingResultPhoto.image = ploggingResultImage
-//        }
-         self.navigationController?.dismiss(animated: true, completion: nil)
+            let ploggingResultImageMaker = PloggingResultImageMaker()
+            guard let basicImage = UIImage(named: "basicImage") else {
+                return
+            }
+            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
+            let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(getTrashPickTotalCount())")
+            forwardingImage = ploggingThumbnailImage
+        } else {
+            guard let forwardingThumbnailImage = ploggingResultPhoto.image else {
+                return
+            }
+            forwardingImage = forwardingThumbnailImage
+        }
+
+        guard let forwardingImageData = forwardingImage.pngData() else {
+            print("no forwardingImageData")
+            return
+        }
+        
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { (response) in
+            self.ploggingInfo = try? response.get()
+        }
+        
+         navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func deletePloggingResult(_ sender: UIButton) {
+        showPopUpViewController(with: .기록삭제팝업)
+    }
+
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PloggingResultPhotoViewController, let thumbnailImage = sourceViewController.thumbnailImage {
             ploggingResultPhoto.image = thumbnailImage
@@ -183,7 +261,7 @@ extension PloggingResultViewController: UIImagePickerControllerDelegate, UINavig
 // MARK: UICollectionViewDataSource
 extension PloggingResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trashInfos = ploggingResultData?.trashList else {
+        guard let trashInfos = ploggingResult?.trashList else {
             return 0
         }
         return trashInfos.count
@@ -193,21 +271,15 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
 
-        guard let trashInfos = ploggingResultData?.trashList, indexPath.item < trashInfos.count else {
+        guard let trashInfos = ploggingResult?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
-
+        
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
         if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
-
-        if trashInfos.getTrashPickTotalCount() == 0 {
-            //쓰레기 0개일 때 처리 추가
-//            trashCountCell?.pickUpZero()
-        }
-
         return cell
     }
 }
