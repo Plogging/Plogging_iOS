@@ -87,6 +87,11 @@ class LoginViewController: UIViewController {
         }
         switch model.rc {
         case 200:
+            if let id = emailTextField.text, let nickName = model.userName, let image = model.userImg {
+                PloggingUserData.shared.saveUserData(id: "\(id):custom",
+                                                     nickName: nickName,
+                                                     image: image)
+            }
             makeDefaultRootViewController()
             return
         case 401:

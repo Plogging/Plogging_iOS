@@ -9,7 +9,6 @@ target 'Plogging' do
   pod 'KakaoSDK'
   pod 'KakaoSDKAuth'
   pod 'naveridlogin-sdk-ios'
-  pod 'CryptoSwift', '~> 1.3.8'
   pod 'Kingfisher', '~> 5.0'
 
 
