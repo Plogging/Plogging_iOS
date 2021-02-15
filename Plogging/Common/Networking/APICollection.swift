@@ -219,7 +219,7 @@ extension APICollection {
 // MARK: - PLOGGING
 extension APICollection {
     /// 플로깅 점수 계산
-    func requestPloggingScore(param: Parameters, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
+    func requestPloggingScore(param: Parameters, completion: @escaping (Result<PloggingResultScore, APIError>) -> Void) {
         guard let jsonString = param.toJsonString() else {
             return
         }
@@ -234,7 +234,7 @@ extension APICollection {
                 return completion(.failure(.dataFailed))
             }
             print(data)
-            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+            guard let value = try? JSONDecoder().decode(PloggingResultScore.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
 
