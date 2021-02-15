@@ -7,25 +7,20 @@ import CoreLocation
 import MapKit
 
 extension PathManager: CLLocationManagerDelegate{
-    // todo validate location 업데이트 시, 경로 랜더링
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        print("receive location")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         // todo refactor
         guard let currentLocation = locations.last else { return }
         let howRecent = currentLocation.timestamp.timeIntervalSinceNow
         guard abs(howRecent) < 10 else { return }
 
-        if !isRecord {
-//            pointResentLocation(location: currentLocation.coordinate)
-//            print("skip location")
-            return
-        }
+        if !isRecord { return }
 
         if let lastLocation = locationList.last {
             distance = distance + Int(currentLocation.distance(from: lastLocation))
         }
+
         locationList.append(currentLocation)
 
         if locationList.count % 10 == 0 {

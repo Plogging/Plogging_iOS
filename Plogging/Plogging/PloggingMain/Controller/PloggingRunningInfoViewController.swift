@@ -20,6 +20,7 @@ class PloggingRunningInfoViewController: UIViewController {
     var timer: Timer?
     var startDate: Date?
     var distance: Int?
+    var kcal: Int = 0
 
     // todo: remove it
     public var count: Int = 0
@@ -149,12 +150,13 @@ class PloggingRunningInfoViewController: UIViewController {
         timer?.fire()
     }
 
-
     @objc func didReceiveDistanceNotification(_ receive: Notification) {
         guard let distance = receive.userInfo?["distance"] as? Int else { return }
         self.distance = distance
+        self.kcal = Int(Float(distance) * 0.05)
         DispatchQueue.main.async {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", Float(distance)/1000)
+            self.summeryKcal.dataLabel.text = "\(self.kcal)"
         }
     }
 }

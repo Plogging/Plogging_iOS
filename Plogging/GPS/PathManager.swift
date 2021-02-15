@@ -13,15 +13,20 @@ class PathManager: NSObject {
     var locationList: [CLLocation] = []
     var distance: Int = 0 {
         didSet {
-            NotificationCenter.default.post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
+            NotificationCenter.default
+                    .post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
         }
     }
-
     let updateDistance: Notification.Name = Notification.Name("UpdateDistance")
 
     var mapView: MKMapView?
     var backupManager = BackupManager()
     let locationManager = CLLocationManager()
+
+//    var maxLon: CLLocationDegrees?
+//    var minLon: CLLocationDegrees?
+//    var maxLat: CLLocationDegrees?
+//    var maxLat: CLLocationDegrees?
 
     var isRecord = false
 
@@ -92,6 +97,7 @@ class PathManager: NSObject {
     }
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
+
         MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
     }
 

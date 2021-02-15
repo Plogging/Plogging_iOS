@@ -14,6 +14,7 @@ class PloggingStartViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var startButton: ConfirmButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,11 @@ class PloggingStartViewController: UIViewController {
         ])
 
         startButton.title = "플로깅 시작하기"
+        
+        nameLabel.attributedText = NSMutableAttributedString()
+            // TODO: user info 연결
+            .bold("강태우", fontSize: 17)
+            .normal("님 안녕하세요!", fontSize: 17)
 
     }
 
