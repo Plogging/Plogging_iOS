@@ -53,6 +53,10 @@ class ChangePasswordViewController: UIViewController {
         changePasswordOuterView.layer.cornerRadius = 4
         checkPasswordOuterView.layer.cornerRadius = 4
         confirmButton.layer.cornerRadius = 4
+        
+        nowPasswordTextField.isSecureTextEntry = true
+        changePasswordTextField.isSecureTextEntry = true
+        checkPasswordTextField.isSecureTextEntry = true
     }
     
     @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {
