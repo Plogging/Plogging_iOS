@@ -194,8 +194,6 @@ extension PloggingResultViewController {
             }
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
             let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
-            //서버 통신 추가
-            ploggingResultPhoto.image = ploggingResultImage
             forwardingImage = ploggingResultImage
         } else {
             forwardingImage = ploggingResultPhoto.image!
@@ -258,12 +256,6 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
-
-        if trashInfos.getTrashPickTotalCount() == 0 {
-            //쓰레기 0개일 때 처리 추가
-//            trashCountCell?.pickUpZero()
-        }
-
         return cell
     }
 }
