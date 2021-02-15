@@ -9,6 +9,7 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
+    @IBOutlet weak var navigationBarButton: UIButton!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickName: UILabel!
@@ -70,7 +71,12 @@ class MyPageViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    func setUpNavigationBarUI() {        
+    func setUpNavigationBarUI() {
+        if type == .mypage {
+            navigationBarButton.setImage(UIImage(named: "group3"), for: .normal)
+        } else {
+            navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+        }
         fixHeaderView.backgroundColor = UIColor.tintGreen
         setGradationView(view: navigationBarView, colors: [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint(x: 0.5, y: 1.0))
         
@@ -82,10 +88,14 @@ class MyPageViewController: UIViewController {
     @IBAction func goToSetting(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         
-        guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
-            return
+        if type == .mypage {
+            guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
+                return
+            }
+            navigationController?.pushViewController(settingViewController, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
-        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
@@ -168,7 +178,16 @@ extension MyPageViewController: UICollectionViewDataSource {
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        if type == .mypage {
+            performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        } else {
+            let storyboard = UIStoryboard(name: Storyboard.Ranking.rawValue, bundle: nil)
+            if let photoViewController = storyboard.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
+                photoViewController.modalPresentationStyle = .fullScreen
+                photoViewController.image = UIImage(named: "basicImage")
+                self.present(photoViewController, animated: false, completion: nil)
+            }
+        }
     }
 }
 

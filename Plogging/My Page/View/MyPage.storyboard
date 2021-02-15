@@ -370,6 +370,7 @@
                     <connections>
                         <outlet property="collectionView" destination="WbL-nn-vVN" id="KJ1-yB-rGr"/>
                         <outlet property="fixHeaderView" destination="GJD-iS-J8h" id="XaW-eh-lXZ"/>
+                        <outlet property="navigationBarButton" destination="VU6-nD-Ldn" id="CGZ-kJ-kjb"/>
                         <outlet property="navigationBarView" destination="kFd-ki-Xkp" id="fae-GL-2qL"/>
                         <outlet property="navigationBarViewHeight" destination="orc-Vu-Zcc" id="xbj-Gf-25e"/>
                         <outlet property="nickName" destination="4mh-TU-c5Q" id="o4U-BA-gj8"/>

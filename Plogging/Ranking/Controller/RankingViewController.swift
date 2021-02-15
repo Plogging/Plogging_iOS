@@ -144,7 +144,7 @@ extension RankingViewController: UITableViewDelegate {
         guard indexPath.row > 1 else { return }
         
         let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-        if let mypage = storyboard.instantiateViewController(identifier: "MyPage") as? MyPageViewController {
+        if let mypage = storyboard.instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController {
             mypage.type = .ranking
             self.navigationController?.pushViewController(mypage, animated: true)
         }
