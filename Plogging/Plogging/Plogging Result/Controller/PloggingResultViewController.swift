@@ -75,7 +75,7 @@ class PloggingResultViewController: UIViewController {
               let ploggingTime = Int(ploggingTime.text ?? "0") else {
             return [:]
         }
-        
+     
         if distance == 0 {
             distance = 1
         }
@@ -98,14 +98,7 @@ class PloggingResultViewController: UIViewController {
             trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
             pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
         }
-        if trashType == 0 {
-            trashType = 1
-        }
-        
-        if pickCount == 0 {
-            pickCount = 1
-        }
-        
+
         var trashList: [String : Any] = [
             "trash_type" : trashType,
             "pick_count" : pickCount
