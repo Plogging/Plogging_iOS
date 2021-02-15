@@ -46,6 +46,8 @@ class ChangePasswordViewController: UIViewController {
     }
     
     private func setupUI() {
+        setNavigationBarClear()
+        
         nowPasswordOuterView.clipsToBounds = true
         changePasswordOuterView.clipsToBounds = true
         checkPasswordOuterView.clipsToBounds = true
