@@ -9,10 +9,8 @@ import Foundation
 
 class PloggingUserData {
     static let shared = PloggingUserData()
-
-    /// 아이디 저장
-    /// 닉네임 저장
-    /// 이미지 저장
+    
+    var userData: PloggingUserInfo?
     
     let userId = "userId"
     let userName = "userName"
@@ -40,5 +38,9 @@ class PloggingUserData {
         UserDefaults.standard.removeObject(forKey: userId)
         UserDefaults.standard.removeObject(forKey: userName)
         UserDefaults.standard.removeObject(forKey: userImage)
+    }
+    
+    func setUserData(_ userInfo:PloggingUserInfo?) {
+        self.userData = userInfo
     }
 }
