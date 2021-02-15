@@ -27,12 +27,47 @@ class PloggingResultViewController: UIViewController {
     let collectionViewCellLeading = 54
     let collectionViewCellTrailing = 54
     var forwardingImage = UIImage()
+    private var ploggingResultScore: PloggingResultScore? {
+        didSet {
+//            checkValidation()
+        }
+    }
     private var ploggingInfo: PloggingInfo? {
         didSet {
-            checkValidation()
+//            checkValidation()
         }
     }
     
+    func getParam() -> [String: Any] {
+        let meta: [String : Any] = [
+            "distance" : 1000,
+            "calorie" : 300,
+            "plogging_time" : 5500
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        var trashList: [String : Any] = [
+            "trash_type" : 1,
+            "pick_count" : 4
+        ]
+        
+        trashListArray.append(trashList)
+        
+        trashList = [
+            "trash_type" : 2,
+            "pick_count" : 4
+        ]
+        trashListArray.append(trashList)
+        
+        let param: [String: Any] = [
+                "meta" : meta,
+                "trash_list" : trashListArray
+        ]
+        
+        return param
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
@@ -53,15 +88,26 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        var ploggingActivityScore = 0
+        var ploggingEnvironmentScore = 0
+        APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
+            guard let self = self else {
+                return
+            }
+            self.ploggingResultScore = try? response.get()
+            if let model = self.ploggingResultScore {
+                ploggingActivityScore = model.score.activityScore
+                ploggingEnvironmentScore = model.score.environmentScore
+                self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
+            }
+        }
     }
     
-    private func setUpUI() {
+    private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
 
-        //서버 통신 필요
-//        exerciseScore.text = ploggingResultData?.score.exercise
-//        echoScore.text = ploggingResultData?.score.eco
+        activityScore.text = "\(ploggingActivityScore)점"
+        environmentScore.text = "\(ploggingEnvironmentScore)점"
         
         ploggingTime.text = "\(ploggingResult?.ploggingTime ?? 0)"
         ploggingDistance.text = String(ploggingResult?.distance ?? 0)
@@ -130,9 +176,6 @@ extension PloggingResultViewController {
                 return
             }
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-//            guard let distance = ploggingResultData?.meta.distance else {
-//                return
-//            }
             let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
             //서버 통신 추가
             ploggingResultPhoto.image = ploggingResultImage
@@ -145,40 +188,11 @@ extension PloggingResultViewController {
             print("no forwardingImageData")
             return
         }
-        
-        let meta: [String : Any] = [
-            "distance" : 1000,
-            "calorie" : 300,
-            "plogging_time" : 5500
-        ]
-        
-        var trashListArray: [[String : Any]] = []
-        
-        var trashList: [String : Any] = [
-            "trash_type" : 1,
-            "pick_count" : 4
-        ]
-        trashListArray.append(trashList)
-        
-        trashList = [
-            "trash_type" : 2,
-            "pick_count" : 4
-        ]
-        trashListArray.append(trashList)
-        
-        let param: [String: Any] = [
-                "meta" : meta,
-                "trash_list" : trashListArray
-        ]
-            
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: param, imageData: forwardingImageData) { (response) in
+    
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { (response) in
             self.ploggingInfo = try? response.get()
         }
         
-//        APICollection.sharedAPI.requestPloggingScore(param: param) { (response) in
-//            self.ploggingInfo = try? response.get()
-//        }
-
          navigationController?.dismiss(animated: true, completion: nil)
     }
     
