@@ -46,6 +46,16 @@ class MyPageViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
@@ -60,9 +70,7 @@ class MyPageViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    func setUpNavigationBarUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        
+    func setUpNavigationBarUI() {        
         fixHeaderView.backgroundColor = UIColor.tintGreen
         setGradationView(view: navigationBarView, colors: [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint(x: 0.5, y: 1.0))
         
