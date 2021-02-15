@@ -52,6 +52,8 @@ extension APICollection {
             // 쿠키 설정
             getCookies()
             
+            
+            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }

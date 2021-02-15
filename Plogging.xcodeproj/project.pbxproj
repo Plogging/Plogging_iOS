@@ -24,12 +24,8 @@
 		1C5B0DDB25D428DA008560FA /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0DDA25D428D9008560FA /* Cookie.swift */; };
 		1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */; };
 		1C5B0E0B25D704B0008560FA /* PloggingUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */; };
-		1C5B0E0E25D95C1C008560FA /* RankingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */; };
 		1C5B0E1125D95CBB008560FA /* RankingDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */; };
 		1C5B0E1225D95CBB008560FA /* RankingDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */; };
-		1C5B0E1425D9706F008560FA /* RankingDetailCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */; };
-		1C5B0E1625D993C8008560FA /* PloggingRankingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1525D993C7008560FA /* PloggingRankingData.swift */; };
-		1C5B0E1825D993E3008560FA /* PloggingRankingData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B0E1725D993E3008560FA /* PloggingRankingData.xib */; };
 		1C5B304825A604E100413115 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304725A604E100413115 /* APIKey.swift */; };
 		1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B304D25A6079700413115 /* Enum+URL.swift */; };
 		1C5B306E25A6A04700413115 /* SNSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B306D25A6A04700413115 /* SNSLoginManager.swift */; };
@@ -48,6 +44,7 @@
 		1CA065E325CC731A00AEA836 /* RankingGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E225CC731A00AEA836 /* RankingGlobal.swift */; };
 		1CA065E525CC73AD00AEA836 /* RankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E425CC73AD00AEA836 /* RankingUser.swift */; };
 		1CB62E4F25DA70EF00330B4A /* RankingPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */; };
+		1CB62E5125DAC76000330B4A /* PloggingUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB62E5025DAC76000330B4A /* PloggingUserData.swift */; };
 		1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
@@ -151,12 +148,8 @@
 		1C5B0DDA25D428D9008560FA /* Cookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		1C5B0E0825D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+RefreshCellDelegate.swift"; sourceTree = "<group>"; };
 		1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUserInfo.swift; sourceTree = "<group>"; };
-		1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailViewController.swift; sourceTree = "<group>"; };
 		1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingDetailCollectionViewCell.xib; sourceTree = "<group>"; };
-		1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDetailCustomHeaderView.swift; sourceTree = "<group>"; };
-		1C5B0E1525D993C7008560FA /* PloggingRankingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingRankingData.swift; sourceTree = "<group>"; };
-		1C5B0E1725D993E3008560FA /* PloggingRankingData.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PloggingRankingData.xib; sourceTree = "<group>"; };
 		1C5B304725A604E100413115 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		1C5B304D25A6079700413115 /* Enum+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+URL.swift"; sourceTree = "<group>"; };
 		1C5B305525A6099700413115 /* PloggingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PloggingRelease.entitlements; sourceTree = "<group>"; };
@@ -176,6 +169,7 @@
 		1CA065E225CC731A00AEA836 /* RankingGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingGlobal.swift; sourceTree = "<group>"; };
 		1CA065E425CC73AD00AEA836 /* RankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUser.swift; sourceTree = "<group>"; };
 		1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPhotoViewController.swift; sourceTree = "<group>"; };
+		1CB62E5025DAC76000330B4A /* PloggingUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingUserData.swift; sourceTree = "<group>"; };
 		1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCompletionViewController.swift; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
@@ -330,9 +324,6 @@
 				1C31C03125C54FEC00413EBB /* RankingRefreshTableViewCell.xib */,
 				1C5B0E0F25D95CBB008560FA /* RankingDetailCollectionViewCell.swift */,
 				1C5B0E1025D95CBB008560FA /* RankingDetailCollectionViewCell.xib */,
-				1C5B0E1325D9706E008560FA /* RankingDetailCustomHeaderView.swift */,
-				1C5B0E1525D993C7008560FA /* PloggingRankingData.swift */,
-				1C5B0E1725D993E3008560FA /* PloggingRankingData.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
-				1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */,
 				1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */,
 			);
 			path = Controller;
@@ -477,6 +467,7 @@
 				1CC08DDA25A5D55C00EE3505 /* Extension */,
 				1C5B304725A604E100413115 /* APIKey.swift */,
 				9B51A63525B5C998000AA9FA /* DeviceInfo.swift */,
+				1CB62E5025DAC76000330B4A /* PloggingUserData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -855,7 +846,6 @@
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
-				1C5B0E1825D993E3008560FA /* PloggingRankingData.xib in Resources */,
 				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
 				9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */,
 				9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */,
@@ -996,6 +986,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABFEFEA25D53BEA007D5B76 /* WaitingScreenViewController.swift in Sources */,
+				1CB62E5125DAC76000330B4A /* PloggingUserData.swift in Sources */,
 				1C31C03225C54FEC00413EBB /* RankingRefreshTableViewCell.swift in Sources */,
 				1CBE98A425AF25A100CC247A /* PloggingInfo.swift in Sources */,
 				9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */,
@@ -1032,7 +1023,6 @@
 				9B51A5C525B32C2B000AA9FA /* PloggingResultViewController.swift in Sources */,
 				9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */,
 				9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */,
-				1C5B0E1425D9706F008560FA /* RankingDetailCustomHeaderView.swift in Sources */,
 				1C2184F125B8A5590076CD14 /* Extension+UIColor.swift in Sources */,
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
@@ -1070,8 +1060,6 @@
 				3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */,
 				3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */,
 				3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */,
-				1C5B0E0E25D95C1C008560FA /* RankingDetailViewController.swift in Sources */,
-				1C5B0E1625D993C8008560FA /* PloggingRankingData.swift in Sources */,
 				3D51A0B8A5A8FA8D47D1553D /* PloggingStartViewController.swift in Sources */,
 				3D51AE726AFED7A079E41CCD /* Enum+PloggingInfo.swift in Sources */,
 			);

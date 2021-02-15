@@ -91,12 +91,15 @@ class PasswordCompletionViewController: UIViewController {
         }
         switch model.rc {
         case 200:
-            errorLabel.isHidden = true
+            if let id = emailTextField.text, let nickName = model.userName, let image = model.userImg {
+                PloggingUserData.shared.saveUserData(id: "\(id):custom",
+                                                     nickName: nickName,
+                                                     image: image)
+            }
             makeDefaultRootViewController()
             return
         case 400, 401:
-            errorLabel.isHidden = false
-            errorLabel.text = "가입되지 않은 정보이거나 비밀번호가 다릅니다."
+            setupWarningLabel(message: "가입되지 않은 정보이거나 비밀번호가 다릅니다.")
             return
         default:
             print("error")
