@@ -19,6 +19,7 @@ class RankingPhotoViewController: UIViewController {
     }
     
     @IBAction func clickCloseButton(_ sender: UIButton) {
+        (rootViewController as? MainViewController)?.setTabBarHidden(false)
         self.dismiss(animated: false, completion: nil)
     }
 }

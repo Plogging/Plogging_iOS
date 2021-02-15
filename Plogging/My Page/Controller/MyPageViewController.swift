@@ -86,9 +86,8 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func goToSetting(_ sender: Any) {
-        (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        
         if type == .mypage {
+            (rootViewController as? MainViewController)?.setTabBarHidden(true)
             guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
                 return
             }
