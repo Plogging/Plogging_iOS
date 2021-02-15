@@ -143,8 +143,11 @@ extension RankingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row > 1 else { return }
         
-        performSegue(withIdentifier: SegueIdentifier.rankingDetailViewContrller,
-                     sender: nil)
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        if let mypage = storyboard.instantiateViewController(identifier: "MyPage") as? MyPageViewController {
+            mypage.type = .ranking
+            self.navigationController?.pushViewController(mypage, animated: true)
+        }
         print(indexPath.row)
     }
 }
