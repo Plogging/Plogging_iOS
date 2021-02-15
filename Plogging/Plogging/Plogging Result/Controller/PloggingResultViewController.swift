@@ -214,7 +214,7 @@ extension PloggingResultViewController {
     }
     
     @IBAction func deletePloggingResult(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        showPopUpViewController(with: .기록삭제팝업)
     }
 
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
