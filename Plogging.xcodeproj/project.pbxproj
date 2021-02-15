@@ -47,6 +47,7 @@
 		1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */; };
 		1CA065E325CC731A00AEA836 /* RankingGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E225CC731A00AEA836 /* RankingGlobal.swift */; };
 		1CA065E525CC73AD00AEA836 /* RankingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA065E425CC73AD00AEA836 /* RankingUser.swift */; };
+		1CB62E4F25DA70EF00330B4A /* RankingPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */; };
 		1CBC5D4625C9DAB700531EF2 /* PasswordCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */; };
 		1CBE988B25AC76AE00CC247A /* APICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988A25AC76AE00CC247A /* APICollection.swift */; };
 		1CBE989025AC7B4800CC247A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE988F25AC7B4800CC247A /* BaseURL.swift */; };
@@ -174,6 +175,7 @@
 		1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		1CA065E225CC731A00AEA836 /* RankingGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingGlobal.swift; sourceTree = "<group>"; };
 		1CA065E425CC73AD00AEA836 /* RankingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUser.swift; sourceTree = "<group>"; };
+		1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPhotoViewController.swift; sourceTree = "<group>"; };
 		1CBC5D4525C9DAB700531EF2 /* PasswordCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCompletionViewController.swift; sourceTree = "<group>"; };
 		1CBE988A25AC76AE00CC247A /* APICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICollection.swift; sourceTree = "<group>"; };
 		1CBE988F25AC7B4800CC247A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				9B671E0125AE0DE900B0B415 /* RankingViewController.swift */,
 				1C5B0E0D25D95C1C008560FA /* RankingDetailViewController.swift */,
+				1CB62E4E25DA70EF00330B4A /* RankingPhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				1C21852A25B8C3480076CD14 /* Enum+PopUp.swift in Sources */,
 				9B5A32B725AEAAEA0061A361 /* Enum+MainTab.swift in Sources */,
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
+				1CB62E4F25DA70EF00330B4A /* RankingPhotoViewController.swift in Sources */,
 				9B00B3B725D289A5006427DE /* SignOutViewController.swift in Sources */,
 				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */,
