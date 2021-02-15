@@ -90,7 +90,7 @@ extension SettingViewController {
     
     // 닉네임 변경
     @IBAction func changeNickName(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let nickNameViewController = storyboard.instantiateViewController(withIdentifier: "NickNameViewController") as? NickNameViewController {
             nickNameViewController.myNickName = nickName.text ?? ""
             self.navigationController?.pushViewController(nickNameViewController, animated: true)
