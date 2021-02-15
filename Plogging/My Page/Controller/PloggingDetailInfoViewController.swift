@@ -157,7 +157,7 @@ extension PloggingDetailInfoViewController: UICollectionViewDataSource {
             return cell
         }
         
-        trashCountCell?.trashItem = TrashItem(trash: trashInfos[indexPath.item])
+        trashCountCell?.trash = trashInfos[indexPath.item]
         
         let isLastItem = indexPath.item == trashInfos.count - 1
         if isLastItem {

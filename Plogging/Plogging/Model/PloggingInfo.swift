@@ -40,7 +40,7 @@ struct PagingMeta: Codable {
 struct PloggingList: Codable {
     let id: String?
     let meta: Meta
-    let trashList: [Trash]
+    let trashList: [TrashInfo]
 
     enum PloggingListCodingKeys: String, CodingKey {
         case id = "_id"
@@ -52,7 +52,7 @@ struct PloggingList: Codable {
         let values = try decoder.container(keyedBy: PloggingListCodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
         meta = try values.decode(Meta.self, forKey: .meta)
-        trashList = try values.decode([Trash].self, forKey: .trashList)
+        trashList = try values.decode([TrashInfo].self, forKey: .trashList)
     }
 }
 
@@ -92,9 +92,14 @@ struct Meta: Codable {
 }
 
 // MARK: - TrashList
-struct Trash: Codable {
-    let trashType: Int
-    let pickCount: Int
+protocol Trash {
+    var trashType: TrashType { get set }
+    var pickCount: Int { get set }
+}
+
+struct TrashInfo: Codable, Trash {
+    var trashType: TrashType
+    var pickCount: Int
     
     enum TrashCodingKeys: String, CodingKey {
         case trashType = "trash_type"
@@ -103,24 +108,15 @@ struct Trash: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: TrashCodingKeys.self)
-        trashType = try values.decode(Int.self, forKey: .trashType)
+        let trashTypeValue = try values.decode(Int.self, forKey: .trashType)
+        trashType = TrashType(rawValue: trashTypeValue) ?? .extra
         pickCount = try values.decode(Int.self, forKey: .pickCount)
     }
 }
 
-struct TrashItem {
+struct TrashItem: Trash {
     var trashType: TrashType
     var pickCount = 0
-    
-    init(trashType: TrashType, pickCount: Int) {
-        self.trashType = trashType
-        self.pickCount = pickCount
-    }
-    
-    init(trash: Trash) {
-        self.trashType = TrashType(rawValue: trash.trashType) ?? .extra
-        self.pickCount = trash.pickCount
-    }
 }
 
 // MARK: - PloggingResult
@@ -139,7 +135,7 @@ extension Array where Element == TrashItem {
     }
 }
 
-extension Array where Element == Trash {
+extension Array where Element == TrashInfo {
     func getTrashPickTotalCount() -> Int {
         reduce(0) { $0 + $1.pickCount }
     }

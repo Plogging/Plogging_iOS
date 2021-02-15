@@ -12,18 +12,18 @@ class TrashCountCell: UICollectionViewCell {
     @IBOutlet weak var trashCount: UILabel!
     @IBOutlet weak var lineSeparotor: UIView!
     
-    var trashItem: TrashItem? {
+    var trash: Trash? {
         didSet {
-            updateUI(trashItem)
+            updateUI(trash)
         }
     }
     
-    private func updateUI(_ trashItem: TrashItem?) {
-        guard let trashInfo = trashItem else {
+    private func updateUI(_ trash: Trash?) {
+        guard let trash = trash else {
             return
         }
         var trashTypeName = ""
-        switch trashInfo.trashType {
+        switch trash.trashType {
         case .vinyl:
             trashTypeName = TrashType.vinyl.type
         case .glass:
@@ -38,7 +38,7 @@ class TrashCountCell: UICollectionViewCell {
             trashTypeName = TrashType.extra.type
         }
         trashName.text = trashTypeName
-        trashCount.text = "\(trashInfo.pickCount)개"
+        trashCount.text = "\(trash.pickCount)개"
     }
     
     func changeSeparatorColor() {

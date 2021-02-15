@@ -275,7 +275,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
             return cell
         }
         
-        trashCountCell?.trashItem = trashInfos[indexPath.item]
+        trashCountCell?.trash = trashInfos[indexPath.item]
         
         if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
