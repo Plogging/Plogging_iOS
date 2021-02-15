@@ -145,64 +145,11 @@
                         <outlet property="tableView" destination="QXB-Kp-lPq" id="NRZ-yh-8FS"/>
                         <outlet property="weeklyButton" destination="m2Y-9s-cQg" id="mTT-Sp-dg8"/>
                         <outlet property="weeklyView" destination="Rkm-Es-DqI" id="pI2-XO-8jH"/>
-                        <segue destination="ybX-fE-2Ej" kind="show" identifier="RankingDetailViewController" id="1Gp-LN-RFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZK-1t-ScC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="855.07246376811599" y="-45.535714285714285"/>
-        </scene>
-        <!--Ranking Detail View Controller-->
-        <scene sceneID="vkI-F7-fIS">
-            <objects>
-                <viewController storyboardIdentifier="RankingDetailViewController" id="ybX-fE-2Ej" customClass="RankingDetailViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dWH-lp-RY1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zil-HF-17M">
-                                <rect key="frame" x="24" y="300" width="366" height="562"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vd3-g4-2SG">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGg-eZ-ip5" customClass="CustomHeaderView" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="0hm-cW-w5G"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="g9L-pB-p8f"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="g9L-pB-p8f" firstAttribute="bottom" secondItem="zil-HF-17M" secondAttribute="bottom" id="3kM-sh-Qma"/>
-                            <constraint firstItem="g9L-pB-p8f" firstAttribute="trailing" secondItem="zil-HF-17M" secondAttribute="trailing" constant="24" id="EAr-ms-dGX"/>
-                            <constraint firstItem="EGg-eZ-ip5" firstAttribute="leading" secondItem="g9L-pB-p8f" secondAttribute="leading" id="OLK-1g-yDQ"/>
-                            <constraint firstItem="zil-HF-17M" firstAttribute="leading" secondItem="g9L-pB-p8f" secondAttribute="leading" constant="24" id="g5D-FP-IPx"/>
-                            <constraint firstItem="EGg-eZ-ip5" firstAttribute="top" secondItem="dWH-lp-RY1" secondAttribute="top" id="kTA-Hu-wl3"/>
-                            <constraint firstItem="g9L-pB-p8f" firstAttribute="trailing" secondItem="EGg-eZ-ip5" secondAttribute="trailing" id="oSb-yf-fVd"/>
-                            <constraint firstItem="zil-HF-17M" firstAttribute="top" secondItem="EGg-eZ-ip5" secondAttribute="bottom" id="y4O-dJ-Wz4"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="IYI-3v-AVc">
-                        <barButtonItem key="backBarButtonItem" title=" " id="ToA-fq-Dfd"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="collectionView" destination="zil-HF-17M" id="MqA-gb-r6N"/>
-                        <outlet property="headerHeightConstraint" destination="0hm-cW-w5G" id="nuo-Az-Urt"/>
-                        <outlet property="headerView" destination="EGg-eZ-ip5" id="bmi-nc-NiE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8h9-xi-tPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1595.6521739130435" y="-46.205357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6gK-Af-0Pw">
@@ -280,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zr5-3H-Z23" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2285.507246376812" y="-46.205357142857139"/>
+            <point key="canvasLocation" x="1600" y="-46"/>
         </scene>
     </scenes>
     <resources>
