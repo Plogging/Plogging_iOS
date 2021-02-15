@@ -18,11 +18,24 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var checkPasswordOuterView: UIView!
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    private var isValidate: Bool = false {
+        didSet {
+            if isValidate {
+                confirmButton.backgroundColor = UIColor.tintGreen
+            } else {
+                confirmButton.backgroundColor = UIColor.loginGray
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(handlePopGesture))
+        changePasswordTextField.delegate = self
+        checkPasswordTextField.delegate = self
         setupUI()
     }
     
@@ -73,4 +86,44 @@ class ChangePasswordViewController: UIViewController {
             }
         }
     }
+    
+    private func setupWarningLabel(message: String?) {
+        if message != nil {
+            isValidate = false
+            errorLabel.isHidden = false
+            errorLabel.text = message
+        } else {
+            errorLabel.isHidden = true
+        }
+    }
+    
+    private func checkValidation() {
+        guard let pass1 = changePasswordTextField.text else {
+            return
+        }
+        
+        if let message = checkPasswordValidation(password: pass1) {
+            setupWarningLabel(message: message)
+            return
+        }
+
+        guard let pass2 = checkPasswordTextField.text else {
+            return
+        }
+               
+        if let message = checkPasswordEqual(pass1, pass2) {
+            setupWarningLabel(message: message)
+            return
+        }
+        
+        isValidate = true
+    }
 }
+
+extension ChangePasswordViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkValidation()
+    }
+}
+
+extension ChangePasswordViewController: LoginValidation {}

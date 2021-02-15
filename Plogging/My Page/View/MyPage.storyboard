@@ -658,7 +658,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4c-An-UK9">
-                                <rect key="frame" x="24" y="344.5" width="366" height="60"/>
+                                <rect key="frame" x="24" y="329.5" width="366" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="변경 비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYb-po-gTF">
                                         <rect key="frame" x="18" y="0.0" width="348" height="60"/>
@@ -718,7 +718,7 @@
                             <constraint firstItem="t4c-An-UK9" firstAttribute="leading" secondItem="eeA-4w-lW7" secondAttribute="leading" id="8eS-3a-6v2"/>
                             <constraint firstItem="Ahz-kq-sWc" firstAttribute="trailing" secondItem="gHV-aV-NGE" secondAttribute="trailing" constant="24" id="91Z-OC-Jms"/>
                             <constraint firstItem="A0g-gV-ctd" firstAttribute="top" secondItem="Ahz-kq-sWc" secondAttribute="top" constant="30" id="Ifn-Kf-sab"/>
-                            <constraint firstItem="t4c-An-UK9" firstAttribute="top" secondItem="Nbk-Z0-8lC" secondAttribute="bottom" constant="23" id="MLv-26-UdS"/>
+                            <constraint firstItem="t4c-An-UK9" firstAttribute="top" secondItem="Nbk-Z0-8lC" secondAttribute="bottom" constant="8" id="MLv-26-UdS"/>
                             <constraint firstItem="t4c-An-UK9" firstAttribute="trailing" secondItem="eeA-4w-lW7" secondAttribute="trailing" id="NXN-J7-B9R"/>
                             <constraint firstItem="A0g-gV-ctd" firstAttribute="leading" secondItem="Ahz-kq-sWc" secondAttribute="leading" constant="24" id="Nt3-LA-sVS"/>
                             <constraint firstAttribute="trailing" secondItem="Nbk-Z0-8lC" secondAttribute="trailing" constant="24" id="TVs-Qx-405"/>
@@ -737,6 +737,7 @@
                         <outlet property="checkPasswordOuterView" destination="t4c-An-UK9" id="78L-IB-EDY"/>
                         <outlet property="checkPasswordTextField" destination="nYb-po-gTF" id="NSf-OW-afr"/>
                         <outlet property="confirmButton" destination="gHV-aV-NGE" id="ESR-KH-vcf"/>
+                        <outlet property="errorLabel" destination="Nbk-Z0-8lC" id="fAM-lk-HYE"/>
                         <outlet property="nowPasswordOuterView" destination="mif-fS-Bvh" id="C66-mz-LhL"/>
                         <outlet property="nowPasswordTextField" destination="iCP-h7-3rw" id="TFz-nh-GBl"/>
                     </connections>
