@@ -101,6 +101,19 @@ class CustomHeaderView: UIView {
         ]
         NSLayoutConstraint.activate(imageConstraints)
         userIcon.image = UIImage(named: "ranking")
+        
+        // 플로깅
+        let plogginInfo = PloggingRankingData(frame: CGRect(x: 0, y: 0, width: 300, height: 90))
+        plogginInfo.translatesAutoresizingMaskIntoConstraints = false
+        defaultView.addSubview(plogginInfo)
+
+        let plogginScoreConstrints:[NSLayoutConstraint] = [
+            plogginInfo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            plogginInfo.rightAnchor.constraint(equalTo: rightAnchor, constant: -24),
+            plogginInfo.topAnchor.constraint(equalTo: topAnchor, constant: 185),
+            plogginInfo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 36),
+        ]
+        NSLayoutConstraint.activate(plogginScoreConstrints)
     }
     
     func notDefaultHeaderUI() {

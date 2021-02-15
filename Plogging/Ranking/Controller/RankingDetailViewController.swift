@@ -33,7 +33,7 @@ class RankingDetailViewController: UIViewController {
     
     private func animateHeader() {
         self.headerHeightConstraint.constant = 300
-        UIView.animate(withDuration: 0.4,
+        UIView.animate(withDuration: 0.2,
                        delay: 0.0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.5,
@@ -58,13 +58,11 @@ extension RankingDetailViewController: UIScrollViewDelegate {
         // 헤더 뷰 증가
         if scrollView.contentOffset.y < 0 {
             self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-            headerView.decrementNotDefaultAlpha(offset: self.headerHeightConstraint.constant)
             headerView.incrementDefaultAlpha(offset: self.headerHeightConstraint.constant)
         }
         // 헤더 뷰 감소
         else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
             self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
-            headerView.incrementNotDefaultAlpha(offset: self.headerHeightConstraint.constant)
             headerView.decrementDefualtAlpha(offset: self.headerHeightConstraint.constant)
             
             if self.headerHeightConstraint.constant < 65 {
