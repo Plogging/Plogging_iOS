@@ -15,9 +15,10 @@ class RankingPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageView.image = image
     }
     
     @IBAction func clickCloseButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }

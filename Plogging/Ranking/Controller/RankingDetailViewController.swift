@@ -100,6 +100,7 @@ extension RankingDetailViewController: UICollectionViewDelegate {
         if let photoCell = self.storyboard?.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
             photoCell.modalPresentationStyle = .fullScreen
             photoCell.isModalInPresentation = true
+            photoCell.image = UIImage(named: "basicImage")
             self.present(photoCell, animated: true, completion: nil)
         }
     }
@@ -107,7 +108,7 @@ extension RankingDetailViewController: UICollectionViewDelegate {
 
 extension RankingDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size:CGFloat = (collectionView.frame.size.width - 16) / 2.0
+        let size: CGFloat = (collectionView.frame.size.width - 48) / 2
         return CGSize(width: size, height: size)
     }
     
