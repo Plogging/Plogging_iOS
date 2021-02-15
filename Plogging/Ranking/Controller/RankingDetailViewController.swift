@@ -96,7 +96,13 @@ extension RankingDetailViewController: UICollectionViewDataSource {
 }
 
 extension RankingDetailViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let photoCell = self.storyboard?.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
+            photoCell.modalPresentationStyle = .fullScreen
+            photoCell.isModalInPresentation = true
+            self.present(photoCell, animated: true, completion: nil)
+        }
+    }
 }
 
 extension RankingDetailViewController: UICollectionViewDelegateFlowLayout {

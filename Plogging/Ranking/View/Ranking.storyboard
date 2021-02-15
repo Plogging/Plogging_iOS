@@ -225,7 +225,7 @@
         <!--Ranking Photo View Controller-->
         <scene sceneID="DVO-VA-Equ">
             <objects>
-                <viewController id="COq-ag-VBM" customClass="RankingPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RankingPhotoViewController" id="COq-ag-VBM" customClass="RankingPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ekr-eL-gZb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
