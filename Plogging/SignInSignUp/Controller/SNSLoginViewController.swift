@@ -28,10 +28,39 @@ class SNSLoginViewController: UIViewController {
         setNavigationBarClear()
         setupButtonsUI()
         setupInformation()
+        setupNotification()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .loginCompletion, object: nil)
+    }
+
+    @objc func onDidReceiveData(_ notification: Notification)
+    {
+        if let data = notification.userInfo as? [String: Int] {
+            for (_, code) in data {
+                moveToOtherPage(code)
+            }
+        }
+    }
+    
+    func moveToOtherPage(_ rc: Int) {
+        switch rc {
+        case 200:
+            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
+                              sender: nil)
+            return
+        case 400:
+            // 이미 가입된 유저
+            // /user/social를 호출
+            return
+        default:
+            print("error")
+        }
     }
     
     func setupButtonsUI() {

@@ -19,6 +19,11 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
+    func callCompleteLoginNoti(rc: Int) {
+        let info = ["rc": rc]
+        NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
+    }
+    
     // MARK: - setting up login
     func setupLoginWithApple() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -133,14 +138,8 @@ class SNSLoginManager: NSObject {
         let param: [String: Any] = ["userId": "\(email):\(type)"]
         
         APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
-            let rc = try? response.get().rc
-            if rc == 200 {
-                // 닉네임 페이지로
-                print("닉네임 페이지")
-            } else if rc == 400  {
-                // 존재하는 아이디라고 알려줌
-            } else {
-                // 서버 에러
+            if let rc = try? response.get().rc {
+                self.callCompleteLoginNoti(rc: rc)
             }
         }
     }
