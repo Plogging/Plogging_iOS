@@ -52,11 +52,13 @@ class SettingViewController: UIViewController {
 
 // MARK: IBAction
 extension SettingViewController {
+    // 뒤로가기 버튼
     @IBAction func back(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(false)
         self.navigationController?.popViewController(animated: true)
     }
     
+    // 프로필 변경
     @IBAction func changeProfilePhoto(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "카메라", style: .default) { [self] _ in
@@ -76,6 +78,7 @@ extension SettingViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // 닉네임 변경
     @IBAction func changeNickName(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
         if let nickNameViewController = storyboard.instantiateViewController(withIdentifier: "NickNameViewController") as? NickNameViewController {
@@ -84,6 +87,7 @@ extension SettingViewController {
         }
     }
     
+    // 비밀번호 변경
     @IBAction func changePassword(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         guard let changePasswordViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController else {
@@ -92,10 +96,12 @@ extension SettingViewController {
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     
+    // 로그아웃
     @IBAction func logout(_ sender: Any) {
         showPopUpViewController(with: .로그아웃팝업)
     }
     
+    // 회원탈퇴
     @IBAction func signOut(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         guard let signOutViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignOutViewController") as? SignOutViewController else {

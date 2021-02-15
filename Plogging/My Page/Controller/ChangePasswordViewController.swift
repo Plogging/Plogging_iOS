@@ -49,6 +49,28 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction func completeChangePassword(_ sender: Any) {
-        showPopUpViewController(with: .비밀번호변경완료팝업)
+        guard let newSecretKey = nowPasswordTextField.text,
+              let existedSecretKey = changePasswordTextField.text else {
+            return
+        }
+        
+        let param: [String: Any] = ["newSecretKey": newSecretKey,
+                                    "existedSecretKey": existedSecretKey]
+        
+        APICollection.sharedAPI.requestChangeUserPassword(param: param) { (response) in
+            if let code = try? response.get().rc {
+                switch code {
+                case 200:
+                    self.showPopUpViewController(with: .비밀번호변경완료팝업)
+                    return
+                case 404:
+                    print("실패")
+                    return
+                default:
+                    print("error")
+                    return
+                }
+            }
+        }
     }
 }
