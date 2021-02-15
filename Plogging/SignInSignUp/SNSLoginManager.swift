@@ -18,6 +18,7 @@ class SNSLoginManager: NSObject {
     static let shared = SNSLoginManager()
     
     private var completion: ((SNSLoginData) -> Void)?
+    var loginData: SNSLoginData = SNSLoginData()
 
     // MARK: - setting up login
     func setupLoginWithApple() {
@@ -54,15 +55,18 @@ class SNSLoginManager: NSObject {
         completion?(loginData)
     }
     
-    func requestLoginWithKakao(completion: ((SNSLoginData) -> Void)?) {
+    func requestLoginWithKakao(completion: ((Int?, SNSLoginData?) -> Void)) {
         if AuthApi.isKakaoTalkLoginAvailable() {
             AuthApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 if let error = error {
                     print(error)
                 } else {
-                    self.getKakaoInfo()
-                    let loginData: SNSLoginData = SNSLoginData()
-                    completion?(loginData)
+                    self.getKakaoInfo(completion: { response in
+                        if let response = response {
+                            completion(response, self.loginData)
+                        }
+                        completion(nil, nil)
+                    })
                 }
             }
         } else {
@@ -70,9 +74,12 @@ class SNSLoginManager: NSObject {
                 if let error = error {
                     print(error)
                 } else {
-                    self.getKakaoInfo()
-                    let loginData: SNSLoginData = SNSLoginData()
-                    completion?(loginData)
+                    self.getKakaoInfo(completion: { response in
+                        if let response = response {
+                            completion(response, self.loginData)
+                        }
+                        completion(response, nil)
+                    })
                 }
             }
         }
@@ -91,7 +98,7 @@ class SNSLoginManager: NSObject {
         completion?(loginData)
     }
     
-    func getNaverInfo() {
+    func getNaverInfo(completion:@escaping (Int?) -> Void) {
         guard let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else {
             return
         }
@@ -110,11 +117,18 @@ class SNSLoginManager: NSObject {
             guard let object = result["response"] as? [String: Any] else { return }
             guard let email = object["email"] as? String else { return }
             print("email: \(email)")
-            self.checkEmailValidation(email: email, type: SNSType.naver.rawValue)
+            self.checkEmailValidation(email: email, type: SNSType.naver.rawValue, completion: { response in
+                if let response = response {
+                    self.loginData.type = "naver"
+                    self.loginData.userId = email
+                    completion(response)
+                }
+                completion(nil)
+            })
         }
     }
     
-    func getKakaoInfo() {
+    func getKakaoInfo(completion:@escaping (Int?) -> Void) {
         UserApi.shared.me() {(user, error) in
             if let error = error {
                 print(error)
@@ -123,24 +137,34 @@ class SNSLoginManager: NSObject {
                 print("me() success.")
                 if let email = user?.kakaoAccount?.email {
                     print("email \(email)")
-                    self.checkEmailValidation(email: email, type: SNSType.kakao.rawValue)
+                    self.checkEmailValidation(email: email, type: SNSType.kakao.rawValue, completion: { response in
+                        if let response = response {
+                            self.loginData.type = "kakao"
+                            self.loginData.userId = email
+                            completion(response)
+                        }
+                        completion(nil)
+                    })
                 }
             }
         }
     }
-        
-    func checkEmailValidation(email: String, type: String) {
+    
+    // 사용자 가입 확인
+    func checkEmailValidation(email: String, type: String, completion:@escaping (Int?) -> Void) {
         let param: [String: Any] = ["userId": "\(email):\(type)"]
         
         APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
             let rc = try? response.get().rc
             if rc == 200 {
                 // 닉네임 페이지로
-                print("닉네임 페이지")
-            } else if rc == 400  {
-                // 존재하는 아이디라고 알려줌
+                completion(200)
+            } else if rc == 201 {
+                // 존재하는 아이디니깐 로그인 호출
+                completion(201)
             } else {
-                // 서버 에러
+                print("error")
+                completion(nil)
             }
         }
     }

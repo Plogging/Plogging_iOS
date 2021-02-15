@@ -73,8 +73,16 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickKakaoLoginButton(_ sender: UIButton) {
-        SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
-            print(loginData)
+        SNSLoginManager.shared.requestLoginWithKakao { (rc, loginData) in
+            if let rc = rc {
+                if rc == 200 {
+                    // 닉네임
+                } else if rc == 201 {
+                    // 이미 아이디 존재
+                }
+            } else {
+                print("로그인 실패")
+            }
         }
     }
     
