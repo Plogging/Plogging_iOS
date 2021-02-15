@@ -121,7 +121,7 @@ extension MyPageViewController: UICollectionViewDataSource {
             return cell
         }
         
-        // 페이징 테스트용
+        // TODO: 페이징 테스트용 지우기
         guard let ploggingImageUrl = pagingDataSource.contents[indexPath.item].meta.ploggingImage else {
             return cell
         }
