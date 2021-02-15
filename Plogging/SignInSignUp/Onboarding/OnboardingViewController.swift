@@ -155,35 +155,16 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    private func rearrangeStackView() {
-        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        var temp = page
-        
-        if page == 0 {
-            temp = 1
-        } else if page == 1 {
-            let img = onboardingStackView.arrangedSubviews[0]
-            if img == onboardingSelectedImage {
-                temp = 0
-            } else {
-                temp = 2
-            }
-        } else if page == 2 {
-            temp = 1
-        }
-        
-        let image = onboardingStackView.arrangedSubviews[temp]
-        if image == onboardingSelectedImage {
-            image.removeFromSuperview()
-            onboardingStackView.insertArrangedSubview(onboardingSelectedImage, at: page)
-        }
+    private func rearrangeStackView(page: Int) {
+        onboardingStackView.removeArrangedSubview(onboardingSelectedImage)
+        onboardingStackView.insertArrangedSubview(onboardingSelectedImage, at: page)
+        self.view.setNeedsLayout()
     }
 }
 
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndiactorForCurrentPage()
-        rearrangeStackView()
     }
 
     func setIndiactorForCurrentPage()  {
@@ -194,5 +175,6 @@ extension OnboardingViewController: UIScrollViewDelegate {
         } else {
             isLastPage = false
         }
+        rearrangeStackView(page: page)
     }
 }
