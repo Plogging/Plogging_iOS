@@ -24,15 +24,6 @@ class PloggingUserData {
         UserDefaults.standard.setValue(image, forKey: userImage)
     }
     
-    func saveUserIdData(id: String) {
-        UserDefaults.standard.setValue(id, forKey: userId)
-    }
-    
-    func saveUserNameAndImageData(nickName: String, image: String) {
-        UserDefaults.standard.setValue(nickName, forKey: userName)
-        UserDefaults.standard.setValue(image, forKey: userImage)
-    }
-    
     func getUserId() -> String? {
         return UserDefaults.standard.string(forKey: userId)
     }

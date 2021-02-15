@@ -70,6 +70,7 @@ class PopUpViewController: UIViewController {
                 if let result = try? response.get() {
                     if result.rc == 200 {
                         // 로그인 화면으로 이동
+                        PloggingUserData.shared.removeUserData()
                         self.makeLoginRootViewController()
                     } else {
                         print(result.rcmsg)
