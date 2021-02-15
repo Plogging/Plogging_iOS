@@ -19,6 +19,10 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var outerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var innerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageStackViewTopConstraint: NSLayoutConstraint!
+    var forwardingImage = UIImage()
+    var ploggingResultParam: [String : Any] = [:]
+    var ploggingDistance: Int?
+    var ploggingTrashCount: Int?
     
     var type: PopUpType?
     
@@ -77,6 +81,32 @@ class PopUpViewController: UIViewController {
                     }
                 }
             }
+        case .기록삭제팝업:
+            self.makeDefaultRootViewController()
+        case .사진없이저장팝업:
+            let ploggingResultImageMaker = PloggingResultImageMaker()
+            guard let basicImage = UIImage(named: "basicImage") else {
+                return
+            }
+            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(ploggingDistance)", trashCount: "\(ploggingTrashCount)")
+            forwardingImage = ploggingResultImage
+            
+            guard let forwardingImageData = forwardingImage.pngData() else {
+                print("no forwardingImageData")
+                return
+            }
+            
+            APICollection.sharedAPI.requestRegisterPloggingResult(param: ploggingResultParam, imageData: forwardingImageData) { (response) in
+                if let result = try? response.get() {
+                    if result.rc == 200 {
+                        print("success")
+                    } else if result.rc == 401 {
+                        //로그인 화면으로 전환
+                    }
+                }
+            }
+            self.makeDefaultRootViewController()
         default:
             print("")
         }

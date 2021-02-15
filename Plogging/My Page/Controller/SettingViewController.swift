@@ -104,10 +104,10 @@ extension SettingViewController {
     // 회원탈퇴
     @IBAction func signOut(_ sender: Any) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        guard let signOutViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignOutViewController") as? SignOutViewController else {
+        guard let deleteUserViewController = self.storyboard?.instantiateViewController(withIdentifier: "DeleteUserViewController") as? DeleteUserViewController else {
             return
         }
-        navigationController?.pushViewController(signOutViewController, animated: true)
+        navigationController?.pushViewController(deleteUserViewController, animated: true)
     }
 }
 

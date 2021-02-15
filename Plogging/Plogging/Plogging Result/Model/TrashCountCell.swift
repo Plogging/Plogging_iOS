@@ -12,20 +12,20 @@ class TrashCountCell: UICollectionViewCell {
     @IBOutlet weak var trashCount: UILabel!
     @IBOutlet weak var lineSeparotor: UIView!
     
-    func updateUI(_ trashInfo: Trash) {
+    func updateUI(_ trashInfo: TrashItem) {
         var trashTypeName = ""
         switch trashInfo.trashType {
-        case 1:
+        case .vinyl:
             trashTypeName = TrashType.vinyl.type
-        case 2:
+        case .glass:
             trashTypeName = TrashType.glass.type
-        case 3:
+        case .paper:
             trashTypeName = TrashType.paper.type
-        case 4:
+        case .plastic:
             trashTypeName = TrashType.plastic.type
-        case 5:
+        case .can:
             trashTypeName = TrashType.can.type
-        case 6:
+        case .extra:
             trashTypeName = TrashType.extra.type
         default:
             break
@@ -35,12 +35,6 @@ class TrashCountCell: UICollectionViewCell {
     }
     
     func changeSeparatorColor() {
-        lineSeparotor.backgroundColor = UIColor.greenBlue
-    }
-    
-    func pickUpZero() {
-        trashName.isHidden = true
-        trashCount.isHidden = true
         lineSeparotor.backgroundColor = UIColor.greenBlue
     }
 }

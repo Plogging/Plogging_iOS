@@ -17,7 +17,7 @@
         <!--My Page View Controller-->
         <scene sceneID="q1n-fq-wDs">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRL-nI-UWH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,12 +49,36 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KbH-1T-FFH">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oi-Mh-9qt" userLabel="createdtime">
+                                                            <rect key="frame" x="43.333333333333329" y="54.000000000000007" width="41.333333333333329" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-Se-3pw" userLabel="score">
+                                                            <rect key="frame" x="43.333333333333329" y="23.666666666666671" width="41.333333333333329" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pos-s4-yER" userLabel="totalCount">
+                                                            <rect key="frame" x="43.333333333333329" y="89" width="41.333333333333329" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="pos-s4-yER" firstAttribute="centerX" secondItem="icn-w8-gDx" secondAttribute="centerX" id="3JA-Fy-LS1"/>
+                                                        <constraint firstItem="WIf-Se-3pw" firstAttribute="centerX" secondItem="icn-w8-gDx" secondAttribute="centerX" id="9pR-29-nTt"/>
                                                         <constraint firstItem="KbH-1T-FFH" firstAttribute="leading" secondItem="icn-w8-gDx" secondAttribute="leading" id="Geh-mW-t4G"/>
+                                                        <constraint firstItem="3Oi-Mh-9qt" firstAttribute="centerY" secondItem="icn-w8-gDx" secondAttribute="centerY" id="Ml5-76-YJe"/>
+                                                        <constraint firstItem="pos-s4-yER" firstAttribute="top" secondItem="WIf-Se-3pw" secondAttribute="bottom" constant="45" id="aKs-pG-0Vi"/>
                                                         <constraint firstItem="KbH-1T-FFH" firstAttribute="top" secondItem="icn-w8-gDx" secondAttribute="top" id="eTo-9c-PLx"/>
+                                                        <constraint firstItem="3Oi-Mh-9qt" firstAttribute="centerX" secondItem="icn-w8-gDx" secondAttribute="centerX" id="edx-FU-zL5"/>
                                                         <constraint firstAttribute="trailing" secondItem="KbH-1T-FFH" secondAttribute="trailing" id="kv9-gx-jhf"/>
                                                         <constraint firstAttribute="bottom" secondItem="KbH-1T-FFH" secondAttribute="bottom" id="n73-xd-INw"/>
+                                                        <constraint firstItem="3Oi-Mh-9qt" firstAttribute="top" secondItem="WIf-Se-3pw" secondAttribute="bottom" constant="10" id="ugb-RJ-ix3"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <userDefinedRuntimeAttributes>
@@ -63,7 +87,10 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <outlet property="createdTime" destination="3Oi-Mh-9qt" id="6Ql-8X-lPK"/>
                                                     <outlet property="ploggingResultPhoto" destination="KbH-1T-FFH" id="wvA-i1-dtb"/>
+                                                    <outlet property="score" destination="WIf-Se-3pw" id="ezQ-Ns-Qbg"/>
+                                                    <outlet property="trashCount" destination="pos-s4-yER" id="HVL-WV-pH4"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -349,6 +376,7 @@
                         <outlet property="profilePhoto" destination="NVi-sV-TLm" id="ngM-Mh-2Bp"/>
                         <outlet property="scrollView" destination="IYc-3A-PVR" id="JdQ-UW-2hE"/>
                         <outlet property="sortingButton" destination="F76-qf-TP4" id="Lh1-VZ-fdu"/>
+                        <outlet property="sortingLabel" destination="O2T-sV-trM" id="Vyy-oa-dfn"/>
                         <outlet property="sortingView" destination="6Cc-Jq-jUn" id="agk-Ye-nGk"/>
                         <outlet property="totalPloggingDistance" destination="Siv-pd-zhM" id="aJQ-SM-9A3"/>
                         <outlet property="totalPloggingScore" destination="HHx-Ri-NwK" id="W1r-Uq-3qX"/>
@@ -746,10 +774,10 @@
             </objects>
             <point key="canvasLocation" x="1888" y="758"/>
         </scene>
-        <!--Sign Out View Controller-->
+        <!--Delete User View Controller-->
         <scene sceneID="5jd-0x-J67">
             <objects>
-                <viewController storyboardIdentifier="SignOutViewController" id="OaF-GD-HJk" customClass="SignOutViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeleteUserViewController" id="OaF-GD-HJk" customClass="DeleteUserViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beI-Hk-fp2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

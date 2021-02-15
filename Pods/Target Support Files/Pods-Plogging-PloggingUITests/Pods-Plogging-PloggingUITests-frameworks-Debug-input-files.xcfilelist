@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKLink/KakaoSDKLink.framework
@@ -9,4 +8,5 @@ ${BUILT_PRODUCTS_DIR}/KakaoSDKStory/KakaoSDKStory.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKTalk/KakaoSDKTalk.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKTemplate/KakaoSDKTemplate.framework
 ${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework
