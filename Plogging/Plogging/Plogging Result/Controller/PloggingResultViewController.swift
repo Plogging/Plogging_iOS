@@ -119,7 +119,6 @@ class PloggingResultViewController: UIViewController {
         }
     }
     
-    
     private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
 
@@ -193,10 +192,13 @@ extension PloggingResultViewController {
                 return
             }
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
-            forwardingImage = ploggingResultImage
+            let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
+            forwardingImage = ploggingThumbnailImage
         } else {
-            forwardingImage = ploggingResultPhoto.image!
+            guard let forwardingThumbnailImage = ploggingResultPhoto.image else {
+                return
+            }
+            forwardingImage = forwardingThumbnailImage
         }
 
         guard let forwardingImageData = forwardingImage.pngData() else {
