@@ -61,7 +61,6 @@ class PloggingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
-        
         APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
             guard let self = self else {
                 return
@@ -94,18 +93,23 @@ class PloggingResultViewController: UIViewController {
         
         var trashType = 0
         var pickCount = 0
-        for i in 0 ..< trashCount {
-            trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
-            pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
-        }
-
+        
         var trashList: [String : Any] = [
             "trash_type" : trashType,
             "pick_count" : pickCount
         ]
         
-        trashListArray.append(trashList)
-        
+        for i in 0 ..< trashCount {
+            trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
+            pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
+            
+            if pickCount > 0 {
+                trashList["trash_type"] = trashType
+                trashList["pick_count"] = pickCount
+                trashListArray.append(trashList)
+            }
+        }
+
         let param: [String : Any] = [
             "meta" : meta,
             "trash_list" : trashListArray
@@ -219,7 +223,7 @@ extension PloggingResultViewController {
             print("no forwardingImageData")
             return
         }
-    
+        
         APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { (response) in
             self.ploggingInfo = try? response.get()
         }
