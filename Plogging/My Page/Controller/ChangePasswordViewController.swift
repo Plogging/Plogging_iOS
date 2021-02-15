@@ -34,6 +34,8 @@ class ChangePasswordViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(handlePopGesture))
+        
+        nowPasswordTextField.delegate = self
         changePasswordTextField.delegate = self
         checkPasswordTextField.delegate = self
         setupUI()
@@ -102,6 +104,15 @@ class ChangePasswordViewController: UIViewController {
     }
     
     private func checkValidation() {
+        guard let pass = nowPasswordTextField.text else {
+            return
+        }
+        
+        if let message = checkPasswordValidation(password: pass) {
+            setupWarningLabel(message: message)
+            return
+        }
+        
         guard let pass1 = changePasswordTextField.text else {
             return
         }
