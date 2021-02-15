@@ -24,10 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             SNSLoginManager.shared.setupLoginWithNaver()
             SNSLoginManager.shared.setupLoginWithKakao()
 
-            DispatchQueue.main.async {
-                self.window?.rootViewController?.showOnboardingViewController()
+            let storyboard = UIStoryboard(name: Storyboard.Onboarding.rawValue, bundle: nil)
+            if let onboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController {
+                self.window?.rootViewController = onboardingViewController
             }
-        } else {
+        }
+        else {
             // Plogging 메인
             self.window?.rootViewController?.makeDefaultRootViewController()
         }

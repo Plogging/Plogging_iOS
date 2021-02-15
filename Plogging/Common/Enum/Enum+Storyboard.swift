@@ -9,6 +9,7 @@ import Foundation
 
 enum Storyboard: String {
     case Main
+    case MyPage
     case SNSLogin
     case Onboarding
     case WaitingScreen

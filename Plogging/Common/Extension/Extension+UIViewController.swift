@@ -84,4 +84,20 @@ extension UIViewController {
                               completion: nil)
         }
     }
+    
+    func makeLoginRootViewController() {
+        let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
+    
+        if let mainViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController,
+           let first = UIApplication.shared.windows.first {
+            
+            first.rootViewController = mainViewController
+            first.makeKeyAndVisible()
+            UIView.transition(with: first,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: nil,
+                              completion: nil)
+        }
+    }
 }

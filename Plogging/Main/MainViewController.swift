@@ -52,6 +52,7 @@ class MainViewController: UIViewController {
     
     func setTabBarHidden(_ isHidden: Bool) {
         tabBar.isHidden = isHidden
+        shadowView.isHidden = isHidden
     }
 }
 

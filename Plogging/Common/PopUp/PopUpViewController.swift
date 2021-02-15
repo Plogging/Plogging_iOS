@@ -67,11 +67,15 @@ class PopUpViewController: UIViewController {
     
     @IBAction func clickYesButton(_ sender: UIButton) {
         switch type {
+        case .비밀번호변경완료팝업:
+            makeLoginRootViewController()
         case .로그아웃팝업:
             APICollection.sharedAPI.requestUserSignOut { (response) in
                 if let result = try? response.get() {
                     if result.rc == 200 {
                         // 로그인 화면으로 이동
+                        PloggingUserData.shared.removeUserData()
+                        self.makeLoginRootViewController()
                     } else {
                         print(result.rcmsg)
                     }
