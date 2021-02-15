@@ -40,36 +40,6 @@ class PloggingResultViewController: UIViewController {
         }
     }
     
-    func getParam() -> [String: Any] {
-        let meta: [String : Any] = [
-            "distance" : 1000,
-            "calorie" : 300,
-            "plogging_time" : 5500
-        ]
-        
-        var trashListArray: [[String : Any]] = []
-        
-        var trashList: [String : Any] = [
-            "trash_type" : 1,
-            "pick_count" : 4
-        ]
-        
-        trashListArray.append(trashList)
-        
-        trashList = [
-            "trash_type" : 2,
-            "pick_count" : 4
-        ]
-        trashListArray.append(trashList)
-        
-        let param: [String: Any] = [
-                "meta" : meta,
-                "trash_list" : trashListArray
-        ]
-        
-        return param
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
@@ -90,6 +60,7 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
         
         APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
             guard let self = self else {
@@ -97,6 +68,56 @@ class PloggingResultViewController: UIViewController {
             }
             self.ploggingResultScore = try? response.get()
         }
+    }
+    
+    private func getParam() -> [String : Any] {
+        guard var distance = Int(ploggingDistance.text ?? "0"), let calorie = Int(ploggingCalorie.text ?? "0"),
+              let ploggingTime = Int(ploggingTime.text ?? "0") else {
+            return [:]
+        }
+        
+        if distance == 0 {
+            distance = 1
+        }
+        
+        let meta: [String : Any] = [
+            "distance" : distance,
+            "calorie" : calorie,
+            "plogging_time" : ploggingTime
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        guard let trashCount = ploggingResult?.trashList?.count else {
+            return [:]
+        }
+        
+        var trashType = 0
+        var pickCount = 0
+        for i in 0 ..< trashCount {
+            trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
+            pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
+        }
+        if trashType == 0 {
+            trashType = 1
+        }
+        
+        if pickCount == 0 {
+            pickCount = 1
+        }
+        
+        var trashList: [String : Any] = [
+            "trash_type" : trashType,
+            "pick_count" : pickCount
+        ]
+        
+        trashListArray.append(trashList)
+        
+        let param: [String : Any] = [
+            "meta" : meta,
+            "trash_list" : trashListArray
+        ]
+        return param
     }
     
     private func checkScoreValidation() {
@@ -192,7 +213,7 @@ extension PloggingResultViewController {
                 return
             }
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(5.12)", trashCount: "\(getTrashPickTotalCount())")
+            let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(getTrashPickTotalCount())")
             forwardingImage = ploggingThumbnailImage
         } else {
             guard let forwardingThumbnailImage = ploggingResultPhoto.image else {
@@ -252,7 +273,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         guard let trashInfos = ploggingResult?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
-
+        
         trashCountCell?.updateUI(trashInfos[indexPath.item])
         
         if indexPath.item == trashInfos.count - 1 {
