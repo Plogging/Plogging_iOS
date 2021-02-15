@@ -19,13 +19,15 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
+    private var ploggingActivityScore = 0
+    private var ploggingEnvironmentScore = 0
+    private let contentViewOriginalHeight = 1280
+    private let totalCountViewOriginalHeight = 80
+    private let trashInfoViewTopConstraint = 40
+    private let collectionViewCellLeading = 54
+    private let collectionViewCellTrailing = 54
     var baseImage: UIImage?
     var ploggingResult: PloggingResult?
-    let contentViewOriginalHeight = 1280
-    let totalCountViewOriginalHeight = 80
-    let trashInfoViewTopConstraint = 40
-    let collectionViewCellLeading = 54
-    let collectionViewCellTrailing = 54
     var forwardingImage = UIImage()
     private var ploggingResultScore: PloggingResultScore? {
         didSet {
@@ -104,8 +106,6 @@ class PloggingResultViewController: UIViewController {
         switch model.rc {
         case 200:
             print("success!!")
-            var ploggingActivityScore = 0
-            var ploggingEnvironmentScore = 0
             ploggingActivityScore = model.score.activityScore
             ploggingEnvironmentScore = model.score.environmentScore
             self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
