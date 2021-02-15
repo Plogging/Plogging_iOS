@@ -121,6 +121,9 @@
                                     <segue destination="22C-Bl-UbG" kind="presentation" id="wOF-eA-g92"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PloggingLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zbX-D0-fSO">
+                                <rect key="frame" x="170" y="305.5" width="74" height="70"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="glD-Aj-CoI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,7 +137,9 @@
                             <constraint firstItem="glD-Aj-CoI" firstAttribute="trailing" secondItem="2uL-He-YRY" secondAttribute="trailing" constant="36" id="GU7-wO-fAD"/>
                             <constraint firstItem="64G-dD-haf" firstAttribute="leading" secondItem="glD-Aj-CoI" secondAttribute="leading" id="Pbj-yK-t2M"/>
                             <constraint firstItem="2uL-He-YRY" firstAttribute="top" secondItem="aFX-FD-ER9" secondAttribute="bottom" constant="24" id="Vnl-Q6-suD"/>
+                            <constraint firstItem="zbX-D0-fSO" firstAttribute="centerX" secondItem="64G-dD-haf" secondAttribute="centerX" id="W1y-4A-iS9"/>
                             <constraint firstItem="aFX-FD-ER9" firstAttribute="top" secondItem="Ypu-gG-TR6" secondAttribute="bottom" constant="12" id="aP9-sx-ZmA"/>
+                            <constraint firstItem="Ypu-gG-TR6" firstAttribute="top" secondItem="zbX-D0-fSO" secondAttribute="bottom" constant="170" id="bNr-46-Q3z"/>
                             <constraint firstItem="glD-Aj-CoI" firstAttribute="bottom" secondItem="2uL-He-YRY" secondAttribute="bottom" constant="36" id="dUs-Rh-Q63"/>
                             <constraint firstItem="2uL-He-YRY" firstAttribute="leading" secondItem="glD-Aj-CoI" secondAttribute="leading" constant="36" id="ecc-gh-sNk"/>
                             <constraint firstAttribute="bottom" secondItem="64G-dD-haf" secondAttribute="bottom" id="k8x-hY-HDH"/>
@@ -855,6 +860,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PloggingLogo" width="74" height="70"/>
         <image name="background" width="414" height="896"/>
         <image name="btnApple" width="56" height="56"/>
         <image name="btnKakao" width="56" height="56"/>
