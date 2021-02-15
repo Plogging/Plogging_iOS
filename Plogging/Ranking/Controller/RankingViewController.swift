@@ -20,6 +20,7 @@ class RankingViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refresh.endRefreshing()
             }
         }
     }
@@ -29,6 +30,7 @@ class RankingViewController: UIViewController {
                 let indexPathRow = 0
                 let indexPosition = IndexPath(row: indexPathRow, section: 0)
                 self.tableView.reloadRows(at: [indexPosition], with: .none)
+                self.refresh.endRefreshing()
             }
         }
     }
@@ -103,8 +105,7 @@ class RankingViewController: UIViewController {
     }
     
     @objc private func updateRanking() {
-        refresh.endRefreshing()
-        tableView.reloadData()
+        requestBothRankingAPI()
     }
     
     @IBAction func weeklyButtonClick(_ sender: UIButton) {
