@@ -26,12 +26,12 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
+    private let contentViewOriginalHeight = 1150
+    private let totalCountViewOriginalHeight = 80
+    private let trashInfoViewTopConstraint = 40
+    private let collectionViewCellLeading = 54
+    private let collectionViewCellTrailing = 54
     var ploggingList: PloggingList?
-    let contentViewOriginalHeight = 1150
-    let totalCountViewOriginalHeight = 80
-    let trashInfoViewTopConstraint = 40
-    let collectionViewCellLeading = 54
-    let collectionViewCellTrailing = 54
     var profileImage: UIImage?
     var userName: String?
     
