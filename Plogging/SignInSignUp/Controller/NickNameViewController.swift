@@ -14,6 +14,7 @@ class NickNameViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
+    var myNickName = ""
     var userInfo = [String: Any]()
     
     private var ploggingUserInfo: PloggingUser? {
@@ -38,6 +39,10 @@ class NickNameViewController: UIViewController {
     }
     
     private func setupUI() {
+        if myNickName.count >= 1 {
+            nickNameInfoLabel.isHidden = true
+            nickNameTextField.text = myNickName
+        } 
         confirmButton.clipsToBounds = true
         confirmButton.layer.cornerRadius = 12
         

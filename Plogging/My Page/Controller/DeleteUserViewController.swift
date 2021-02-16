@@ -26,7 +26,8 @@ class DeleteUserViewController: UIViewController {
             if let result = try? response.get() {
                 if result.rc == 200 {
                     PloggingCookie.shared.removeUserCookie()
-                    self.dismiss(animated: false, completion: nil)
+                    PloggingUserData.shared.removeUserData()
+                    self.makeLoginRootViewController()
                 } else {
                     print(result.rcmsg)
                 }

@@ -20,23 +20,24 @@ class RankingViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refresh.endRefreshing()
             }
         }
     }
     private var userPloggingRankig: RankingUser? {
-        didSet{
-            DispatchQueue.main.async {
-                let indexPathRow = 0
-                let indexPosition = IndexPath(row: indexPathRow, section: 0)
-                self.tableView.reloadRows(at: [indexPosition], with: .none)
+            didSet{
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refresh.endRefreshing()
+                }
             }
-        }
     }
     var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBarClear()
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
@@ -60,20 +61,19 @@ class RankingViewController: UIViewController {
     
     private func requestUserRanking(type: String) {
         // TODO: - id는 저장된 유저 정보
+        let param: [String: Any] = ["rankType": type]
 
-//        let param: [String: Any] = ["rankType": type]
-
-//        APICollection.sharedAPI.requestUserRanking(id: "", param: param) { (response) in
-//            self.userPloggingRankig = try? response.get()
-//        }
+        APICollection.sharedAPI.requestUserRanking(id: "hyer1k@naver.com:custom", param: param) { (response) in
+            self.userPloggingRankig = try? response.get()
+        }
     }
     
     private func setupRankingTitle() {
         let rankingTitleString = NSMutableAttributedString()
-            .bold("연쇄쓰담마", fontSize: 35)
-            .normal("님의", fontSize: 35)
+            .heavy("연쇄쓰담마", fontSize: 35)
+            .medium("님의", fontSize: 35)
             .newLine(fontSize: 35)
-            .normal("랭킹을 확인하세요!", fontSize: 35)
+            .medium("랭킹을 확인하세요!", fontSize: 35)
         rankingTitleLabel.attributedText = rankingTitleString
     }
     
@@ -89,7 +89,7 @@ class RankingViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
+        tableView.estimatedRowHeight = 28
         
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
         tableView.contentInset = inset
@@ -102,8 +102,7 @@ class RankingViewController: UIViewController {
     }
     
     @objc private func updateRanking() {
-        refresh.endRefreshing()
-        tableView.reloadData()
+        requestBothRankingAPI()
     }
     
     @IBAction func weeklyButtonClick(_ sender: UIButton) {
@@ -140,6 +139,13 @@ class RankingViewController: UIViewController {
 
 extension RankingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row > 1 else { return }
+        
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        if let mypage = storyboard.instantiateViewController(identifier: "MyPage") as? MyPageViewController {
+            mypage.type = .ranking
+            self.navigationController?.pushViewController(mypage, animated: true)
+        }
         print(indexPath.row)
     }
 }
@@ -176,9 +182,9 @@ extension RankingViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             return 132
         } else if indexPath.row == 1 {
-            return 44
+            return 28
         } else {
-            return 105
+            return 95
         }
     }
 }

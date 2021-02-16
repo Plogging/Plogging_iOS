@@ -61,6 +61,8 @@ extension APICollection {
             // 쿠키 설정
             getCookies()
             
+            
+            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
@@ -154,6 +156,27 @@ extension APICollection {
         }
     }
     
+    /// 비밀번호 변경
+    func requestChangeUserPassword(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userPassword,
+                   method: .put,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 임시 비밀번호 발급
     func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
@@ -180,7 +203,7 @@ extension APICollection {
         AF.request(BaseURL.mainURL + BasePath.userSignOut,
                    method: .put,
                    encoding: JSONEncoding.default,
-                   headers: defaultHeader
+                   headers: gettingHeader()
         ).responseJSON { response in
             guard let data = response.data else {
                 return completion(.failure(.dataFailed))

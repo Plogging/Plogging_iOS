@@ -14,7 +14,7 @@ class PloggingCookie {
     
     /// 처음인지 확인하는 함수
     func isFirstTimeUser() -> Bool {
-        return getUserCookie() == nil 
+        return getUserCookie() == nil || PloggingUserData.shared.getUserId() == nil
     }
     
     /// 유저 쿠키 받기
