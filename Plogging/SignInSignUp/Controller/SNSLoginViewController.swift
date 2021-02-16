@@ -41,18 +41,22 @@ class SNSLoginViewController: UIViewController {
 
     @objc func onDidReceiveData(_ notification: Notification)
     {
-        if let data = notification.userInfo as? [String: Int] {
-            for (_, code) in data {
-                moveToOtherPage(code)
-            }
+        if let data = notification.userInfo as? [String: Any] {
+            if let rc = data["rc"] as? Int, let userId = data["userId"] as? String {
+                moveToOtherPage(rc, userId)
+            }            
         }
     }
     
-    func moveToOtherPage(_ rc: Int) {
+    func moveToOtherPage(_ rc: Int, _ id: String) {
         switch rc {
         case 200:
-            self.performSegue(withIdentifier: SegueIdentifier.nickNameViewController,
-                              sender: nil)
+            let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
+            if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
+                viewcontroller.loginType = "SNS"
+                viewcontroller.userInfo = ["userId": id]
+                self.navigationController?.pushViewController(viewcontroller, animated: true)
+            }
             return
         case 400:
             // 이미 가입된 유저

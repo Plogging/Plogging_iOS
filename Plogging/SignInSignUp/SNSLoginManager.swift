@@ -19,8 +19,9 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
-    func callCompleteLoginNoti(rc: Int) {
-        let info = ["rc": rc]
+    func callCompleteLoginNoti(rc: Int, param: [String: Any]) {
+        var info = param
+        info.updateValue(rc, forKey: "rc")
         NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
     }
     
@@ -139,20 +140,8 @@ class SNSLoginManager: NSObject {
         
         APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
             if let rc = try? response.get().rc {
-                self.callCompleteLoginNoti(rc: rc)
+                self.callCompleteLoginNoti(rc: rc, param: param)
             }
-        }
-    }
-    
-    // MARK: - success
-    func loginSuccess(type: String, email: String) {
-        let param: [String: Any] = [
-            "userId" : type,
-            "userName" : email,
-        ]
-
-        APICollection.sharedAPI.requestSignInSocial(param: param) { (result) in
-            print(result)
         }
     }
 }
@@ -173,6 +162,7 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
     // 토큰 갱신
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("토큰 갱신")
+        getNaverInfo()
     }
     
     // 로그아웃 할 경우 호출

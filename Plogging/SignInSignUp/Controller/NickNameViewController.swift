@@ -15,6 +15,7 @@ class NickNameViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     
     var myNickName = ""
+    var loginType = ""
     var userInfo = [String: Any]()
     
     private var ploggingUserInfo: PloggingUser? {
@@ -26,6 +27,10 @@ class NickNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if loginType == "SETTING" {
+            setNavigationBarClear()
+            confirmButton.setTitle("저장", for: .normal)
+        }
         setupTextField()
         setupUI()
     }
@@ -67,8 +72,19 @@ class NickNameViewController: UIViewController {
         
         userInfo.updateValue(nickName, forKey: "userName")
         
-        APICollection.sharedAPI.requestUserSignUp(param: userInfo) { (response) in
-            self.ploggingUserInfo = try? response.get()
+        if loginType == "SNS" {
+            APICollection.sharedAPI.requestSignInSocial(param: userInfo) { (response) in
+                self.ploggingUserInfo = try? response.get()
+            }
+        } else if loginType == "SETTING" {
+            let param = ["userName": nickName]
+            APICollection.sharedAPI.requestChangeUserName(param: param) { (response) in
+                self.ploggingUserInfo = try? response.get()
+            }
+        } else {
+            APICollection.sharedAPI.requestUserSignUp(param: userInfo) { (response) in
+                self.ploggingUserInfo = try? response.get()
+            }
         }
     }
     
@@ -76,19 +92,54 @@ class NickNameViewController: UIViewController {
         guard let model = ploggingUserInfo else {
             return
         }
-        switch model.rc {
-        case 201:
-            showLoginViewController()
-            return
-        case 409:
-            setupErrorLabel(message: "이미 사용중인 이메일입니다.")
-            return
-        case 410:
-            setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
-            return
-        default:
-            print("error")
-            return
+        if loginType == "SNS" {
+            switch model.rc {
+            case 200, 201:
+                if let id = userInfo["userId"] as? String,
+                   let nickName = model.userName,
+                   let image = model.userImg {
+                    PloggingUserData.shared.saveUserData(id: id,
+                                                         nickName: nickName,
+                                                         image: image)
+                }
+                makeDefaultRootViewController()
+                return
+            case 409:
+                setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
+                return
+            default:
+                print("error")
+                return
+            }
+        } else if loginType == "SETTING" {
+            switch model.rc {
+            case 200:
+                guard let nickName = nickNameTextField.text else { return }
+                PloggingUserData.shared.setUserName(nickName: nickName)
+                makeDefaultRootViewController()
+                return
+            case 409:
+                setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
+                return
+            default:
+                print("error")
+                return
+            }
+        } else {
+            switch model.rc {
+            case 201:
+                showLoginViewController()
+                return
+            case 409:
+                setupErrorLabel(message: "이미 사용중인 이메일입니다.")
+                return
+            case 410:
+                setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
+                return
+            default:
+                print("error")
+                return
+            }
         }
     }
     
