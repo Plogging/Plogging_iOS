@@ -183,7 +183,7 @@ extension MyPageViewController: UICollectionViewDelegate {
             let storyboard = UIStoryboard(name: Storyboard.Ranking.rawValue, bundle: nil)
             if let photoViewController = storyboard.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
                 photoViewController.modalPresentationStyle = .fullScreen
-                photoViewController.image = UIImage(named: "basicImage")
+                photoViewController.image =  pagingDataSource.contents[indexPath.item].meta.ploggingImage
                 self.present(photoViewController, animated: false, completion: nil)
             }
         }

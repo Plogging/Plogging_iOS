@@ -23,6 +23,7 @@ class SettingViewController: UIViewController {
         imagePickerController.delegate = self
         profilePhotoCoverView.alpha = 0
         checkImage.alpha = 0
+        nickName.text = PloggingUserData.shared.getUserName()
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
@@ -93,6 +94,7 @@ extension SettingViewController {
         let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let nickNameViewController = storyboard.instantiateViewController(withIdentifier: "NickNameViewController") as? NickNameViewController {
             nickNameViewController.myNickName = nickName.text ?? ""
+            nickNameViewController.loginType = "SETTING"
             self.navigationController?.pushViewController(nickNameViewController, animated: true)
         }
     }
