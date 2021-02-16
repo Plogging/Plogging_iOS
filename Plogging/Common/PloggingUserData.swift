@@ -26,6 +26,10 @@ class PloggingUserData {
         return UserDefaults.standard.string(forKey: userId)
     }
     
+    func setUserName(nickName: String) {
+        UserDefaults.standard.setValue(nickName, forKey: userName)
+    }
+    
     func getUserName() -> String? {
         return UserDefaults.standard.string(forKey: userName)
     }
