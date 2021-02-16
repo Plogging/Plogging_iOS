@@ -27,9 +27,7 @@ class RankingViewController: UIViewController {
     private var userPloggingRankig: RankingUser? {
         didSet{
             DispatchQueue.main.async {
-                let indexPathRow = 0
-                let indexPosition = IndexPath(row: indexPathRow, section: 0)
-                self.tableView.reloadRows(at: [indexPosition], with: .none)
+                self.tableView.reloadData()
                 self.refresh.endRefreshing()
             }
         }
@@ -43,6 +41,11 @@ class RankingViewController: UIViewController {
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         requestBothRankingAPI()
     }
     
@@ -146,6 +149,9 @@ extension RankingViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
         if let mypage = storyboard.instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController {
             mypage.type = .ranking
+            if let model = ploggingRankingList?.data[indexPath.row - 2]  {
+               // 해당 유저 아이디 넘기기
+            }
             self.navigationController?.pushViewController(mypage, animated: true)
         }
         print(indexPath.row)

@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RankingPhotoViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
-    var image: UIImage?
+    var image: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = image
+        if let urlImage = image, let url = URL(string: urlImage) {
+            imageView.kf.setImage(with: url)
+        }
     }
     
     @IBAction func clickCloseButton(_ sender: UIButton) {
