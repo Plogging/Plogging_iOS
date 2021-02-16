@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingStartViewController?
     var myPageViewController: MyPageViewController?
-    var ploggingDetailInfoViewController: PloggingDetailInfoViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +52,7 @@ class MainViewController: UIViewController {
     
     func setTabBarHidden(_ isHidden: Bool) {
         tabBar.isHidden = isHidden
+        shadowView.isHidden = isHidden
     }
 }
 

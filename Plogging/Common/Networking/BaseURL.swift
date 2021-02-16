@@ -23,6 +23,10 @@ struct BasePath {
     
     // PLOGGING
     static let plogging = "/plogging"
+    static let ploggingScore = "/plogging/score"
+    
+    //TODO : userId 필요
+    static let ploggingResult = "/plogging/jsu3417@naver.com:custom"
 
     // RANKING
     static let rankingGlobal = "/rank/global"
