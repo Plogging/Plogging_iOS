@@ -65,6 +65,13 @@ class PloggingPickTrashViewController: UIViewController {
         confirmButton.layer.cornerRadius = 12
         
         view.backgroundColor = .fromInt(red: 248, green: 250, blue: 252, alpha: 1)
+        vinyl.setupResource(icon: UIImage(named: "Vinil")!, category: "비닐")
+        glass.setupResource(icon: UIImage(named: "glass")!, category: "유리")
+        paper.setupResource(icon: UIImage(named: "paper")!, category: "종이")
+        plastic.setupResource(icon: UIImage(named: "plastic")!, category: "플라스틱")
+        can.setupResource(icon: UIImage(named: "can")!, category: "캔")
+        extra.setupResource(icon: UIImage(named: "extra")!, category: "그 외")
+
     }
     
     
