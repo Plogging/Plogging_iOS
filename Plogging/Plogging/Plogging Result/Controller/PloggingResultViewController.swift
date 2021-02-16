@@ -29,16 +29,6 @@ class PloggingResultViewController: UIViewController {
     var baseImage: UIImage?
     var ploggingResult: PloggingResult?
     var forwardingImage = UIImage()
-    private var ploggingResultScore: PloggingResultScore? {
-        didSet {
-            checkScoreValidation()
-        }
-    }
-    private var ploggingInfo: PloggingInfo? {
-        didSet {
-//            checkValidation()
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -61,11 +51,22 @@ class PloggingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
+        
         APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
             guard let self = self else {
                 return
             }
-            self.ploggingResultScore = try? response.get()
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    print("success")
+                    self.ploggingActivityScore = result.score.activityScore
+                    self.ploggingEnvironmentScore = result.score.environmentScore
+                    self.setUpUI(ploggingActivityScore: self.ploggingActivityScore, ploggingEnvironmentScore: self.ploggingEnvironmentScore)
+                    
+                } else if result.rc == 401 {
+                    //로그인 화면으로 전환
+                }
+            }
         }
     }
     
@@ -118,26 +119,6 @@ class PloggingResultViewController: UIViewController {
         return param
     }
     
-    private func checkScoreValidation() {
-        guard let model = ploggingResultScore else {
-            return
-        }
-        switch model.rc {
-        case 200:
-            print("success!!")
-            ploggingActivityScore = model.score.activityScore
-            ploggingEnvironmentScore = model.score.environmentScore
-            self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
-        case 401:
-            print("권한없음. 로그인 필요")
-            //로그인 페이지로 전환
-        case 500:
-            print("서버 error")
-        default:
-            print("success")
-        }
-    }
-    
     private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
 
@@ -172,11 +153,11 @@ class PloggingResultViewController: UIViewController {
 
     private func showPloggingPhotoResisterAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let library = UIAlertAction(title: "사진앨범", style: .default) { _ in
-            self.setUpImagePicker()
+        let library = UIAlertAction(title: "사진앨범", style: .default) { [weak self] _ in
+            self?.setUpImagePicker()
         }
-        let camera = UIAlertAction(title: "카메라", style: .default) { _ in
-            self.performSegue(withIdentifier: SegueIdentifier.openCamera, sender: nil)
+        let camera = UIAlertAction(title: "카메라", style: .default) { [weak self] _ in
+            self?.performSegue(withIdentifier: SegueIdentifier.openCamera, sender: nil)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -207,14 +188,15 @@ extension PloggingResultViewController {
     
     @IBAction func savePloggingResult(_ sender: Any) {
         if ploggingResultPhoto.image == nil {
-//            self.showPopUpViewController(with: .사진없이저장팝업)
-            let ploggingResultImageMaker = PloggingResultImageMaker()
-            guard let basicImage = UIImage(named: "basicImage") else {
-                return
+            let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+            if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+                popUpViewController.type = .사진없이저장팝업
+                popUpViewController.ploggingDistance = ploggingResult?.distance ?? 0
+                popUpViewController.ploggingTrashCount = getTrashPickTotalCount()
+                popUpViewController.ploggingResultParam = getParam()
+                popUpViewController.modalPresentationStyle = .overCurrentContext
+                self.present(popUpViewController, animated: false, completion: nil)
             }
-            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(getTrashPickTotalCount())")
-            forwardingImage = ploggingThumbnailImage
         } else {
             guard let forwardingThumbnailImage = ploggingResultPhoto.image else {
                 return
@@ -228,9 +210,12 @@ extension PloggingResultViewController {
         }
         
         APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { [weak self] (response) in
-            self?.ploggingInfo = try? response.get()
+            if let result = try? response.get() {
+                if result.rc == 401 {
+                    //로그인 페이지로 이동
+                }
+            }
         }
-        
          navigationController?.dismiss(animated: true, completion: nil)
     }
     

@@ -90,8 +90,11 @@ class PopUpViewController: UIViewController {
             guard let basicImage = UIImage(named: "basicImage") else {
                 return
             }
+            guard let distance = ploggingDistance, let trashCount = ploggingTrashCount else {
+                return
+            }
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(ploggingDistance)", trashCount: "\(ploggingTrashCount)")
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCount)")
             forwardingImage = ploggingResultImage
             
             guard let forwardingImageData = forwardingImage.pngData() else {
@@ -108,8 +111,8 @@ class PopUpViewController: UIViewController {
                     }
                 }
             }
-            self.makeDefaultRootViewController()
             
+            self.makeDefaultRootViewController()
         case .사진저장승인:
             guard let sharedImage = shareImage else {
                 return
