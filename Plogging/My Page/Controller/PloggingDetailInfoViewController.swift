@@ -82,6 +82,12 @@ class PloggingDetailInfoViewController: UIViewController {
         }
         ploggingImageView.kf.setImage(with: ploggingImageURl)
         
+        ploggingTatalScore.text = String(ploggingList?.meta.ploggingTotalScore ?? 0)
+        ploggingDistance.text = String(ploggingList?.meta.distance ?? 0)
+        let minute = String(format: "%02d",(ploggingList?.meta.ploggingTime ?? 0) / 60)
+        let second = String(format: "%02d",(ploggingList?.meta.ploggingTime ?? 0) % 60)
+        ploggingTime.text = "\(minute):\(second)"
+        
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
         
