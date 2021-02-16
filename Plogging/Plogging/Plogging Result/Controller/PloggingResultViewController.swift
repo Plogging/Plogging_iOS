@@ -227,8 +227,8 @@ extension PloggingResultViewController {
             return
         }
         
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { (response) in
-            self.ploggingInfo = try? response.get()
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { [weak self] (response) in
+            self?.ploggingInfo = try? response.get()
         }
         
          navigationController?.dismiss(animated: true, completion: nil)

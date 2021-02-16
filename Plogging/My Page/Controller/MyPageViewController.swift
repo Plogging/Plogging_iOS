@@ -94,11 +94,11 @@ class MyPageViewController: UIViewController {
         super.viewDidAppear(animated)
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
-        updateUI()
         
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
+        updateUI()
     }
     
     func updateUI() {

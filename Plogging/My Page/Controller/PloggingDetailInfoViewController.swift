@@ -140,8 +140,11 @@ extension PloggingDetailInfoViewController {
             guard let ploggingImage =  self?.ploggingList?.meta.ploggingImage else {
                 return
             }
+            guard let ploggingId = self?.ploggingList?.id else {
+                return
+            }
             
-            APICollection.sharedAPI.deletePloggingRecord(id: "jsu3417@naver.com", ploggingImaegName: ploggingImage) { [weak self] (response) in
+            APICollection.sharedAPI.deletePloggingRecord(id: ploggingId, ploggingImaegName: ploggingImage) { [weak self] (response) in
                 if let result = try? response.get() {
                     if result.rc == 200 {
                         print("success")
