@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C11C37125DB0967001BEF00 /* Extension+NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11C37025DB0967001BEF00 /* Extension+NotificationName.swift */; };
 		1C2184DF25B75B800076CD14 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */; };
 		1C2184E425B75C880076CD14 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2184E325B75C880076CD14 /* Onboarding.storyboard */; };
 		1C2184EC25B770130076CD14 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2184EB25B770130076CD14 /* Extension+String.swift */; };
@@ -134,6 +135,7 @@
 /* Begin PBXFileReference section */
 		058AAAADA6D7E64EADC3F4D0 /* Pods-Plogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging.release.xcconfig"; path = "Target Support Files/Pods-Plogging/Pods-Plogging.release.xcconfig"; sourceTree = "<group>"; };
 		1246B8379D611882CCB23B19 /* Pods-Plogging-PloggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plogging-PloggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Plogging-PloggingUITests/Pods-Plogging-PloggingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C11C37025DB0967001BEF00 /* Extension+NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NotificationName.swift"; sourceTree = "<group>"; };
 		1C2184DE25B75B800076CD14 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		1C2184E325B75C880076CD14 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		1C2184EB25B770130076CD14 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				1C2184F025B8A5590076CD14 /* Extension+UIColor.swift */,
 				1C9A3AA025CDCAA400668058 /* Extension+UICollectionView.swift */,
 				1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */,
+				1C11C37025DB0967001BEF00 /* Extension+NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1081,6 +1084,7 @@
 				3D51A51648641E00088FC2DA /* ConfirmButton.swift in Sources */,
 				3D51AED20F7B5C12359573EB /* IntroduceModalItem.swift in Sources */,
 				3D51AF47FCF97A628499C1BD /* PickTrashItem.swift in Sources */,
+				1C11C37125DB0967001BEF00 /* Extension+NotificationName.swift in Sources */,
 				3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */,
 				3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */,
 				3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */,
@@ -1264,7 +1268,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1286,7 +1290,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

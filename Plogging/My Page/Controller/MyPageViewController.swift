@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum DetailType {
+    case ranking
+    case mypage
+}
+
 class MyPageViewController: UIViewController {
 
     @IBOutlet weak var navigationBarButton: UIButton!
@@ -26,11 +31,39 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    var userId = "" {
+        didSet {
+            requestHeaderData()
+        }
+    }
+    var weeklyOrMonthly = ""
     var type = DetailType.mypage
-
-    enum DetailType {
-        case ranking
-        case mypage
+    
+    private func requestHeaderData() {
+        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
+            let userData = try? response.get()
+            if userData?.rc != 200 {
+                // 쿠키가 유효하지 않음
+                self.makeLoginRootViewController()
+                return
+            } else {
+                self.nickName.text = userData?.userName
+                if let img = userData?.userImg,
+                   let imageURL = URL(string: img) {
+                    self.profilePhoto.sizeToFit()
+                    self.profilePhoto.kf.setImage(with: imageURL)
+                }
+                if self.weeklyOrMonthly == "weekly" {
+                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)"
+                } else {
+                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)"
+                }
+            }
+        }
     }
     
     private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)

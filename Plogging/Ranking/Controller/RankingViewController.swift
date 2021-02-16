@@ -33,7 +33,8 @@ class RankingViewController: UIViewController {
         }
     }
     var refresh: UIRefreshControl!
-
+    var weeklyOrMonthly: String = "weekly"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +51,8 @@ class RankingViewController: UIViewController {
     }
     
     private func requestBothRankingAPI() {
-        requestRankingAPI(type: "weekly")
-        requestUserRanking(type: "weekly")
+        requestRankingAPI(type: weeklyOrMonthly)
+        requestUserRanking(type: weeklyOrMonthly)
     }
     
     private func requestRankingAPI(type: String) {
@@ -117,7 +118,8 @@ class RankingViewController: UIViewController {
         weeklyView.alpha = 1
         monthlyView.alpha = 0
         
-        requestRankingAPI(type: "weekly")
+        weeklyOrMonthly = "weekly"
+        requestBothRankingAPI()
     }
     
     @IBAction func montlyButtonClick(_ sender: UIButton) {
@@ -127,17 +129,18 @@ class RankingViewController: UIViewController {
         weeklyView.alpha = 0
         monthlyView.alpha = 1
         
-        requestRankingAPI(type: "monthly")
+        weeklyOrMonthly = "monthly"
+        requestBothRankingAPI()
     }
     
     private func refreshRankingList() {
         // weekly, monthly enum화
         if weeklyView.alpha == 1 {
-            requestRankingAPI(type: "weekly")
-            requestUserRanking(type: "weekly")
+            weeklyOrMonthly = "weekly"
+            requestBothRankingAPI()
         } else {
-            requestRankingAPI(type: "monthly")
-            requestUserRanking(type: "monthly")
+            weeklyOrMonthly = "monthly"
+            requestBothRankingAPI()
         }
     }
 }
@@ -149,8 +152,11 @@ extension RankingViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
         if let mypage = storyboard.instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController {
             mypage.type = .ranking
+            mypage.weeklyOrMonthly = weeklyOrMonthly
             if let model = ploggingRankingList?.data[indexPath.row - 2]  {
                // 해당 유저 아이디 넘기기
+                print(model.userId)
+                mypage.userId = model.userId
             }
             self.navigationController?.pushViewController(mypage, animated: true)
         }
