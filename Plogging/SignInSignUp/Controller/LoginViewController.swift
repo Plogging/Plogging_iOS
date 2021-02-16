@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
 
         setupUI()
         setupDelegate()
+        setupNotification()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -127,6 +128,37 @@ class LoginViewController: UIViewController {
 
     @IBAction func clickedAppleLoginButton(_ sender: UIButton) {
         SNSLoginManager.shared.setupLoginWithApple()
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .loginCompletion, object: nil)
+    }
+
+    @objc func onDidReceiveData(_ notification: Notification)
+    {
+        if let data = notification.userInfo as? [String: Any] {
+            if let rc = data["rc"] as? Int, let userId = data["userId"] as? String {
+                moveToOtherPage(rc, userId)
+            }
+        }
+    }
+    
+    func moveToOtherPage(_ rc: Int, _ id: String) {
+        switch rc {
+        case 200, 201:
+            makeDefaultRootViewController()
+            return
+        case 409:
+            let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
+            if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
+                viewcontroller.loginType = "SNS"
+                viewcontroller.userInfo = ["userId": id]
+                self.navigationController?.pushViewController(viewcontroller, animated: true)
+            }
+            return
+        default:
+            print("error")
+        }
     }
 }
 

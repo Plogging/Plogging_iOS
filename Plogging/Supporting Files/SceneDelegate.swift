@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // 유저 처음인지 확인하는 작업 필요
             SNSLoginManager.shared.setupLoginWithNaver()
             SNSLoginManager.shared.setupLoginWithKakao()
-
             let storyboard = UIStoryboard(name: Storyboard.Onboarding.rawValue, bundle: nil)
             if let onboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController {
                 self.window?.rootViewController = onboardingViewController

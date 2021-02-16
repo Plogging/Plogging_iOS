@@ -50,17 +50,16 @@ class SNSLoginViewController: UIViewController {
     
     func moveToOtherPage(_ rc: Int, _ id: String) {
         switch rc {
-        case 200:
+        case 200, 201:
+            makeDefaultRootViewController()
+            return
+        case 409:
             let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
             if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
                 viewcontroller.loginType = "SNS"
                 viewcontroller.userInfo = ["userId": id]
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             }
-            return
-        case 400:
-            // 이미 가입된 유저
-            // /user/social를 호출
             return
         default:
             print("error")

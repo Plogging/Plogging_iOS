@@ -29,7 +29,7 @@ class SNSLoginManager: NSObject {
     func setupLoginWithApple() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.email]
+        request.requestedScopes = [.email, .fullName]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
@@ -114,9 +114,10 @@ class SNSLoginManager: NSObject {
         ).responseJSON { response in
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
-            guard let email = object["email"] as? String else { return }
+            guard let email = object["email"] as? String,
+                  let name = object["name"] as? String else { return }
             print("email: \(email)")
-            self.checkEmailValidation(email: email, type: SNSType.naver.rawValue)
+            self.requestSNSLogin(email: email, name: name, type: SNSType.naver.rawValue)
         }
     }
     
@@ -127,18 +128,23 @@ class SNSLoginManager: NSObject {
             }
             else {
                 print("me() success.")
-                if let email = user?.kakaoAccount?.email {
+                if let email = user?.kakaoAccount?.email,
+                   let name = user?.kakaoAccount?.legalName {
                     print("email \(email)")
-                    self.checkEmailValidation(email: email, type: SNSType.kakao.rawValue)
+                    self.requestSNSLogin(email: email, name: name, type: SNSType.kakao.rawValue)
                 }
             }
         }
     }
         
-    func checkEmailValidation(email: String, type: String) {
-        let param: [String: Any] = ["userId": "\(email):\(type)"]
+    func requestSNSLogin(email: String, name: String, type: String) {
         
-        APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
+        let param: [String: Any] = [
+            "userId": "\(email):\(type)",
+            "userName": name
+        ]
+
+        APICollection.sharedAPI.requestSignInSocial(param: param) { (response) in
             if let rc = try? response.get().rc {
                 self.callCompleteLoginNoti(rc: rc, param: param)
             }
@@ -168,6 +174,7 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
     // 로그아웃 할 경우 호출
     func oauth20ConnectionDidFinishDeleteToken() {
         print("토큰 삭제")
+        NaverThirdPartyLoginConnection.getSharedInstance()?.requestDeleteToken()
     }
     
     // ERROR
@@ -182,8 +189,9 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            if let email = appleIDCredential.email {
-                self.checkEmailValidation(email: email,
+            if let email = appleIDCredential.email,
+               let userName = appleIDCredential.fullName?.description {
+                self.requestSNSLogin(email: email, name: userName,
                                           type: SNSType.apple.rawValue)
             }
         default:
