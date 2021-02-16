@@ -101,8 +101,8 @@ class MyPageViewController: UIViewController {
                         return
                     }
                     self?.profilePhoto.kf.setImage(with: ploggingImageUrl)
-                    self?.totalPloggingDistance.text = "\(result.distanceMonthly)점"
-                    self?.totalPloggingScore.text = "\(result.scoreMonthly)km"
+                    self?.totalPloggingDistance.text = "\(result.distanceMonthly)km"
+                    self?.totalPloggingScore.text = "\(result.scoreMonthly)점"
                     self?.totalTrashCount.text = "\(result.trashMonthly)개"
                     
                 } else if result.rc == 401 {

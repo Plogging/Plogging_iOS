@@ -83,7 +83,7 @@ class PloggingDetailInfoViewController: UIViewController {
             return
         }
         ploggingImageView.kf.setImage(with: ploggingImageURl)
-        ploggingTatalScore.text = String(ploggingList?.meta.ploggingTotalScore ?? 0)
+        ploggingTatalScore.text = "\(ploggingList?.meta.ploggingTotalScore ?? 0)점"
         ploggingDistance.text = String(format: "%.2f", Float(ploggingList?.meta.distance ?? 0)/1000)
         let minute = String(format: "%02d",(ploggingList?.meta.ploggingTime ?? 0) / 60)
         let second = String(format: "%02d",(ploggingList?.meta.ploggingTime ?? 0) % 60)
