@@ -70,11 +70,12 @@ class PloggingResultViewController: UIViewController {
     }
     
     private func getParam() -> [String : Any] {
-        guard var distance = Int(ploggingDistance.text ?? "0"), let calorie = Int(ploggingCalorie.text ?? "0"),
+        guard let calorie = Int(ploggingCalorie.text ?? "0"),
               let ploggingTime = ploggingResult?.ploggingTime else {
             return [:]
         }
-     
+        
+        var distance = ploggingResult?.distance ?? 0
         if distance == 0 {
             distance = 1
         }
@@ -143,12 +144,10 @@ class PloggingResultViewController: UIViewController {
         activityScore.text = "\(ploggingActivityScore)점"
         environmentScore.text = "\(ploggingEnvironmentScore)점"
         
-//        ploggingTime.text = "\(ploggingResult?.ploggingTime ?? 0)"
-        
         let minute = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) / 60)
         let second = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) % 60)
         ploggingTime.text = "\(minute):\(second)"
-        ploggingDistance.text = String(ploggingResult?.distance ?? 0)
+        ploggingDistance.text = String(format: "%.2f", Float(ploggingResult?.distance ?? 0)/1000)
         ploggingCalorie.text = String(ploggingResult?.calories ?? 0)
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
