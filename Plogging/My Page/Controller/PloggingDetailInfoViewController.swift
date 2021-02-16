@@ -7,6 +7,7 @@
 
 import UIKit
 import Photos
+import Kingfisher
 
 class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
@@ -14,6 +15,7 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var nickName: UILabel!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var ploggingDate: UILabel!
+    @IBOutlet weak var ploggingImageView: UIImageView!
     @IBOutlet weak var ploggingTatalScore: UILabel!
     @IBOutlet weak var ploggingDistance: UILabel!
     @IBOutlet weak var ploggingTime: UILabel!
@@ -58,6 +60,12 @@ class PloggingDetailInfoViewController: UIViewController {
             return
         }
         let trashInfosCount = trashInfos.count
+        
+        guard let createdTime = ploggingList?.meta.createdTime else {
+            return
+        }
+        
+        ploggingDate.text = ""
         
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
