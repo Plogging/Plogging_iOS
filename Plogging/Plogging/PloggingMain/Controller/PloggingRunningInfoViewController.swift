@@ -20,6 +20,7 @@ class PloggingRunningInfoViewController: UIViewController {
     var timer: Timer?
     var startDate: Date?
     var distance: Int?
+    var kcal: Int = 0
 
     // todo: remove it
     public var count: Int = 0
@@ -44,7 +45,7 @@ class PloggingRunningInfoViewController: UIViewController {
     
     
     func updateCount() {
-        countLabel.text = "\(count)"
+        countLabel.attributedText = NSMutableAttributedString().heavy("\(count)", fontSize: 72)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,16 +66,13 @@ class PloggingRunningInfoViewController: UIViewController {
         }
     }
 
-    /// MARK: mockup
     func createPloggingResult() -> PloggingResult {
-
         let ploggingResult = PloggingResult(
                 distance: self.distance,
-                calories: 250,
+                calories: self.kcal,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
                 trashList: currentTrashList
         )
-
         return ploggingResult
     }
 
@@ -93,6 +91,7 @@ class PloggingRunningInfoViewController: UIViewController {
                     return
                 }
                 ploggingResultViewController.ploggingResult = createPloggingResult()
+                
                 let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
                 ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                 ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
@@ -123,16 +122,23 @@ class PloggingRunningInfoViewController: UIViewController {
 
     func setupView() {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")
-        summeryTime.setupView(unit: "분", value: "00:00")
-        summeryKcal.setupView(unit: "kcal", value: "0")
-        stopButton.backgroundColor = .gray
-        stopButton.setTitle("종료", for: .normal)
-        
-        continueButton.setTitle("쓰레기 기록하기", for: .normal)
-        
+        summeryTime.setupView(unit: "진행시간", value: "00:00")
+        summeryKcal.setupView(unit: "칼로리", value: "0")
         summeryStackView.layer.cornerRadius = 20
-        summeryStackView.backgroundColor = .clear
-        
+        setGradationView(
+                view: summeryStackView,
+                colors: [UIColor(red: 255, green: 255, blue: 255, alpha: 0.85).cgColor, UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor],
+                location: 0.0,
+                startPoint: .init(x: 0.0, y: 0.0),
+                endPoint: .init(x: 0.0, y: 1.0)
+        )
+
+        stopButton.backgroundColor = .gray
+        stopButton.setAttributedTitle(NSMutableAttributedString().normal("종료", fontSize: 19), for: .normal)
+        stopButton.setTitleColor(.white, for: .normal)
+
+        continueButton.title = "쓰레기 기록하기"
+
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()
     }
@@ -142,23 +148,13 @@ class PloggingRunningInfoViewController: UIViewController {
         timer?.fire()
     }
 
-    
-    func addGradation(to: UIView) {
-        let gradation = CAGradientLayer()
-        gradation.colors = [
-            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 0.75).cgColor,
-            UIColor.fromInt(red: 255, green: 255, blue: 255, alpha: 1).cgColor
-        ]
-        gradation.frame = to.bounds
-        
-        to.layer.addSublayer(gradation)
-    }
-
     @objc func didReceiveDistanceNotification(_ receive: Notification) {
         guard let distance = receive.userInfo?["distance"] as? Int else { return }
         self.distance = distance
+        self.kcal = Int(Float(distance) * 0.05)
         DispatchQueue.main.async {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", Float(distance)/1000)
+            self.summeryKcal.dataLabel.text = "\(self.kcal)"
         }
     }
 }

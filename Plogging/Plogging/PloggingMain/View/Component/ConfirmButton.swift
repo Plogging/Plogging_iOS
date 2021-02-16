@@ -6,6 +6,15 @@ import Foundation
 import UIKit
 
 class ConfirmButton: UIButton {
+
+    var title: String? {
+        willSet(input) {
+            let titleText = NSMutableAttributedString().bold(input ?? "", fontSize: 19)
+            setTitleColor(.white, for: .normal)
+            setAttributedTitle(titleText, for: .normal)
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProperties()
@@ -19,13 +28,8 @@ class ConfirmButton: UIButton {
     }
 
     func setupProperties() {
-        setTitle("플로깅 시작하기", for: .normal)
-        setTitleColor(.systemBlue, for: .normal)
-        backgroundColor = .fromInt(red: 55, green: 213, blue: 172, alpha: 1)
-
-        layer.cornerRadius = 40
-        setTitleColor(.white, for: .normal)
-        titleLabel?.font = .boldSystemFont(ofSize: 19)
+        self.backgroundColor = .fromInt(red: 55, green: 213, blue: 172, alpha: 1)
+        self.layer.cornerRadius = 40
     }
 
     func setupLayout() {
