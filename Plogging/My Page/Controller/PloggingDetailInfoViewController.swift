@@ -106,27 +106,6 @@ class PloggingDetailInfoViewController: UIViewController {
             (rootViewController as? MainViewController)?.setTabBarHidden(false)
         }
     }
-
-    @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        
-        if let lastAsset = fetchResult.firstObject as? PHAsset {
-            guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
-                return
-            }
-            
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            } else {
-                let alertController = UIAlertController(title: nil, message: "인스타그램을 설치해 \n플로깅 사진을 공유해주세요!", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "네", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-    }
 }
 
 // MARK: IBAction
@@ -166,21 +145,17 @@ extension PloggingDetailInfoViewController {
     }
     
     @IBAction func sharePloggingPhoto(_ sender: Any) {
-        //해당 imageView의 image
         guard let ploggingImge = ploggingImageView.image else {
             return
         }
         
-        showPopUpViewController(with: .사진저장승인)
-        
-        let alert = UIAlertController(title: "사진 저장 승인", message: "공유를 위해 사진 저장이 필요합니다. \n승인하시겠습니까?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "아니오", style: .default)
-        let yes = UIAlertAction(title: "네", style: .default) { [weak self] _ in
-            UIImageWriteToSavedPhotosAlbum(ploggingImge, self, #selector(self?.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = .사진저장승인
+            popUpViewController.shareImage = ploggingImge
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
         }
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
     }
 }
 

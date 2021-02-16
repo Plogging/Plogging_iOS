@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class PopUpViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class PopUpViewController: UIViewController {
     var ploggingResultParam: [String : Any] = [:]
     var ploggingDistance: Int?
     var ploggingTrashCount: Int?
+    var shareImage: UIImage?
     
     var type: PopUpType?
     
@@ -107,10 +109,39 @@ class PopUpViewController: UIViewController {
                 }
             }
             self.makeDefaultRootViewController()
+            
+        case .사진저장승인:
+            guard let sharedImage = shareImage else {
+                return
+            }
+            UIImageWriteToSavedPhotosAlbum(sharedImage, self, #selector(shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
         default:
             print("")
         }
         
         self.dismiss(animated: false, completion: nil)
+    }
+}
+
+
+// instagram 공유
+extension PopUpViewController {
+    @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        
+        if let lastAsset = fetchResult.firstObject as? PHAsset {
+            guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                showPopUpViewController(with: .인스타그램설치팝업)
+            }
+        }
     }
 }
