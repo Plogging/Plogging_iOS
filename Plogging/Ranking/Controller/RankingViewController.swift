@@ -25,14 +25,12 @@ class RankingViewController: UIViewController {
         }
     }
     private var userPloggingRankig: RankingUser? {
-        didSet{
-            DispatchQueue.main.async {
-                let indexPathRow = 0
-                let indexPosition = IndexPath(row: indexPathRow, section: 0)
-                self.tableView.reloadRows(at: [indexPosition], with: .none)
-                self.refresh.endRefreshing()
+            didSet{
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refresh.endRefreshing()
+                }
             }
-        }
     }
     var refresh: UIRefreshControl!
 
