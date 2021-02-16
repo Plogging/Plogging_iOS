@@ -77,6 +77,8 @@ class MyPageViewController: UIViewController {
             if let indexPath = sender as? Int {
                 let ploggingList = currentPagingDataSource?.contents[indexPath]
                 ploggingDetailInfoViewController.ploggingList = ploggingList
+                ploggingDetailInfoViewController.profileImage = profilePhoto.image
+                ploggingDetailInfoViewController.userName = nickName.text
             }
         }
     }

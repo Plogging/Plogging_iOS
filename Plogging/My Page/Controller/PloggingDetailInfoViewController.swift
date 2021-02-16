@@ -32,11 +32,11 @@ class PloggingDetailInfoViewController: UIViewController {
     let trashInfoViewTopConstraint = 40
     let collectionViewCellLeading = 54
     let collectionViewCellTrailing = 54
+    var profileImage: UIImage?
+    var userName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //전달된 내용 필요
         collectionView.reloadData()
         
         setUpNavigationBarUI()
@@ -61,10 +61,12 @@ class PloggingDetailInfoViewController: UIViewController {
         }
         let trashInfosCount = trashInfos.count
         
+        profilePhoto.image = profileImage
+        nickName.text = userName
+        
         guard let createdTime = ploggingList?.meta.createdTime else {
             return
         }
-        
         let yearEndIdx: String.Index = createdTime.index(createdTime.startIndex, offsetBy: 3)
         let year = String(createdTime[...yearEndIdx])
 
