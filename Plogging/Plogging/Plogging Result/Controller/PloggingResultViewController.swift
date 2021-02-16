@@ -30,6 +30,7 @@ class PloggingResultViewController: UIViewController {
     var baseImage: UIImage?
     var ploggingResult: PloggingResult?
     var forwardingImage = UIImage()
+    var pathMapView = MKMapView()
     private var ploggingResultScore: PloggingResultScore? {
         didSet {
             checkScoreValidation()
@@ -40,10 +41,7 @@ class PloggingResultViewController: UIViewController {
 //            checkValidation()
         }
     }
-    let pathManager = PathManager.pathManager
-    var ploggingPathMapView: MKMapView?
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
@@ -61,9 +59,10 @@ class PloggingResultViewController: UIViewController {
             cameraViewController.trashCountSum = getTrashPickTotalCount()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        PathManager.pathManager.adaptCompactMapView(to: pathMapView)
         setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
         APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
             guard let self = self else {
@@ -71,11 +70,6 @@ class PloggingResultViewController: UIViewController {
             }
             self.ploggingResultScore = try? response.get()
         }
-
-        ploggingPathMapView = MKMapView()
-        pathManager.adaptCompactMapView(to: ploggingPathMapView!)
-
-        setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
     }
 
     private func getParam() -> [String : Any] {
@@ -138,7 +132,7 @@ class PloggingResultViewController: UIViewController {
             self.setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
         case 401:
             print("권한없음. 로그인 필요")
-            //로그인 페이지로 전환
+                //로그인 페이지로 전환
         case 500:
             print("서버 error")
         default:
@@ -159,7 +153,7 @@ class PloggingResultViewController: UIViewController {
         ploggingTime.text = "\(minute):\(second)"
         ploggingDistance.text = String(ploggingResult?.distance ?? 0)
         ploggingCalorie.text = String(ploggingResult?.calories ?? 0)
-        
+
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
 
@@ -189,13 +183,13 @@ class PloggingResultViewController: UIViewController {
             self.performSegue(withIdentifier: SegueIdentifier.openCamera, sender: nil)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
+
         alert.addAction(camera)
         alert.addAction(library)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
-    
+
     private func setUpImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -210,11 +204,11 @@ extension PloggingResultViewController {
     @IBAction func showScoreGuideAlert(_ sender: UIButton) {
         self.showPopUpViewController(with: .운동점수안내팝업)
     }
-    
+
     @IBAction func registerPloggingPhoto(_ sender: UITapGestureRecognizer) {
         showPloggingPhotoResisterAlert()
     }
-    
+
     @IBAction func savePloggingResult(_ sender: Any) {
         if ploggingResultPhoto.image == nil {
 //            self.showPopUpViewController(with: .사진없이저장팝업)
@@ -241,7 +235,7 @@ extension PloggingResultViewController {
             self.ploggingInfo = try? response.get()
         }
 
-         navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func deletePloggingResult(_ sender: UIButton) {
@@ -275,7 +269,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         }
         return trashInfos.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
@@ -285,7 +279,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         }
 
         trashCountCell?.updateUI(trashInfos[indexPath.item])
-        
+
         if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
