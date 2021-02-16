@@ -7,6 +7,34 @@
 
 import UIKit
 
+enum MyPageSortType {
+    case date
+    case score
+    case trashCount
+    
+    var description: String {
+        switch self {
+        case .date:
+            return "최신순"
+        case .score:
+            return "점수순"
+        case .trashCount:
+            return "모은 쓰레기 순"
+        }
+    }
+    
+    func getDataSource() -> PagingDataSource<PloggingList> {
+        switch self {
+        case .date:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        case .score:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        case .trashCount:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        }
+    }
+}
+
 class MyPageViewController: UIViewController {
 
     @IBOutlet weak var navigationBarView: UIView!
@@ -25,8 +53,12 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
-    
-    private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+    private(set) var currentSortType: MyPageSortType = .date {
+        didSet {
+            currentPagingDataSource = currentSortType.getDataSource()
+        }
+    }
+    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -35,7 +67,7 @@ class MyPageViewController: UIViewController {
                 return
             }
             if let indexPath = sender as? Int {
-                let ploggingList = pagingDataSource.contents[indexPath]
+                let ploggingList = currentPagingDataSource?.contents[indexPath]
                 ploggingDetailInfoViewController.ploggingList = ploggingList
             }
         }
@@ -45,8 +77,19 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
-
-        pagingDataSource.loadFromFirst {
+        
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpNavigationBarUI()
+        scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
+        updateUI()
+        
+        currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
     }
@@ -78,25 +121,25 @@ class MyPageViewController: UIViewController {
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let dateSorting = UIAlertAction(title: "최신순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .date
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "최신순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let scoreSorting = UIAlertAction(title: "점수순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .score
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "점수순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .trashCount
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "모은 쓰레기 순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -111,31 +154,34 @@ class MyPageViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pagingDataSource.contents.count
+        guard let currentPagingDataSource = currentPagingDataSource else {
+            return 0
+        }
+        return currentPagingDataSource.contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
-       
-        guard indexPath.item < pagingDataSource.contents.count else {
+    
+        guard let currentPagingDataSource = currentPagingDataSource, indexPath.item < currentPagingDataSource.contents.count else {
             return cell
         }
         
         // TODO: 페이징 테스트용 지우기
-        guard let ploggingImageUrl = pagingDataSource.contents[indexPath.item].meta.ploggingImage else {
+        guard let ploggingImageUrl = currentPagingDataSource.contents[indexPath.item].meta.ploggingImage else {
             return cell
         }
         
-        guard let createdTime = pagingDataSource.contents[indexPath.item].meta.createdTime else {
+        guard let createdTime = currentPagingDataSource.contents[indexPath.item].meta.createdTime else {
             return cell
         }
         
-        guard let ploggingTotalScore = pagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
+        guard let ploggingTotalScore = currentPagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
             return cell
         }
         
-        guard let ploggingTrashCount = pagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
+        guard let ploggingTrashCount = currentPagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
             return cell
         }
         
@@ -204,7 +250,7 @@ extension MyPageViewController: UIScrollViewDelegate {
         navigationBarView.layoutIfNeeded()
         
         if scrollView.requestNextPage() {
-            pagingDataSource.loadNext {
+            currentPagingDataSource?.loadNext {
                 self.updateUI()
             }
         }
