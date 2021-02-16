@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum MyPageSortType {
     case date
@@ -85,20 +86,39 @@ class MyPageViewController: UIViewController {
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
         
+        guard let userId = PloggingUserData.shared.getUserId() else {
+            return
+        }
+        
+        APICollection.sharedAPI.requestUserInfo(id: userId) { [weak self] response in
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    print("success")
+                    self?.nickName.text = result.userName
+                    guard let ploggingImageUrl = URL(string: result.userImg) else {
+                        return
+                    }
+                    self?.profilePhoto.kf.setImage(with: ploggingImageUrl)
+                    self?.totalPloggingDistance.text = "\(result.distanceMonthly)점"
+                    self?.totalPloggingScore.text = "\(result.scoreMonthly)km"
+                    self?.totalTrashCount.text = "\(result.trashMonthly)개"
+                    
+                } else if result.rc == 401 {
+                    //로그인 화면으로 전환
+                }
+            }
+        }
+        
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setUpNavigationBarUI()
-        scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
-        updateUI()
     }
     
     func updateUI() {
