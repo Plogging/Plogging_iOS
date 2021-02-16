@@ -270,8 +270,21 @@ extension APICollection {
     }
     
     /// 플로깅 결과 삭제
-    func deletePloggingRecord() {
-        
+    func deletePloggingRecord(id: String, ploggingImaegName: String, completion: @escaping (Result<PloggingResultDeleteInfo, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.plogging + "?ploggingId=\(id)&ploggingImgName=\(ploggingImaegName)",
+                   method: .delete,
+                   headers: gettingHeader()
+        ).responseJSON { (response) in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            guard let value = try? JSONDecoder().decode(PloggingResultDeleteInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
     }
 }
 
