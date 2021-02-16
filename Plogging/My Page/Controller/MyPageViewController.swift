@@ -91,7 +91,7 @@ class MyPageViewController: UIViewController {
         guard let userId = PloggingUserData.shared.getUserId() else {
             return
         }
-        
+        updateUI()
         APICollection.sharedAPI.requestUserInfo(id: userId) { [weak self] response in
             if let result = try? response.get() {
                 if result.rc == 200 {
@@ -118,6 +118,7 @@ class MyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateUI()
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
@@ -144,6 +145,7 @@ class MyPageViewController: UIViewController {
         guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
             return
         }
+        settingViewController.profileImage = profilePhoto.image
         navigationController?.pushViewController(settingViewController, animated: true)
     }
     

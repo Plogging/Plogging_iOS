@@ -16,6 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var checkImage: UIImageView!
     let imagePickerController = UIImagePickerController()
     let checkImageView = UIImageView(image: UIImage(named: "check"))
+    var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +24,8 @@ class SettingViewController: UIViewController {
         imagePickerController.delegate = self
         profilePhotoCoverView.alpha = 0
         checkImage.alpha = 0
+        profilePhoto.image = profileImage
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
-    }
-    
-    override func viewWillLayoutSubviews() {
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
     }
     
     private func setUpNavigationBarUI() {
