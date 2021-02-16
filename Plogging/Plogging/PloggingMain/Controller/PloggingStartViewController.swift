@@ -47,10 +47,10 @@ class PloggingStartViewController: UIViewController {
         ])
 
         startButton.title = "플로깅 시작하기"
-        
+
+        let userName = PloggingUserData.shared.getUserName() ?? "플로거"
         nameLabel.attributedText = NSMutableAttributedString()
-            // TODO: user info 연결
-            .bold("강태우", fontSize: 17)
+            .bold("\(userName)", fontSize: 17)
             .normal("님 안녕하세요!", fontSize: 17)
 
     }

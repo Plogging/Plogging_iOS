@@ -43,11 +43,6 @@ class PloggingResultViewController: UIViewController {
     let pathManager = PathManager.pathManager
     var ploggingPathMapView: MKMapView?
 
-    let contentViewOriginalHeight = 1280
-    let totalCountViewOriginalHeight = 80
-    let trashInfoViewTopConstraint = 40
-    let collectionViewCellLeading = 54
-    let collectionViewCellTrailing = 54
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -80,7 +75,7 @@ class PloggingResultViewController: UIViewController {
         ploggingPathMapView = MKMapView()
         pathManager.adaptCompactMapView(to: ploggingPathMapView!)
 
-        setUpUI()
+        setUpUI(ploggingActivityScore: ploggingActivityScore, ploggingEnvironmentScore: ploggingEnvironmentScore)
     }
 
     private func getParam() -> [String : Any] {
