@@ -65,7 +65,22 @@ class PloggingDetailInfoViewController: UIViewController {
             return
         }
         
-        ploggingDate.text = ""
+        let yearEndIdx: String.Index = createdTime.index(createdTime.startIndex, offsetBy: 3)
+        let year = String(createdTime[...yearEndIdx])
+
+        let monthStart = createdTime.index(createdTime.startIndex, offsetBy: 4)
+        let monthEnd = createdTime.index(createdTime.endIndex, offsetBy: -9)
+        let month = String(createdTime[monthStart...monthEnd])
+    
+        let dayStart = createdTime.index(createdTime.startIndex, offsetBy: 6)
+        let dayEnd = createdTime.index(createdTime.endIndex, offsetBy: -7)
+        let day = String(createdTime[dayStart...dayEnd])
+        ploggingDate.text = "\(year).\(month).\(day)"
+        
+        guard let ploggingImage =  ploggingList?.meta.ploggingImage, let ploggingImageURl = URL(string: ploggingImage) else {
+            return
+        }
+        ploggingImageView.kf.setImage(with: ploggingImageURl)
         
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
