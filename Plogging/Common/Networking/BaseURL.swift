@@ -27,7 +27,7 @@ struct BasePath {
     
     //TODO : userId 필요
     static let ploggingResult = "/plogging/jsu3417@naver.com:custom"
-
+    
     // RANKING
     static let rankingGlobal = "/rank/global"
     static let rankUserId = "/rank/users"
