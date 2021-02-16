@@ -137,7 +137,21 @@ extension PloggingDetailInfoViewController {
     @IBAction func deletePloggingRecord(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let delete = UIAlertAction(title: "기록 삭제", style: .default) { [weak self] _ in
-            // 네트워크 플로깅 기록 삭제 추가
+            guard let ploggingImage =  self?.ploggingList?.meta.ploggingImage else {
+                return
+            }
+            
+            APICollection.sharedAPI.deletePloggingRecord(id: "jsu3417@naver.com", ploggingImaegName: ploggingImage) { [weak self] (response) in
+                if let result = try? response.get() {
+                    if result.rc == 200 {
+                        print("success")
+                        (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
+                        self?.navigationController?.popViewController(animated: true)
+                    } else if result.rc == 401 {
+                        //로그인 화면으로 전환
+                    }
+                }
+            }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
 
