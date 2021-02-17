@@ -31,7 +31,7 @@ enum PagingDataType<T> {
 
 class PagingDataSource<T> {
     private(set) var api: PagingAPI
-    private(set) var isLastPage = false
+    var isLastPage = false
     private(set) var isLoading = false
     private(set) var pageNumber = 1
     private(set) var contents: [T] = []
@@ -75,12 +75,9 @@ class PagingDataSource<T> {
     }
     
     func loadFromFirst(completion: @escaping (() -> Void)) {
-        request(completion)
-    }
-    
-    func deleteAfterload(completion: @escaping (() -> Void)) {
         contents.removeAll()
         pageNumber = 1
+        
         request(completion)
     }
     

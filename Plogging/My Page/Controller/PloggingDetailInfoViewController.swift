@@ -9,6 +9,10 @@ import UIKit
 import Photos
 import Kingfisher
 
+extension Notification.Name {
+    static let deleteItem = Notification.Name("deleteItem")
+}
+
 class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
     @IBOutlet weak var navigationBarView: UIView!
@@ -109,10 +113,6 @@ class PloggingDetailInfoViewController: UIViewController {
     }
 }
 
-extension Notification.Name {
-    static let deleteItem = Notification.Name("deleteItem")
-}
-
 // MARK: IBAction
 extension PloggingDetailInfoViewController {
     @IBAction func back(_ sender: Any) {
@@ -137,7 +137,6 @@ extension PloggingDetailInfoViewController {
                             return
                         }
                         NotificationCenter.default.post(name: Notification.Name.deleteItem, object: index)
-                        
                         (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
                         self?.navigationController?.popViewController(animated: true)
                     } else if result.rc == 401 {

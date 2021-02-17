@@ -94,18 +94,8 @@ class MyPageViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
-        
     }
     
-    @objc func deleteItem(_ notification: Notification) {
-        guard let deletedIndex = notification.object as? Int else {
-            return
-        }
-        collectionView.deleteItems(at: [IndexPath.init(item: deletedIndex, section: 0)])
-        currentPagingDataSource?.deleteAfterload {
-            self.updateUI()
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -134,10 +124,6 @@ class MyPageViewController: UIViewController {
         }
     }
   
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -153,6 +139,17 @@ class MyPageViewController: UIViewController {
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+    }
+    
+    @objc func deleteItem(_ notification: Notification) {
+        guard let deletedIndex = notification.object as? Int else {
+            return
+        }
+        collectionView.deleteItems(at: [IndexPath.init(item: deletedIndex, section: 0)])
+        self.currentPagingDataSource?.isLastPage = false
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
     }
     
     @IBAction func goToSetting(_ sender: Any) {
@@ -250,10 +247,6 @@ extension MyPageViewController: UICollectionViewDelegate {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
