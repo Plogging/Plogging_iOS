@@ -6,10 +6,15 @@ import Foundation
 import UIKit
 class SummeryItem: UIView {
 
+    var data: String? {
+        willSet(input) {
+            dataLabel.attributedText = NSMutableAttributedString().heavy(input ?? "", fontSize: 26)
+        }
+    }
+
     let dataLabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.fromInt(red: 34, green: 34, blue: 34, alpha: 1)
-        view.font = .systemFont(ofSize: 26, weight: .medium)
         view.textAlignment = .center
         return view
     }()
@@ -33,7 +38,7 @@ class SummeryItem: UIView {
     }
     
     func setupView(unit: String, value: String) {
-        dataLabel.text = value
+        data = value
         unitLabel.text = unit
     }
 

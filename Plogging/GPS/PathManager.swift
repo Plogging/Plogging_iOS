@@ -13,10 +13,10 @@ class PathManager: NSObject {
     var locationList: [CLLocation] = []
     var distance: Int = 0 {
         didSet {
-            NotificationCenter.default.post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
+            NotificationCenter.default
+                    .post(name: updateDistance, object: nil, userInfo: ["distance" : distance])
         }
     }
-
     let updateDistance: Notification.Name = Notification.Name("UpdateDistance")
 
     var mapView: MKMapView?
@@ -28,11 +28,19 @@ class PathManager: NSObject {
     override init() {
         super.init()
     }
+
+    // todo 위치 연결 팝업 연결
+    func isSetPermissions() {
+        if locationManager.authorizationStatus.rawValue < CLAuthorizationStatus.authorizedAlways.rawValue {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
     func setupMapview(on mapView: MKMapView) {
         self.mapView = mapView
         self.mapView?.delegate = self
-        pointResentLocation(location: mapView.userLocation.coordinate)
+        self.mapView?.isUserInteractionEnabled = true
+        self.mapView?.setUserTrackingMode(.follow, animated: true)
     }
 
     func pointResentLocation(location: CLLocationCoordinate2D) {
@@ -41,7 +49,6 @@ class PathManager: NSObject {
     }
 
     func startLocationUpdate () {
-        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
@@ -83,10 +90,37 @@ class PathManager: NSObject {
     func backupPath() {
         backupManager.savePathData(to: locationList)
     }
-
+    
+    func adaptCompactMapView(to mapView: MKMapView) {
+        
+        if locationList.isEmpty {return}
+        
+        let start = locationList.first!
+        
+        var maxLon: CLLocationDegrees = start.coordinate.longitude
+        var minLon: CLLocationDegrees = start.coordinate.longitude
+        var maxLat: CLLocationDegrees = start.coordinate.latitude
+        var minLat: CLLocationDegrees = start.coordinate.latitude
+        
+        for location in locationList {
+            maxLon = max(maxLon, location.coordinate.longitude)
+            maxLat = max(maxLat, location.coordinate.latitude)
+            minLon = min(minLon, location.coordinate.longitude)
+            minLat = min(minLat, location.coordinate.latitude)
+        }
+        
+        let region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: (maxLat + minLat)/2, longitude: (maxLon+minLon)/2),
+            span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.5, longitudeDelta: (maxLon - minLon) * 1.5))
+        
+        mapView.setRegion(region, animated: false)
+        let path = createPolyLine(locationList: locationList)
+        mapView.addOverlay(path)
+    }
+    
 
     func measureMapRegion(curLocation center: CLLocationCoordinate2D) -> MKCoordinateRegion? {
-        MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 1400)
+        return MKCoordinateRegion(center: center, latitudinalMeters: (500), longitudinalMeters: 500)
     }
 
     func createPolyLine(locationList: [CLLocation]) -> MKPolyline {
