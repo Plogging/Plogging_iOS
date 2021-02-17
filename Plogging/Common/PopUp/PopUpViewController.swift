@@ -25,6 +25,7 @@ class PopUpViewController: UIViewController {
     var ploggingDistance: Int?
     var ploggingTrashCount: Int?
     var shareImage: UIImage?
+    var dismissAction: (() -> Void)?
     
     var type: PopUpType?
     
@@ -84,7 +85,7 @@ class PopUpViewController: UIViewController {
                 }
             }
         case .기록삭제팝업:
-            self.makeDefaultRootViewController()
+            break
         case .사진없이저장팝업:
             let ploggingResultImageMaker = PloggingResultImageMaker()
             guard let basicImage = UIImage(named: "basicImage") else {
@@ -93,8 +94,9 @@ class PopUpViewController: UIViewController {
             guard let distance = ploggingDistance, let trashCount = ploggingTrashCount else {
                 return
             }
+            
             let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: "\(distance)", trashCount: "\(trashCount)")
+            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: String(format: "%.2f", Float(distance ?? 0)/1000), trashCount: "\(trashCount)")
             forwardingImage = ploggingResultImage
             
             guard let forwardingImageData = forwardingImage.pngData() else {
@@ -104,15 +106,21 @@ class PopUpViewController: UIViewController {
             
             APICollection.sharedAPI.requestRegisterPloggingResult(param: ploggingResultParam, imageData: forwardingImageData) { (response) in
                 if let result = try? response.get() {
+                    print("result: \(result)")
+                    print("success성공__\(result.rc)")
                     if result.rc == 200 {
-                        print("success")
+                        
+                        
+                        
                     } else if result.rc == 401 {
                         //로그인 화면으로 전환
+                    } else {
+                        print("error__result.rc: \(result.rc)")
                     }
+                } else {
+                    print("success실패__")
                 }
             }
-            
-            self.makeDefaultRootViewController()
         case .사진저장승인:
             guard let sharedImage = shareImage else {
                 return
@@ -123,6 +131,7 @@ class PopUpViewController: UIViewController {
         }
         
         self.dismiss(animated: false, completion: nil)
+        dismissAction?()
     }
 }
 

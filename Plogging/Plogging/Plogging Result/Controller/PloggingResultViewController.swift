@@ -191,6 +191,9 @@ extension PloggingResultViewController {
             let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
             if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
                 popUpViewController.type = .사진없이저장팝업
+                popUpViewController.dismissAction =  { [weak self] in
+                    self?.navigationController?.dismiss(animated: false, completion: nil)
+                }
                 popUpViewController.ploggingDistance = ploggingResult?.distance ?? 0
                 popUpViewController.ploggingTrashCount = getTrashPickTotalCount()
                 popUpViewController.ploggingResultParam = getParam()
@@ -220,7 +223,15 @@ extension PloggingResultViewController {
     }
     
     @IBAction func deletePloggingResult(_ sender: UIButton) {
-        showPopUpViewController(with: .기록삭제팝업)
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = .기록삭제팝업
+            popUpViewController.dismissAction =  { [weak self] in
+                self?.navigationController?.dismiss(animated: false, completion: nil)
+            }
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
+        }
     }
 
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
