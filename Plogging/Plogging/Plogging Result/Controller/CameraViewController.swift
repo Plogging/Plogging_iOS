@@ -129,7 +129,7 @@ private extension CameraViewController {
     
     func addPloggingResultInfoView() {
         let ploggingInfoViewCreater = PloggingInfoViewCreater()
-        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(trashCountSum)")
+        let ploggingInfoView = ploggingInfoViewCreater.createFloggingInfoView(distance: String(format: "%.2f", Float(ploggingResult?.distance ?? 0)/1000), trashCount: "\(trashCountSum)")
         ploggingInfoView.frame = CGRect(x: 0, y: cameraFrameView.frame.origin.y, width: 0, height: 0)
         view.addSubview(ploggingInfoView)
     }
