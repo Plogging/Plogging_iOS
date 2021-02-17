@@ -106,19 +106,11 @@ class PopUpViewController: UIViewController {
             
             APICollection.sharedAPI.requestRegisterPloggingResult(param: ploggingResultParam, imageData: forwardingImageData) { (response) in
                 if let result = try? response.get() {
-                    print("result: \(result)")
-                    print("success성공__\(result.rc)")
                     if result.rc == 200 {
-                        
-                        
-                        
+                
                     } else if result.rc == 401 {
                         //로그인 화면으로 전환
-                    } else {
-                        print("error__result.rc: \(result.rc)")
                     }
-                } else {
-                    print("success실패__")
                 }
             }
         case .사진저장승인:

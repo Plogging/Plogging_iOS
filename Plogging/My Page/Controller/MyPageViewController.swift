@@ -79,7 +79,6 @@ class MyPageViewController: UIViewController {
                 ploggingDetailInfoViewController.ploggingList = ploggingList
                 ploggingDetailInfoViewController.profileImage = profilePhoto.image
                 ploggingDetailInfoViewController.userName = nickName.text
-                ploggingDetailInfoViewController.indexPath = indexPath
             }
         }
     }
@@ -142,11 +141,6 @@ class MyPageViewController: UIViewController {
     }
     
     @objc func deleteItem(_ notification: Notification) {
-        guard let deletedIndex = notification.object as? Int else {
-            return
-        }
-        collectionView.deleteItems(at: [IndexPath.init(item: deletedIndex, section: 0)])
-        self.currentPagingDataSource?.isLastPage = false
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
