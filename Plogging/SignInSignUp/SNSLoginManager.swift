@@ -84,10 +84,6 @@ class SNSLoginManager: NSObject {
 
         loginInstance.delegate = self
         loginInstance.requestThirdPartyLogin()
-        
-        let loginData = SNSLoginData()
-        
-        completion?(loginData)
     }
     
     func getNaverInfo() {
@@ -149,6 +145,7 @@ class SNSLoginManager: NSObject {
 extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
     // 로그인에 성공했을 경우 호출
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("성공")
         print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
         
         getNaverInfo()

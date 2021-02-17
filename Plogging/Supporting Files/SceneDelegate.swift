@@ -7,6 +7,7 @@
 
 import UIKit
 import AuthenticationServices
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -33,7 +34,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController?.makeDefaultRootViewController()
         }
     }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if PloggingCookie.shared.isFirstTimeUser() {
+            NaverThirdPartyLoginConnection
+                .getSharedInstance()?
+                .receiveAccessToken(URLContexts.first?.url)
+        }
+    }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if PloggingCookie.shared.isFirstTimeUser() {
+            NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+        }
+        return true
+      }
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
