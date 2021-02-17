@@ -155,7 +155,7 @@ extension PloggingDetailInfoViewController {
                         (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
                         self?.navigationController?.popViewController(animated: true)
                     } else if result.rc == 401 {
-                        self?.showLoginViewController()
+                        self?.makeLoginRootViewController()
                     }
                 }
             }

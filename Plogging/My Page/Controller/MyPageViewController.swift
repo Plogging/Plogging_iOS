@@ -115,7 +115,7 @@ class MyPageViewController: UIViewController {
                     self?.totalTrashCount.text = "\(result.trashMonthly)개"
                     
                 } else if result.rc == 401 {
-                    self?.showLoginViewController()
+                    self?.makeLoginRootViewController()
                 }
             }
         }
