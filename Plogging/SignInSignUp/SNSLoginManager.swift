@@ -21,7 +21,9 @@ class SNSLoginManager: NSObject {
 
     func callCompleteLoginNoti(result: PloggingUser?, param: [String: Any]) {
         var info = param
-        info.updateValue(result, forKey: "result")
+        if let result = result {
+            info.updateValue(result, forKey: "result")
+        }
         NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
     }
     
