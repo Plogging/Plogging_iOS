@@ -60,7 +60,7 @@ class PloggingInfoViewCreater {
     
     func addLogo() {
         let logoImageView =  UIImageView(image: UIImage(named: "logo"))
-        logoImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 2/3 + 22, y: DeviceInfo.screenWidth * 2/3 + 10, width: logoSize, height: logoSize)
+        logoImageView.frame = CGRect.init(x: DeviceInfo.screenWidth * 2/3 + 17, y: DeviceInfo.screenWidth * 2/3 + 10, width: logoSize, height: logoSize)
         ploggingInfoBaseView.addSubview(logoImageView)
     }
 }
