@@ -19,7 +19,7 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
-    func callCompleteLoginNoti(result: PloggingUser, param: [String: Any]) {
+    func callCompleteLoginNoti(result: PloggingUser?, param: [String: Any]) {
         var info = param
         info.updateValue(result, forKey: "result")
         NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
@@ -181,9 +181,12 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             if let email = appleIDCredential.email,
                let userName = appleIDCredential.fullName?.description {
+                PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
                 self.requestSNSLogin(email: email, name: userName,
                                           type: SNSType.apple.rawValue)
+                break;
             }
+            validChcekApple()
         default:
             break
         }
@@ -191,6 +194,29 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
+    }
+    
+    func validChcekApple() {
+        if let userIdentifier = PloggingUserData.shared.getAppleUserIdentifier() {
+            let authorizationProvider = ASAuthorizationAppleIDProvider()
+            authorizationProvider.getCredentialState(forUserID: userIdentifier) { (state, error) in
+                switch (state) {
+                case .authorized:
+                    print("Account Found - Signed In")
+                    DispatchQueue.main.async { [self] in
+                        callCompleteLoginNoti(result: nil, param: ["type":"apple"])
+                    }
+                    break
+                case .revoked:
+                    print("다른 방법으로 로그인 해주세요.")
+                    fallthrough
+                case .notFound:
+                    print("다른 방법으로 로그인 해주세요.")
+                default:
+                    break
+                }
+            }
+        }
     }
 }
 

@@ -7,7 +7,6 @@
 
 import UIKit
 import Alamofire
-import AuthenticationServices
 
 class SNSLoginViewController: UIViewController {
 
@@ -44,7 +43,9 @@ class SNSLoginViewController: UIViewController {
         if let data = notification.userInfo as? [String: Any] {
             if let result = data["result"] as? PloggingUser, let userId = data["userId"] as? String {
                 moveToOtherPage(result, userId)
-            }            
+            } else if let result = data["type"] as? String, result == "apple" {
+                makeDefaultRootViewController()
+            }
         }
     }
     

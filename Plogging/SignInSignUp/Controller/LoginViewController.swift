@@ -137,15 +137,22 @@ class LoginViewController: UIViewController {
     @objc func onDidReceiveData(_ notification: Notification)
     {
         if let data = notification.userInfo as? [String: Any] {
-            if let rc = data["rc"] as? Int, let userId = data["userId"] as? String {
-                moveToOtherPage(rc, userId)
+            if let result = data["result"] as? PloggingUser, let userId = data["userId"] as? String {
+                moveToOtherPage(result, userId)
+            } else if let result = data["type"] as? String, result == "apple" {
+                makeDefaultRootViewController()
             }
         }
     }
     
-    func moveToOtherPage(_ rc: Int, _ id: String) {
-        switch rc {
+    func moveToOtherPage(_ result: PloggingUser, _ id: String) {
+        switch result.rc {
         case 200, 201:
+            if let nickName = result.userName, let image = result.userImg {
+                PloggingUserData.shared.saveUserData(id: id,
+                                                     nickName: nickName,
+                                                     image: image)
+            }
             makeDefaultRootViewController()
             return
         case 409:

@@ -15,6 +15,7 @@ class PloggingUserData {
     let userId = "userId"
     let userName = "userName"
     let userImage = "userImage"
+    let apple = "apple"
     
     func saveUserData(id: String, nickName: String, image: String) {
         UserDefaults.standard.setValue(id, forKey: userId)
@@ -46,5 +47,13 @@ class PloggingUserData {
     
     func setUserData(_ userInfo:PloggingUserInfo?) {
         self.userData = userInfo
+    }
+    
+    func getAppleUserIdentifier() -> String? {
+        return UserDefaults.standard.string(forKey: apple)
+    }
+    
+    func setAppleUserIdentifier(indentifier: String) {
+        UserDefaults.standard.setValue(indentifier, forKey: apple)
     }
 }
