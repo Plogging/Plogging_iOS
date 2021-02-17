@@ -136,7 +136,7 @@ extension PloggingDetailInfoViewController {
                         (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
                         self?.navigationController?.popViewController(animated: true)
                     } else if result.rc == 401 {
-                        //로그인 화면으로 전환
+                        self?.showLoginViewController()
                     }
                 }
             }

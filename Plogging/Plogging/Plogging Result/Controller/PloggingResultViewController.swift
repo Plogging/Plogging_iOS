@@ -58,13 +58,12 @@ class PloggingResultViewController: UIViewController {
             }
             if let result = try? response.get() {
                 if result.rc == 200 {
-                    print("success")
                     self.ploggingActivityScore = result.score.activityScore
                     self.ploggingEnvironmentScore = result.score.environmentScore
                     self.setUpUI(ploggingActivityScore: self.ploggingActivityScore, ploggingEnvironmentScore: self.ploggingEnvironmentScore)
                     
                 } else if result.rc == 401 {
-                    //로그인 화면으로 전환
+                    self.showLoginViewController()
                 }
             }
         }
@@ -111,7 +110,7 @@ class PloggingResultViewController: UIViewController {
                 trashListArray.append(trashList)
             }
         }
-
+        
         let param: [String : Any] = [
             "meta" : meta,
             "trash_list" : trashListArray
@@ -121,7 +120,7 @@ class PloggingResultViewController: UIViewController {
     
     private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
         self.navigationController?.navigationBar.isHidden = true
-
+        
         activityScore.text = "\(ploggingActivityScore)점"
         environmentScore.text = "\(ploggingEnvironmentScore)점"
         
@@ -133,12 +132,12 @@ class PloggingResultViewController: UIViewController {
         
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
-
+        
         let trashListCount = ploggingResult?.trashList?.count ?? 0
-
+        
         contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashListCount))
         trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashListCount))
-
+        
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
 
@@ -214,12 +213,14 @@ extension PloggingResultViewController {
         
         APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { [weak self] (response) in
             if let result = try? response.get() {
-                if result.rc == 401 {
-                    //로그인 페이지로 이동
+                if result.rc == 200 {
+                    print("success")
+                } else if result.rc == 401 {
+                    self?.showLoginViewController()
                 }
             }
         }
-         navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func deletePloggingResult(_ sender: UIButton) {
@@ -233,7 +234,7 @@ extension PloggingResultViewController {
             self.present(popUpViewController, animated: false, completion: nil)
         }
     }
-
+    
     @IBAction func unwindToPloggingResult(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PloggingResultPhotoViewController, let thumbnailImage = sourceViewController.thumbnailImage {
             ploggingResultPhoto.image = thumbnailImage
@@ -265,7 +266,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
-
+        
         guard let trashInfos = ploggingResult?.trashList, indexPath.item < trashInfos.count else {
             return cell
         }
@@ -282,7 +283,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PloggingResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         return CGSize(width: Int(DeviceInfo.screenWidth) - collectionViewCellLeading - collectionViewCellTrailing , height: 50)
     }
 }

@@ -37,7 +37,6 @@ enum MyPageSortType {
 }
 
 class MyPageViewController: UIViewController {
-
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickName: UILabel!
@@ -95,10 +94,9 @@ class MyPageViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         guard let userId = PloggingUserData.shared.getUserId() else {
             return
         }
@@ -117,7 +115,7 @@ class MyPageViewController: UIViewController {
                     self?.totalTrashCount.text = "\(result.trashMonthly)개"
                     
                 } else if result.rc == 401 {
-                    //로그인 화면으로 전환
+                    self?.showLoginViewController()
                 }
             }
         }
@@ -133,7 +131,6 @@ class MyPageViewController: UIViewController {
     func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
-//            self.refreshControl.endRefreshing()
         }
     }
     
@@ -230,7 +227,6 @@ extension MyPageViewController: UICollectionViewDataSource {
         guard let ploggingTrashCount = currentPagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
             return cell
         }
-        
         
         guard let url = URL(string: ploggingImageUrl) else {
             return cell
