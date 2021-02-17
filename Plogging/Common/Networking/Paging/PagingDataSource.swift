@@ -31,7 +31,7 @@ enum PagingDataType<T> {
 
 class PagingDataSource<T> {
     private(set) var api: PagingAPI
-    var isLastPage = false
+    private(set) var isLastPage = false
     private(set) var isLoading = false
     private(set) var pageNumber = 1
     private(set) var contents: [T] = []
@@ -40,6 +40,13 @@ class PagingDataSource<T> {
     init(api: PagingAPI, type: PagingDataType<T>) {
         self.api = api
         self.parser = type.createParser()
+    }
+    
+    func initialize() {
+        isLastPage = false
+        isLoading = false
+        pageNumber = 1
+        contents = []
     }
     
     private func request(_ completion: @escaping (() -> Void)) {
@@ -75,10 +82,9 @@ class PagingDataSource<T> {
     }
     
     func loadFromFirst(completion: @escaping (() -> Void)) {
-        contents.removeAll()
-        pageNumber = 1
-        
+        initialize()
         request(completion)
+        print("loadFromFirst__")
     }
     
     func loadNext(completion: @escaping (() -> Void)) {
