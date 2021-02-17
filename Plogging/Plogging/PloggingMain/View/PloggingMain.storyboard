@@ -147,13 +147,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="eT4-sJ-U6H">
-                                <rect key="frame" x="18" y="135" width="378" height="551"/>
+                                <rect key="frame" x="24" y="96.666666666666686" width="366" height="553"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
-                                        <rect key="frame" x="0.0" y="0.0" width="378" height="171.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="172.33333333333334"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" userLabel="vinyl" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -162,7 +162,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nud-Ee-kzk" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="192" y="0.0" width="174" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -173,10 +173,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="G5s-re-Oug">
-                                        <rect key="frame" x="0.0" y="189.66666666666669" width="378" height="171.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="190.33333333333331" width="366" height="172.33333333333331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-Qr-MfR" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -185,7 +185,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf6-kk-QUL" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="192" y="0.0" width="174" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -196,10 +196,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="A4Y-75-e4Q">
-                                        <rect key="frame" x="0.0" y="379.33333333333337" width="378" height="171.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="380.66666666666663" width="366" height="172.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-4Y-zXW" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -208,7 +208,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLO-B8-j8i" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
-                                                <rect key="frame" x="198" y="0.0" width="180" height="171.66666666666666"/>
+                                                <rect key="frame" x="192.33333333333337" y="0.0" width="173.66666666666663" height="172.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trashTypeAdapter">
@@ -221,14 +221,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfg-WD-X7x" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="24" y="724" width="366" height="60"/>
+                                <rect key="frame" x="24" y="695.33333333333337" width="366" height="59.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="saveInput:" destination="L58-d0-Xxa" eventType="touchUpInside" id="7Hd-KK-48l"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모은 쓰레기를 선택하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t82-Vj-Ft2">
-                                <rect key="frame" x="119.33333333333333" y="48" width="175.33333333333337" height="54"/>
+                                <rect key="frame" x="119.33333333333333" y="46" width="175.33333333333337" height="19.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.53333872559999995" green="0.53729087109999996" blue="0.53332841399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -237,18 +237,17 @@
                         <viewLayoutGuide key="safeArea" id="Kdj-D9-I62"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hfg-WD-X7x" secondAttribute="bottom" constant="58" id="1Jj-4X-J0Z"/>
-                            <constraint firstItem="Kdj-D9-I62" firstAttribute="trailing" secondItem="eT4-sJ-U6H" secondAttribute="trailing" constant="18" id="7A8-1N-eKW"/>
-                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="leading" secondItem="Kdj-D9-I62" secondAttribute="leading" constant="18" id="8mg-yO-edO"/>
-                            <constraint firstItem="hfg-WD-X7x" firstAttribute="top" secondItem="eT4-sJ-U6H" secondAttribute="bottom" constant="38" id="9c0-5e-gh5"/>
-                            <constraint firstAttribute="bottom" secondItem="eT4-sJ-U6H" secondAttribute="bottom" constant="156" id="BiW-mS-vZK"/>
+                            <constraint firstItem="hfg-WD-X7x" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="727/845" id="2XY-Bd-GSH"/>
+                            <constraint firstItem="hfg-WD-X7x" firstAttribute="width" secondItem="MQW-a2-kNX" secondAttribute="width" multiplier="366/414" id="2ag-Qy-kNN"/>
+                            <constraint firstItem="hfg-WD-X7x" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="60/845" id="Cf2-Ck-6Pk"/>
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="DPD-jN-K0J"/>
-                            <constraint firstItem="t82-Vj-Ft2" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="top" constant="48" id="Jr3-Ie-Wyu"/>
-                            <constraint firstItem="Kdj-D9-I62" firstAttribute="trailing" secondItem="hfg-WD-X7x" secondAttribute="trailing" constant="24" id="Noh-gn-x8p"/>
-                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="top" constant="135" id="SYY-R5-ESB"/>
-                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="top" secondItem="t82-Vj-Ft2" secondAttribute="bottom" constant="33" id="X38-IZ-v2x"/>
+                            <constraint firstItem="t82-Vj-Ft2" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="20/845" id="F0M-1k-DJa"/>
+                            <constraint firstItem="hfg-WD-X7x" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="FdX-eh-Lly"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="101/845" id="agi-Z6-fHF"/>
+                            <constraint firstItem="t82-Vj-Ft2" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="48/845" id="gqm-Wg-6WT"/>
                             <constraint firstItem="t82-Vj-Ft2" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="pmh-Aa-Vws"/>
-                            <constraint firstItem="hfg-WD-X7x" firstAttribute="leading" secondItem="Kdj-D9-I62" secondAttribute="leading" constant="24" id="tfs-Xe-LEg"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="width" secondItem="MQW-a2-kNX" secondAttribute="width" multiplier="366/414" id="s3X-k7-Hpu"/>
+                            <constraint firstItem="eT4-sJ-U6H" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="555/845" id="xAg-IE-NYj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nfj-N2-D4o"/>
