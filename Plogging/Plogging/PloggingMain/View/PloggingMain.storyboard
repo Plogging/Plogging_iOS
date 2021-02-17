@@ -280,47 +280,47 @@
                                 <rect key="frame" x="0.0" y="284" width="414" height="612"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaW-X0-LeJ">
-                                        <rect key="frame" x="183.33333333333334" y="142" width="47.333333333333343" height="86"/>
+                                        <rect key="frame" x="183.33333333333334" y="138" width="47.333333333333343" height="86"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
                                         <color key="textColor" red="0.13333499430000001" green="0.13333114979999999" blue="0.13333195449999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모은 쓰레기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c93-nv-24t">
-                                        <rect key="frame" x="174.66666666666666" y="237" width="64.666666666666657" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모은 쓰레기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c93-nv-24t">
+                                        <rect key="frame" x="174.66666666666666" y="247.33333333333337" width="64.666666666666657" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.53333872559999995" green="0.53729087109999996" blue="0.53332841399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Nd-hrh" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="109" y="280" width="196" height="88.333333333333314"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="196" id="pBS-r7-gJa"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="L58-d0-Xxa" kind="presentation" identifier="pickTrash" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-DA-V2s" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                        <rect key="frame" x="148" y="492" width="118" height="78"/>
+                                        <rect key="frame" x="148" y="475" width="118" height="78"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="78" id="REK-8m-CkL"/>
-                                            <constraint firstAttribute="width" constant="118" id="X5o-LZ-HdD"/>
+                                            <constraint firstAttribute="height" constant="78" id="ubS-Bh-3Px"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="finishPlogging" destination="iDk-36-o5o" eventType="touchUpInside" id="7hy-hr-GoV"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Nd-hrh" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
+                                        <rect key="frame" x="109" y="290" width="196" height="78"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="78" id="hAv-Xn-WWj"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="L58-d0-Xxa" kind="presentation" identifier="pickTrash" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="mej-vC-8cd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="vrk-Nd-hrh" firstAttribute="top" secondItem="c93-nv-24t" secondAttribute="bottom" constant="26" id="DDe-kb-fL9"/>
-                                    <constraint firstItem="6eF-DA-V2s" firstAttribute="top" secondItem="vrk-Nd-hrh" secondAttribute="bottom" multiplier="4:3" constant="1" id="FbR-GP-EGZ"/>
+                                    <constraint firstItem="vrk-Nd-hrh" firstAttribute="width" secondItem="D4u-Rg-oEV" secondAttribute="width" multiplier="0.473" id="9pK-wu-Fhf"/>
                                     <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="D4u-Rg-oEV" secondAttribute="centerX" id="IMN-Kx-ccf"/>
-                                    <constraint firstAttribute="bottom" secondItem="6eF-DA-V2s" secondAttribute="bottom" constant="42" id="MAJ-iJ-fMn"/>
-                                    <constraint firstItem="c93-nv-24t" firstAttribute="top" secondItem="KaW-X0-LeJ" secondAttribute="bottom" constant="9" id="aUh-7e-8Or"/>
+                                    <constraint firstItem="vrk-Nd-hrh" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="bottom" multiplier="0.474" id="K24-GZ-AlC"/>
+                                    <constraint firstItem="c93-nv-24t" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="bottom" multiplier="0.404" id="N37-Yh-80p"/>
+                                    <constraint firstItem="6eF-DA-V2s" firstAttribute="width" secondItem="D4u-Rg-oEV" secondAttribute="width" multiplier="0.285" id="Q6D-yx-QAW"/>
                                     <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="c93-nv-24t" secondAttribute="centerX" id="k8G-8W-tAs"/>
+                                    <constraint firstItem="6eF-DA-V2s" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="bottom" multiplier="0.776" id="lHj-1F-yg8"/>
                                     <constraint firstItem="vrk-Nd-hrh" firstAttribute="centerX" secondItem="6eF-DA-V2s" secondAttribute="centerX" id="o42-WL-vEd"/>
                                     <constraint firstItem="c93-nv-24t" firstAttribute="centerX" secondItem="vrk-Nd-hrh" secondAttribute="centerX" id="sfc-uf-rbW"/>
                                 </constraints>
@@ -344,8 +344,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="677-wX-8A2"/>
-                            <constraint firstItem="KaW-X0-LeJ" firstAttribute="top" secondItem="Mbw-af-PWV" secondAttribute="bottom" constant="30" id="7A6-0g-KKO"/>
+                            <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="wY2-NV-ZFd" secondAttribute="centerX" id="82x-qA-fyW"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.683036" id="8da-mz-1UV"/>
+                            <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerY" secondItem="wY2-NV-ZFd" secondAttribute="centerY" constant="12" id="Bk9-sk-AgM"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="top" id="DdQ-6D-cw1"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.441" id="JpZ-ZZ-XfN"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" id="QTP-mf-L9f"/>
@@ -356,6 +357,7 @@
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="hiS-S9-XuD"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="qlb-vA-Le7"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="uOo-yr-2Ag"/>
+                            <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="wY2-NV-ZFd" secondAttribute="centerX" id="whQ-Uo-dgV"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="yF4-cI-FUa"/>
                         </constraints>
                     </view>
