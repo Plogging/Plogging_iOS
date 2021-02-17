@@ -122,10 +122,18 @@ class MyPageViewController: UIViewController {
             }
         }
     }
+    
+    func mypageTabReload() {
+        currentSortType = .date
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+    }
   
     func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+//            self.refreshControl.endRefreshing()
         }
     }
     
