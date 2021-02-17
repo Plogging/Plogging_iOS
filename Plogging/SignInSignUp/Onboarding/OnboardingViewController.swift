@@ -100,7 +100,7 @@ class OnboardingViewController: UIViewController {
             let imageView = UIImageView(frame: CGRect(x: 0,
                                                       y: 80,
                                                       width: 330,
-                                                      height: 240))
+                                                      height: 230))
             imageView.image = UIImage(named: "onboarding\(x + 1)")
             imageView.contentMode = .scaleAspectFit
             imageView.center.x = self.defaultView.center.x
