@@ -19,9 +19,9 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
-    func callCompleteLoginNoti(rc: Int, param: [String: Any]) {
+    func callCompleteLoginNoti(result: PloggingUser, param: [String: Any]) {
         var info = param
-        info.updateValue(rc, forKey: "rc")
+        info.updateValue(result, forKey: "result")
         NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
     }
     
@@ -51,13 +51,6 @@ class SNSLoginManager: NSObject {
         instance?.consumerKey = kConsumerKey
         instance?.consumerSecret = kConsumerSecret
         instance?.appName = kServiceAppName
-    }
-    
-    // AMRK: - request login
-    func requestLoginWithApple(completion: ((SNSLoginData) -> Void)?) {
-        let loginData = SNSLoginData()
-        
-        completion?(loginData)
     }
     
     func requestLoginWithKakao(completion: ((SNSLoginData) -> Void)?) {
@@ -129,7 +122,7 @@ class SNSLoginManager: NSObject {
             else {
                 print("me() success.")
                 if let email = user?.kakaoAccount?.email,
-                   let name = user?.kakaoAccount?.legalName {
+                   let name = user?.kakaoAccount?.profile?.nickname {
                     print("email \(email)")
                     self.requestSNSLogin(email: email, name: name, type: SNSType.kakao.rawValue)
                 }
@@ -145,8 +138,8 @@ class SNSLoginManager: NSObject {
         ]
 
         APICollection.sharedAPI.requestSignInSocial(param: param) { (response) in
-            if let rc = try? response.get().rc {
-                self.callCompleteLoginNoti(rc: rc, param: param)
+            if let response = try? response.get() {
+                self.callCompleteLoginNoti(result: response, param: param)
             }
         }
     }

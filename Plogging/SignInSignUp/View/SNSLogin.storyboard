@@ -159,6 +159,7 @@
                         <outlet property="signUpWithEmailButton" destination="WdE-Zp-jWa" id="94I-sz-oyl"/>
                         <outlet property="snsLoginStackView" destination="Ypu-gG-TR6" id="Owl-Cs-iie"/>
                         <segue destination="rtc-X8-Qot" kind="show" identifier="NickNameViewController" id="5BY-ag-Y7n"/>
+                        <segue destination="Y45-Sr-1pF" kind="presentation" identifier="Main" id="d7a-pa-AxC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfJ-1m-mwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -768,6 +769,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypm-1r-F2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3621.739130434783" y="-271.20535714285711"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="8z5-qz-gcP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Y45-Sr-1pF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TX2-yT-vn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4620" y="-216"/>
         </scene>
         <!--Password Completion View Controller-->
         <scene sceneID="8At-Jt-WwY">
