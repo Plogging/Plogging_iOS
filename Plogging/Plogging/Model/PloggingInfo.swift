@@ -30,6 +30,7 @@ struct PloggingInfo: Codable {
     }
 }
 
+// MARK: - PagingMeta
 struct PagingMeta: Codable {
     var startPageNumber: Int
     var endPageNumber: Int
@@ -97,6 +98,7 @@ protocol Trash {
     var pickCount: Int { get set }
 }
 
+// MARK: - TrashInfo
 struct TrashInfo: Codable, Trash {
     var trashType: TrashType
     var pickCount: Int
@@ -114,6 +116,7 @@ struct TrashInfo: Codable, Trash {
     }
 }
 
+// MARK: - TrashItem
 struct TrashItem: Trash {
     var trashType: TrashType
     var pickCount = 0

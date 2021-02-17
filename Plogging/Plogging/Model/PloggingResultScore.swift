@@ -7,12 +7,14 @@
 
 import Foundation
 
+// MARK: - PloggingResultScore
 struct PloggingResultScore: Codable {
     let rc: Int
     let rcmsg: String
     let score: Score
 }
 
+// MARK: - Score
 struct Score: Codable {
     let totalScore: Int
     let activityScore: Int
