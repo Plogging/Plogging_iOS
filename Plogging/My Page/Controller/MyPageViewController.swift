@@ -79,6 +79,7 @@ class MyPageViewController: UIViewController {
                 ploggingDetailInfoViewController.ploggingList = ploggingList
                 ploggingDetailInfoViewController.profileImage = profilePhoto.image
                 ploggingDetailInfoViewController.userName = nickName.text
+                ploggingDetailInfoViewController.indexPath = indexPath
             }
         }
     }
@@ -88,10 +89,31 @@ class MyPageViewController: UIViewController {
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
         
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
+        
+    }
+    
+    @objc func deleteItem(_ notification: Notification) {
+        guard let deletedIndex = notification.object as? Int else {
+            return
+        }
+        collectionView.deleteItems(at: [IndexPath.init(item: deletedIndex, section: 0)])
+        currentPagingDataSource?.deleteAfterload {
+            self.updateUI()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         guard let userId = PloggingUserData.shared.getUserId() else {
             return
         }
-        updateUI()
+        
         APICollection.sharedAPI.requestUserInfo(id: userId) { [weak self] response in
             if let result = try? response.get() {
                 if result.rc == 200 {
@@ -110,22 +132,16 @@ class MyPageViewController: UIViewController {
                 }
             }
         }
-        
-        currentPagingDataSource?.loadFromFirst {
-            self.updateUI()
-        }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateUI()
-        currentPagingDataSource?.loadFromFirst {
-            self.updateUI()
-        }
+  
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func updateUI() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func setUpNavigationBarUI() {
@@ -234,6 +250,10 @@ extension MyPageViewController: UICollectionViewDelegate {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
         performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+//    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout

@@ -78,6 +78,12 @@ class PagingDataSource<T> {
         request(completion)
     }
     
+    func deleteAfterload(completion: @escaping (() -> Void)) {
+        contents.removeAll()
+        pageNumber = 1
+        request(completion)
+    }
+    
     func loadNext(completion: @escaping (() -> Void)) {
         guard isNextLoadable() else {
             return

@@ -34,6 +34,7 @@ class PloggingDetailInfoViewController: UIViewController {
     var ploggingList: PloggingList?
     var profileImage: UIImage?
     var userName: String?
+    var indexPath: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +109,10 @@ class PloggingDetailInfoViewController: UIViewController {
     }
 }
 
+extension Notification.Name {
+    static let deleteItem = Notification.Name("deleteItem")
+}
+
 // MARK: IBAction
 extension PloggingDetailInfoViewController {
     @IBAction func back(_ sender: Any) {
@@ -128,7 +133,11 @@ extension PloggingDetailInfoViewController {
             APICollection.sharedAPI.deletePloggingRecord(id: ploggingId, ploggingImaegName: ploggingImage) { [weak self] (response) in
                 if let result = try? response.get() {
                     if result.rc == 200 {
-                        print("success")
+                        guard let index = self?.indexPath else {
+                            return
+                        }
+                        NotificationCenter.default.post(name: Notification.Name.deleteItem, object: index)
+                        
                         (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
                         self?.navigationController?.popViewController(animated: true)
                     } else if result.rc == 401 {
