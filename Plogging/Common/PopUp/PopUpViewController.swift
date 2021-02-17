@@ -25,8 +25,11 @@ class PopUpViewController: UIViewController {
     var ploggingDistance: Int?
     var ploggingTrashCount: Int?
     var shareImage: UIImage?
-    var dismissAction: (() -> Void)?
+    var noPhotoSaveAction: (() -> Void)?
     var ploggingStopAction: (() -> Void)?
+    var savePhotoAction: (() -> Void)?
+    var dismissAction: (() -> Void)?
+    
     
     var type: PopUpType?
     
@@ -89,40 +92,11 @@ class PopUpViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
             dismissAction?()
         case .사진없이저장팝업:
-            let ploggingResultImageMaker = PloggingResultImageMaker()
-            guard let basicImage = UIImage(named: "basicImage") else {
-                return
-            }
-            guard let distance = ploggingDistance, let trashCount = ploggingTrashCount else {
-                return
-            }
-            
-            let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
-            let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: String(format: "%.2f", Float(distance ?? 0)/1000), trashCount: "\(trashCount)")
-            forwardingImage = ploggingResultImage
-            
-            guard let forwardingImageData = forwardingImage.pngData() else {
-                print("no forwardingImageData")
-                return
-            }
-            
-            APICollection.sharedAPI.requestRegisterPloggingResult(param: ploggingResultParam, imageData: forwardingImageData) { (response) in
-                if let result = try? response.get() {
-                    if result.rc == 200 {
-                
-                    } else if result.rc == 401 {
-                        //로그인 화면으로 전환
-                    }
-                }
-            }
-            
             self.dismiss(animated: false, completion: nil)
-            dismissAction?()
+            noPhotoSaveAction?()
         case .사진저장승인:
-            guard let sharedImage = shareImage else {
-                return
-            }
-            UIImageWriteToSavedPhotosAlbum(sharedImage, self, #selector(shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+            self.dismiss(animated: false, completion: nil)
+            savePhotoAction?()
         case .종료팝업:
             self.dismiss(animated: false, completion: nil)
             ploggingStopAction?()
@@ -131,28 +105,5 @@ class PopUpViewController: UIViewController {
         }
         
         self.dismiss(animated: false, completion: nil)
-    }
-}
-
-
-// instagram 공유
-extension PopUpViewController {
-    @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        
-        if let lastAsset = fetchResult.firstObject as? PHAsset {
-            guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
-                return
-            }
-            
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            } else {
-                showPopUpViewController(with: .인스타그램설치팝업)
-            }
-        }
     }
 }

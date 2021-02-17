@@ -110,6 +110,25 @@ class PloggingDetailInfoViewController: UIViewController {
             (rootViewController as? MainViewController)?.setTabBarHidden(false)
         }
     }
+    
+    @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            
+            let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            
+            if let lastAsset = fetchResult.firstObject as? PHAsset {
+                guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                } else {
+                    showPopUpViewController(with: .인스타그램설치팝업)
+                }
+            }
+        }
 }
 
 // MARK: IBAction
@@ -156,7 +175,9 @@ extension PloggingDetailInfoViewController {
         let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
             popUpViewController.type = .사진저장승인
-            popUpViewController.shareImage = ploggingImge
+            popUpViewController.savePhotoAction =  { [weak self] in
+                UIImageWriteToSavedPhotosAlbum(ploggingImge, self, #selector(self?.shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+            }
             popUpViewController.modalPresentationStyle = .overCurrentContext
             self.present(popUpViewController, animated: false, completion: nil)
         }

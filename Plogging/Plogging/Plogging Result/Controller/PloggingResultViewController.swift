@@ -126,8 +126,35 @@ extension PloggingResultViewController {
             let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
             if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
                 popUpViewController.type = .사진없이저장팝업
-                popUpViewController.dismissAction =  { [weak self] in
-                    self?.navigationController?.dismiss(animated: false, completion: nil)
+                popUpViewController.noPhotoSaveAction = { [weak self] in
+                    let ploggingResultImageMaker = PloggingResultImageMaker()
+                    guard let basicImage = UIImage(named: "basicImage") else {
+                        return
+                    }
+                    let resizedBasicImage = basicImage.resize(targetSize: CGSize(width: DeviceInfo.screenWidth, height: DeviceInfo.screenWidth))
+                    
+                    guard let trashCount = self?.getTrashPickTotalCount() else {
+                        return
+                    }
+                    
+                    let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: String(format: "%.2f", Float(self?.ploggingResult?.distance ?? 0)/1000), trashCount: "\(trashCount)")
+                    self?.forwardingImage = ploggingThumbnailImage
+                    
+                    guard let forwardingImageData = self?.forwardingImage.pngData() else {
+                        print("no forwardingImageData")
+                        return
+                    }
+                    
+                    APICollection.sharedAPI.requestRegisterPloggingResult(param: self?.requestParameter ?? [:], imageData: forwardingImageData) { [weak self] (response) in
+                        if let result = try? response.get() {
+                            if result.rc == 200 {
+                                print("success")
+                            } else if result.rc == 401 {
+                                self?.showLoginViewController()
+                            }
+                        }
+                    }
+                    self?.navigationController?.dismiss(animated: true, completion: nil)
                 }
                 popUpViewController.ploggingDistance = ploggingResult?.distance ?? 0
                 popUpViewController.ploggingTrashCount = getTrashPickTotalCount()
@@ -141,7 +168,7 @@ extension PloggingResultViewController {
             }
             forwardingImage = forwardingThumbnailImage
         }
-
+        
         guard let forwardingImageData = forwardingImage.pngData() else {
             print("no forwardingImageData")
             return
