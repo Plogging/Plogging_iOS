@@ -19,8 +19,8 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
-    private var ploggingActivityScore = 0
-    private var ploggingEnvironmentScore = 0
+    var ploggingActivityScore: Int?
+    var ploggingEnvironmentScore: Int?
     private let contentViewOriginalHeight = 1280
     private let totalCountViewOriginalHeight = 80
     private let trashInfoViewTopConstraint = 40
@@ -29,6 +29,7 @@ class PloggingResultViewController: UIViewController {
     var baseImage: UIImage?
     var ploggingResult: PloggingResult?
     var forwardingImage = UIImage()
+    var requestParameter: [String : Any] = [:]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -50,79 +51,14 @@ class PloggingResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI(ploggingActivityScore: 0, ploggingEnvironmentScore: 0)
-        
-        APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
-            guard let self = self else {
-                return
-            }
-            if let result = try? response.get() {
-                if result.rc == 200 {
-                    self.ploggingActivityScore = result.score.activityScore
-                    self.ploggingEnvironmentScore = result.score.environmentScore
-                    self.setUpUI(ploggingActivityScore: self.ploggingActivityScore, ploggingEnvironmentScore: self.ploggingEnvironmentScore)
-                    
-                } else if result.rc == 401 {
-                    self.showLoginViewController()
-                }
-            }
-        }
+        setUpUI()
     }
     
-    private func getParam() -> [String : Any] {
-        guard let calorie = Int(ploggingCalorie.text ?? "0"),
-              let ploggingTime = ploggingResult?.ploggingTime else {
-            return [:]
-        }
-        
-        var distance = ploggingResult?.distance ?? 0
-        if distance == 0 {
-            distance = 1
-        }
-        
-        let meta: [String : Any] = [
-            "distance" : distance,
-            "calorie" : calorie,
-            "plogging_time" : ploggingTime
-        ]
-        
-        var trashListArray: [[String : Any]] = []
-        
-        guard let trashCount = ploggingResult?.trashList?.count else {
-            return [:]
-        }
-        
-        var trashType = 0
-        var pickCount = 0
-        
-        var trashList: [String : Any] = [
-            "trash_type" : trashType,
-            "pick_count" : pickCount
-        ]
-        
-        for i in 0 ..< trashCount {
-            trashType = ploggingResult?.trashList?[i].trashType.rawValue ?? 0
-            pickCount = ploggingResult?.trashList?[i].pickCount ?? 0
-            
-            if pickCount > 0 {
-                trashList["trash_type"] = trashType
-                trashList["pick_count"] = pickCount
-                trashListArray.append(trashList)
-            }
-        }
-        
-        let param: [String : Any] = [
-            "meta" : meta,
-            "trash_list" : trashListArray
-        ]
-        return param
-    }
-    
-    private func setUpUI(ploggingActivityScore: Int, ploggingEnvironmentScore: Int) {
+    private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
         
-        activityScore.text = "\(ploggingActivityScore)점"
-        environmentScore.text = "\(ploggingEnvironmentScore)점"
+        activityScore.text = "\(ploggingActivityScore ?? 0)점"
+        environmentScore.text = "\(ploggingEnvironmentScore ?? 0)점"
         
         let minute = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) / 60)
         let second = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) % 60)
@@ -195,7 +131,7 @@ extension PloggingResultViewController {
                 }
                 popUpViewController.ploggingDistance = ploggingResult?.distance ?? 0
                 popUpViewController.ploggingTrashCount = getTrashPickTotalCount()
-                popUpViewController.ploggingResultParam = getParam()
+                popUpViewController.ploggingResultParam = requestParameter
                 popUpViewController.modalPresentationStyle = .overCurrentContext
                 self.present(popUpViewController, animated: false, completion: nil)
             }
@@ -211,7 +147,7 @@ extension PloggingResultViewController {
             return
         }
         
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: getParam(), imageData: forwardingImageData) { [weak self] (response) in
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: requestParameter, imageData: forwardingImageData) { [weak self] (response) in
             if let result = try? response.get() {
                 if result.rc == 200 {
                     print("success")

@@ -35,6 +35,9 @@ class PloggingRunningInfoViewController: UIViewController {
     
     var pathManager = PathManager.pathManager
 
+    var ploggingActivityScore: Int?
+    var ploggingEnvironmentScore: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -67,18 +70,82 @@ class PloggingRunningInfoViewController: UIViewController {
 
     /// MARK: mockup
     func createPloggingResult() -> PloggingResult {
-
-        let ploggingResult = PloggingResult(
+        
+        let ploggingResult = PloggingResult (
                 distance: self.distance,
                 calories: 250,
-                ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
+                ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate ?? Date()) ?? 0),
                 trashList: currentTrashList
         )
 
         return ploggingResult
     }
 
+    private func getParam() -> [String : Any] {
+        let ploggingTime = Int(timer?.fireDate.timeIntervalSince(startDate ?? Date()) ?? 0)
+        
+        var calorie = 0
+        if calorie == 0 {
+            calorie = 1
+        }
+
+        var distance = self.distance ?? 0
+        if distance == 0 {
+            distance = 1
+        }
+        
+        let meta: [String : Any] = [
+            "distance" : distance,
+            "calorie" : calorie,
+            "plogging_time" : ploggingTime
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        let trashCount = currentTrashList.count
+        
+        var trashType = 0
+        var pickCount = 0
+        
+        var trashList: [String : Any] = [
+            "trash_type" : trashType,
+            "pick_count" : pickCount
+        ]
+        
+        for i in 0 ..< trashCount {
+            trashType = currentTrashList[i].trashType.rawValue
+            pickCount = currentTrashList[i].pickCount
+            
+            if pickCount > 0 {
+                trashList["trash_type"] = trashType
+                trashList["pick_count"] = pickCount
+                trashListArray.append(trashList)
+            }
+        }
+        
+        let param: [String : Any] = [
+            "meta" : meta,
+            "trash_list" : trashListArray
+        ]
+        return param
+    }
+    
     @IBAction func finishPlogging() {
+        APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
+            guard let self = self else {
+                return
+            }
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    self.ploggingActivityScore = result.score.activityScore
+                    self.ploggingEnvironmentScore = result.score.environmentScore
+                    
+                } else if result.rc == 401 {
+                    self.showLoginViewController()
+                }
+            }
+        }
+        
         let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
             popUpViewController.type = .종료팝업
@@ -91,6 +158,9 @@ class PloggingRunningInfoViewController: UIViewController {
                     }
                     ploggingResultViewController.ploggingResult = self?.createPloggingResult()
                     let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
+                    ploggingResultViewController.ploggingActivityScore = self?.ploggingActivityScore
+                    ploggingResultViewController.ploggingEnvironmentScore = self?.ploggingEnvironmentScore
+                    ploggingResultViewController.requestParameter = self?.getParam() ?? [:]
                     ploggingResultNavigationController.modalPresentationStyle = .fullScreen
                     ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
                     self?.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
