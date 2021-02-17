@@ -79,29 +79,26 @@ class PloggingRunningInfoViewController: UIViewController {
     }
 
     @IBAction func finishPlogging() {
-        let rootViewController = presentingViewController
-        let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "아니오", style: .default) { _ in
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = .종료팝업
+            popUpViewController.ploggingStopAction =  { [weak self] in
+                self?.pathManager.stopRunning()
+                self?.dismiss(animated: false, completion: { [weak self] in
+                    let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
+                    guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
+                        return
+                    }
+                    ploggingResultViewController.ploggingResult = self?.createPloggingResult()
+                    let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
+                    ploggingResultNavigationController.modalPresentationStyle = .fullScreen
+                    ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
+                    self?.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
+                })
+            }
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
         }
-        let yes = UIAlertAction(title: "네", style: .default) { _ in
-            self.pathManager.stopRunning()
-            self.dismiss(animated: false, completion: { [self] in
-
-                let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
-                guard let ploggingResultViewController
-                = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
-                    return
-                }
-                ploggingResultViewController.ploggingResult = createPloggingResult()
-                let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
-                ploggingResultNavigationController.modalPresentationStyle = .fullScreen
-                ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
-                rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
-            })
-        }
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
     }
 
     func setupSummeryDataUpdate() {

@@ -26,6 +26,7 @@ class PopUpViewController: UIViewController {
     var ploggingTrashCount: Int?
     var shareImage: UIImage?
     var dismissAction: (() -> Void)?
+    var ploggingStopAction: (() -> Void)?
     
     var type: PopUpType?
     
@@ -85,7 +86,8 @@ class PopUpViewController: UIViewController {
                 }
             }
         case .기록삭제팝업:
-            break
+            self.dismiss(animated: false, completion: nil)
+            dismissAction?()
         case .사진없이저장팝업:
             let ploggingResultImageMaker = PloggingResultImageMaker()
             guard let basicImage = UIImage(named: "basicImage") else {
@@ -113,17 +115,22 @@ class PopUpViewController: UIViewController {
                     }
                 }
             }
+            
+            self.dismiss(animated: false, completion: nil)
+            dismissAction?()
         case .사진저장승인:
             guard let sharedImage = shareImage else {
                 return
             }
             UIImageWriteToSavedPhotosAlbum(sharedImage, self, #selector(shareToInstagram(_:didFinishSavingWithError:contextInfo:)), nil)
+        case .종료팝업:
+            self.dismiss(animated: false, completion: nil)
+            ploggingStopAction?()
         default:
             print("")
         }
         
         self.dismiss(animated: false, completion: nil)
-        dismissAction?()
     }
 }
 
