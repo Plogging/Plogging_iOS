@@ -108,8 +108,14 @@ class RankingViewController: UIViewController {
         tableView.addSubview(refresh)
     }
     
+    private func makeDefaultOffset() {
+        tableView.contentOffset.y = 0.0
+        view.layoutIfNeeded()
+    }
+    
     @objc private func updateRanking() {
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     @IBAction func weeklyButtonClick(_ sender: UIButton) {
@@ -121,6 +127,7 @@ class RankingViewController: UIViewController {
         
         weeklyOrMonthly = "weekly"
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     @IBAction func montlyButtonClick(_ sender: UIButton) {
@@ -132,6 +139,7 @@ class RankingViewController: UIViewController {
         
         weeklyOrMonthly = "monthly"
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     private func refreshRankingList() {
@@ -139,9 +147,11 @@ class RankingViewController: UIViewController {
         if weeklyView.alpha == 1 {
             weeklyOrMonthly = "weekly"
             requestBothRankingAPI()
+            makeDefaultOffset()
         } else {
             weeklyOrMonthly = "monthly"
             requestBothRankingAPI()
+            makeDefaultOffset()
         }
     }
 }
