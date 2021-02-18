@@ -161,9 +161,7 @@ class MyPageViewController: UIViewController {
             }
         }
     }
-    
-    
-    
+
     func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()

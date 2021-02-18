@@ -38,6 +38,16 @@ class PasswordCompletionViewController: UIViewController {
         setupDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -83,6 +93,10 @@ class PasswordCompletionViewController: UIViewController {
         APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
             self.ploggingUserInfo = try? response.get()
         }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     private func checkAPIResponse() {

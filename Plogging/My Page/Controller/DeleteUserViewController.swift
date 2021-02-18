@@ -16,6 +16,16 @@ class DeleteUserViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {
         if gesture.state == UIGestureRecognizer.State.began {
             (rootViewController as? MainViewController)?.setTabBarHidden(true)
@@ -34,5 +44,9 @@ class DeleteUserViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }
