@@ -75,7 +75,7 @@ class PloggingRunningInfoViewController: UIViewController {
                 distance: self.distance,
                 calories: self.kcal,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
-                trashList: currentTrashList
+                trashList: currentTrashList.filter{item in item.pickCount != 0}
         )
         return ploggingResult
     }
