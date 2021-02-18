@@ -117,7 +117,7 @@
                                                     <action selector="goToSetting:" destination="wYV-BF-HDx" eventType="touchUpInside" id="a3x-k7-7ry"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
                                                 <rect key="frame" x="316" y="45" width="74" height="74"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="74" id="C2m-Zw-ob1"/>
