@@ -156,6 +156,27 @@ extension APICollection {
         }
     }
     
+    /// 유저 이름 변경
+    func requestChangeUserName(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.userName,
+                   method: .put,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: gettingHeader()
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 비밀번호 변경
     func requestChangeUserPassword(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.mainURL + BasePath.userPassword,

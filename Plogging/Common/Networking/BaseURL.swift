@@ -18,6 +18,7 @@ struct BasePath {
     static let userCheck = "/user/check"
     static let userSignIn = "/user/sign-in"
     static let userSignOut = "/user/sign-out"
+    static let userName = "/user/name"
     static let userPassword = "/user/password"
     static let userPasswordTemp = "/user/password-temp"
     

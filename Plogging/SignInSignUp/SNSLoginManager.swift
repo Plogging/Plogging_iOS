@@ -19,11 +19,19 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
+    func callCompleteLoginNoti(result: PloggingUser?, param: [String: Any]) {
+        var info = param
+        if let result = result {
+            info.updateValue(result, forKey: "result")
+        }
+        NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
+    }
+    
     // MARK: - setting up login
     func setupLoginWithApple() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.email]
+        request.requestedScopes = [.email, .fullName]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
@@ -45,13 +53,6 @@ class SNSLoginManager: NSObject {
         instance?.consumerKey = kConsumerKey
         instance?.consumerSecret = kConsumerSecret
         instance?.appName = kServiceAppName
-    }
-    
-    // AMRK: - request login
-    func requestLoginWithApple(completion: ((SNSLoginData) -> Void)?) {
-        let loginData = SNSLoginData()
-        
-        completion?(loginData)
     }
     
     func requestLoginWithKakao(completion: ((SNSLoginData) -> Void)?) {
@@ -85,10 +86,6 @@ class SNSLoginManager: NSObject {
 
         loginInstance.delegate = self
         loginInstance.requestThirdPartyLogin()
-        
-        let loginData = SNSLoginData()
-        
-        completion?(loginData)
     }
     
     func getNaverInfo() {
@@ -108,9 +105,10 @@ class SNSLoginManager: NSObject {
         ).responseJSON { response in
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
-            guard let email = object["email"] as? String else { return }
+            guard let email = object["email"] as? String,
+                  let name = object["name"] as? String else { return }
             print("email: \(email)")
-            self.checkEmailValidation(email: email, type: SNSType.naver.rawValue)
+            self.requestSNSLogin(email: email, name: name, type: SNSType.naver.rawValue)
         }
     }
     
@@ -121,39 +119,26 @@ class SNSLoginManager: NSObject {
             }
             else {
                 print("me() success.")
-                if let email = user?.kakaoAccount?.email {
+                if let email = user?.kakaoAccount?.email,
+                   let name = user?.kakaoAccount?.profile?.nickname {
                     print("email \(email)")
-                    self.checkEmailValidation(email: email, type: SNSType.kakao.rawValue)
+                    self.requestSNSLogin(email: email, name: name, type: SNSType.kakao.rawValue)
                 }
             }
         }
     }
         
-    func checkEmailValidation(email: String, type: String) {
-        let param: [String: Any] = ["userId": "\(email):\(type)"]
+    func requestSNSLogin(email: String, name: String, type: String) {
         
-        APICollection.sharedAPI.requestUserCheck(param: param) { (response) in
-            let rc = try? response.get().rc
-            if rc == 200 {
-                // 닉네임 페이지로
-                print("닉네임 페이지")
-            } else if rc == 400  {
-                // 존재하는 아이디라고 알려줌
-            } else {
-                // 서버 에러
-            }
-        }
-    }
-    
-    // MARK: - success
-    func loginSuccess(type: String, email: String) {
         let param: [String: Any] = [
-            "userId" : type,
-            "userName" : email,
+            "userId": "\(email):\(type)",
+            "userName": name
         ]
 
-        APICollection.sharedAPI.requestSignInSocial(param: param) { (result) in
-            print(result)
+        APICollection.sharedAPI.requestSignInSocial(param: param) { (response) in
+            if let response = try? response.get() {
+                self.callCompleteLoginNoti(result: response, param: param)
+            }
         }
     }
 }
@@ -162,6 +147,7 @@ class SNSLoginManager: NSObject {
 extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
     // 로그인에 성공했을 경우 호출
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("성공")
         print(oauth20ConnectionDidFinishRequestACTokenWithAuthCode)
         
         getNaverInfo()
@@ -174,11 +160,13 @@ extension SNSLoginManager: NaverThirdPartyLoginConnectionDelegate {
     // 토큰 갱신
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("토큰 갱신")
+        getNaverInfo()
     }
     
     // 로그아웃 할 경우 호출
     func oauth20ConnectionDidFinishDeleteToken() {
         print("토큰 삭제")
+        NaverThirdPartyLoginConnection.getSharedInstance()?.requestDeleteToken()
     }
     
     // ERROR
@@ -193,10 +181,14 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            if let email = appleIDCredential.email {
-                self.checkEmailValidation(email: email,
+            if let email = appleIDCredential.email,
+               let userName = appleIDCredential.fullName?.description {
+                PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
+                self.requestSNSLogin(email: email, name: userName,
                                           type: SNSType.apple.rawValue)
+                break;
             }
+            validChcekApple()
         default:
             break
         }
@@ -204,6 +196,29 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
+    }
+    
+    func validChcekApple() {
+        if let userIdentifier = PloggingUserData.shared.getAppleUserIdentifier() {
+            let authorizationProvider = ASAuthorizationAppleIDProvider()
+            authorizationProvider.getCredentialState(forUserID: userIdentifier) { (state, error) in
+                switch (state) {
+                case .authorized:
+                    print("Account Found - Signed In")
+                    DispatchQueue.main.async { [self] in
+                        callCompleteLoginNoti(result: nil, param: ["type":"apple"])
+                    }
+                    break
+                case .revoked:
+                    print("다른 방법으로 로그인 해주세요.")
+                    fallthrough
+                case .notFound:
+                    print("다른 방법으로 로그인 해주세요.")
+                default:
+                    break
+                }
+            }
+        }
     }
 }
 

@@ -7,8 +7,14 @@
 
 import UIKit
 
+enum DetailType {
+    case ranking
+    case mypage
+}
+
 class MyPageViewController: UIViewController {
 
+    @IBOutlet weak var navigationBarButton: UIButton!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickName: UILabel!
@@ -25,11 +31,39 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    var userId = "" {
+        didSet {
+            requestHeaderData()
+        }
+    }
+    var weeklyOrMonthly = ""
     var type = DetailType.mypage
-
-    enum DetailType {
-        case ranking
-        case mypage
+    
+    private func requestHeaderData() {
+        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
+            let userData = try? response.get()
+            if userData?.rc != 200 {
+                // 쿠키가 유효하지 않음
+                self.makeLoginRootViewController()
+                return
+            } else {
+                self.nickName.text = userData?.userName
+                if let img = userData?.userImg,
+                   let imageURL = URL(string: img) {
+                    self.profilePhoto.sizeToFit()
+                    self.profilePhoto.kf.setImage(with: imageURL)
+                }
+                if self.weeklyOrMonthly == "weekly" {
+                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)"
+                } else {
+                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)"
+                }
+            }
+        }
     }
     
     private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
@@ -44,6 +78,16 @@ class MyPageViewController: UIViewController {
                //상세 페이지로 서버 결과 전달
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidLoad() {
@@ -61,8 +105,11 @@ class MyPageViewController: UIViewController {
     }
     
     func setUpNavigationBarUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        
+        if type == .mypage {
+            navigationBarButton.setImage(UIImage(named: "group3"), for: .normal)
+        } else {
+            navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+        }
         fixHeaderView.backgroundColor = UIColor.tintGreen
         setGradationView(view: navigationBarView, colors: [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint(x: 0.5, y: 1.0))
         
@@ -72,12 +119,15 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func goToSetting(_ sender: Any) {
-        (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        
-        guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
-            return
+        if type == .mypage {
+            (rootViewController as? MainViewController)?.setTabBarHidden(true)
+            guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
+                return
+            }
+            navigationController?.pushViewController(settingViewController, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
-        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
@@ -160,7 +210,16 @@ extension MyPageViewController: UICollectionViewDataSource {
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        if type == .mypage {
+            performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        } else {
+            let storyboard = UIStoryboard(name: Storyboard.Ranking.rawValue, bundle: nil)
+            if let photoViewController = storyboard.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
+                photoViewController.modalPresentationStyle = .fullScreen
+                photoViewController.image =  pagingDataSource.contents[indexPath.item].meta.ploggingImage
+                self.present(photoViewController, animated: false, completion: nil)
+            }
+        }
     }
 }
 

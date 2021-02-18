@@ -36,4 +36,4 @@ typedef enum {
 
 #define kConsumerKey            @"84sRHScE_QKKsv8npGD2"
 #define kConsumerSecret         @"m7Gh9GL57l"
-#define kServiceAppName         @"플로깅"
+#define kServiceAppName         @"에코런"

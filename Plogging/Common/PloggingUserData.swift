@@ -9,14 +9,13 @@ import Foundation
 
 class PloggingUserData {
     static let shared = PloggingUserData()
-
-    /// 아이디 저장
-    /// 닉네임 저장
-    /// 이미지 저장
+    
+    var userData: PloggingUserInfo?
     
     let userId = "userId"
     let userName = "userName"
     let userImage = "userImage"
+    let apple = "apple"
     
     func saveUserData(id: String, nickName: String, image: String) {
         UserDefaults.standard.setValue(id, forKey: userId)
@@ -26,6 +25,10 @@ class PloggingUserData {
     
     func getUserId() -> String? {
         return UserDefaults.standard.string(forKey: userId)
+    }
+    
+    func setUserName(nickName: String) {
+        UserDefaults.standard.setValue(nickName, forKey: userName)
     }
     
     func getUserName() -> String? {
@@ -40,5 +43,17 @@ class PloggingUserData {
         UserDefaults.standard.removeObject(forKey: userId)
         UserDefaults.standard.removeObject(forKey: userName)
         UserDefaults.standard.removeObject(forKey: userImage)
+    }
+    
+    func setUserData(_ userInfo:PloggingUserInfo?) {
+        self.userData = userInfo
+    }
+    
+    func getAppleUserIdentifier() -> String? {
+        return UserDefaults.standard.string(forKey: apple)
+    }
+    
+    func setAppleUserIdentifier(indentifier: String) {
+        UserDefaults.standard.setValue(indentifier, forKey: apple)
     }
 }

@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
 
         setupUI()
         setupDelegate()
+        setupNotification()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -127,6 +128,44 @@ class LoginViewController: UIViewController {
 
     @IBAction func clickedAppleLoginButton(_ sender: UIButton) {
         SNSLoginManager.shared.setupLoginWithApple()
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .loginCompletion, object: nil)
+    }
+
+    @objc func onDidReceiveData(_ notification: Notification)
+    {
+        if let data = notification.userInfo as? [String: Any] {
+            if let result = data["result"] as? PloggingUser, let userId = data["userId"] as? String {
+                moveToOtherPage(result, userId)
+            } else if let result = data["type"] as? String, result == "apple" {
+                makeDefaultRootViewController()
+            }
+        }
+    }
+    
+    func moveToOtherPage(_ result: PloggingUser, _ id: String) {
+        switch result.rc {
+        case 200, 201:
+            if let nickName = result.userName, let image = result.userImg {
+                PloggingUserData.shared.saveUserData(id: id,
+                                                     nickName: nickName,
+                                                     image: image)
+            }
+            makeDefaultRootViewController()
+            return
+        case 409:
+            let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
+            if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
+                viewcontroller.loginType = "SNS"
+                viewcontroller.userInfo = ["userId": id]
+                self.navigationController?.pushViewController(viewcontroller, animated: true)
+            }
+            return
+        default:
+            print("error")
+        }
     }
 }
 

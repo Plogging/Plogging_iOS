@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestUserData()
         setUpTabBarUI()
     }
     
@@ -34,6 +35,24 @@ class MainViewController: UIViewController {
             myPageViewController = segue.destination as? MyPageViewController
         default:
             break
+        }
+    }
+    
+    func requestUserData() {
+        guard let id = PloggingUserData.shared.getUserId() else {
+            self.makeLoginRootViewController()
+            return
+        }
+        
+        APICollection.sharedAPI.requestUserInfo(id: id) { (response) in
+            let userData = try? response.get()
+            if userData?.rc != 200 {
+                // 쿠키가 유효하지 않음
+                self.makeLoginRootViewController()
+                return
+            } else {
+                PloggingUserData.shared.setUserData(userData ?? nil)
+            }
         }
     }
     
