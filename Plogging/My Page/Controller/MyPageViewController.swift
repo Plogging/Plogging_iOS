@@ -105,8 +105,11 @@ class MyPageViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        guard let userId = PloggingUserData.shared.getUserId() else {
-            return
+        if type == .mypage {
+            guard let mypaegUserId = PloggingUserData.shared.getUserId() else {
+                return
+            }
+            userId = mypaegUserId
         }
         requestHeaderData()
     }
@@ -142,7 +145,7 @@ class MyPageViewController: UIViewController {
             let userData = try? response.get()
             if userData?.rc != 200 {
                 // 쿠키가 유효하지 않음
-                self.makeLoginRootViewController()
+//                self.makeLoginRootViewController()
                 return
             } else {
                 self.nickName.text = userData?.userName
@@ -152,13 +155,13 @@ class MyPageViewController: UIViewController {
                     self.profilePhoto.kf.setImage(with: imageURL)
                 }
                 if self.weeklyOrMonthly == "weekly" {
-                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)"
-                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)"
-                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)"
+                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
+                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)km"
+                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
                 } else {
-                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)"
-                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)"
-                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)"
+                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
+                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)km"
+                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
                 }
             }
         }

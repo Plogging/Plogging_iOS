@@ -17,7 +17,7 @@
         <!--My Page View Controller-->
         <scene sceneID="q1n-fq-wDs">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRL-nI-UWH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                                     <constraint firstAttribute="width" constant="27" id="L95-kU-mqQ"/>
                                                     <constraint firstAttribute="height" constant="29" id="dCl-9G-egO"/>
                                                 </constraints>
-                                                <state key="normal" image="group3"/>
+                                                <state key="normal" image="setting"/>
                                                 <connections>
                                                     <action selector="goToSetting:" destination="wYV-BF-HDx" eventType="touchUpInside" id="a3x-k7-7ry"/>
                                                 </connections>
@@ -1392,9 +1392,9 @@
         <image name="buttonMore" width="26" height="18"/>
         <image name="check" width="24" height="24"/>
         <image name="group" width="20" height="20"/>
-        <image name="group3" width="27" height="29"/>
         <image name="group5" width="9" height="6"/>
         <image name="running" width="36" height="36"/>
+        <image name="setting" width="27" height="29"/>
         <image name="test" width="375" height="375"/>
         <image name="trashCan" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">

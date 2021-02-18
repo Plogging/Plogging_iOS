@@ -183,7 +183,7 @@ extension PloggingResultViewController {
                 if result.rc == 200 {
                     print("success")
                 } else if result.rc == 401 {
-                    self?.makeLoginRootViewController()
+//                    self?.makeLoginRootViewController()
                 }
             }
         }

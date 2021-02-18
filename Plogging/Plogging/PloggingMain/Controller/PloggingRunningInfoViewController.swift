@@ -139,7 +139,7 @@ class PloggingRunningInfoViewController: UIViewController {
                     self.ploggingEnvironmentScore = result.score.environmentScore
                     
                 } else if result.rc == 401 {
-                    self.makeLoginRootViewController()
+//                    self.makeLoginRootViewController()
                 }
             }
         }
