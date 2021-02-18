@@ -42,7 +42,6 @@ enum MyPageSortType {
 }
 
 class MyPageViewController: UIViewController {
-
     @IBOutlet weak var navigationBarButton: UIButton!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -152,16 +151,18 @@ class MyPageViewController: UIViewController {
                 }
                 if self.weeklyOrMonthly == "weekly" {
                     self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
-                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)km"
+                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceWeekly ?? 0)/1000) + "km"
                     self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
                 } else {
                     self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
-                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)km"
+                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceMonthly ?? 0)/1000) + "km"
                     self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
                 }
             }
         }
     }
+    
+    
     
     func updateUI() {
         DispatchQueue.main.async {

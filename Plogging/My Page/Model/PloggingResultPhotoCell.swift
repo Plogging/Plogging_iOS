@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class PloggingResultPhotoCell: UICollectionViewCell {
-    
     @IBOutlet weak var ploggingResultPhoto: UIImageView!
 
     func updateUI(ploggingImageUrl: URL) {
