@@ -22,8 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if PloggingCookie.shared.isFirstTimeUser() {
             // 유저 처음인지 확인하는 작업 필요
-            SNSLoginManager.shared.setupLoginWithNaver()
-            SNSLoginManager.shared.setupLoginWithKakao()
+
             // 회원 탈퇴한 유저 , 생 처음 유저
             if PloggingCookie.shared.getUserCookie() == nil {
                 let storyboard = UIStoryboard(name: Storyboard.Onboarding.rawValue, bundle: nil)

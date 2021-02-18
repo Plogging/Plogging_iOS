@@ -114,12 +114,14 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.requestLoginWithNaver { (loginData) in
             print(loginData)
         }
     }
     
     @IBAction func clickKakaoLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithKakao()
         SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
             print(loginData)
         }
