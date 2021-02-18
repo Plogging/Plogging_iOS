@@ -120,14 +120,22 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZr-Hb-SmT" userLabel="TopBar">
+                                <rect key="frame" x="180" y="17.333333333333332" width="54" height="2.3333333333333321"/>
+                                <color key="backgroundColor" red="0.65098039215686276" green="0.65098039215686276" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fMK-Xs-Sqc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bZr-Hb-SmT" firstAttribute="centerX" secondItem="6wX-mt-Xj8" secondAttribute="centerX" id="6Jr-KA-XAi"/>
+                            <constraint firstItem="bZr-Hb-SmT" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="bottom" multiplier="17:845" id="8PY-aY-xSK"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="trailing" secondItem="fMK-Xs-Sqc" secondAttribute="trailing" id="94D-Vk-bTl"/>
+                            <constraint firstItem="bZr-Hb-SmT" firstAttribute="width" secondItem="fMK-Xs-Sqc" secondAttribute="width" multiplier="0.13" id="fo9-jH-4gr"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="leading" secondItem="fMK-Xs-Sqc" secondAttribute="leading" id="gWg-9c-EPt"/>
                             <constraint firstAttribute="bottom" secondItem="Iu8-Pr-tad" secondAttribute="bottom" constant="73" id="r2n-BJ-feO"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="top" secondItem="fMK-Xs-Sqc" secondAttribute="top" constant="59" id="tJ9-A6-Rj5"/>
+                            <constraint firstItem="bZr-Hb-SmT" firstAttribute="height" secondItem="fMK-Xs-Sqc" secondAttribute="height" multiplier="0.003" id="vjW-2z-qxG"/>
                             <constraint firstItem="Iu8-Pr-tad" firstAttribute="centerX" secondItem="fMK-Xs-Sqc" secondAttribute="centerX" id="wap-bm-7NW"/>
                         </constraints>
                     </view>
@@ -135,6 +143,7 @@
                         <outlet property="firstItem" destination="p4q-8g-MAN" id="ula-ZF-wH9"/>
                         <outlet property="secondItem" destination="U4A-Yu-n7f" id="Tbh-aP-YEN"/>
                         <outlet property="thirdItem" destination="QD3-hB-Af7" id="NzA-3K-ZQJ"/>
+                        <outlet property="topBar" destination="bZr-Hb-SmT" id="YCE-NW-VxX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQw-Sh-owb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -239,6 +248,10 @@
                                 <color key="textColor" red="0.53333872559999995" green="0.53729087109999996" blue="0.53332841399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LW3-GV-80Q" userLabel="TopBar">
+                                <rect key="frame" x="180" y="20" width="54" height="2.3333333333333321"/>
+                                <color key="backgroundColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kdj-D9-I62"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -248,9 +261,13 @@
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="DPD-jN-K0J"/>
                             <constraint firstItem="t82-Vj-Ft2" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="20/845" id="F0M-1k-DJa"/>
                             <constraint firstItem="hfg-WD-X7x" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="FdX-eh-Lly"/>
+                            <constraint firstItem="LW3-GV-80Q" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="0.00277118" id="YCw-vz-gLX"/>
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="101/845" id="agi-Z6-fHF"/>
+                            <constraint firstItem="LW3-GV-80Q" firstAttribute="width" secondItem="MQW-a2-kNX" secondAttribute="width" multiplier="0.130435" id="ewQ-GV-1t6"/>
                             <constraint firstItem="t82-Vj-Ft2" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="48/845" id="gqm-Wg-6WT"/>
+                            <constraint firstItem="LW3-GV-80Q" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="jKZ-g8-Ew3"/>
                             <constraint firstItem="t82-Vj-Ft2" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="pmh-Aa-Vws"/>
+                            <constraint firstItem="LW3-GV-80Q" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="top" constant="20" id="qXg-e2-cay"/>
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="width" secondItem="MQW-a2-kNX" secondAttribute="width" multiplier="366/414" id="s3X-k7-Hpu"/>
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="555/845" id="xAg-IE-NYj"/>
                         </constraints>
