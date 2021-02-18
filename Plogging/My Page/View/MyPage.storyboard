@@ -1285,10 +1285,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvO-36-HLf" userLabel="FooterView">
-                                <rect key="frame" x="0.0" y="674" width="414" height="188"/>
+                                <rect key="frame" x="0.0" y="742" width="414" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-P2-lXk">
-                                        <rect key="frame" x="24" y="84" width="366" height="60"/>
+                                        <rect key="frame" x="24" y="20" width="366" height="60"/>
                                         <color key="backgroundColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="MMC-Oe-GDp"/>
@@ -1310,8 +1310,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UHw-P2-lXk" secondAttribute="trailing" constant="24" id="6dT-6w-uEP"/>
-                                    <constraint firstItem="UHw-P2-lXk" firstAttribute="top" secondItem="cvO-36-HLf" secondAttribute="top" constant="84" id="IxV-9N-GPp"/>
-                                    <constraint firstAttribute="height" constant="188" id="jvA-xe-4l7"/>
+                                    <constraint firstItem="UHw-P2-lXk" firstAttribute="top" secondItem="cvO-36-HLf" secondAttribute="top" constant="20" id="IxV-9N-GPp"/>
+                                    <constraint firstAttribute="height" constant="120" id="jvA-xe-4l7"/>
                                     <constraint firstItem="UHw-P2-lXk" firstAttribute="leading" secondItem="cvO-36-HLf" secondAttribute="leading" constant="24" id="zuq-dl-kVV"/>
                                 </constraints>
                             </view>

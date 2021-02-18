@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Photos
 
 class PopUpViewController: UIViewController {
 
@@ -29,7 +28,6 @@ class PopUpViewController: UIViewController {
     var ploggingStopAction: (() -> Void)?
     var savePhotoAction: (() -> Void)?
     var dismissAction: (() -> Void)?
-    
     
     var type: PopUpType?
     
