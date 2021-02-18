@@ -154,6 +154,15 @@ class NickNameViewController: UIViewController {
 }
 
 extension NickNameViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let count = textField.text?.count {
+            print(count)
+            if count > 9 {
+                setupErrorLabel(message: "공백포함 9자까지")
+                return
+            }
+        }
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         nickNameInfoLabel.isHidden = true
         if let count = textField.text?.count {
