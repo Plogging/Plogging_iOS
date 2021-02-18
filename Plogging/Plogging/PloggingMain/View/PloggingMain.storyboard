@@ -25,7 +25,10 @@
                                     <constraint firstAttribute="width" constant="196" id="gmz-NV-am4"/>
                                     <constraint firstAttribute="height" constant="78" id="s3g-No-mGE"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <size key="titleShadowOffset" width="0.0" height="4"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" red="0.21568627450980393" green="0.83529411764705885" blue="0.67450980392156867" alpha="0.67000000000000004" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="g4I-HC-mri" kind="presentation" modalPresentationStyle="fullScreen" id="VGP-tN-xRs"/>
                                 </connections>

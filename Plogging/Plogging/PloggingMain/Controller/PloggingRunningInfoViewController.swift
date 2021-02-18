@@ -204,6 +204,9 @@ class PloggingRunningInfoViewController: UIViewController {
         stopButton.setTitleColor(.white, for: .normal)
 
         continueButton.title = "쓰레기 기록하기"
+        continueButton.layer.shadowColor = UIColor.tintGreen.cgColor
+        continueButton.layer.shadowOpacity = 0.67
+        continueButton.layer.shadowOffset = .init(width: 0, height: 4)
 
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()

@@ -52,7 +52,11 @@ class PloggingStartViewController: UIViewController {
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(userName)", fontSize: 17)
             .normal("님 안녕하세요!", fontSize: 17)
-
+        
+        startButton.layer.shadowColor = UIColor.tintGreen.cgColor
+        startButton.layer.shadowOpacity = 0.67
+        startButton.layer.shadowOffset = .init(width: 0, height: 4)
+        
     }
 
     @IBAction func presentIntroduceModal(_ sender: Any) {
