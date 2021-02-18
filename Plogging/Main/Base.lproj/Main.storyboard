@@ -38,6 +38,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14t-un-sOC" userLabel="ShadowView">
                                 <rect key="frame" x="0.0" y="804" width="414" height="92"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQC-H9-X57">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="37"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuL-s9-PTS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,11 +79,15 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="top" secondItem="14t-un-sOC" secondAttribute="top" id="1KY-qa-77e"/>
+                                    <constraint firstItem="pQC-H9-X57" firstAttribute="top" secondItem="14t-un-sOC" secondAttribute="top" id="9rK-Ws-dB4"/>
+                                    <constraint firstItem="pQC-H9-X57" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="Eqg-b0-ia5"/>
                                     <constraint firstItem="EuL-s9-PTS" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="FME-Lh-V2O"/>
                                     <constraint firstItem="Yj7-gS-pNf" firstAttribute="leading" secondItem="14t-un-sOC" secondAttribute="leading" id="Gwx-KZ-phV"/>
                                     <constraint firstAttribute="trailing" secondItem="EuL-s9-PTS" secondAttribute="trailing" id="MxW-cP-lke"/>
                                     <constraint firstAttribute="trailing" secondItem="Yj7-gS-pNf" secondAttribute="trailing" id="NAY-9I-6dl"/>
+                                    <constraint firstAttribute="bottom" secondItem="pQC-H9-X57" secondAttribute="bottom" id="OK1-69-YdT"/>
                                     <constraint firstAttribute="bottom" secondItem="Yj7-gS-pNf" secondAttribute="bottom" id="XJC-h9-FLk"/>
+                                    <constraint firstAttribute="trailing" secondItem="pQC-H9-X57" secondAttribute="trailing" id="f2d-P6-bGA"/>
                                     <constraint firstItem="Yj7-gS-pNf" firstAttribute="top" secondItem="EuL-s9-PTS" secondAttribute="bottom" id="t6w-0u-03J"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
