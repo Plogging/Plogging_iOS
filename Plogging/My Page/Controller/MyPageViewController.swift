@@ -30,13 +30,14 @@ enum MyPageSortType {
     }
     
     func getDataSource() -> PagingDataSource<PloggingList> {
+        let url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
         switch self {
         case .date:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .score:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .trashCount:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         }
     }
 }

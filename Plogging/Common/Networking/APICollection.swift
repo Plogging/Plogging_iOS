@@ -46,7 +46,7 @@ struct APICollection {
 extension APICollection {
     /// SNS 로그인
     func requestSignInSocial(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userSocial,
+        AF.request(BaseURL.getURL(basePath: .userSocial),
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -61,8 +61,6 @@ extension APICollection {
             // 쿠키 설정
             getCookies()
             
-            
-            
             guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
@@ -73,7 +71,7 @@ extension APICollection {
     
     /// 자체 로그인
     func requestSignInCustom(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userSignIn,
+        AF.request(BaseURL.getURL(basePath: .userSignIn),
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -97,7 +95,7 @@ extension APICollection {
 
     /// 사용자 아이디 가입 확인
     func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userCheck,
+        AF.request(BaseURL.getURL(basePath: .userCheck),
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -118,7 +116,7 @@ extension APICollection {
 
     /// 회원가입
     func requestUserSignUp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.user,
+        AF.request(BaseURL.getURL(basePath: .user),
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -139,7 +137,7 @@ extension APICollection {
     
     /// 사용자 정보 가져오기
     func requestUserInfo(id: String, completion: @escaping (Result<PloggingUserInfo, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.user + "/\(id)",
+        AF.request(BaseURL.getURL(basePath: .user) + "/\(id)",
                    method: .get,
                    encoding: URLEncoding.default,
                    headers: gettingHeader()
@@ -158,7 +156,7 @@ extension APICollection {
     
     /// 유저 이름 변경
     func requestChangeUserName(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userName,
+        AF.request(BaseURL.getURL(basePath: .userName),
                    method: .put,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -179,7 +177,7 @@ extension APICollection {
     
     /// 비밀번호 변경
     func requestChangeUserPassword(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userPassword,
+        AF.request(BaseURL.getURL(basePath: .userPassword),
                    method: .put,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -200,7 +198,7 @@ extension APICollection {
     
     /// 임시 비밀번호 발급
     func requestUserPasswordTemp(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userPasswordTemp,
+        AF.request(BaseURL.getURL(basePath: .userPasswordTemp),
                    method: .put,
                    parameters: param,
                    encoding: JSONEncoding.default,
@@ -221,7 +219,7 @@ extension APICollection {
     
     /// 로그아웃
     func requestUserSignOut(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.userSignOut,
+        AF.request(BaseURL.getURL(basePath: .userSignOut),
                    method: .put,
                    encoding: JSONEncoding.default,
                    headers: gettingHeader()
@@ -241,7 +239,7 @@ extension APICollection {
     
     /// 회원탈퇴
     func requestDeleteUser(completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.user,
+        AF.request(BaseURL.getURL(basePath: .user),
                    method: .delete,
                    encoding: JSONEncoding.default,
                    headers: gettingHeader()
@@ -267,7 +265,7 @@ extension APICollection {
         guard let jsonString = param.toJsonString() else {
             return
         }
-        AF.request(BaseURL.mainURL + BasePath.ploggingScore,
+        AF.request(BaseURL.getURL(basePath: .ploggingScore),
                    method: .post,
                    parameters: ["ploggingData" : jsonString],
                    encoding: URLEncoding(destination: .httpBody),
@@ -296,7 +294,7 @@ extension APICollection {
             multipartFormData.append(Data(jsonString.utf8), withName: "ploggingData")
             multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/png")
         },
-        to: BaseURL.mainURL + BasePath.plogging,
+        to: BaseURL.getURL(basePath: .plogging),
         method: .post,
         headers: gettingHeader()
         ).responseJSON { response in
@@ -315,7 +313,7 @@ extension APICollection {
     
     /// 플로깅 결과 삭제
     func deletePloggingRecord(id: String, ploggingImaegName: String, completion: @escaping (Result<PloggingResultBasicInfo, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.plogging + "?ploggingId=\(id)&ploggingImgName=\(ploggingImaegName)",
+        AF.request(BaseURL.getURL(basePath: .plogging) + "?ploggingId=\(id)&ploggingImgName=\(ploggingImaegName)",
                    method: .delete,
                    headers: gettingHeader()
         ).responseJSON { (response) in
@@ -335,7 +333,7 @@ extension APICollection {
 // MARK: - RANKING
 extension APICollection {
     func requestGlobalRanking(param: Parameters, completion: @escaping (Result<RankingGlobal, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.rankingGlobal,
+        AF.request(BaseURL.getURL(basePath: .rankingGlobal),
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,
@@ -354,7 +352,7 @@ extension APICollection {
     }
     
     func requestUserRanking(id: String, param: Parameters, completion: @escaping (Result<RankingUser, APIError>) -> Void) {
-        AF.request(BaseURL.mainURL + BasePath.rankUserId + "/\(id)",
+        AF.request(BaseURL.getURL(basePath: .rankUserId(id)),
                    method: .get,
                    parameters: param,
                    encoding: URLEncoding.default,
