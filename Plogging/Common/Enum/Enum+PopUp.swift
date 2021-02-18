@@ -80,7 +80,7 @@ extension PopUpType {
         case .비밀번호변경완료팝업:
             return UIImage(named: "changePassword")
         case .종료팝업:
-            return UIImage(named: "close")
+            return UIImage(named: "popupClosePlogging")
         case .사진없이저장팝업:
             return UIImage(named: "saveWithNoPhoto")
         case .기록삭제팝업:
