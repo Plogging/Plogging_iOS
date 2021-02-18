@@ -67,7 +67,7 @@
 		3D51AA95E7B3F499E2B73D56 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A98D1552E6F9909BEE64 /* BackupManager.swift */; };
 		3D51AD059BCC718FA9C3E71E /* PloggingIntroduceModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A40EDF721D23827E5FD1 /* PloggingIntroduceModalViewController.swift */; };
 		3D51AD8E915AAF8AAAFF4F62 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A4D3DA91775A4DCD9228 /* PathManager.swift */; };
-		3D51AE726AFED7A079E41CCD /* Enum+PloggingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A319758A8CAEF5A862D8 /* Enum+PloggingInfo.swift */; };
+		3D51AE726AFED7A079E41CCD /* Enum+TrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A319758A8CAEF5A862D8 /* Enum+TrashType.swift */; };
 		3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A1AAB16BC9DC4AF03783 /* PloggingRunningInfoViewController.swift */; };
 		3D51AED20F7B5C12359573EB /* IntroduceModalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51A493A898FCFF87F5D116 /* IntroduceModalItem.swift */; };
 		3D51AEDBD61B24C16994530F /* Path+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AD8E76137E276058699E /* Path+CoreDataClass.swift */; };
@@ -111,6 +111,7 @@
 		9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */; };
 		9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0125AE0DE900B0B415 /* RankingViewController.swift */; };
 		9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */; };
+		9B8A434C25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8A434B25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift */; };
 		9BBFF19A25C9479400D6636E /* PloggingResultPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */; };
 		9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */; };
 /* End PBXBuildFile section */
@@ -190,7 +191,7 @@
 		3D51A1AAB16BC9DC4AF03783 /* PloggingRunningInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingRunningInfoViewController.swift; sourceTree = "<group>"; };
 		3D51A29DC232990A31871B96 /* PloggingPickTrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingPickTrashViewController.swift; sourceTree = "<group>"; };
 		3D51A2A040514A1E6549B7D1 /* PloggingStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingStartViewController.swift; sourceTree = "<group>"; };
-		3D51A319758A8CAEF5A862D8 /* Enum+PloggingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+PloggingInfo.swift"; sourceTree = "<group>"; };
+		3D51A319758A8CAEF5A862D8 /* Enum+TrashType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+TrashType.swift"; sourceTree = "<group>"; };
 		3D51A3DF16E287DEFCCE586D /* Extension+PathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+PathManager.swift"; sourceTree = "<group>"; };
 		3D51A40EDF721D23827E5FD1 /* PloggingIntroduceModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PloggingIntroduceModalViewController.swift; sourceTree = "<group>"; };
 		3D51A47619BE25D47FEC1CCC /* PickTrashItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTrashItem.swift; sourceTree = "<group>"; };
@@ -245,6 +246,7 @@
 		9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
 		9B671E0125AE0DE900B0B415 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
+		9B8A434B25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultBasicInfo.swift; sourceTree = "<group>"; };
 		9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoCell.swift; sourceTree = "<group>"; };
 		9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
 		B30387023FB6701DA6D40B34 /* Pods-PloggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PloggingTests.release.xcconfig"; path = "Target Support Files/Pods-PloggingTests/Pods-PloggingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -355,7 +357,7 @@
 				9B5A32B625AEAAE90061A361 /* Enum+MainTab.swift */,
 				1C21852925B8C3480076CD14 /* Enum+PopUp.swift */,
 				1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */,
-				3D51A319758A8CAEF5A862D8 /* Enum+PloggingInfo.swift */,
+				3D51A319758A8CAEF5A862D8 /* Enum+TrashType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -433,6 +435,7 @@
 				1CC281DB25B4C117003FBCCD /* PloggingUser.swift */,
 				1C5B0E0A25D704B0008560FA /* PloggingUserInfo.swift */,
 				9B2A87EE25DA2F4E008EC772 /* PloggingResultScore.swift */,
+				9B8A434B25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
+				9B8A434C25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
 				1C5B304E25A6079700413115 /* Enum+URL.swift in Sources */,
 				9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */,
@@ -1089,7 +1093,7 @@
 				3D51AF8D81CBEA8D8F71D7C3 /* PloggingPickTrashViewController.swift in Sources */,
 				3D51AE81ED9D529EFB23D448 /* PloggingRunningInfoViewController.swift in Sources */,
 				3D51A0B8A5A8FA8D47D1553D /* PloggingStartViewController.swift in Sources */,
-				3D51AE726AFED7A079E41CCD /* Enum+PloggingInfo.swift in Sources */,
+				3D51AE726AFED7A079E41CCD /* Enum+TrashType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

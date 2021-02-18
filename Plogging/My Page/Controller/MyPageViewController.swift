@@ -6,10 +6,39 @@
 //
 
 import UIKit
+import Kingfisher
 
 enum DetailType {
     case ranking
     case mypage
+}
+
+enum MyPageSortType {
+    case date
+    case score
+    case trashCount
+    
+    var description: String {
+        switch self {
+        case .date:
+            return "최신순"
+        case .score:
+            return "점수순"
+        case .trashCount:
+            return "모은 쓰레기 순"
+        }
+    }
+    
+    func getDataSource() -> PagingDataSource<PloggingList> {
+        switch self {
+        case .date:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        case .score:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        case .trashCount:
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+        }
+    }
 }
 
 class MyPageViewController: UIViewController {
@@ -31,6 +60,12 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    private(set) var currentSortType: MyPageSortType = .date {
+        didSet {
+            currentPagingDataSource = currentSortType.getDataSource()
+        }
+    }
+    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
     var userId = "" {
         didSet {
             requestHeaderData()
@@ -39,35 +74,6 @@ class MyPageViewController: UIViewController {
     var weeklyOrMonthly = ""
     var type = DetailType.mypage
     
-    private func requestHeaderData() {
-        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
-            let userData = try? response.get()
-            if userData?.rc != 200 {
-                // 쿠키가 유효하지 않음
-                self.makeLoginRootViewController()
-                return
-            } else {
-                self.nickName.text = userData?.userName
-                if let img = userData?.userImg,
-                   let imageURL = URL(string: img) {
-                    self.profilePhoto.sizeToFit()
-                    self.profilePhoto.kf.setImage(with: imageURL)
-                }
-                if self.weeklyOrMonthly == "weekly" {
-                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)"
-                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)"
-                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)"
-                } else {
-                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)"
-                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)"
-                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)"
-                }
-            }
-        }
-    }
-    
-    private(set) var pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.showPloggingDetailInfo {
@@ -75,38 +81,55 @@ class MyPageViewController: UIViewController {
                 return
             }
             if let indexPath = sender as? Int {
-               //상세 페이지로 서버 결과 전달
+                let ploggingList = currentPagingDataSource?.contents[indexPath]
+                ploggingDetailInfoViewController.ploggingList = ploggingList
+                ploggingDetailInfoViewController.profileImage = profilePhoto.image
+                ploggingDetailInfoViewController.userName = nickName.text
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
-
-        pagingDataSource.loadFromFirst {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        if type == .mypage {
+            guard let mypaegUserId = PloggingUserData.shared.getUserId() else {
+                return
+            }
+            userId = mypaegUserId
+        }
+        requestHeaderData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func mypageTabReload() {
+        currentSortType = .date
+        currentPagingDataSource?.loadFromFirst {
             self.updateUI()
         }
     }
     
-    func updateUI() {
-        collectionView.reloadData()
-    }
-    
     func setUpNavigationBarUI() {
         if type == .mypage {
-            navigationBarButton.setImage(UIImage(named: "group3"), for: .normal)
+            navigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
         } else {
             navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
         }
@@ -118,12 +141,52 @@ class MyPageViewController: UIViewController {
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
     }
     
+    private func requestHeaderData() {
+        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
+            let userData = try? response.get()
+            if userData?.rc != 200 {
+                // 쿠키가 유효하지 않음
+//                self.makeLoginRootViewController()
+                return
+            } else {
+                self.nickName.text = userData?.userName
+                if let img = userData?.userImg,
+                   let imageURL = URL(string: img) {
+                    self.profilePhoto.sizeToFit()
+                    self.profilePhoto.kf.setImage(with: imageURL)
+                }
+                if self.weeklyOrMonthly == "weekly" {
+                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
+                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)km"
+                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
+                } else {
+                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
+                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)km"
+                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
+                }
+            }
+        }
+    }
+    
+    func updateUI() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    @objc func deleteItem(_ notification: Notification) {
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+    }
+    
     @IBAction func goToSetting(_ sender: Any) {
         if type == .mypage {
             (rootViewController as? MainViewController)?.setTabBarHidden(true)
             guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
                 return
             }
+            settingViewController.profileImage = profilePhoto.image
             navigationController?.pushViewController(settingViewController, animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
@@ -133,25 +196,25 @@ class MyPageViewController: UIViewController {
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let dateSorting = UIAlertAction(title: "최신순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .date
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "최신순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let scoreSorting = UIAlertAction(title: "점수순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .score
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "점수순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let trashCountSorting = UIAlertAction(title: "모은 쓰레기 순", style: .default) { [weak self] _ in
-            self?.pagingDataSource = PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
-            self?.pagingDataSource.loadFromFirst {
+            self?.currentSortType = .trashCount
+            self?.currentPagingDataSource?.loadFromFirst {
                 self?.updateUI()
             }
-            self?.sortingLabel.text = "모은 쓰레기 순"
+            self?.sortingLabel.text = self?.currentSortType.description
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -166,34 +229,36 @@ class MyPageViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MyPageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pagingDataSource.contents.count
+        guard let currentPagingDataSource = currentPagingDataSource else {
+            return 0
+        }
+        return currentPagingDataSource.contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PloggingResultPhotoCell", for: indexPath)
         let ploggingResultPhotoCell = cell as? PloggingResultPhotoCell
-       
-        guard indexPath.item < pagingDataSource.contents.count else {
+    
+        guard let currentPagingDataSource = currentPagingDataSource, indexPath.item < currentPagingDataSource.contents.count else {
             return cell
         }
         
         // TODO: 페이징 테스트용 지우기
-        guard let ploggingImageUrl = pagingDataSource.contents[indexPath.item].meta.ploggingImage else {
+        guard let ploggingImageUrl = currentPagingDataSource.contents[indexPath.item].meta.ploggingImage else {
             return cell
         }
         
-        guard let createdTime = pagingDataSource.contents[indexPath.item].meta.createdTime else {
+        guard let createdTime = currentPagingDataSource.contents[indexPath.item].meta.createdTime else {
             return cell
         }
         
-        guard let ploggingTotalScore = pagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
+        guard let ploggingTotalScore = currentPagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
             return cell
         }
         
-        guard let ploggingTrashCount = pagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
+        guard let ploggingTrashCount = currentPagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
             return cell
         }
-        
         
         guard let url = URL(string: ploggingImageUrl) else {
             return cell
@@ -216,7 +281,7 @@ extension MyPageViewController: UICollectionViewDelegate {
             let storyboard = UIStoryboard(name: Storyboard.Ranking.rawValue, bundle: nil)
             if let photoViewController = storyboard.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
                 photoViewController.modalPresentationStyle = .fullScreen
-                photoViewController.image =  pagingDataSource.contents[indexPath.item].meta.ploggingImage
+                photoViewController.image = currentPagingDataSource?.contents[indexPath.item].meta.ploggingImage
                 self.present(photoViewController, animated: false, completion: nil)
             }
         }
@@ -268,7 +333,7 @@ extension MyPageViewController: UIScrollViewDelegate {
         navigationBarView.layoutIfNeeded()
         
         if scrollView.requestNextPage() {
-            pagingDataSource.loadNext {
+            currentPagingDataSource?.loadNext {
                 self.updateUI()
             }
         }

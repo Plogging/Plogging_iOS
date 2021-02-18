@@ -17,7 +17,7 @@
         <!--My Page View Controller-->
         <scene sceneID="q1n-fq-wDs">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="wYV-BF-HDx" customClass="MyPageViewController" customModule="Plogging" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRL-nI-UWH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,12 +112,12 @@
                                                     <constraint firstAttribute="width" constant="27" id="L95-kU-mqQ"/>
                                                     <constraint firstAttribute="height" constant="29" id="dCl-9G-egO"/>
                                                 </constraints>
-                                                <state key="normal" image="group3"/>
+                                                <state key="normal" image="setting"/>
                                                 <connections>
                                                     <action selector="goToSetting:" destination="wYV-BF-HDx" eventType="touchUpInside" id="a3x-k7-7ry"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
                                                 <rect key="frame" x="316" y="45" width="74" height="74"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="74" id="C2m-Zw-ob1"/>
@@ -916,19 +916,19 @@
                                                 <rect key="frame" x="24" y="552" width="366" height="131"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjz-10-1D2" userLabel="TimeView">
-                                                        <rect key="frame" x="5" y="0.0" width="152.5" height="131"/>
+                                                        <rect key="frame" x="5" y="0.0" width="132" height="131"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90000점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPX-yH-qdk">
-                                                                <rect key="frame" x="27.5" y="41" width="97" height="31"/>
+                                                                <rect key="frame" x="13.5" y="41" width="105" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="31" id="yb7-O7-NlU"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플로깅 점수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRX-Ob-2U1">
-                                                                <rect key="frame" x="36" y="76" width="80" height="18"/>
+                                                                <rect key="frame" x="26" y="76" width="80" height="18"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="18" id="0Jo-ea-4up"/>
                                                                     <constraint firstAttribute="width" constant="80" id="3YD-Hj-aeP"/>
@@ -947,7 +947,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYH-Be-bWA" userLabel="Line">
-                                                        <rect key="frame" x="157.5" y="33" width="1" height="64"/>
+                                                        <rect key="frame" x="137" y="33" width="1" height="64"/>
                                                         <color key="backgroundColor" red="0.0" green="0.72156862749999995" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="5EC-Jg-UeR"/>
@@ -955,7 +955,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW2-Gr-3AN" userLabel="DistanceView">
-                                                        <rect key="frame" x="163.5" y="0.0" width="101.5" height="131"/>
+                                                        <rect key="frame" x="143" y="0.0" width="101.5" height="131"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="99.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDd-Li-nA1">
                                                                 <rect key="frame" x="25.5" y="41" width="50" height="31"/>
@@ -963,7 +963,7 @@
                                                                     <constraint firstAttribute="height" constant="31" id="kss-Ih-MEJ"/>
                                                                     <constraint firstAttribute="width" constant="50" id="pYQ-YV-9NW"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -988,20 +988,20 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFI-yS-huS" userLabel="KcalView">
-                                                        <rect key="frame" x="265" y="0.0" width="81" height="131"/>
+                                                        <rect key="frame" x="244.5" y="0.0" width="101.5" height="131"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99:99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.62000000476837158" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-hG-RXR">
-                                                                <rect key="frame" x="0.5" y="41" width="80" height="31"/>
+                                                                <rect key="frame" x="10.5" y="41" width="80" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="80" id="ZY0-TN-Mt8"/>
                                                                     <constraint firstAttribute="height" constant="31" id="etl-QK-6L7"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
+                                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQZ-hw-rsl">
-                                                                <rect key="frame" x="16.5" y="76" width="48" height="18"/>
+                                                                <rect key="frame" x="26.5" y="76" width="48" height="18"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="48" id="6CP-cd-fW9"/>
                                                                     <constraint firstAttribute="height" constant="18" id="hAQ-UN-ewS"/>
@@ -1029,13 +1029,13 @@
                                                     <constraint firstItem="CFI-yS-huS" firstAttribute="top" secondItem="itU-n4-1yK" secondAttribute="top" id="HfI-wA-T8k"/>
                                                     <constraint firstItem="Wjz-10-1D2" firstAttribute="leading" secondItem="itU-n4-1yK" secondAttribute="leading" constant="5" id="JSo-ah-6ka"/>
                                                     <constraint firstItem="yW2-Gr-3AN" firstAttribute="top" secondItem="itU-n4-1yK" secondAttribute="top" id="R4z-9c-RHZ"/>
-                                                    <constraint firstItem="CFI-yS-huS" firstAttribute="width" secondItem="yW2-Gr-3AN" secondAttribute="width" multiplier="0.8" id="Tcs-mJ-6fE"/>
+                                                    <constraint firstItem="CFI-yS-huS" firstAttribute="width" secondItem="yW2-Gr-3AN" secondAttribute="width" id="Tcs-mJ-6fE"/>
                                                     <constraint firstAttribute="bottom" secondItem="yW2-Gr-3AN" secondAttribute="bottom" id="Ttq-KH-LmH"/>
                                                     <constraint firstItem="CFI-yS-huS" firstAttribute="height" secondItem="yW2-Gr-3AN" secondAttribute="height" id="XeF-lm-902"/>
                                                     <constraint firstItem="CFI-yS-huS" firstAttribute="top" secondItem="yW2-Gr-3AN" secondAttribute="top" id="ZNX-D9-aft"/>
                                                     <constraint firstItem="yW2-Gr-3AN" firstAttribute="leading" secondItem="fYH-Be-bWA" secondAttribute="trailing" constant="5" id="dGf-vA-Knl"/>
                                                     <constraint firstItem="Wjz-10-1D2" firstAttribute="height" secondItem="yW2-Gr-3AN" secondAttribute="height" id="hTc-Un-fXk"/>
-                                                    <constraint firstItem="Wjz-10-1D2" firstAttribute="width" secondItem="yW2-Gr-3AN" secondAttribute="width" multiplier="1.5" id="oKL-n8-ydc"/>
+                                                    <constraint firstItem="Wjz-10-1D2" firstAttribute="width" secondItem="yW2-Gr-3AN" secondAttribute="width" multiplier="1.3" id="oKL-n8-ydc"/>
                                                     <constraint firstAttribute="bottom" secondItem="CFI-yS-huS" secondAttribute="bottom" id="pdw-Qd-EOQ"/>
                                                     <constraint firstAttribute="height" constant="131" id="s1O-4F-CB3"/>
                                                     <constraint firstItem="Wjz-10-1D2" firstAttribute="top" secondItem="itU-n4-1yK" secondAttribute="top" id="sMV-pY-1PB"/>
@@ -1128,7 +1128,7 @@
                                                                         </collectionViewCellContentView>
                                                                         <size key="customSize" width="291" height="50"/>
                                                                         <connections>
-                                                                            <outlet property="lineSeparotor" destination="a0w-OZ-jnb" id="Xb8-6v-rbq"/>
+                                                                            <outlet property="lineSeparator" destination="a0w-OZ-jnb" id="Xb8-6v-rbq"/>
                                                                             <outlet property="trashCount" destination="wkW-gs-uPg" id="guJ-9h-0uv"/>
                                                                             <outlet property="trashName" destination="a4g-pd-2qn" id="eJa-2q-TfU"/>
                                                                         </connections>
@@ -1372,6 +1372,7 @@
                         <outlet property="nickName" destination="T3h-sN-eT1" id="5u8-Ir-3We"/>
                         <outlet property="ploggingDate" destination="d69-aD-aKb" id="HJp-Aa-T0k"/>
                         <outlet property="ploggingDistance" destination="pDd-Li-nA1" id="PYL-m6-8Es"/>
+                        <outlet property="ploggingImageView" destination="bEg-G6-iH1" id="B7N-6J-FXk"/>
                         <outlet property="ploggingTatalScore" destination="UPX-yH-qdk" id="1r4-ch-FTL"/>
                         <outlet property="ploggingTime" destination="Trr-hG-RXR" id="9lx-Q9-nOB"/>
                         <outlet property="profilePhoto" destination="H8S-G4-Zuy" id="ibs-qy-3D8"/>
@@ -1391,9 +1392,9 @@
         <image name="buttonMore" width="26" height="18"/>
         <image name="check" width="24" height="24"/>
         <image name="group" width="20" height="20"/>
-        <image name="group3" width="27" height="29"/>
         <image name="group5" width="9" height="6"/>
         <image name="running" width="36" height="36"/>
+        <image name="setting" width="27" height="29"/>
         <image name="test" width="375" height="375"/>
         <image name="trashCan" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">

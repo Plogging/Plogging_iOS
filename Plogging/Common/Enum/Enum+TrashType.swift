@@ -4,7 +4,7 @@
 
 import Foundation
 
-enum TrashType: Int {
+enum TrashType: Int, Encodable {
     case vinyl = 1
     case glass
     case paper

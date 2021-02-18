@@ -42,6 +42,13 @@ class PagingDataSource<T> {
         self.parser = type.createParser()
     }
     
+    func initialize() {
+        isLastPage = false
+        isLoading = false
+        pageNumber = 1
+        contents = []
+    }
+    
     private func request(_ completion: @escaping (() -> Void)) {
         var params = self.api.params
         params["pageNumber"] = self.pageNumber
@@ -75,7 +82,9 @@ class PagingDataSource<T> {
     }
     
     func loadFromFirst(completion: @escaping (() -> Void)) {
+        initialize()
         request(completion)
+        print("loadFromFirst__")
     }
     
     func loadNext(completion: @escaping (() -> Void)) {

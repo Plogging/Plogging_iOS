@@ -26,7 +26,7 @@ class PloggingResultPhotoViewController: UIViewController {
             return
         }
         let ploggingResultImageMaker = PloggingResultImageMaker()
-        let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBaseImage, distance: "\(ploggingResult?.distance ?? 0)", trashCount: "\(trashCountSum)")
+        let ploggingResultImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBaseImage, distance: String(format: "%.2f", Float(ploggingResult?.distance ?? 0)/1000), trashCount: "\(trashCountSum)")
         thumbnailImageView.image = ploggingResultImage
         thumbnailImage = ploggingResultImage
     }

@@ -287,7 +287,7 @@ extension APICollection {
     }
     
     /// 플로깅 결과 등록
-    func requestRegisterPloggingResult(param: Parameters, imageData: Data, completion: @escaping (Result<PloggingInfo, APIError>) -> Void) {
+    func requestRegisterPloggingResult(param: Parameters, imageData: Data, completion: @escaping (Result<PloggingResultBasicInfo, APIError>) -> Void) {
         AF.upload(multipartFormData: { (multipartFormData) in
             guard let jsonString = param.toJsonString() else {
                 return
@@ -306,7 +306,7 @@ extension APICollection {
                 return completion(.failure(.dataFailed))
             }
             print(data)
-            guard let value = try? JSONDecoder().decode(PloggingInfo.self, from: data) else {
+            guard let value = try? JSONDecoder().decode(PloggingResultBasicInfo.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
             completion(.success(value))
@@ -314,8 +314,21 @@ extension APICollection {
     }
     
     /// 플로깅 결과 삭제
-    func deletePloggingRecord() {
-        
+    func deletePloggingRecord(id: String, ploggingImaegName: String, completion: @escaping (Result<PloggingResultBasicInfo, APIError>) -> Void) {
+        AF.request(BaseURL.mainURL + BasePath.plogging + "?ploggingId=\(id)&ploggingImgName=\(ploggingImaegName)",
+                   method: .delete,
+                   headers: gettingHeader()
+        ).responseJSON { (response) in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            guard let value = try? JSONDecoder().decode(PloggingResultBasicInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
     }
 }
 
