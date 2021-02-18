@@ -21,26 +21,26 @@ class OnboardingViewController: UIViewController {
     
     private let onboardingTitleList: [NSMutableAttributedString] = [
         NSMutableAttributedString()
-            .heavy("조깅", fontSize: 24)
-            .normal("하며", fontSize: 24)
-            .newLine(fontSize: 24)
-            .heavy("쓰레기", fontSize: 24)
-            .normal("를 주워요!", fontSize: 24),
+            .heavy("조깅", fontSize: 26)
+            .normal("하며", fontSize: 26)
+            .newLine(fontSize: 26)
+            .heavy("쓰레기", fontSize: 26)
+            .normal("를 주워요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .heavy("플로깅", fontSize: 24)
-            .normal("이 끝난 후", fontSize: 24)
-            .newLine(fontSize: 24)
-            .normal("내", fontSize: 24)
-            .heavy("랭킹", fontSize: 24)
-            .normal("을 확인해요!", fontSize: 24),
+            .heavy("플로깅", fontSize: 26)
+            .normal("이 끝난 후", fontSize: 26)
+            .newLine(fontSize: 26)
+            .normal("내", fontSize: 26)
+            .heavy("랭킹", fontSize: 26)
+            .normal("을 확인해요!", fontSize: 26),
         
         NSMutableAttributedString()
-            .heavy("SNS", fontSize: 24)
-            .normal("를 통해", fontSize: 24)
-            .newLine(fontSize: 24)
-            .heavy("플로깅 기록", fontSize: 24)
-            .normal("을 공유해요!", fontSize: 24)
+            .heavy("SNS", fontSize: 26)
+            .normal("를 통해", fontSize: 26)
+            .newLine(fontSize: 26)
+            .heavy("플로깅 기록", fontSize: 26)
+            .normal("을 공유해요!", fontSize: 26)
     ]
     
     private let onboardingDescriptionList = [
