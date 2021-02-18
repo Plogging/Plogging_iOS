@@ -29,15 +29,14 @@ enum MyPageSortType {
         }
     }
     
-    func getDataSource() -> PagingDataSource<PloggingList> {
-        let url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
+    func getDataSource(url: String) -> PagingDataSource<PloggingList> {
         switch self {
         case .date:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 0, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .score:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 1, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .trashCount:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 2, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         }
     }
 }
@@ -61,15 +60,17 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    var url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
     private(set) var currentSortType: MyPageSortType = .date {
         didSet {
-            currentPagingDataSource = currentSortType.getDataSource()
+            currentPagingDataSource = currentSortType.getDataSource(url: url)
         }
     }
-    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
-    var userId = "" {
+    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource(url: BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? "")))
+    var userId = PloggingUserData.shared.getUserId() ?? "" {
         didSet {
-            requestHeaderData()
+            url = BaseURL.getURL(basePath: .ploggingResult(userId))
+            currentPagingDataSource = MyPageSortType.date.getDataSource(url: url)
         }
     }
     var weeklyOrMonthly = ""
@@ -112,6 +113,8 @@ class MyPageViewController: UIViewController {
                 return
             }
             userId = mypaegUserId
+        } else if type == .ranking {
+            //
         }
         requestHeaderData()
     }
