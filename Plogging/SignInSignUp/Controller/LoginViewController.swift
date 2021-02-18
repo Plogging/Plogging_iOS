@@ -186,8 +186,8 @@ extension LoginViewController: UITextFieldDelegate {
             setupWarningLabel(message: nil)
         }
         
-        // 비밀번호 
-        if let _ = passwordTextField.text {
+        // 비밀번호
+        if let password = passwordTextField.text, password.count > 1 {
             setupWarningLabel(message: nil)
         }
         

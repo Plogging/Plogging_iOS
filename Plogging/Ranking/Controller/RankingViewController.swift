@@ -190,6 +190,8 @@ extension RankingViewController: UITableViewDataSource {
             let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             if let model = userPloggingRankig?.data {
                 cell.config(model: model)
+            } else {
+                cell.config(model: nil)
             }
             return cell
         } else if indexPath.row == 1 {

@@ -30,12 +30,18 @@ class MyRankingTableViewCell: UITableViewCell {
 
     }
     
-    func config(model: UserRankData) {
-        if let url = URL(string: model.profileImg){
-            profileImageView.kf.setImage(with: url)
+    func config(model: UserRankData?) {
+        if let model = model {
+            if let url = URL(string: model.profileImg){
+                profileImageView.kf.setImage(with: url)
+            }
+            rankLabel.text = "\(model.rank + 1)위"
+            scoreLabel.text = "\(model.score)점"
+        } else {
+            rankLabel.text = "0위"
+            profileImageView?.kf.setImage(with: URL(string: PloggingUserData.shared.getUserImage() ?? ""))
+            scoreLabel.text = "0점"
         }
-        rankLabel.text = "\(model.rank)위"
-        scoreLabel.text = "\(model.score)점"
     }
     
     @IBAction func clickRankingScoreInfoButton(_ sender: UIButton) {
