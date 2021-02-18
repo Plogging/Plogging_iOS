@@ -76,12 +76,14 @@ class RankingViewController: UIViewController {
     }
     
     private func setupRankingTitle() {
-        let rankingTitleString = NSMutableAttributedString()
-            .heavy("연쇄쓰담마", fontSize: 35)
-            .medium("님의", fontSize: 35)
-            .newLine(fontSize: 35)
-            .medium("랭킹을 확인하세요!", fontSize: 35)
-        rankingTitleLabel.attributedText = rankingTitleString
+        if let nickname = PloggingUserData.shared.getUserName() {
+            let rankingTitleString = NSMutableAttributedString()
+                .heavy(nickname, fontSize: 35)
+                .medium("님의", fontSize: 35)
+                .newLine(fontSize: 35)
+                .medium("랭킹을 확인하세요!", fontSize: 35)
+            rankingTitleLabel.attributedText = rankingTitleString
+        }
     }
     
     private func registerNib() {
@@ -207,9 +209,9 @@ extension RankingViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             return 132
         } else if indexPath.row == 1 {
-            return 28
+            return 35
         } else {
-            return 95
+            return 85
         }
     }
 }
