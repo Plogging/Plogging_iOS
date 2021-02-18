@@ -28,7 +28,7 @@ class PloggingInfoViewCreater {
         dateLabel.text = dateFormatter.string(from: Date())
         dateLabel.font = UIFont(name: "SFProDisplay-Black", size: fontSize)
         dateLabel.textColor = UIColor.white
-        dateLabel.frame = CGRect(x: 28, y: 24, width: 200, height: fontSize)
+        dateLabel.frame = CGRect(x: 19, y: 24, width: 200, height: fontSize)
         ploggingInfoBaseView.addSubview(dateLabel)
     }
     
