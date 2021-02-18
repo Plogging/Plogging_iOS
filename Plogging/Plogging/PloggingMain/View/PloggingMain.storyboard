@@ -149,10 +149,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="eT4-sJ-U6H">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="eT4-sJ-U6H">
                                 <rect key="frame" x="24" y="96.666666666666686" width="366" height="553"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-MV-sWk">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="172.33333333333334"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-AF-4aS" userLabel="vinyl" customClass="PickTrashItem" customModule="Plogging" customModuleProvider="target">
@@ -224,7 +224,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfg-WD-X7x" customClass="ConfirmButton" customModule="Plogging" customModuleProvider="target">
-                                <rect key="frame" x="24" y="695.33333333333337" width="366" height="59.666666666666629"/>
+                                <rect key="frame" x="24" y="695.33333333333337" width="366" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="aCq-P1-nG5"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="saveInput:" destination="L58-d0-Xxa" eventType="touchUpInside" id="7Hd-KK-48l"/>
@@ -242,7 +245,6 @@
                         <constraints>
                             <constraint firstItem="hfg-WD-X7x" firstAttribute="top" secondItem="Kdj-D9-I62" secondAttribute="bottom" multiplier="727/845" id="2XY-Bd-GSH"/>
                             <constraint firstItem="hfg-WD-X7x" firstAttribute="width" secondItem="MQW-a2-kNX" secondAttribute="width" multiplier="366/414" id="2ag-Qy-kNN"/>
-                            <constraint firstItem="hfg-WD-X7x" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="60/845" id="Cf2-Ck-6Pk"/>
                             <constraint firstItem="eT4-sJ-U6H" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="DPD-jN-K0J"/>
                             <constraint firstItem="t82-Vj-Ft2" firstAttribute="height" secondItem="MQW-a2-kNX" secondAttribute="height" multiplier="20/845" id="F0M-1k-DJa"/>
                             <constraint firstItem="hfg-WD-X7x" firstAttribute="centerX" secondItem="MQW-a2-kNX" secondAttribute="centerX" id="FdX-eh-Lly"/>
