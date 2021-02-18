@@ -156,7 +156,7 @@ class LoginViewController: UIViewController {
             makeDefaultRootViewController()
             return
         case 409:
-            let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
+            let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
             if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
                 viewcontroller.loginType = "SNS"
                 viewcontroller.userInfo = ["userId": id]

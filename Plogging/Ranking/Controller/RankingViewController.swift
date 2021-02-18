@@ -149,7 +149,7 @@ extension RankingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row > 1 else { return }
         
-        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.MyPage.rawValue, bundle: nil)
         if let mypage = storyboard.instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController {
             mypage.type = .ranking
             mypage.weeklyOrMonthly = weeklyOrMonthly
