@@ -314,7 +314,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="vrk-Nd-hrh" firstAttribute="width" secondItem="D4u-Rg-oEV" secondAttribute="width" multiplier="0.473" id="9pK-wu-Fhf"/>
                                     <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="D4u-Rg-oEV" secondAttribute="centerX" id="IMN-Kx-ccf"/>
@@ -327,11 +326,12 @@
                                     <constraint firstItem="c93-nv-24t" firstAttribute="centerX" secondItem="vrk-Nd-hrh" secondAttribute="centerX" id="sfc-uf-rbW"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" alpha="0.75" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-af-PWV">
-                                <rect key="frame" x="0.0" y="284" width="414" height="112"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-af-PWV">
+                                <rect key="frame" x="0.0" y="317" width="414" height="112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvQ-dZ-Ldi" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="112"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwo-GI-cFb" customClass="SummeryItem" customModule="Plogging" customModuleProvider="target">
                                         <rect key="frame" x="138" y="0.0" width="138" height="112"/>
@@ -340,6 +340,7 @@
                                         <rect key="frame" x="276" y="0.0" width="138" height="112"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wY2-NV-ZFd"/>
@@ -349,7 +350,6 @@
                             <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="wY2-NV-ZFd" secondAttribute="centerX" id="82x-qA-fyW"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.683036" id="8da-mz-1UV"/>
                             <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerY" secondItem="wY2-NV-ZFd" secondAttribute="centerY" constant="12" id="Bk9-sk-AgM"/>
-                            <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="D4u-Rg-oEV" secondAttribute="top" id="DdQ-6D-cw1"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.441" id="JpZ-ZZ-XfN"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" id="QTP-mf-L9f"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="TVp-zU-2sH"/>
@@ -360,6 +360,7 @@
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="qlb-vA-Le7"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="uOo-yr-2Ag"/>
                             <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="wY2-NV-ZFd" secondAttribute="centerX" id="whQ-Uo-dgV"/>
+                            <constraint firstItem="Mbw-af-PWV" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="bottom" multiplier="317/896" id="yCS-hA-Mcg"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="yF4-cI-FUa"/>
                         </constraints>
                     </view>
@@ -367,6 +368,7 @@
                     <connections>
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
                         <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
+                        <outlet property="infoView" destination="D4u-Rg-oEV" id="5nh-h8-KxM"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
                         <outlet property="stopButton" destination="6eF-DA-V2s" id="xPZ-qa-cgg"/>
                         <outlet property="summeryDistance" destination="FvQ-dZ-Ldi" id="Rgq-Fi-bMP"/>

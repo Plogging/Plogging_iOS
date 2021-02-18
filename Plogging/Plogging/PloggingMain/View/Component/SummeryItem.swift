@@ -40,6 +40,7 @@ class SummeryItem: UIView {
     func setupView(unit: String, value: String) {
         data = value
         unitLabel.text = unit
+        backgroundColor = .clear
     }
 
     func setupLayout() {
