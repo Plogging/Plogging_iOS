@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RDL-yo-VCB">
-                        <rect key="frame" x="228" y="3" width="68" height="22"/>
+                        <rect key="frame" x="228" y="0.0" width="68" height="28"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyU-Jc-xce">
-                                <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="28"/>
                                 <state key="normal" title="새로고침">
                                     <color key="titleColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDO-gm-j7A">
-                                <rect key="frame" x="56" y="0.0" width="12" height="22"/>
+                                <rect key="frame" x="56" y="0.0" width="12" height="28"/>
                                 <state key="normal" image="refresh">
                                     <color key="titleColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -42,10 +42,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="RDL-yo-VCB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="Gkh-IZ-g2M"/>
+                    <constraint firstItem="RDL-yo-VCB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gkh-IZ-g2M"/>
                     <constraint firstAttribute="trailing" secondItem="RDL-yo-VCB" secondAttribute="trailing" constant="24" id="MVG-Ob-9Zo"/>
                     <constraint firstItem="RDL-yo-VCB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YCV-tS-Wdu"/>
-                    <constraint firstAttribute="bottom" secondItem="RDL-yo-VCB" secondAttribute="bottom" constant="3" id="ylW-0J-KwU"/>
+                    <constraint firstAttribute="bottom" secondItem="RDL-yo-VCB" secondAttribute="bottom" id="ylW-0J-KwU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
