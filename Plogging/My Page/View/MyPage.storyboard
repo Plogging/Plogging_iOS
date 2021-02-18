@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WbL-nn-vVN">
-                                        <rect key="frame" x="24" y="160" width="366" height="648"/>
+                                        <rect key="frame" x="24" y="345" width="366" height="648"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pb2-h6-GUH">
                                             <size key="itemSize" width="128" height="128"/>
@@ -311,7 +311,7 @@
                                     <constraint firstItem="kFd-ki-Xkp" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" id="WUh-Ed-lXL"/>
                                     <constraint firstAttribute="bottom" secondItem="WbL-nn-vVN" secondAttribute="bottom" id="b5l-nK-Ns2"/>
                                     <constraint firstItem="WbL-nn-vVN" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" constant="24" id="dmi-CO-pod"/>
-                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="160" id="lEa-mT-17n"/>
+                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="345" id="lEa-mT-17n"/>
                                     <constraint firstAttribute="trailing" secondItem="kFd-ki-Xkp" secondAttribute="trailing" id="lto-mH-LOa"/>
                                     <constraint firstItem="F76-qf-TP4" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="23" id="mE4-y0-VEh"/>
                                     <constraint firstAttribute="trailing" secondItem="F76-qf-TP4" secondAttribute="trailing" constant="5" id="suK-Pc-GNy"/>
