@@ -186,19 +186,6 @@ extension LoginViewController: UITextFieldDelegate {
             setupWarningLabel(message: nil)
         }
         
-        // 비밀번호 validation check 8자 이상
-        if let password = passwordTextField.text {
-            if let message = checkPasswordValidation(password: password) {
-                if password.count < 8 {
-                    setupWarningLabel(message: message)
-                    return
-                }
-                setupWarningLabel(message: message)
-                return
-            }
-            setupWarningLabel(message: nil)
-        }
-        
         isValidate = true
     }
 }
