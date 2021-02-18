@@ -107,15 +107,6 @@ class MyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        if type == .mypage {
-            guard let mypaegUserId = PloggingUserData.shared.getUserId() else {
-                return
-            }
-            userId = mypaegUserId
-        } else if type == .ranking {
-            //
-        }
         requestHeaderData()
     }
     
@@ -247,20 +238,7 @@ extension MyPageViewController: UICollectionViewDataSource {
             return cell
         }
         
-        // TODO: 페이징 테스트용 지우기
         guard let ploggingImageUrl = currentPagingDataSource.contents[indexPath.item].meta.ploggingImage else {
-            return cell
-        }
-        
-        guard let createdTime = currentPagingDataSource.contents[indexPath.item].meta.createdTime else {
-            return cell
-        }
-        
-        guard let ploggingTotalScore = currentPagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
-            return cell
-        }
-        
-        guard let ploggingTrashCount = currentPagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
             return cell
         }
         
@@ -268,7 +246,7 @@ extension MyPageViewController: UICollectionViewDataSource {
             return cell
         }
         
-        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url, time: createdTime, scroe: ploggingTotalScore, trash: ploggingTrashCount)
+        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url)
 
         cell.contentView.isUserInteractionEnabled = false
         return cell
