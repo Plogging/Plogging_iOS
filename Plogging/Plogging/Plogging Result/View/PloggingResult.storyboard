@@ -22,7 +22,7 @@
             <objects>
                 <viewController storyboardIdentifier="PloggingResultPhotoViewController" id="O5j-vd-2au" customClass="PloggingResultPhotoViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eS8-dg-Mph">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDE-VJ-0J2">
@@ -528,7 +528,7 @@
                                                                         </collectionViewCellContentView>
                                                                         <size key="customSize" width="291" height="50"/>
                                                                         <connections>
-                                                                            <outlet property="lineSeparotor" destination="Ets-nX-VSJ" id="qU3-an-T9n"/>
+                                                                            <outlet property="lineSeparator" destination="Ets-nX-VSJ" id="qU3-an-T9n"/>
                                                                             <outlet property="trashCount" destination="UzY-oq-AvQ" id="DEk-Yf-M4C"/>
                                                                             <outlet property="trashName" destination="Zfx-fR-JOH" id="fsP-Eg-ekb"/>
                                                                         </connections>
@@ -771,7 +771,7 @@
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" id="DjO-kN-shv" customClass="CameraViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Dg-Yd-c6a">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRn-TS-J9a" userLabel="backButton">

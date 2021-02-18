@@ -16,6 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var checkImage: UIImageView!
     let imagePickerController = UIImagePickerController()
     let checkImageView = UIImageView(image: UIImage(named: "check"))
+    var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        profilePhoto.image = profileImage
         nickName.text = PloggingUserData.shared.getUserName()
     }
 

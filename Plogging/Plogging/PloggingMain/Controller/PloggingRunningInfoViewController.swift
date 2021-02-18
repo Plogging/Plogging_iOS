@@ -36,6 +36,9 @@ class PloggingRunningInfoViewController: UIViewController {
     
     var pathManager = PathManager.pathManager
 
+    var ploggingActivityScore: Int?
+    var ploggingEnvironmentScore: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -76,31 +79,94 @@ class PloggingRunningInfoViewController: UIViewController {
         return ploggingResult
     }
 
-    @IBAction func finishPlogging() {
-        let rootViewController = presentingViewController
-        let alert = UIAlertController(title: "플로깅 종료하기", message: "플로깅을 종료하시겠습니까?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "아니오", style: .default) { _ in
+    private func getParam() -> [String : Any] {
+        let ploggingTime = Int(timer?.fireDate.timeIntervalSince(startDate ?? Date()) ?? 0)
+        
+        var calorie = 0
+        if calorie == 0 {
+            calorie = 1
         }
-        let yes = UIAlertAction(title: "네", style: .default) { _ in
-            self.pathManager.stopRunning()
-            self.dismiss(animated: false, completion: { [self] in
 
-                let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
-                guard let ploggingResultViewController
-                = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
-                    return
-                }
-                ploggingResultViewController.ploggingResult = createPloggingResult()
-                
-                let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
-                ploggingResultNavigationController.modalPresentationStyle = .fullScreen
-                ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
-                rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
-            })
+        var distance = self.distance ?? 0
+        if distance == 0 {
+            distance = 1
         }
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
+        
+        let meta: [String : Any] = [
+            "distance" : distance,
+            "calorie" : calorie,
+            "plogging_time" : ploggingTime
+        ]
+        
+        var trashListArray: [[String : Any]] = []
+        
+        let trashCount = currentTrashList.count
+        
+        var trashType = 0
+        var pickCount = 0
+        
+        var trashList: [String : Any] = [
+            "trash_type" : trashType,
+            "pick_count" : pickCount
+        ]
+        
+        for i in 0 ..< trashCount {
+            trashType = currentTrashList[i].trashType.rawValue
+            pickCount = currentTrashList[i].pickCount
+            
+            if pickCount > 0 {
+                trashList["trash_type"] = trashType
+                trashList["pick_count"] = pickCount
+                trashListArray.append(trashList)
+            }
+        }
+        
+        let param: [String : Any] = [
+            "meta" : meta,
+            "trash_list" : trashListArray
+        ]
+        return param
+    }
+    
+    @IBAction func finishPlogging() {
+        APICollection.sharedAPI.requestPloggingScore(param: getParam()) { [weak self] (response) in
+            guard let self = self else {
+                return
+            }
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    self.ploggingActivityScore = result.score.activityScore
+                    self.ploggingEnvironmentScore = result.score.environmentScore
+                    
+                } else if result.rc == 401 {
+//                    self.makeLoginRootViewController()
+                }
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
+            popUpViewController.type = .종료팝업
+            popUpViewController.ploggingStopAction =  { [weak self] in
+                self?.pathManager.stopRunning()
+                self?.dismiss(animated: false, completion: { [weak self] in
+                    let ploggingResult = UIStoryboard(name: Storyboard.PloggingResult.rawValue, bundle: nil)
+                    guard let ploggingResultViewController = ploggingResult.instantiateViewController(withIdentifier: "PloggingResultViewController") as? PloggingResultViewController else {
+                        return
+                    }
+                    ploggingResultViewController.ploggingResult = self?.createPloggingResult()
+                    let ploggingResultNavigationController = UINavigationController(rootViewController: ploggingResultViewController)
+                    ploggingResultViewController.ploggingActivityScore = self?.ploggingActivityScore
+                    ploggingResultViewController.ploggingEnvironmentScore = self?.ploggingEnvironmentScore
+                    ploggingResultViewController.requestParameter = self?.getParam() ?? [:]
+                    ploggingResultNavigationController.modalPresentationStyle = .fullScreen
+                    ploggingResultNavigationController.modalTransitionStyle = .crossDissolve
+                    self?.rootViewController?.present(ploggingResultNavigationController, animated: false, completion: nil)
+                })
+            }
+            popUpViewController.modalPresentationStyle = .overCurrentContext
+            self.present(popUpViewController, animated: false, completion: nil)
+        }
     }
 
     func setupSummeryDataUpdate() {

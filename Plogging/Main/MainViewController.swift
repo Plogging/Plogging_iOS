@@ -28,11 +28,13 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case MainTab.ranking.segueIdentifier:
-            rankingViewController = segue.destination as? RankingViewController
+            let navigationController = segue.destination as? UINavigationController
+            rankingViewController = navigationController?.topViewController as? RankingViewController
         case MainTab.plogging.segueIdentifier:
             ploggingController = segue.destination as? PloggingStartViewController
         case MainTab.myPage.segueIdentifier:
-            myPageViewController = segue.destination as? MyPageViewController
+            let navigationController = segue.destination as? UINavigationController
+            myPageViewController = navigationController?.topViewController as? MyPageViewController
         default:
             break
         }
@@ -85,6 +87,7 @@ extension MainViewController: UITabBarDelegate {
             view.bringSubviewToFront(ploggingView)
         case MainTab.myPage.index:
             view.bringSubviewToFront(myPageView)
+            myPageViewController?.mypageTabReload()
         default:
             break
         }
