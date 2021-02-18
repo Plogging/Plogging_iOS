@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RankingTableViewCell: UITableViewCell {
 
@@ -49,11 +50,9 @@ class RankingTableViewCell: UITableViewCell {
     func config(_ model: RankingData,index: IndexPath) {
         setupListUI(index: index)
         
-        if let url = URL(string: model.profileImg),
-           let data = try? Data(contentsOf: url) {
-            profileImageView.image = UIImage(data: data)
+        if let url = URL(string: model.profileImg){
+            profileImageView.kf.setImage(with: url)
         }
-        
         nickNameLabel.text = model.displayName
         scoreLabel.text = "\(model.score)점"
     }

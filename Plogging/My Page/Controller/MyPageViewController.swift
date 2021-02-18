@@ -8,6 +8,11 @@
 import UIKit
 import Kingfisher
 
+enum DetailType {
+    case ranking
+    case mypage
+}
+
 enum MyPageSortType {
     case date
     case score
@@ -37,6 +42,8 @@ enum MyPageSortType {
 }
 
 class MyPageViewController: UIViewController {
+
+    @IBOutlet weak var navigationBarButton: UIButton!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickName: UILabel!
@@ -59,13 +66,13 @@ class MyPageViewController: UIViewController {
         }
     }
     private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
-    
-    var type = DetailType.mypage
-
-    enum DetailType {
-        case ranking
-        case mypage
+    var userId = "" {
+        didSet {
+            requestHeaderData()
+        }
     }
+    var weeklyOrMonthly = ""
+    var type = DetailType.mypage
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -96,29 +103,17 @@ class MyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         guard let userId = PloggingUserData.shared.getUserId() else {
             return
         }
-        
-        APICollection.sharedAPI.requestUserInfo(id: userId) { [weak self] response in
-            if let result = try? response.get() {
-                if result.rc == 200 {
-                    print("success")
-                    self?.nickName.text = result.userName
-                    guard let ploggingImageUrl = URL(string: result.userImg) else {
-                        return
-                    }
-                    self?.profilePhoto.kf.setImage(with: ploggingImageUrl)
-                    self?.totalPloggingDistance.text = "\(result.distanceMonthly)km"
-                    self?.totalPloggingScore.text = "\(result.scoreMonthly)점"
-                    self?.totalTrashCount.text = "\(result.trashMonthly)개"
-                    
-                } else if result.rc == 401 {
-                    self?.makeLoginRootViewController()
-                }
-            }
-        }
+        requestHeaderData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func mypageTabReload() {
@@ -127,22 +122,52 @@ class MyPageViewController: UIViewController {
             self.updateUI()
         }
     }
-  
-    func updateUI() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
     
     func setUpNavigationBarUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        
+        if type == .mypage {
+            navigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
+        } else {
+            navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+        }
         fixHeaderView.backgroundColor = UIColor.tintGreen
         setGradationView(view: navigationBarView, colors: [UIColor.tintGreen.cgColor, UIColor.lightGreenishBlue.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 0.0), endPoint: CGPoint(x: 0.5, y: 1.0))
         
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
         navigationBarView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+    }
+    
+    private func requestHeaderData() {
+        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
+            let userData = try? response.get()
+            if userData?.rc != 200 {
+                // 쿠키가 유효하지 않음
+                self.makeLoginRootViewController()
+                return
+            } else {
+                self.nickName.text = userData?.userName
+                if let img = userData?.userImg,
+                   let imageURL = URL(string: img) {
+                    self.profilePhoto.sizeToFit()
+                    self.profilePhoto.kf.setImage(with: imageURL)
+                }
+                if self.weeklyOrMonthly == "weekly" {
+                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)"
+                } else {
+                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)"
+                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)"
+                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)"
+                }
+            }
+        }
+    }
+    
+    func updateUI() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     @objc func deleteItem(_ notification: Notification) {
@@ -152,13 +177,16 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func goToSetting(_ sender: Any) {
-        (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        
-        guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
-            return
+        if type == .mypage {
+            (rootViewController as? MainViewController)?.setTabBarHidden(true)
+            guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
+                return
+            }
+            settingViewController.profileImage = profilePhoto.image
+            navigationController?.pushViewController(settingViewController, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
-        settingViewController.profileImage = profilePhoto.image
-        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @IBAction func sortingPloggingContents(_ sender: UIButton) {
@@ -243,7 +271,16 @@ extension MyPageViewController: UICollectionViewDataSource {
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         (rootViewController as? MainViewController)?.setTabBarHidden(true)
-        performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        if type == .mypage {
+            performSegue(withIdentifier: SegueIdentifier.showPloggingDetailInfo, sender: indexPath.item)
+        } else {
+            let storyboard = UIStoryboard(name: Storyboard.Ranking.rawValue, bundle: nil)
+            if let photoViewController = storyboard.instantiateViewController(identifier: "RankingPhotoViewController") as? RankingPhotoViewController {
+                photoViewController.modalPresentationStyle = .fullScreen
+                photoViewController.image = currentPagingDataSource?.contents[indexPath.item].meta.ploggingImage
+                self.present(photoViewController, animated: false, completion: nil)
+            }
+        }
     }
 }
 

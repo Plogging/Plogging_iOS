@@ -12,19 +12,28 @@ class PloggingStartViewController: UIViewController {
 
     @IBOutlet weak var showIntroduceModalButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var startButton: ConfirmButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBAction func presentIntroduceModal(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
-        if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController")
-                as? PloggingIntroduceModalViewController {
-            infoController.isModalInPresentation = false
-            present(infoController, animated: true, completion: nil)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pathManager = PathManager.pathManager
+        pathManager?.isSetPermissions()
+        setupView()
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pathManager?.setupMapview(on: mapView)
+        pathManager?.startLocationUpdate()
+    }
     
     func setupView() {
+
+        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
+        currentLocationButton.backgroundColor = .white
+
         let title = UILabel()
         title.text = "플로깅 가이드 확인하기"
         title.font.withSize(17)
@@ -36,17 +45,27 @@ class PloggingStartViewController: UIViewController {
             title.topAnchor.constraint(equalTo: showIntroduceModalButton.topAnchor, constant: 19),
             title.trailingAnchor.constraint(equalTo: showIntroduceModalButton.trailingAnchor, constant: -20)
         ])
+
+        startButton.title = "플로깅 시작하기"
+
+        let userName = PloggingUserData.shared.getUserName() ?? "플로거"
+        nameLabel.attributedText = NSMutableAttributedString()
+            .bold("\(userName)", fontSize: 17)
+            .normal("님 안녕하세요!", fontSize: 17)
+
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pathManager = PathManager.pathManager
-        pathManager?.setupMapview(on: mapView)
-        pathManager?.startLocationUpdate()
-        setupView()
+
+    @IBAction func presentIntroduceModal(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
+        if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController")
+                as? PloggingIntroduceModalViewController {
+            infoController.isModalInPresentation = false
+            present(infoController, animated: true, completion: nil)
+        }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
+
+    @IBAction func focusCurrentLocation(_ sender: Any) {
+        pathManager?.pointResentLocation(location: mapView.userLocation.coordinate)
     }
     
 }

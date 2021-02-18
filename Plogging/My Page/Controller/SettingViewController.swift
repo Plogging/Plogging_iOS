@@ -25,7 +25,26 @@ class SettingViewController: UIViewController {
         profilePhotoCoverView.alpha = 0
         checkImage.alpha = 0
         profilePhoto.image = profileImage
+        nickName.text = PloggingUserData.shared.getUserName()
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
     }
     
     private func setUpNavigationBarUI() {
@@ -74,9 +93,10 @@ extension SettingViewController {
     
     // 닉네임 변경
     @IBAction func changeNickName(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SNSLogin", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
         if let nickNameViewController = storyboard.instantiateViewController(withIdentifier: "NickNameViewController") as? NickNameViewController {
             nickNameViewController.myNickName = nickName.text ?? ""
+            nickNameViewController.loginType = "SETTING"
             self.navigationController?.pushViewController(nickNameViewController, animated: true)
         }
     }

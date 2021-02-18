@@ -370,6 +370,7 @@
                     <connections>
                         <outlet property="collectionView" destination="WbL-nn-vVN" id="KJ1-yB-rGr"/>
                         <outlet property="fixHeaderView" destination="GJD-iS-J8h" id="XaW-eh-lXZ"/>
+                        <outlet property="navigationBarButton" destination="VU6-nD-Ldn" id="CGZ-kJ-kjb"/>
                         <outlet property="navigationBarView" destination="kFd-ki-Xkp" id="fae-GL-2qL"/>
                         <outlet property="navigationBarViewHeight" destination="orc-Vu-Zcc" id="xbj-Gf-25e"/>
                         <outlet property="nickName" destination="4mh-TU-c5Q" id="o4U-BA-gj8"/>
@@ -406,7 +407,7 @@
             </objects>
             <point key="canvasLocation" x="356.52173913043481" y="65.625"/>
         </scene>
-        <!--Setting View Controller-->
+        <!-- -->
         <scene sceneID="wqP-Af-ROZ">
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" id="8zJ-s6-3Em" customClass="SettingViewController" customModule="Plogging" customModuleProvider="target" sceneMemberID="viewController">
@@ -607,7 +608,9 @@
                             <constraint firstItem="Hv3-vy-TWk" firstAttribute="leading" secondItem="sIA-C1-YfY" secondAttribute="leading" id="zUB-yl-Bjw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2kG-pr-F3u"/>
+                    <navigationItem key="navigationItem" title=" " id="2kG-pr-F3u">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fFF-rO-Ook"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkImage" destination="Fhb-IZ-tWv" id="lmJ-dB-9zJ"/>
                         <outlet property="fixHeaderView" destination="MnI-m6-NRS" id="bU9-Tu-Wee"/>
@@ -718,7 +721,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHV-aV-NGE">
                                 <rect key="frame" x="24" y="766" width="366" height="60"/>
-                                <color key="backgroundColor" red="0.2156862745" green="0.83529411760000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="rJw-m3-3B7"/>
                                 </constraints>

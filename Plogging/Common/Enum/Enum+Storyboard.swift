@@ -16,4 +16,5 @@ enum Storyboard: String {
     case PopUp
     case PloggingMain
     case PloggingResult
+    case Ranking
 }

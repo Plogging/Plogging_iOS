@@ -7,21 +7,15 @@ import CoreLocation
 import MapKit
 
 extension PathManager: CLLocationManagerDelegate{
-    // todo validate location 업데이트 시, 경로 랜더링
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        print("receive location")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         // todo refactor
         guard let currentLocation = locations.last else { return }
         let howRecent = currentLocation.timestamp.timeIntervalSinceNow
         guard abs(howRecent) < 10 else { return }
 
-        if !isRecord {
-            pointResentLocation(location: currentLocation.coordinate)
-            print("skip location")
-            return
-        }
+        if !isRecord { return }
 
         if let lastLocation = locationList.last {
             distance = distance + Int(currentLocation.distance(from: lastLocation))
@@ -29,12 +23,19 @@ extension PathManager: CLLocationManagerDelegate{
 
         locationList.append(currentLocation)
 
-        print("[BACKUP] update count : \(locations.count)")
-
         if locationList.count % 10 == 0 {
+            print("[BACKUP] update count : \(locations.count)")
             backupPath()
         }
+
         guard let mapView = mapView else {return}
+
+        if locationList.count == 1, let startLocation = locationList.first {
+            let point = MKPointAnnotation()
+            point.coordinate = startLocation.coordinate
+            point.title = "startPoint"
+            mapView.addAnnotation(point)
+        }
         drawPathOnMap(locationList: locationList, mapView: mapView)
     }
 }
@@ -51,11 +52,19 @@ extension PathManager: MKMapViewDelegate {
     }
 
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
         if annotation.isEqual(mapView.userLocation) {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
-            annotationView.image = UIImage(named: "UserLocation")
+            annotationView.image = UIImage(named: "ovalCopy")
             return annotationView
         }
+
+        if annotation.title == "startPoint" {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "startPoint")
+            annotationView.image = UIImage(named: "oval")
+            return annotationView
+        }
+
         return nil
     }
 }

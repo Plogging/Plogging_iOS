@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class PloggingResultViewController: UIViewController {
     @IBOutlet weak var ploggingResultPhoto: UIImageView!
@@ -30,7 +31,8 @@ class PloggingResultViewController: UIViewController {
     var ploggingResult: PloggingResult?
     var forwardingImage = UIImage()
     var requestParameter: [String : Any] = [:]
-    
+    var pathMapView = MKMapView()
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == SegueIdentifier.renderingAlbumPhoto {
@@ -48,7 +50,7 @@ class PloggingResultViewController: UIViewController {
             cameraViewController.trashCountSum = getTrashPickTotalCount()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -57,15 +59,17 @@ class PloggingResultViewController: UIViewController {
     private func setUpUI() {
         self.navigationController?.navigationBar.isHidden = true
         
+        PathManager.pathManager.adaptCompactMapView(to: pathMapView)
+        
         activityScore.text = "\(ploggingActivityScore ?? 0)점"
         environmentScore.text = "\(ploggingEnvironmentScore ?? 0)점"
-        
+    
         let minute = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) / 60)
         let second = String(format: "%02d",(ploggingResult?.ploggingTime ?? 0) % 60)
         ploggingTime.text = "\(minute):\(second)"
         ploggingDistance.text = String(format: "%.2f", Float(ploggingResult?.distance ?? 0)/1000)
         ploggingCalorie.text = String(ploggingResult?.calories ?? 0)
-        
+
         totalTrashCount.text = "\(getTrashPickTotalCount())개"
         totalTrashCountTitle.text = "총 \(getTrashPickTotalCount())개의 쓰레기를 주웠어요!"
         
@@ -95,13 +99,13 @@ class PloggingResultViewController: UIViewController {
             self?.performSegue(withIdentifier: SegueIdentifier.openCamera, sender: nil)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
+
         alert.addAction(camera)
         alert.addAction(library)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
-    
+
     private func setUpImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -116,11 +120,11 @@ extension PloggingResultViewController {
     @IBAction func showScoreGuideAlert(_ sender: UIButton) {
         self.showPopUpViewController(with: .운동점수안내팝업)
     }
-    
+
     @IBAction func registerPloggingPhoto(_ sender: UITapGestureRecognizer) {
         showPloggingPhotoResisterAlert()
     }
-    
+
     @IBAction func savePloggingResult(_ sender: Any) {
         if ploggingResultPhoto.image == nil {
             let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
@@ -185,7 +189,7 @@ extension PloggingResultViewController {
         }
         navigationController?.dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func deletePloggingResult(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: Storyboard.PopUp.rawValue, bundle: nil)
         if let popUpViewController = storyboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController {
@@ -225,7 +229,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         }
         return trashInfos.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCountCell", for: indexPath)
         let trashCountCell = cell as? TrashCountCell
@@ -235,7 +239,7 @@ extension PloggingResultViewController: UICollectionViewDataSource {
         }
         
         trashCountCell?.trash = trashInfos[indexPath.item]
-        
+
         if indexPath.item == trashInfos.count - 1 {
             trashCountCell?.changeSeparatorColor()
         }
