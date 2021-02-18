@@ -116,7 +116,7 @@ class NickNameViewController: UIViewController {
             case 200:
                 guard let nickName = nickNameTextField.text else { return }
                 PloggingUserData.shared.setUserName(nickName: nickName)
-                makeDefaultRootViewController()
+                self.navigationController?.popViewController(animated: true)
                 return
             case 409:
                 setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
