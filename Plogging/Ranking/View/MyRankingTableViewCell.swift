@@ -39,7 +39,11 @@ class MyRankingTableViewCell: UITableViewCell {
             scoreLabel.text = "\(model.score)점"
         } else {
             rankLabel.text = "0위"
-            profileImageView?.kf.setImage(with: URL(string: PloggingUserData.shared.getUserImage() ?? ""))
+            if let userImage = PloggingUserData.shared.getUserImage(), let url = URL(string: userImage) {
+                profileImageView.kf.setImage(with: url)
+            } else {
+                profileImageView.image = UIImage(named: "user")
+            }
             scoreLabel.text = "0점"
         }
     }
