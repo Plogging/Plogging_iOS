@@ -115,13 +115,8 @@ class MyPageViewController: UIViewController {
             userId = mypaegUserId
         }
         requestHeaderData()
-        requestCollectionData()
     }
-    
-    func requestCollectionData() {
-        
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
