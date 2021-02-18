@@ -20,6 +20,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var outerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var innerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageStackViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     var forwardingImage = UIImage()
     var ploggingResultParam: [String : Any] = [:]
     var ploggingDistance: Int?
@@ -58,6 +59,7 @@ class PopUpViewController: UIViewController {
         
         outerViewHeightConstraint.constant = type.outerViewHeight()
         innerViewHeightConstraint.constant = type.innerViewHeight()
+        imageTopConstraint.constant = type.topConstraint()
         
         if type.numberOfButton() == 1 {
             noButton.isHidden = true
