@@ -24,12 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // 유저 처음인지 확인하는 작업 필요
             SNSLoginManager.shared.setupLoginWithNaver()
             SNSLoginManager.shared.setupLoginWithKakao()
+            // 회원 탈퇴한 유저 , 생 처음 유저
             if PloggingCookie.shared.getUserCookie() == nil {
                 let storyboard = UIStoryboard(name: Storyboard.Onboarding.rawValue, bundle: nil)
                 if let onboardingViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController {
                     self.window?.rootViewController = onboardingViewController
                 }
             } else {
+                // 로그아웃한 유저
                 let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
                 if let loginVeiwController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController {
                     self.window?.rootViewController = loginVeiwController

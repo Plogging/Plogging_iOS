@@ -66,11 +66,7 @@ class MyPageViewController: UIViewController {
         }
     }
     private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
-    var userId = "" {
-        didSet {
-            requestHeaderData()
-        }
-    }
+    var userId = ""
     var weeklyOrMonthly = ""
     var type = DetailType.mypage
     
@@ -113,6 +109,11 @@ class MyPageViewController: UIViewController {
             userId = mypaegUserId
         }
         requestHeaderData()
+        requestCollectionData()
+    }
+    
+    func requestCollectionData() {
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
