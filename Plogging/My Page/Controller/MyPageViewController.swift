@@ -93,6 +93,7 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBarUI()
         scrollView.addGestureRecognizer(collectionView.panGestureRecognizer)
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()

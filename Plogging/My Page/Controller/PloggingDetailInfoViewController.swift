@@ -49,7 +49,17 @@ class PloggingDetailInfoViewController: UIViewController {
         
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private func setUpNavigationBarUI() {
         fixHeaderView.backgroundColor = UIColor.tintGreen
         navigationBarView.backgroundColor = UIColor.tintGreen
@@ -73,11 +83,11 @@ class PloggingDetailInfoViewController: UIViewController {
         }
         let yearEndIdx: String.Index = createdTime.index(createdTime.startIndex, offsetBy: 3)
         let year = String(createdTime[...yearEndIdx])
-
+        
         let monthStart = createdTime.index(createdTime.startIndex, offsetBy: 4)
         let monthEnd = createdTime.index(createdTime.endIndex, offsetBy: -9)
         let month = String(createdTime[monthStart...monthEnd])
-    
+        
         let dayStart = createdTime.index(createdTime.startIndex, offsetBy: 6)
         let dayEnd = createdTime.index(createdTime.endIndex, offsetBy: -7)
         let day = String(createdTime[dayStart...dayEnd])
@@ -112,23 +122,23 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     @objc func shareToInstagram(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        
+        if let lastAsset = fetchResult.firstObject as? PHAsset {
+            guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
+                return
+            }
             
-            let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-            
-            if let lastAsset = fetchResult.firstObject as? PHAsset {
-                guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
-                    return
-                }
-                
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                } else {
-                    showPopUpViewController(with: .인스타그램설치팝업)
-                }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                showPopUpViewController(with: .인스타그램설치팝업)
             }
         }
+    }
 }
 
 // MARK: IBAction
@@ -155,13 +165,13 @@ extension PloggingDetailInfoViewController {
                         (self?.rootViewController as? MainViewController)?.setTabBarHidden(false)
                         self?.navigationController?.popViewController(animated: true)
                     } else if result.rc == 401 {
-//                        self?.makeLoginRootViewController()
+                        //                        self?.makeLoginRootViewController()
                     }
                 }
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-
+        
         alert.addAction(delete)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
