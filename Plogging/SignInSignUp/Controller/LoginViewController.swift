@@ -186,6 +186,11 @@ extension LoginViewController: UITextFieldDelegate {
             setupWarningLabel(message: nil)
         }
         
+        // 비밀번호 
+        if let _ = passwordTextField.text {
+            setupWarningLabel(message: nil)
+        }
+        
         isValidate = true
     }
 }
