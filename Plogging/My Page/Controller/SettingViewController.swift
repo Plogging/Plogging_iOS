@@ -134,9 +134,8 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         guard let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage else {
             return
         }
-        profilePhoto.image = image
         
-        guard let forwardingImageData = image.pngData() else {
+        guard let forwardingImageData = image.jpeg(.low) else {
             print("no forwardingImageData")
             return
         }
@@ -146,7 +145,10 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                 if result.rc == 200 {
                     if let userImage = result.profileImg {
                         PloggingUserData.shared.setUserImage(userImageUrl: userImage)
+                        self?.profilePhoto.image = image
                     }
+                } else if result.rc == 500 {
+                    print("resize image")
                 } else if result.rc == 401 {
                     //로그인으로 이동
                 }
@@ -161,5 +163,19 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
             profilePhotoCoverView.alpha = 0
             checkImage.alpha = 0
         })
+    }
+}
+
+extension UIImage {
+    enum JPEGQuality: CGFloat {
+        case lowest  = 0
+        case low     = 0.25
+        case medium  = 0.5
+        case high    = 0.75
+        case highest = 1
+    }
+
+    func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
+        return jpegData(compressionQuality: jpegQuality.rawValue)
     }
 }
