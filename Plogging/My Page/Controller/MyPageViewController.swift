@@ -121,6 +121,7 @@ class MyPageViewController: UIViewController {
     }
     
     func mypageTabReload() {
+        requestHeaderData()
         currentSortType = .date
         currentPagingDataSource?.loadFromFirst {
             self.updateUI()
