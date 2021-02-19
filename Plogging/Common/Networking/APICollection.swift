@@ -178,7 +178,7 @@ extension APICollection {
     /// 유저 프로필 이미지 변경
     func requestChangeUserProfileImage(imageData: Data, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imageData, withName: "profileImg", fileName: "profileImage.jpg", mimeType: "image/png")
+            multipartFormData.append(imageData, withName: "profileImg", fileName: "profileImage.jpg", mimeType: "image/jpg")
         },
         to: BaseURL.getURL(basePath: .userImage),
         method: .put,
@@ -314,7 +314,7 @@ extension APICollection {
             }
             print("jsonString: \(jsonString)")
             multipartFormData.append(Data(jsonString.utf8), withName: "ploggingData")
-            multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/png")
+            multipartFormData.append(imageData, withName: "ploggingImg", fileName: "ploggingImage.jpg", mimeType: "image/jpg")
         },
         to: BaseURL.getURL(basePath: .plogging),
         method: .post,

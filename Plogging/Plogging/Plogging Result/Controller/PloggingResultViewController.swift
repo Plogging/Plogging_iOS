@@ -173,7 +173,7 @@ extension PloggingResultViewController {
             forwardingImage = forwardingThumbnailImage
         }
         
-        guard let forwardingImageData = forwardingImage.pngData() else {
+        guard let forwardingImageData = forwardingImage.jpeg(.low) else {
             print("no forwardingImageData")
             return
         }
