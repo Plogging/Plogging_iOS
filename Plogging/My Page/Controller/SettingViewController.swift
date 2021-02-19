@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
@@ -37,7 +36,7 @@ class SettingViewController: UIViewController {
             return
         }
                 
-        profilePhoto.kf.setImage(with: userImageUrl)
+        profilePhoto.kf.setImage(with: userImageUrl, options: [.forceRefresh])
         nickName.text = PloggingUserData.shared.getUserName()
     }
 

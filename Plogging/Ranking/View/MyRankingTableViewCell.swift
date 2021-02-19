@@ -40,7 +40,7 @@ class MyRankingTableViewCell: UITableViewCell {
         } else {
             rankLabel.text = "0위"
             if let userImage = PloggingUserData.shared.getUserImage(), let url = URL(string: userImage) {
-                profileImageView.kf.setImage(with: url)
+                profileImageView.kf.setImage(with: url, options: [.forceRefresh])
             } else {
                 profileImageView.image = UIImage(named: "user")
             }

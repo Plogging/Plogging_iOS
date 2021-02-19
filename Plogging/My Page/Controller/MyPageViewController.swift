@@ -154,7 +154,7 @@ class MyPageViewController: UIViewController {
                    let userImageURL = URL(string: usrImage) {
                     PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
                     self?.profilePhoto.sizeToFit()
-                    self?.profilePhoto.kf.setImage(with: userImageURL)
+                    self?.profilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
                 }
                 
                 if self?.weeklyOrMonthly == "weekly" {

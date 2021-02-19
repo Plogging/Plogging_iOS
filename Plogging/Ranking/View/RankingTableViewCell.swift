@@ -51,7 +51,8 @@ class RankingTableViewCell: UITableViewCell {
         setupListUI(index: index)
         
         if let url = URL(string: model.profileImg){
-            profileImageView.kf.setImage(with: url)
+            
+            profileImageView.kf.setImage(with: url, options: [.forceRefresh])
         } else {
             profileImageView.image = UIImage(named: "user")
         }

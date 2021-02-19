@@ -49,7 +49,7 @@ class PloggingUserData {
         UserDefaults.standard.removeObject(forKey: userImage)
     }
     
-    func setUserData(_ userInfo:PloggingUserInfo?) {
+    func setUserData(_ userInfo: PloggingUserInfo?) {
         self.userData = userInfo
     }
     
