@@ -16,6 +16,7 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var stopButton: ConfirmButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var infoView: UIView!
     
     var timer: Timer?
     var startDate: Date?
@@ -74,7 +75,7 @@ class PloggingRunningInfoViewController: UIViewController {
                 distance: self.distance,
                 calories: self.kcal,
                 ploggingTime: Int(timer?.fireDate.timeIntervalSince(startDate!) ?? 0),
-                trashList: currentTrashList
+                trashList: currentTrashList.filter{item in item.pickCount != 0}
         )
         return ploggingResult
     }
@@ -190,20 +191,28 @@ class PloggingRunningInfoViewController: UIViewController {
         summeryDistance.setupView(unit: "킬로미터", value: "0.00")
         summeryTime.setupView(unit: "진행시간", value: "00:00")
         summeryKcal.setupView(unit: "칼로리", value: "0")
-        summeryStackView.layer.cornerRadius = 20
+        
         setGradationView(
-                view: summeryStackView,
-                colors: [UIColor(red: 255, green: 255, blue: 255, alpha: 0.85).cgColor, UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor],
-                location: 0.0,
-                startPoint: .init(x: 0.0, y: 0.0),
-                endPoint: .init(x: 0.0, y: 1.0)
+            view: infoView,
+            colors: [
+                UIColor(red: 255, green: 255, blue: 255, alpha: 0.5).cgColor,
+                UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor
+            ],
+            location: 0.1,
+            startPoint: CGPoint(x: 0.5, y: 0.0),
+            endPoint: CGPoint(x: 0.5, y: 0.1)
         )
+        infoView.layer.cornerRadius = 20
+        infoView.clipsToBounds = true
 
         stopButton.backgroundColor = .gray
         stopButton.setAttributedTitle(NSMutableAttributedString().normal("종료", fontSize: 19), for: .normal)
         stopButton.setTitleColor(.white, for: .normal)
 
         continueButton.title = "쓰레기 기록하기"
+        continueButton.layer.shadowColor = UIColor.tintGreen.cgColor
+        continueButton.layer.shadowOpacity = 0.67
+        continueButton.layer.shadowOffset = .init(width: 0, height: 4)
 
         pathManager.setupMapview(on: mapView)
         pathManager.startRunning()
