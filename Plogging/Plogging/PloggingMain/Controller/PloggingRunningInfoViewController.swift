@@ -205,9 +205,9 @@ class PloggingRunningInfoViewController: UIViewController {
         infoView.layer.cornerRadius = 20
         infoView.clipsToBounds = true
 
-        stopButton.backgroundColor = .gray
+        stopButton.backgroundColor = UIColor.veryLightPinkTwo
         stopButton.setAttributedTitle(NSMutableAttributedString().normal("종료", fontSize: 19), for: .normal)
-        stopButton.setTitleColor(.white, for: .normal)
+        stopButton.setTitleColor(.brownGrey, for: .normal)
 
         continueButton.title = "쓰레기 기록하기"
         continueButton.layer.shadowColor = UIColor.tintGreen.cgColor
