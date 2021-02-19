@@ -145,6 +145,13 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                     if let userImage = result.profileImg {
                         PloggingUserData.shared.setUserImage(userImageUrl: userImage)
                         self?.profilePhoto.image = image
+                        
+                        self?.profilePhotoCoverView.alpha = 1
+                        self?.checkImage.alpha = 1
+                        UIView.animate(withDuration: 0.8, animations: { [self] in
+                            self?.profilePhotoCoverView.alpha = 0
+                            self?.checkImage.alpha = 0
+                        })
                     }
                 } else if result.rc == 500 {
                     print("resize image")
@@ -155,13 +162,6 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         dismiss(animated: true, completion: nil)
-        
-        profilePhotoCoverView.alpha = 1
-        checkImage.alpha = 1
-        UIView.animate(withDuration: 0.8, animations: { [self] in
-            profilePhotoCoverView.alpha = 0
-            checkImage.alpha = 0
-        })
     }
 }
 
