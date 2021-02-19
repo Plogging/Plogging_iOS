@@ -53,9 +53,18 @@ class SNSLoginViewController: UIViewController {
         switch result.rc {
         case 200, 201:
             if let nickName = result.userName, let image = result.userImg {
-                PloggingUserData.shared.saveUserData(id: id,
-                                                     nickName: nickName,
-                                                     image: image)
+                if nickName.count > 9 {
+                    let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
+                    if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
+                        viewcontroller.loginType = "SNS"
+                        viewcontroller.userInfo = ["userId": id]
+                        self.navigationController?.pushViewController(viewcontroller, animated: true)
+                    }
+                } else {
+                    PloggingUserData.shared.saveUserData(id: id,
+                                                         nickName: nickName,
+                                                         image: image)
+                }
             }
             makeDefaultRootViewController()
             return
@@ -105,12 +114,14 @@ class SNSLoginViewController: UIViewController {
     }
     
     @IBAction func clickNaverLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.requestLoginWithNaver { (loginData) in
             print(loginData)
         }
     }
     
     @IBAction func clickKakaoLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithKakao()
         SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
             print(loginData)
         }

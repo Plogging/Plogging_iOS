@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -384,28 +384,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플로깅이 곧 시작됩니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJL-7l-Jzr">
-                                <rect key="frame" x="16" y="551" width="382" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.38823529410000002" green="0.43137254899999999" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-AT-fvo">
-                                <rect key="frame" x="149" y="377" width="116" height="142"/>
+                                <rect key="frame" x="124.66666666666669" y="338.66666666666669" width="165" height="219.00000000000006"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="116" id="4z7-uf-pSm"/>
-                                    <constraint firstAttribute="height" constant="142" id="Vha-uB-gdy"/>
+                                    <constraint firstAttribute="width" constant="165" id="4z7-uf-pSm"/>
+                                    <constraint firstAttribute="height" constant="219" id="Vha-uB-gdy"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a8z-1n-1Xx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="UJL-7l-Jzr" firstAttribute="leading" secondItem="a8z-1n-1Xx" secondAttribute="leading" constant="16" id="4EC-Gm-ADw"/>
                             <constraint firstItem="kk2-AT-fvo" firstAttribute="centerY" secondItem="jf5-c3-2ph" secondAttribute="centerY" id="lDD-Aa-QgL"/>
                             <constraint firstItem="kk2-AT-fvo" firstAttribute="centerX" secondItem="jf5-c3-2ph" secondAttribute="centerX" id="tOR-gk-ZtV"/>
-                            <constraint firstItem="a8z-1n-1Xx" firstAttribute="trailing" secondItem="UJL-7l-Jzr" secondAttribute="trailing" constant="16" id="x4I-t4-afx"/>
-                            <constraint firstItem="UJL-7l-Jzr" firstAttribute="top" secondItem="kk2-AT-fvo" secondAttribute="bottom" constant="32" id="z5I-UV-wi5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -418,7 +409,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3" width="116" height="142"/>
+        <image name="3" width="165" height="219"/>
         <image name="IntrouduceButton" width="237" height="68"/>
         <image name="iconFocus" width="21" height="21"/>
         <systemColor name="systemBackgroundColor">

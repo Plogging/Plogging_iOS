@@ -42,16 +42,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iqb-qg-GjU">
-                                <rect key="frame" x="99" y="34" width="161" height="64"/>
+                                <rect key="frame" x="99" y="34" width="149" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1위" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-SY-8LT">
-                                        <rect key="frame" x="14" y="19" width="36.5" height="26.5"/>
+                                        <rect key="frame" x="14" y="19" width="30.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yje-zi-2mn">
-                                        <rect key="frame" x="80" y="0.0" width="1" height="64"/>
+                                        <rect key="frame" x="74" y="0.0" width="1" height="64"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="Oz5-T5-5hz"/>
@@ -59,7 +59,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju0-We-0Q6">
-                                        <rect key="frame" x="108.5" y="19" width="40.5" height="26.5"/>
+                                        <rect key="frame" x="102.5" y="19" width="34.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="H4v-Oc-V04" firstAttribute="leading" secondItem="04a-nM-dbg" secondAttribute="leading" id="0Yp-O3-Ic5"/>
                             <constraint firstItem="Bd7-rj-7jK" firstAttribute="top" secondItem="04a-nM-dbg" secondAttribute="top" constant="12" id="1of-3K-KDe"/>
                             <constraint firstItem="Iqb-qg-GjU" firstAttribute="centerY" secondItem="H4v-Oc-V04" secondAttribute="centerY" id="An1-rQ-Kz7"/>
-                            <constraint firstAttribute="trailing" secondItem="Iqb-qg-GjU" secondAttribute="trailing" constant="12" id="CFs-er-aBa"/>
+                            <constraint firstAttribute="trailing" secondItem="Iqb-qg-GjU" secondAttribute="trailing" constant="24" id="CFs-er-aBa"/>
                             <constraint firstAttribute="trailing" secondItem="Bd7-rj-7jK" secondAttribute="trailing" constant="12" id="O6F-1q-xXC"/>
                             <constraint firstItem="PCl-68-XLz" firstAttribute="leading" secondItem="04a-nM-dbg" secondAttribute="leading" constant="24" id="PCF-qV-ELf"/>
                             <constraint firstAttribute="bottom" secondItem="H4v-Oc-V04" secondAttribute="bottom" id="a3j-EI-aJo"/>

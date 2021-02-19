@@ -90,8 +90,10 @@ extension UIViewController {
     
         if let mainViewController = storyboard.instantiateViewController(withIdentifier: "SNSLoginViewController") as? SNSLoginViewController,
            let first = UIApplication.shared.windows.first {
+            let navigationController = UINavigationController()
+            navigationController.pushViewController(mainViewController, animated: false)
             
-            first.rootViewController = mainViewController
+            first.rootViewController = navigationController
             first.makeKeyAndVisible()
             UIView.transition(with: first,
                               duration: 0.5,

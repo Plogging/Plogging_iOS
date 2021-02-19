@@ -20,6 +20,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var outerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var innerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageStackViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     var forwardingImage = UIImage()
     var ploggingResultParam: [String : Any] = [:]
     var ploggingDistance: Int?
@@ -58,6 +59,7 @@ class PopUpViewController: UIViewController {
         
         outerViewHeightConstraint.constant = type.outerViewHeight()
         innerViewHeightConstraint.constant = type.innerViewHeight()
+        imageTopConstraint.constant = type.topConstraint()
         
         if type.numberOfButton() == 1 {
             noButton.isHidden = true
@@ -75,12 +77,15 @@ class PopUpViewController: UIViewController {
     @IBAction func clickYesButton(_ sender: UIButton) {
         switch type {
         case .비밀번호변경완료팝업:
+            PloggingCookie.shared.removeUserCookie()
+            PloggingUserData.shared.removeUserData()
             makeLoginRootViewController()
         case .로그아웃팝업:
             APICollection.sharedAPI.requestUserSignOut { (response) in
                 if let result = try? response.get() {
                     if result.rc == 200 {
                         // 로그인 화면으로 이동
+                        PloggingCookie.shared.removeUserCookie()
                         PloggingUserData.shared.removeUserData()
                         self.makeLoginRootViewController()
                     } else {

@@ -9,18 +9,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RankingRefreshTableViewCell" id="KGk-i7-Jjw" customClass="RankingRefreshTableViewCell" customModule="Plogging" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RankingRefreshTableViewCell" rowHeight="31" id="KGk-i7-Jjw" customClass="RankingRefreshTableViewCell" customModule="Plogging" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RDL-yo-VCB">
-                        <rect key="frame" x="228" y="3" width="68" height="22"/>
+                        <rect key="frame" x="228" y="10" width="68" height="21"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyU-Jc-xce">
-                                <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="21"/>
                                 <state key="normal" title="새로고침">
                                     <color key="titleColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDO-gm-j7A">
-                                <rect key="frame" x="56" y="0.0" width="12" height="22"/>
+                                <rect key="frame" x="56" y="0.0" width="12" height="21"/>
                                 <state key="normal" image="refresh">
                                     <color key="titleColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -42,15 +42,15 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="RDL-yo-VCB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="Gkh-IZ-g2M"/>
+                    <constraint firstAttribute="bottom" secondItem="RDL-yo-VCB" secondAttribute="bottom" id="9Pu-WP-HnC"/>
                     <constraint firstAttribute="trailing" secondItem="RDL-yo-VCB" secondAttribute="trailing" constant="24" id="MVG-Ob-9Zo"/>
-                    <constraint firstItem="RDL-yo-VCB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YCV-tS-Wdu"/>
-                    <constraint firstAttribute="bottom" secondItem="RDL-yo-VCB" secondAttribute="bottom" constant="3" id="ylW-0J-KwU"/>
+                    <constraint firstItem="RDL-yo-VCB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dXk-yg-6n7"/>
+                    <constraint firstAttribute="bottom" secondItem="RDL-yo-VCB" secondAttribute="bottom" id="ylW-0J-KwU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="113.04347826086958" y="101.45089285714285"/>
+            <point key="canvasLocation" x="113.04347826086958" y="102.12053571428571"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -115,12 +115,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func clickedKakaoLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithKakao()
         SNSLoginManager.shared.requestLoginWithKakao { (loginData) in
             print(loginData)
         }
     }
     
     @IBAction func clickedNaverLoginButton(_ sender: UIButton) {
+        SNSLoginManager.shared.setupLoginWithNaver()
         SNSLoginManager.shared.requestLoginWithNaver { (loginData) in
             print(loginData)
         }
@@ -149,13 +151,19 @@ class LoginViewController: UIViewController {
         switch result.rc {
         case 200, 201:
             if let nickName = result.userName, let image = result.userImg {
-                PloggingUserData.shared.saveUserData(id: id,
-                                                     nickName: nickName,
-                                                     image: image)
+                if nickName.count > 9 {
+                    let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
+                    if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
+                        viewcontroller.loginType = "SNS"
+                        viewcontroller.userInfo = ["userId": id]
+                        self.navigationController?.pushViewController(viewcontroller, animated: true)
+                    }
+                } else {
+                    PloggingUserData.shared.saveUserData(id: id,
+                                                         nickName: nickName,
+                                                         image: image)
+                }
             }
-            makeDefaultRootViewController()
-            return
-        case 409:
             let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
             if let viewcontroller = storyboard.instantiateViewController(identifier: SegueIdentifier.nickNameViewController) as? NickNameViewController {
                 viewcontroller.loginType = "SNS"
@@ -180,16 +188,8 @@ extension LoginViewController: UITextFieldDelegate {
             setupWarningLabel(message: nil)
         }
         
-        // 비밀번호 validation check 8자 이상
-        if let password = passwordTextField.text {
-            if let message = checkPasswordValidation(password: password) {
-                if password.count < 8 {
-                    setupWarningLabel(message: message)
-                    return
-                }
-                setupWarningLabel(message: message)
-                return
-            }
+        // 비밀번호
+        if let password = passwordTextField.text, password.count > 1 {
             setupWarningLabel(message: nil)
         }
         

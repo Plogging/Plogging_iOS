@@ -66,21 +66,24 @@ class RankingViewController: UIViewController {
     }
     
     private func requestUserRanking(type: String) {
-        // TODO: - id는 저장된 유저 정보
         let param: [String: Any] = ["rankType": type]
 
-        APICollection.sharedAPI.requestUserRanking(id: "hyer1k@naver.com:custom", param: param) { (response) in
-            self.userPloggingRankig = try? response.get()
+        if let id = PloggingUserData.shared.getUserId() {
+            APICollection.sharedAPI.requestUserRanking(id: id, param: param) { (response) in
+                self.userPloggingRankig = try? response.get()
+            }
         }
     }
     
     private func setupRankingTitle() {
-        let rankingTitleString = NSMutableAttributedString()
-            .heavy("연쇄쓰담마", fontSize: 35)
-            .medium("님의", fontSize: 35)
-            .newLine(fontSize: 35)
-            .medium("랭킹을 확인하세요!", fontSize: 35)
-        rankingTitleLabel.attributedText = rankingTitleString
+        if let nickname = PloggingUserData.shared.getUserName() {
+            let rankingTitleString = NSMutableAttributedString()
+                .heavy(nickname, fontSize: 35)
+                .medium("님의", fontSize: 35)
+                .newLine(fontSize: 35)
+                .medium("랭킹을 확인하세요!", fontSize: 35)
+            rankingTitleLabel.attributedText = rankingTitleString
+        }
     }
     
     private func registerNib() {
@@ -107,8 +110,14 @@ class RankingViewController: UIViewController {
         tableView.addSubview(refresh)
     }
     
+    private func makeDefaultOffset() {
+        tableView.contentOffset.y = 0.0
+        view.layoutIfNeeded()
+    }
+    
     @objc private func updateRanking() {
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     @IBAction func weeklyButtonClick(_ sender: UIButton) {
@@ -120,6 +129,7 @@ class RankingViewController: UIViewController {
         
         weeklyOrMonthly = "weekly"
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     @IBAction func montlyButtonClick(_ sender: UIButton) {
@@ -131,6 +141,7 @@ class RankingViewController: UIViewController {
         
         weeklyOrMonthly = "monthly"
         requestBothRankingAPI()
+        makeDefaultOffset()
     }
     
     private func refreshRankingList() {
@@ -138,9 +149,11 @@ class RankingViewController: UIViewController {
         if weeklyView.alpha == 1 {
             weeklyOrMonthly = "weekly"
             requestBothRankingAPI()
+            makeDefaultOffset()
         } else {
             weeklyOrMonthly = "monthly"
             requestBothRankingAPI()
+            makeDefaultOffset()
         }
     }
 }
@@ -177,6 +190,8 @@ extension RankingViewController: UITableViewDataSource {
             let cell: MyRankingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             if let model = userPloggingRankig?.data {
                 cell.config(model: model)
+            } else {
+                cell.config(model: nil)
             }
             return cell
         } else if indexPath.row == 1 {
@@ -196,9 +211,9 @@ extension RankingViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             return 132
         } else if indexPath.row == 1 {
-            return 28
+            return 35
         } else {
-            return 95
+            return 85
         }
     }
 }
