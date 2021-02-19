@@ -12,6 +12,7 @@ class PloggingIntroduceModalViewController: UIViewController {
         super.init(coder: coder)
     }
 
+    @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var firstItem: IntroduceModalItem!
     @IBOutlet weak var secondItem: IntroduceModalItem!
     @IBOutlet weak var thirdItem: IntroduceModalItem!

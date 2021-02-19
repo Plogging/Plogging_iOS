@@ -143,7 +143,7 @@
                         <outlet property="firstItem" destination="p4q-8g-MAN" id="ula-ZF-wH9"/>
                         <outlet property="secondItem" destination="U4A-Yu-n7f" id="Tbh-aP-YEN"/>
                         <outlet property="thirdItem" destination="QD3-hB-Af7" id="NzA-3K-ZQJ"/>
-                        <outlet property="topBar" destination="bZr-Hb-SmT" id="YCE-NW-VxX"/>
+                        <outlet property="topBar" destination="bZr-Hb-SmT" id="SzX-lJ-RNu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQw-Sh-owb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
