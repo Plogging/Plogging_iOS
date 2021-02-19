@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
@@ -15,8 +16,6 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var profilePhotoCoverView: UIView!
     @IBOutlet weak var checkImage: UIImageView!
     let imagePickerController = UIImagePickerController()
-    let checkImageView = UIImageView(image: UIImage(named: "check"))
-    var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +29,21 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        profilePhoto.image = profileImage
+        guard let userImage = PloggingUserData.shared.getUserImage() else {
+            return
+        }
+        
+        guard let userImageUrl = URL(string: userImage) else {
+            return
+        }
+                
+        profilePhoto.kf.setImage(with: userImageUrl)
         nickName.text = PloggingUserData.shared.getUserName()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
     }
     
     private func setUpNavigationBarUI() {
@@ -132,9 +131,28 @@ extension SettingViewController {
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
-            profilePhoto.image = image
+        guard let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage else {
+            return
         }
+        profilePhoto.image = image
+        
+        guard let forwardingImageData = image.pngData() else {
+            print("no forwardingImageData")
+            return
+        }
+        
+        APICollection.sharedAPI.requestChangeUserProfileImage(imageData: forwardingImageData) { [weak self] response in
+            if let result = try? response.get() {
+                if result.rc == 200 {
+                    if let userImage = result.profileImg {
+                        PloggingUserData.shared.setUserImage(userImageUrl: userImage)
+                    }
+                } else if result.rc == 401 {
+                    //로그인으로 이동
+                }
+            }
+        }
+        
         dismiss(animated: true, completion: nil)
         
         profilePhotoCoverView.alpha = 1

@@ -12,5 +12,6 @@ struct PloggingUser: Codable {
     let rc: Int
     let rcmsg: String
     let userImg: String?
+    let profileImg: String?
     let userName: String?
 }
