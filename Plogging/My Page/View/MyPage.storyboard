@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJD-iS-J8h">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-3A-PVR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WbL-nn-vVN">
-                                        <rect key="frame" x="24" y="345" width="366" height="648"/>
+                                        <rect key="frame" x="24" y="345" width="366" height="408"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pb2-h6-GUH">
                                             <size key="itemSize" width="128" height="128"/>
@@ -303,7 +303,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="y8w-th-dq9" firstAttribute="height" secondItem="WbL-nn-vVN" secondAttribute="height" constant="160" id="22N-a3-055"/>
+                                    <constraint firstItem="y8w-th-dq9" firstAttribute="height" secondItem="WbL-nn-vVN" secondAttribute="height" constant="400" id="22N-a3-055"/>
                                     <constraint firstItem="6Cc-Jq-jUn" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="36" id="9kM-3z-TV4"/>
                                     <constraint firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="top" id="FMZ-YB-wAB"/>
                                     <constraint firstItem="kFd-ki-Xkp" firstAttribute="width" secondItem="IYc-3A-PVR" secondAttribute="width" id="FbG-ms-djn"/>
