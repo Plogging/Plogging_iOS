@@ -39,6 +39,10 @@ class PloggingUserData {
         return UserDefaults.standard.string(forKey: userImage)
     }
     
+    func setUserImage(userImageUrl: String) {
+        return UserDefaults.standard.setValue(userImageUrl, forKey: userImage)
+    }
+    
     func removeUserData() {
         UserDefaults.standard.removeObject(forKey: userId)
         UserDefaults.standard.removeObject(forKey: userName)

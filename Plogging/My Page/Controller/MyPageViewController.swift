@@ -142,27 +142,29 @@ class MyPageViewController: UIViewController {
     }
     
     private func requestHeaderData() {
-        APICollection.sharedAPI.requestUserInfo(id: userId) { (response) in
+        APICollection.sharedAPI.requestUserInfo(id: userId) { [weak self] (response) in
             let userData = try? response.get()
             if userData?.rc != 200 {
                 // 쿠키가 유효하지 않음
 //                self.makeLoginRootViewController()
                 return
             } else {
-                self.nickName.text = userData?.userName
-                if let img = userData?.userImg,
-                   let imageURL = URL(string: img) {
-                    self.profilePhoto.sizeToFit()
-                    self.profilePhoto.kf.setImage(with: imageURL)
+                self?.nickName.text = userData?.userName
+                if let usrImage = userData?.userImg,
+                   let userImageURL = URL(string: usrImage) {
+                    PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
+                    self?.profilePhoto.sizeToFit()
+                    self?.profilePhoto.kf.setImage(with: userImageURL)
                 }
-                if self.weeklyOrMonthly == "weekly" {
-                    self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
-                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceWeekly ?? 0)/1000) + "km"
-                    self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
+                
+                if self?.weeklyOrMonthly == "weekly" {
+                    self?.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
+                    self?.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceWeekly ?? 0)/1000) + "km"
+                    self?.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
                 } else {
-                    self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
-                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceMonthly ?? 0)/1000) + "km"
-                    self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
+                    self?.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
+                    self?.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceMonthly ?? 0)/1000) + "km"
+                    self?.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
                 }
             }
         }
@@ -186,7 +188,6 @@ class MyPageViewController: UIViewController {
             guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
                 return
             }
-            settingViewController.profileImage = profilePhoto.image
             navigationController?.pushViewController(settingViewController, animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
