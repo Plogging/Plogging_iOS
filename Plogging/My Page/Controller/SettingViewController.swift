@@ -24,14 +24,14 @@ class SettingViewController: UIViewController {
         imagePickerController.delegate = self
         profilePhotoCoverView.alpha = 0
         checkImage.alpha = 0
-        profilePhoto.image = profileImage
-        nickName.text = PloggingUserData.shared.getUserName()
         self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action:#selector(self.handlePopGesture))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        profilePhoto.image = profileImage
+        nickName.text = PloggingUserData.shared.getUserName()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

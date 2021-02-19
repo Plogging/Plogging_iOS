@@ -101,6 +101,12 @@ class MyPageViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
+        
+        if type == .mypage {
+            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        } else {
+            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,7 +114,7 @@ class MyPageViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         requestHeaderData()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)

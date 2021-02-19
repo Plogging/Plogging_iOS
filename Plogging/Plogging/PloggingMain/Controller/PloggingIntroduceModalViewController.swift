@@ -18,7 +18,7 @@ class PloggingIntroduceModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         firstItem.setupResource(
                 indexImage: UIImage(named: "CircleIndex1"),
                 iconImage: UIImage(named: "StartModal1"),

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="efj-1E-G0c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="efj-1E-G0c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -476,7 +476,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCA-uE-WFl" userLabel="사진">
-                                <rect key="frame" x="4" y="149" width="337.5" height="51"/>
+                                <rect key="frame" x="4" y="149" width="406" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="OV5-Fk-Rci"/>
                                 </constraints>
@@ -568,10 +568,10 @@
                             <constraint firstItem="kJP-Dy-HWh" firstAttribute="width" secondItem="Kzh-e7-GN3" secondAttribute="width" id="lmV-2r-aAF"/>
                             <constraint firstItem="Fhb-IZ-tWv" firstAttribute="centerX" secondItem="kJP-Dy-HWh" secondAttribute="centerX" id="mok-jP-ptg"/>
                             <constraint firstItem="gfN-LC-3ws" firstAttribute="top" secondItem="aZJ-rm-rW1" secondAttribute="bottom" constant="38" id="nJD-tC-urz"/>
+                            <constraint firstItem="EBe-Ym-mue" firstAttribute="trailing" secondItem="sCA-uE-WFl" secondAttribute="trailing" constant="4" id="oqf-Tc-pSZ"/>
                             <constraint firstItem="aZJ-rm-rW1" firstAttribute="leading" secondItem="VWL-Yg-Um5" secondAttribute="leading" id="qBT-6N-anq"/>
                             <constraint firstItem="TlJ-EL-XPz" firstAttribute="leading" secondItem="bo8-84-oDC" secondAttribute="leading" id="r8q-Hl-VkG"/>
                             <constraint firstItem="kJP-Dy-HWh" firstAttribute="centerY" secondItem="Kzh-e7-GN3" secondAttribute="centerY" id="rjt-3g-SOY"/>
-                            <constraint firstItem="Kzh-e7-GN3" firstAttribute="leading" secondItem="sCA-uE-WFl" secondAttribute="trailing" constant="4" id="sac-sb-iza"/>
                             <constraint firstItem="TlJ-EL-XPz" firstAttribute="top" secondItem="bo8-84-oDC" secondAttribute="bottom" constant="53" id="sqf-Y2-WBx"/>
                             <constraint firstItem="sCA-uE-WFl" firstAttribute="top" secondItem="0cD-cE-LVM" secondAttribute="bottom" constant="23" id="tm5-R5-83z"/>
                             <constraint firstItem="ulb-bI-8zo" firstAttribute="top" secondItem="sCA-uE-WFl" secondAttribute="bottom" constant="27" id="v3C-CU-4Zm"/>
@@ -595,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGJ-6B-vPK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="755.9113300492611"/>
+            <point key="canvasLocation" x="1098.5507246376812" y="755.35714285714278"/>
         </scene>
         <!--Change Password View Controller-->
         <scene sceneID="XfX-rS-KhD">

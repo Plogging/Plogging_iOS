@@ -80,7 +80,7 @@ extension PopUpType {
         case .비밀번호변경완료팝업:
             return UIImage(named: "changePassword")
         case .종료팝업:
-            return UIImage(named: "close")
+            return UIImage(named: "popupClosePlogging")
         case .사진없이저장팝업:
             return UIImage(named: "saveWithNoPhoto")
         case .기록삭제팝업:
@@ -118,6 +118,15 @@ extension PopUpType {
             return 356
         case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
             return 281
+        }
+    }
+    
+    func topConstraint() -> CGFloat {
+        switch self {
+        case .운동점수안내팝업, .랭킹점수안내팝업:
+            return 0
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
+            return 20
         }
     }
 }

@@ -127,7 +127,7 @@ class NickNameViewController: UIViewController {
             case 200:
                 guard let nickName = nickNameTextField.text else { return }
                 PloggingUserData.shared.setUserName(nickName: nickName)
-                makeDefaultRootViewController()
+                self.navigationController?.popViewController(animated: true)
                 return
             case 409:
                 setupErrorLabel(message: "이미 사용중인 닉네임입니다.")
@@ -170,6 +170,15 @@ class NickNameViewController: UIViewController {
 }
 
 extension NickNameViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let count = textField.text?.count {
+            print(count)
+            if count > 9 {
+                setupErrorLabel(message: "공백포함 9자까지")
+                return
+            }
+        }
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         nickNameInfoLabel.isHidden = true
         if let count = textField.text?.count {
