@@ -27,6 +27,7 @@ enum BasePath {
     case userSignIn
     case userSignOut
     case userName
+    case userImage
     case userPassword
     case userPasswordTemp
     
@@ -53,6 +54,8 @@ enum BasePath {
             return "/user/sign-out"
         case .userName:
             return "/user/name"
+        case .userImage:
+            return "/user/image"
         case .userPassword:
             return "/user/password"
         case .userPasswordTemp:

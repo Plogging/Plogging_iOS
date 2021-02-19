@@ -175,6 +175,28 @@ extension APICollection {
         }
     }
     
+    /// 유저 프로필 이미지 변경
+    func requestChangeUserProfileImage(imageData: Data, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
+        AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData, withName: "profileImg", fileName: "profileImage.jpg", mimeType: "image/png")
+        },
+        to: BaseURL.getURL(basePath: .userImage),
+        method: .put,
+        headers: gettingHeader()
+        ).responseJSON { response in
+            print(response)
+            guard let data = response.data else {
+                print(APIError.dataFailed)
+                return completion(.failure(.dataFailed))
+            }
+            print(data)
+            guard let value = try? JSONDecoder().decode(PloggingUser.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            completion(.success(value))
+        }
+    }
+    
     /// 비밀번호 변경
     func requestChangeUserPassword(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.getURL(basePath: .userPassword),
