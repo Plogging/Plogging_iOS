@@ -29,20 +29,19 @@ enum MyPageSortType {
         }
     }
     
-    func getDataSource() -> PagingDataSource<PloggingList> {
+    func getDataSource(url: String) -> PagingDataSource<PloggingList> {
         switch self {
         case .date:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 0, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 0, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .score:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 1, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 1, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         case .trashCount:
-            return PagingDataSource<PloggingList>(api: PagingAPI(url: BaseURL.mainURL + BasePath.ploggingResult, params: ["searchType" : 2, "ploggingCntPerPage" : 10], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
+            return PagingDataSource<PloggingList>(api: PagingAPI(url: url, params: ["searchType" : 2, "ploggingCntPerPage" : 30], header: APICollection.sharedAPI.gettingHeader()), type: .mypage)
         }
     }
 }
 
 class MyPageViewController: UIViewController {
-
     @IBOutlet weak var navigationBarButton: UIButton!
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -60,13 +59,19 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    var url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
     private(set) var currentSortType: MyPageSortType = .date {
         didSet {
-            currentPagingDataSource = currentSortType.getDataSource()
+            currentPagingDataSource = currentSortType.getDataSource(url: url)
         }
     }
-    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource()
-    var userId = ""
+    private(set) var currentPagingDataSource: PagingDataSource<PloggingList>? = MyPageSortType.date.getDataSource(url: BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? "")))
+    var userId = PloggingUserData.shared.getUserId() ?? "" {
+        didSet {
+            url = BaseURL.getURL(basePath: .ploggingResult(userId))
+            currentPagingDataSource = MyPageSortType.date.getDataSource(url: url)
+        }
+    }
     var weeklyOrMonthly = ""
     var type = DetailType.mypage
     
@@ -107,13 +112,6 @@ class MyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        if type == .mypage {
-            guard let mypaegUserId = PloggingUserData.shared.getUserId() else {
-                return
-            }
-            userId = mypaegUserId
-        }
         requestHeaderData()
     }
 
@@ -159,17 +157,17 @@ class MyPageViewController: UIViewController {
                 }
                 if self.weeklyOrMonthly == "weekly" {
                     self.totalPloggingScore.text = "\(userData?.scoreWeekly ?? 0)점"
-                    self.totalPloggingDistance.text = "\(userData?.distanceWeekly ?? 0)km"
+                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceWeekly ?? 0)/1000) + "km"
                     self.totalTrashCount.text = "\(userData?.trashWeekly ?? 0)개"
                 } else {
                     self.totalPloggingScore.text = "\(userData?.scoreMonthly ?? 0)점"
-                    self.totalPloggingDistance.text = "\(userData?.distanceMonthly ?? 0)km"
+                    self.totalPloggingDistance.text = String(format: "%.2f", Float(userData?.distanceMonthly ?? 0)/1000) + "km"
                     self.totalTrashCount.text = "\(userData?.trashMonthly ?? 0)개"
                 }
             }
         }
     }
-    
+
     func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -245,20 +243,7 @@ extension MyPageViewController: UICollectionViewDataSource {
             return cell
         }
         
-        // TODO: 페이징 테스트용 지우기
         guard let ploggingImageUrl = currentPagingDataSource.contents[indexPath.item].meta.ploggingImage else {
-            return cell
-        }
-        
-        guard let createdTime = currentPagingDataSource.contents[indexPath.item].meta.createdTime else {
-            return cell
-        }
-        
-        guard let ploggingTotalScore = currentPagingDataSource.contents[indexPath.item].meta.ploggingTotalScore else {
-            return cell
-        }
-        
-        guard let ploggingTrashCount = currentPagingDataSource.contents[indexPath.item].meta.ploggingTrashCount else {
             return cell
         }
         
@@ -266,7 +251,7 @@ extension MyPageViewController: UICollectionViewDataSource {
             return cell
         }
         
-        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url, time: createdTime, scroe: ploggingTotalScore, trash: ploggingTrashCount)
+        ploggingResultPhotoCell?.updateUI(ploggingImageUrl: url)
 
         cell.contentView.isUserInteractionEnabled = false
         return cell
@@ -300,58 +285,58 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let startEdgeInsets = CGFloat(191)
-        
-        return UIEdgeInsets(top: startEdgeInsets, left: 0, bottom: 0, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        let startEdgeInsets = CGFloat(191)
+//        
+//        return UIEdgeInsets(top: startEdgeInsets, left: 0, bottom: 0, right: 0)
+//    }
 }
 
 // MARK: - UIScrollViewDelegate
-extension MyPageViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffSetY = scrollView.contentOffset.y
-        navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
-        print("contentOffSetY: \(contentOffSetY)")
-        if contentOffSetY > CGFloat(thresholdOffset) {
-            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
-                navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
-                nickName.font = nickName.font.withSize(26)
-                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
-                
-                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 15, y: -40).scaledBy(x: 0.6, y: 0.6)
-                profilePhoto.transform = scaledAndTranslatedTransform
-            })
-        } else if contentOffSetY <= CGFloat(thresholdOffset) {
-            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-            navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
-            nickName.transform = CGAffineTransform(translationX: 0, y: 0)
-            nickName.font = nickName.font.withSize(35)
-            
-            profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }
-        navigationBarView.layoutIfNeeded()
-        
-        if scrollView.requestNextPage() {
-            currentPagingDataSource?.loadNext {
-                self.updateUI()
-            }
-        }
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let contentOffSetY = scrollView.contentOffset.y
-        if velocity.y >= 0, contentOffSetY > CGFloat(thresholdOffset) { // 올릴 때
-            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-        } else if velocity.y < 0, contentOffSetY <= CGFloat(thresholdOffset) { // 내릴 때
-                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-                navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
-        }
-        navigationBarView.layoutIfNeeded()
-    }
-}
+//extension MyPageViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let contentOffSetY = scrollView.contentOffset.y
+//        navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+//        print("contentOffSetY: \(contentOffSetY)")
+//        if contentOffSetY > CGFloat(thresholdOffset) {
+//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+//            UIView.animate(withDuration: 0.05, animations: { [self] () -> Void in
+//                navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
+//                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
+//                nickName.font = nickName.font.withSize(26)
+//                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
+//
+//                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 15, y: -40).scaledBy(x: 0.6, y: 0.6)
+//                profilePhoto.transform = scaledAndTranslatedTransform
+//            })
+//        } else if contentOffSetY <= CGFloat(thresholdOffset) {
+//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+//            navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
+//            nickName.transform = CGAffineTransform(translationX: 0, y: 0)
+//            nickName.font = nickName.font.withSize(35)
+//
+//            profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+//        }
+//        navigationBarView.layoutIfNeeded()
+//
+//        if scrollView.requestNextPage() {
+//            currentPagingDataSource?.loadNext {
+//                self.updateUI()
+//            }
+//        }
+//    }
+//
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        let contentOffSetY = scrollView.contentOffset.y
+//        if velocity.y >= 0, contentOffSetY > CGFloat(thresholdOffset) { // 올릴 때
+//            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
+//        } else if velocity.y < 0, contentOffSetY <= CGFloat(thresholdOffset) { // 내릴 때
+//                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
+//                navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
+//        }
+//        navigationBarView.layoutIfNeeded()
+//    }
+//}
 
 extension UIScrollView {
     func requestNextPage(minimumBottomValue: CGFloat = 50) -> Bool {

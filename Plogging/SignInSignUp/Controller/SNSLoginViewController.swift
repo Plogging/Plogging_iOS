@@ -28,6 +28,7 @@ class SNSLoginViewController: UIViewController {
         setupButtonsUI()
         setupInformation()
         setupNotification()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

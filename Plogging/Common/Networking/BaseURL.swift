@@ -7,33 +7,66 @@
 
 import Foundation
 
-struct BaseURL {
-    static let mainURL = "https://nexters.plogging.kro.kr:20000"
-}
-
-struct BasePath {
-    // USER
-    static let user = "/user"
-    static let userSocial = "/user/social"
-    static let userCheck = "/user/check"
-    static let userSignIn = "/user/sign-in"
-    static let userSignOut = "/user/sign-out"
-    static let userName = "/user/name"
-    static let userPassword = "/user/password"
-    static let userPasswordTemp = "/user/password-temp"
-    
-    // PLOGGING
-    static let plogging = "/plogging"
-    static let ploggingScore = "/plogging/score"
-    
-    //TODO : userId 필요
-    static let ploggingResult = "/plogging/jsu3417@naver.com:custom"
-    
-    // RANKING
-    static let rankingGlobal = "/rank/global"
-    static let rankUserId = "/rank/users"
-}
-
 struct BaseHeader {
     static let userSessionKey = "userId"
+}
+
+struct BaseURL {
+    static let mainURL = "https://nexters.plogging.kro.kr:20000"
+    
+    static func getURL(basePath: BasePath) -> String {
+        return BaseURL.mainURL + basePath.path
+    }
+}
+
+enum BasePath {
+    // USER
+    case user
+    case userSocial
+    case userCheck
+    case userSignIn
+    case userSignOut
+    case userName
+    case userPassword
+    case userPasswordTemp
+    
+    // PLOGGING
+    case plogging
+    case ploggingResult(String)
+    case ploggingScore
+    
+    // RANKING
+    case rankingGlobal
+    case rankUserId(String)
+    
+    var path: String {
+        switch self {
+        case .user:
+            return "/user"
+        case .userSocial:
+            return "/user/social"
+        case .userCheck:
+            return "/user/check"
+        case .userSignIn:
+            return "/user/sign-in"
+        case .userSignOut:
+            return "/user/sign-out"
+        case .userName:
+            return "/user/name"
+        case .userPassword:
+            return "/user/password"
+        case .userPasswordTemp:
+            return "/user/password-temp"
+        case .plogging:
+            return "/plogging"
+        case .ploggingScore:
+            return "/plogging/score"
+        case .ploggingResult(let id):
+            return "/plogging/\(id)"
+        case .rankingGlobal:
+            return "/rank/global"
+        case .rankUserId(let id):
+            return "/rank/users/\(id)"
+        }
+    }
 }

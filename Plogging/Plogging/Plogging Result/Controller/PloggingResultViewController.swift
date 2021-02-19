@@ -20,13 +20,13 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
-    var ploggingActivityScore: Int?
-    var ploggingEnvironmentScore: Int?
     private let contentViewOriginalHeight = 1280
     private let totalCountViewOriginalHeight = 80
     private let trashInfoViewTopConstraint = 40
     private let collectionViewCellLeading = 54
     private let collectionViewCellTrailing = 54
+    var ploggingActivityScore: Int?
+    var ploggingEnvironmentScore: Int?
     var baseImage: UIImage?
     var ploggingResult: PloggingResult?
     var forwardingImage = UIImage()

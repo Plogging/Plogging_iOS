@@ -39,6 +39,16 @@ class SignUpViewController: UIViewController {
         setupUI()
         setupTextFieldDelegate()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.nickNameViewController {
@@ -165,6 +175,10 @@ class SignUpViewController: UIViewController {
         if isValidate {
             requestUserCheck()
         }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
