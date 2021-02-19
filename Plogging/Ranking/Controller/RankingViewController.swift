@@ -35,6 +35,12 @@ class RankingViewController: UIViewController {
     var refresh: UIRefreshControl!
     var weeklyOrMonthly: String = "weekly"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        requestBothRankingAPI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
