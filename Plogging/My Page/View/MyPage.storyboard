@@ -821,12 +821,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-e5-utK">
                                 <rect key="frame" x="24" y="108" width="366" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Alamofire
+                                <string key="text">Alamofire 
 KakaoSDK
-KakaoSDKAuth
-naveridlogin-sdk-ios
-Kingfisher</string>
-                                <color key="textColor" systemColor="labelColor"/>
+ KakaoSDKAuth
+ naveridlogin-sdk-ios
+ Kingfisher</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -853,7 +853,7 @@ Kingfisher</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IN-xG-sGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="1485"/>
+            <point key="canvasLocation" x="1099" y="1461"/>
         </scene>
         <!--Delete User View Controller-->
         <scene sceneID="5jd-0x-J67">
@@ -1512,9 +1512,6 @@ Kingfisher</string>
         <image name="setting" width="27" height="29"/>
         <image name="test" width="375" height="375"/>
         <image name="trashCan" width="20" height="20"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
