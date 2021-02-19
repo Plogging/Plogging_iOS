@@ -42,15 +42,10 @@ class RankingViewController: UIViewController {
         setupTableView()
         setupRankingTitle()
         createRefreshControl()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         requestBothRankingAPI()
     }
     
-    private func requestBothRankingAPI() {
+    func requestBothRankingAPI() {
         requestRankingAPI(type: weeklyOrMonthly)
         requestUserRanking(type: weeklyOrMonthly)
     }

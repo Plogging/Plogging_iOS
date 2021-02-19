@@ -83,6 +83,7 @@ extension MainViewController: UITabBarDelegate {
         switch item.tag {
         case MainTab.ranking.index:
             view.bringSubviewToFront(rankingView)
+            rankingViewController?.requestBothRankingAPI()
         case MainTab.plogging.index:
             view.bringSubviewToFront(ploggingView)
         case MainTab.myPage.index:
