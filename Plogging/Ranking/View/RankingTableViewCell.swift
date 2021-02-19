@@ -52,6 +52,8 @@ class RankingTableViewCell: UITableViewCell {
         
         if let url = URL(string: model.profileImg){
             profileImageView.kf.setImage(with: url)
+        } else {
+            profileImageView.image = UIImage(named: "user")
         }
         nickNameLabel.text = model.displayName
         scoreLabel.text = "\(model.score)점"

@@ -123,6 +123,10 @@ extension SettingViewController {
         }
         navigationController?.pushViewController(deleteUserViewController, animated: true)
     }
+    
+    @IBAction func aboutEcoRun(_ sender: UIButton) {
+        
+    }
 }
 
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
