@@ -28,7 +28,7 @@ class PloggingStartViewController: UIViewController {
         pathManager?.setupMapview(on: mapView)
         pathManager?.startLocationUpdate()
     }
-    
+
     func setupView() {
 
         currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
@@ -48,6 +48,10 @@ class PloggingStartViewController: UIViewController {
 
         startButton.title = "플로깅 시작하기"
 
+        requestUserNickName()
+    }
+    
+    func requestUserNickName() {
         let userName = PloggingUserData.shared.getUserName() ?? "플로거"
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(userName)", fontSize: 17)
@@ -56,9 +60,8 @@ class PloggingStartViewController: UIViewController {
         startButton.layer.shadowColor = UIColor.tintGreen.cgColor
         startButton.layer.shadowOpacity = 0.67
         startButton.layer.shadowOffset = .init(width: 0, height: 4)
-        
     }
-
+    
     @IBAction func presentIntroduceModal(_ sender: Any) {
         let storyboard = UIStoryboard(name: "PloggingMain", bundle: nil)
         if let infoController = storyboard.instantiateViewController(withIdentifier: "PloggingIntroduceModalViewController")

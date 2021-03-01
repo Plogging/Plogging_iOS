@@ -55,6 +55,7 @@ class RankingViewController: UIViewController {
     func requestBothRankingAPI() {
         requestRankingAPI(type: weeklyOrMonthly)
         requestUserRanking(type: weeklyOrMonthly)
+        setupRankingTitle()
     }
     
     private func requestRankingAPI(type: String) {
