@@ -39,6 +39,7 @@ class RankingViewController: UIViewController {
         super.viewWillAppear(animated)
         
         requestBothRankingAPI()
+        setupRankingTitle()
     }
     
     override func viewDidLoad() {
