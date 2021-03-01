@@ -89,16 +89,19 @@ class ChangePasswordViewController: UIViewController {
                                     "existedSecretKey": existedSecretKey]
         
         APICollection.sharedAPI.requestChangeUserPassword(param: param) { (response) in
-            if let code = try? response.get().rc {
-                switch code {
+            if let result = try? response.get() {
+                switch result.rc {
                 case 200:
                     self.showPopUpViewController(with: .비밀번호변경완료팝업)
                     return
+                case 402:
+                    self.setupWarningLabel(message: result.rcmsg)
+                    return
                 case 404:
-                    print("실패")
+                    self.setupWarningLabel(message: result.rcmsg)
                     return
                 default:
-                    print("error")
+                    self.setupWarningLabel(message: result.rcmsg)
                     return
                 }
             }
@@ -147,6 +150,7 @@ class ChangePasswordViewController: UIViewController {
             return
         }
         
+        setupWarningLabel(message: nil)
         isValidate = true
     }
 }
