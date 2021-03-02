@@ -80,8 +80,8 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction func completeChangePassword(_ sender: Any) {
-        guard let newSecretKey = nowPasswordTextField.text,
-              let existedSecretKey = changePasswordTextField.text else {
+        guard let newSecretKey = changePasswordTextField.text,
+              let existedSecretKey = nowPasswordTextField.text else {
             return
         }
         
