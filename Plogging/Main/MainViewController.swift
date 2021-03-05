@@ -86,6 +86,7 @@ extension MainViewController: UITabBarDelegate {
             rankingViewController?.requestBothRankingAPI()
         case MainTab.plogging.index:
             view.bringSubviewToFront(ploggingView)
+            ploggingController?.requestUserNickName()
         case MainTab.myPage.index:
             view.bringSubviewToFront(myPageView)
             myPageViewController?.mypageTabReload()
