@@ -31,9 +31,7 @@ class PathManager: NSObject {
 
     // todo 위치 연결 팝업 연결
     func isSetPermissions() {
-        if locationManager.authorizationStatus.rawValue < CLAuthorizationStatus.authorizedAlways.rawValue {
-            locationManager.requestWhenInUseAuthorization()
-        }
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func setupMapview(on mapView: MKMapView) {
