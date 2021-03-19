@@ -84,7 +84,6 @@ class PagingDataSource<T> {
     func loadFromFirst(completion: @escaping (() -> Void)) {
         initialize()
         request(completion)
-        print("loadFromFirst__")
     }
     
     func loadNext(completion: @escaping (() -> Void)) {

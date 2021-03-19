@@ -33,6 +33,7 @@ struct APICollection {
             return defaultHeader
         }
     }
+    
     func getCookies() {
         // 쿠키 설정
         if let cookieName = HTTPCookieStorage.shared.cookies?.first?.name, let cookieValue = HTTPCookieStorage.shared.cookies?.first?.value {
