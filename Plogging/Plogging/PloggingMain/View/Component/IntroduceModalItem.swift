@@ -63,7 +63,7 @@ class IntroduceModalItem: UIView {
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 2
-        label.textColor = UIColor.fromInt(red: 99, green: 110, blue: 127, alpha: 1)
+        label.textColor = .getColor(r: 99, g: 110, b: 127, alpha: 1)
         label.adjustsFontSizeToFitWidth = true
 
         // label view layout

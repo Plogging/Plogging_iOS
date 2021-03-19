@@ -28,7 +28,7 @@ class ConfirmButton: UIButton {
     }
 
     func setupProperties() {
-        self.backgroundColor = .fromInt(red: 55, green: 213, blue: 172, alpha: 1)
+        self.backgroundColor = .getColor(r: 55, g: 213, b: 172, alpha: 1)
         self.layer.cornerRadius = 40
     }
 

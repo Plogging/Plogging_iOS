@@ -46,7 +46,7 @@ extension PathManager: MKMapViewDelegate {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .fromInt(red: 255, green: 128, blue: 144, alpha: 1)
+        renderer.strokeColor = .getColor(r: 255, g: 128, b: 144, alpha: 1)
         renderer.lineWidth = 5
         return renderer
     }
