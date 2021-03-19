@@ -363,7 +363,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysN-5j-hI1">
-                                <rect key="frame" x="338" y="91" width="56" height="56"/>
+                                <rect key="frame" x="338" y="55" width="56" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="56" id="1PD-Mz-cf1"/>
@@ -391,7 +391,7 @@
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="TVp-zU-2sH"/>
                             <constraint firstItem="wY2-NV-ZFd" firstAttribute="trailing" secondItem="ysN-5j-hI1" secondAttribute="trailing" constant="20" id="Tex-9v-4im"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.125" id="Zhi-gl-ZaZ"/>
-                            <constraint firstItem="ysN-5j-hI1" firstAttribute="top" secondItem="wY2-NV-ZFd" secondAttribute="top" constant="47" id="ZvS-PR-ruK"/>
+                            <constraint firstItem="ysN-5j-hI1" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="55" id="ZvS-PR-ruK"/>
                             <constraint firstAttribute="bottom" secondItem="D4u-Rg-oEV" secondAttribute="bottom" id="aEA-zm-ewJ"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="centerX" secondItem="syo-Hv-PFH" secondAttribute="centerX" id="e1i-GQ-Kgz"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="hiS-S9-XuD"/>
