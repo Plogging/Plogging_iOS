@@ -112,7 +112,7 @@ class PloggingDetailInfoViewController: UIViewController {
     }
     
     private func setUpFooterViewUI() {
-        setGradationView(view: footerView, colors: [UIColor.black.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
+        setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
     
     @objc func handlePopGesture(gesture: UIGestureRecognizer) -> Void {

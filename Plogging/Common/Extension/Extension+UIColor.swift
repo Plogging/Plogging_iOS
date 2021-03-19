@@ -21,6 +21,7 @@ extension UIColor {
     static let greenBlue = UIColor.getColor(r: 0, g: 184, b: 144, alpha: 1)
     static let rankingGray = UIColor.getColor(r: 206, g: 206, b: 206, alpha: 1)
     static let lightGreenishBlue = UIColor.getColor(r: 114, g: 236, b: 201, alpha: 1)
+    static let paleGrey = UIColor.getColor(r: 248, g: 250, b: 252, alpha: 1)
     static let paleGreyZero = UIColor.getColor(r: 248, g: 250, b: 252, alpha: 0)
     static let strawberry = UIColor.getColor(r: 255, g: 41, b: 67, alpha: 1)
     static let rankingGreen = UIColor.getColor(r: 0, g: 143, b: 122, alpha: 1)
