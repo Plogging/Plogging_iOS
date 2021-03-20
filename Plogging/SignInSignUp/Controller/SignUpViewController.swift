@@ -136,16 +136,6 @@ class SignUpViewController: UIViewController {
     }
     
     private func checkAllValidation(_ textField: UITextField) {
-        if emailTextField.text?.count == 0 {
-            emailView.nothing()
-        }
-        if passwordTextField.text?.count == 0 {
-            passwordView.nothing()
-        }
-        if passwordCheckTextField.text?.count == 0 {
-            passwordCheckView.nothing()
-        }
-            
         // 이메일 체크
         if let email = emailTextField.text {
             if let message = checkEmailVaidation(email: email) {

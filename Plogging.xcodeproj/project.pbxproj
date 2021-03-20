@@ -36,6 +36,7 @@
 		1C5C000925C46B31003144B1 /* SNSLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C000325C46B30003144B1 /* SNSLoginData.swift */; };
 		1C5C000A25C46B31003144B1 /* SNSLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5C000525C46B31003144B1 /* SNSLogin.storyboard */; };
 		1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */; };
+		1C677B112605E52600EB1CA3 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C677B102605E52600EB1CA3 /* Extension+UIView.swift */; };
 		1C88A44D25CC65DD003E979D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C88A44A25CC65DD003E979D /* MyPage.storyboard */; };
 		1C88A44E25CC65DD003E979D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A44C25CC65DD003E979D /* MyPageViewController.swift */; };
 		1C9A3A9D25CDCA5F00668058 /* Protocol+NibLodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */; };
@@ -167,6 +168,7 @@
 		1C5C000525C46B31003144B1 /* SNSLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SNSLogin.storyboard; sourceTree = "<group>"; };
 		1C5CFFFF25C46B30003144B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C5EDBFB25BC6A8400C156A9 /* Enum+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Storyboard.swift"; sourceTree = "<group>"; };
+		1C677B102605E52600EB1CA3 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		1C88A44A25CC65DD003E979D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		1C88A44C25CC65DD003E979D /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		1C9A3A9C25CDCA5F00668058 /* Protocol+NibLodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+NibLodable.swift"; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				1C9A3AA025CDCAA400668058 /* Extension+UICollectionView.swift */,
 				1C9A3AA225CDCAC100668058 /* Extension+UITableView.swift */,
 				1C11C37025DB0967001BEF00 /* Extension+NotificationName.swift */,
+				1C677B102605E52600EB1CA3 /* Extension+UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				1CE928D725BDD0980083FB62 /* RankingTableViewCell.swift in Sources */,
 				9B0C235825A4DA1D0084D27B /* PloggingResultPhotoViewController.swift in Sources */,
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
+				1C677B112605E52600EB1CA3 /* Extension+UIView.swift in Sources */,
 				1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */,
 				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
