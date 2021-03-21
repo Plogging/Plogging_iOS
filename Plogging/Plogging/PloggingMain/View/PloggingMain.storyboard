@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -361,6 +362,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysN-5j-hI1">
+                                <rect key="frame" x="338" y="55" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="56" id="1PD-Mz-cf1"/>
+                                    <constraint firstAttribute="width" secondItem="ysN-5j-hI1" secondAttribute="height" multiplier="1:1" id="D6d-9S-BzM"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="56" id="hcQ-Qn-HTi"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="17" minY="17" maxX="17" maxY="17"/>
+                                <state key="normal" image="iconFocus"/>
+                                <connections>
+                                    <action selector="focusCurrentLocation:" destination="iDk-36-o5o" eventType="touchUpInside" id="YN3-05-7uN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wY2-NV-ZFd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -369,10 +385,13 @@
                             <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerX" secondItem="wY2-NV-ZFd" secondAttribute="centerX" id="82x-qA-fyW"/>
                             <constraint firstItem="D4u-Rg-oEV" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.683036" id="8da-mz-1UV"/>
                             <constraint firstItem="KaW-X0-LeJ" firstAttribute="centerY" secondItem="wY2-NV-ZFd" secondAttribute="centerY" constant="12" id="Bk9-sk-AgM"/>
+                            <constraint firstItem="ysN-5j-hI1" firstAttribute="width" secondItem="ysN-5j-hI1" secondAttribute="height" multiplier="1:1" id="FYG-1q-UGN"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.441" id="JpZ-ZZ-XfN"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" id="QTP-mf-L9f"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="leading" secondItem="wY2-NV-ZFd" secondAttribute="leading" id="TVp-zU-2sH"/>
+                            <constraint firstItem="wY2-NV-ZFd" firstAttribute="trailing" secondItem="ysN-5j-hI1" secondAttribute="trailing" constant="20" id="Tex-9v-4im"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="height" secondItem="syo-Hv-PFH" secondAttribute="height" multiplier="0.125" id="Zhi-gl-ZaZ"/>
+                            <constraint firstItem="ysN-5j-hI1" firstAttribute="top" secondItem="syo-Hv-PFH" secondAttribute="top" constant="55" id="ZvS-PR-ruK"/>
                             <constraint firstAttribute="bottom" secondItem="D4u-Rg-oEV" secondAttribute="bottom" id="aEA-zm-ewJ"/>
                             <constraint firstItem="Mbw-af-PWV" firstAttribute="centerX" secondItem="syo-Hv-PFH" secondAttribute="centerX" id="e1i-GQ-Kgz"/>
                             <constraint firstItem="Pji-qO-zIH" firstAttribute="trailing" secondItem="wY2-NV-ZFd" secondAttribute="trailing" id="hiS-S9-XuD"/>
@@ -387,6 +406,7 @@
                     <connections>
                         <outlet property="continueButton" destination="vrk-Nd-hrh" id="Mn6-nr-agc"/>
                         <outlet property="countLabel" destination="KaW-X0-LeJ" id="5wk-X3-mNy"/>
+                        <outlet property="currentLocationButton" destination="ysN-5j-hI1" id="aMm-cm-wAI"/>
                         <outlet property="infoView" destination="D4u-Rg-oEV" id="5nh-h8-KxM"/>
                         <outlet property="mapView" destination="Pji-qO-zIH" id="kl1-NX-TxT"/>
                         <outlet property="stopButton" destination="6eF-DA-V2s" id="xPZ-qa-cgg"/>

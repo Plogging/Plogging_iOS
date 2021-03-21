@@ -139,7 +139,7 @@ class NickNameViewController: UIViewController {
         } else {
             switch model.rc {
             case 201:
-                showLoginViewController()
+                makeLoginRootViewController()
                 return
             case 409:
                 setupErrorLabel(message: "이미 사용중인 이메일입니다.")

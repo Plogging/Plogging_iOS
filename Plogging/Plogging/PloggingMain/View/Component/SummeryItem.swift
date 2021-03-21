@@ -14,7 +14,7 @@ class SummeryItem: UIView {
 
     let dataLabel: UILabel = {
         let view = UILabel()
-        view.textColor = UIColor.fromInt(red: 34, green: 34, blue: 34, alpha: 1)
+        view.textColor = .getColor(r: 34, g: 34, b: 34, alpha: 1)
         view.textAlignment = .center
         return view
     }()
@@ -22,7 +22,7 @@ class SummeryItem: UIView {
     let unitLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 14, weight: .init(500))
-        view.textColor = .fromInt(red: 137, green: 137, blue: 137, alpha: 1)
+        view.textColor = .getColor(r: 137, g: 137, b: 137, alpha: 1)
         view.textAlignment = .center
         return view
     }()

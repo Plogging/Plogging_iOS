@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol LoginValidation {
-
-}
+protocol LoginValidation {}
 
 extension LoginValidation {
     func checkEmailVaidation(email: String) -> String? {

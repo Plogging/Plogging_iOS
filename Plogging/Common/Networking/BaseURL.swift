@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct BaseHeader {
-    static let userSessionKey = "userId"
-}
-
 struct BaseURL {
     static let mainURL = "https://nexters.plogging.kro.kr:20000"
     
