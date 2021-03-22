@@ -129,4 +129,13 @@ extension PopUpType {
             return 20
         }
     }
+    
+    func innerImageViewXConstraint() -> CGFloat {
+        switch self {
+        case .기록삭제팝업:
+            return 25
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인, .운동점수안내팝업, .랭킹점수안내팝업:
+            return 0
+        }
+    }
 }

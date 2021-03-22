@@ -58,6 +58,7 @@ class PopUpViewController: UIViewController {
         outerViewHeightConstraint.constant = type.outerViewHeight()
         innerViewHeightConstraint.constant = type.innerViewHeight()
         imageTopConstraint.constant = type.topConstraint()
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: type.innerImageViewXConstraint()).isActive = true
         
         if type.numberOfButton() == 1 {
             noButton.isHidden = true
