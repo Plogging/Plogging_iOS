@@ -30,7 +30,7 @@ class PloggingDetailInfoViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
-    private let contentViewOriginalHeight = 1150
+    private let contentViewOriginalHeight = DeviceInfo.screenWidth + 711
     private let totalCountViewOriginalHeight = 80
     private let trashInfoViewTopConstraint = 40
     private let collectionViewCellLeading = 54
@@ -103,8 +103,12 @@ class PloggingDetailInfoViewController: UIViewController {
         let second = String(format: "%02d",(ploggingList?.meta.ploggingTime ?? 0) % 60)
         ploggingTime.text = "\(minute):\(second)"
         
-        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashInfosCount))
-        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
+        contentViewHeight.constant = contentViewOriginalHeight
+        
+        if trashInfosCount > 1 {
+            contentViewHeight.constant = CGFloat(contentViewOriginalHeight - 50) + CGFloat((50 * trashInfosCount))
+            trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashInfosCount))
+        }
         
         let trashCountSum = trashInfos.getTrashPickTotalCount()
         totalTrashCount.text = "\(trashCountSum)개"
