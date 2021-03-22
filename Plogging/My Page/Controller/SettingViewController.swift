@@ -148,7 +148,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                         
                         self?.profilePhotoCoverView.alpha = 1
                         self?.checkImage.alpha = 1
-                        UIView.animate(withDuration: 0.8, animations: { [self] in
+                        UIView.animate(withDuration: 0.8, animations: { [weak self] in
                             self?.profilePhotoCoverView.alpha = 0
                             self?.checkImage.alpha = 0
                         })

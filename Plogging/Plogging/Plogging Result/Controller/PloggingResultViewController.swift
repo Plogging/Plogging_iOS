@@ -20,7 +20,7 @@ class PloggingResultViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var trashInfoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var footerView: UIView!
-    private let contentViewOriginalHeight = 1280
+    private let contentViewOriginalHeight = DeviceInfo.screenWidth + 823
     private let totalCountViewOriginalHeight = 80
     private let trashInfoViewTopConstraint = 40
     private let collectionViewCellLeading = 54
@@ -75,8 +75,11 @@ class PloggingResultViewController: UIViewController {
         
         let trashListCount = ploggingResult?.trashList?.count ?? 0
         
-        contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashListCount))
-        trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashListCount))
+        contentViewHeight.constant = DeviceInfo.screenWidth + 873
+        if trashListCount > 1 {
+            contentViewHeight.constant = CGFloat(contentViewOriginalHeight) + CGFloat((50 * trashListCount))
+            trashInfoViewHeight.constant = CGFloat(totalCountViewOriginalHeight + trashInfoViewTopConstraint) + CGFloat((50 * trashListCount))
+        }
         
         setGradationView(view: footerView, colors: [UIColor.paleGrey.cgColor, UIColor.paleGreyZero.cgColor], location: 0.5, startPoint: CGPoint(x: 0.5, y: 1.0), endPoint: CGPoint(x: 0.5, y: 0.0))
     }
