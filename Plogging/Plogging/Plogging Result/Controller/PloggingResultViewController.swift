@@ -144,7 +144,7 @@ extension PloggingResultViewController {
                     let ploggingThumbnailImage = ploggingResultImageMaker.createResultImage(baseImage: resizedBasicImage, distance: String(format: "%.2f", Float(self?.ploggingResult?.distance ?? 0)/1000), trashCount: "\(trashCount)")
                     self?.forwardingImage = ploggingThumbnailImage
                     
-                    guard let forwardingImageData = self?.forwardingImage.pngData() else {
+                    guard let forwardingImageData = self?.forwardingImage.jpeg(.low) else {
                         print("no forwardingImageData")
                         return
                     }
