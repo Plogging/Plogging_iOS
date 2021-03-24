@@ -297,11 +297,23 @@ extension MyPageViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        var footerSize = CGSize()
         
-        if collectionView.numberOfItems(inSection: 0) <= 2 {
-            return CGSize(width: 0, height: 0)
+        if DeviceInfo.screenHeight >= 844 {
+            if collectionView.numberOfItems(inSection: 0) <= 4 {
+                footerSize = CGSize(width: 0, height: 0)
+            } else {
+                footerSize = CGSize(width: 0, height: 110)
+            }
+        } else {
+            if collectionView.numberOfItems(inSection: 0) <= 2 {
+                footerSize = CGSize(width: 0, height: 0)
+            } else {
+                footerSize = CGSize(width: 0, height: 160)
+            }
         }
-        return CGSize(width: 0, height: 380)
+        
+        return footerSize
     }
 }
 
