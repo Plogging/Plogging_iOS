@@ -326,7 +326,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
 extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
-        navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY))
+        navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY * 2))
         print("contentOffSetY: \(contentOffSetY)")
         
         if contentOffSetY < 183 {
@@ -337,41 +337,41 @@ extension MyPageViewController: UIScrollViewDelegate {
             sortingButton.transform = CGAffineTransform(translationX: 0, y: -183)
         }
 
-        if contentOffSetY > 30 {
+        if contentOffSetY > 10 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.settingButton.alpha = 0
             })
-        } else if contentOffSetY <= 30 {
+        } else if contentOffSetY <= 10 {
             settingButton.alpha = 1
         }
-        if contentOffSetY > 60 {
+        if contentOffSetY > 20 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.nickName.alpha = 0
                 self?.profilePhoto.alpha = 0
             })
-        } else if contentOffSetY <= 60 {
+        } else if contentOffSetY <= 20 {
             nickName.alpha = 1
             profilePhoto.alpha = 1
         }
         
-        if contentOffSetY > 190 {
+        if contentOffSetY > 70 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 0
             })
-        } else if contentOffSetY <= 190 {
+        } else if contentOffSetY <= 70 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 1
             })
         }
         
-        if contentOffSetY > 240 {
-            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
+        if contentOffSetY > 120 {
+            UIView.animate(withDuration: 0.05, animations: { [weak self] () -> Void in
                 self?.shortNavigationBarViewSettingButton.alpha = 1
                 self?.shortNavigationBarViewNickName.alpha = 1
                 self?.shortNavigationBarViewProfilePhoto.alpha = 1
             })
-        } else if contentOffSetY <= 240 {
-            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
+        } else if contentOffSetY <= 120 {
+            UIView.animate(withDuration: 0.05, animations: { [weak self] () -> Void in
                 self?.shortNavigationBarViewSettingButton.alpha = 0
                 self?.shortNavigationBarViewNickName.alpha = 0
                 self?.shortNavigationBarViewProfilePhoto.alpha = 0
