@@ -291,6 +291,14 @@ extension MyPageViewController: UICollectionViewDelegate {
             }
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        if collectionView.numberOfItems(inSection: 0) <= 2 {
+            return CGSize(width: 0, height: 0)
+        }
+        return CGSize(width: 0, height: 380)
+    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
