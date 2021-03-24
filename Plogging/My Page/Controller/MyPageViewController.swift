@@ -107,6 +107,9 @@ class MyPageViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
         
+        settingButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
+        shortNavigationBarViewSettingButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
+        
         if type == .mypage {
             navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
@@ -199,7 +202,7 @@ class MyPageViewController: UIViewController {
         }
     }
     
-    @IBAction func goToSetting(_ sender: Any) {
+    @objc func goToSetting() {
         if type == .mypage {
             (rootViewController as? MainViewController)?.setTabBarHidden(true)
             guard let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else {
@@ -351,14 +354,12 @@ extension MyPageViewController: UIScrollViewDelegate {
         
         if contentOffSetY > 240 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
-//                self?.shortNavigationBarView.alpha = 1
                 self?.shortNavigationBarViewSettingButton.alpha = 1
                 self?.shortNavigationBarViewNickName.alpha = 1
                 self?.shortNavigationBarViewProfilePhoto.alpha = 1
             })
         } else if contentOffSetY <= 240 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
-//            shortNavigationBarView.alpha = 0
                 self?.shortNavigationBarViewSettingButton.alpha = 0
                 self?.shortNavigationBarViewNickName.alpha = 0
                 self?.shortNavigationBarViewProfilePhoto.alpha = 0
