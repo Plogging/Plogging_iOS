@@ -33,12 +33,12 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WbL-nn-vVN">
-                                        <rect key="frame" x="24" y="150" width="366" height="658"/>
+                                        <rect key="frame" x="24" y="160" width="366" height="648"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pb2-h6-GUH">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="500"/>
+                                            <size key="footerReferenceSize" width="0.0" height="380"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
@@ -71,7 +71,7 @@
                                             </collectionViewCell>
                                         </cells>
                                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Dku-dR-4LY">
-                                            <rect key="frame" x="0.0" y="128" width="366" height="500"/>
+                                            <rect key="frame" x="0.0" y="128" width="366" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionReusableView>
                                         <connections>
@@ -348,7 +348,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="y8w-th-dq9" firstAttribute="height" secondItem="WbL-nn-vVN" secondAttribute="height" constant="150" id="22N-a3-055"/>
+                                    <constraint firstItem="y8w-th-dq9" firstAttribute="height" secondItem="WbL-nn-vVN" secondAttribute="height" constant="160" id="22N-a3-055"/>
                                     <constraint firstItem="6Cc-Jq-jUn" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="36" id="9kM-3z-TV4"/>
                                     <constraint firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="top" id="FMZ-YB-wAB"/>
                                     <constraint firstItem="kFd-ki-Xkp" firstAttribute="width" secondItem="IYc-3A-PVR" secondAttribute="width" id="FbG-ms-djn"/>
@@ -358,7 +358,7 @@
                                     <constraint firstAttribute="bottom" secondItem="WbL-nn-vVN" secondAttribute="bottom" id="b5l-nK-Ns2"/>
                                     <constraint firstItem="WbL-nn-vVN" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" constant="24" id="dmi-CO-pod"/>
                                     <constraint firstItem="Dui-KK-1sb" firstAttribute="leading" secondItem="IYc-3A-PVR" secondAttribute="leading" id="jyZ-jC-6Q5"/>
-                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="150" id="lEa-mT-17n"/>
+                                    <constraint firstItem="WbL-nn-vVN" firstAttribute="top" secondItem="IYc-3A-PVR" secondAttribute="top" constant="160" id="lEa-mT-17n"/>
                                     <constraint firstAttribute="trailing" secondItem="kFd-ki-Xkp" secondAttribute="trailing" id="lto-mH-LOa"/>
                                     <constraint firstItem="F76-qf-TP4" firstAttribute="top" secondItem="kFd-ki-Xkp" secondAttribute="bottom" constant="23" id="mE4-y0-VEh"/>
                                     <constraint firstAttribute="trailing" secondItem="F76-qf-TP4" secondAttribute="trailing" constant="5" id="suK-Pc-GNy"/>
@@ -395,6 +395,7 @@
                         <outlet property="navigationBarView" destination="kFd-ki-Xkp" id="fae-GL-2qL"/>
                         <outlet property="navigationBarViewHeight" destination="orc-Vu-Zcc" id="xbj-Gf-25e"/>
                         <outlet property="nickName" destination="4mh-TU-c5Q" id="o4U-BA-gj8"/>
+                        <outlet property="ploggingInfoView" destination="dOf-75-dJS" id="Djc-EU-OCp"/>
                         <outlet property="profilePhoto" destination="NVi-sV-TLm" id="ngM-Mh-2Bp"/>
                         <outlet property="scrollView" destination="IYc-3A-PVR" id="JdQ-UW-2hE"/>
                         <outlet property="settingButton" destination="VU6-nD-Ldn" id="e8w-HA-Hfd"/>

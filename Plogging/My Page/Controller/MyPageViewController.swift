@@ -61,6 +61,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var sortingView: UIStackView!
     @IBOutlet weak var sortingLabel: UILabel!
     @IBOutlet weak var sortingButton: UIButton!
+    @IBOutlet weak var ploggingInfoView: UIView!
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
@@ -315,7 +316,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let startEdgeInsets = CGFloat(191)
+        let startEdgeInsets = CGFloat(182)
         
         return UIEdgeInsets(top: startEdgeInsets, left: 0, bottom: 0, right: 0)
     }
@@ -325,16 +326,17 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
 extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
-        navigationBarView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+        navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY))
         print("contentOffSetY: \(contentOffSetY)")
-        if contentOffSetY < -50 {
-            fixHeaderView.isHidden = true
-            shortNavigationBarView.isHidden = true
-        } else {
-            fixHeaderView.isHidden = false
-            shortNavigationBarView.isHidden = false
-        }
         
+        if contentOffSetY < 183 {
+            sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+            sortingButton.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
+        } else {
+            sortingView.transform = CGAffineTransform(translationX: 0, y: -183)
+            sortingButton.transform = CGAffineTransform(translationX: 0, y: -183)
+        }
+
         if contentOffSetY > 30 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.settingButton.alpha = 0
@@ -352,6 +354,16 @@ extension MyPageViewController: UIScrollViewDelegate {
             profilePhoto.alpha = 1
         }
         
+        if contentOffSetY > 190 {
+            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
+                self?.ploggingInfoView.alpha = 0
+            })
+        } else if contentOffSetY <= 190 {
+            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
+                self?.ploggingInfoView.alpha = 1
+            })
+        }
+        
         if contentOffSetY > 240 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.shortNavigationBarViewSettingButton.alpha = 1
@@ -365,28 +377,7 @@ extension MyPageViewController: UIScrollViewDelegate {
                 self?.shortNavigationBarViewProfilePhoto.alpha = 0
             })
         }
-
-//        if contentOffSetY > CGFloat(thresholdOffset) {
-//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-//            UIView.animate(withDuration: 0.1, animations: { [self] () -> Void in
-////                navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-//                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
-//                nickName.font = nickName.font.withSize(26)
-//                nickName.transform = CGAffineTransform(translationX: 40, y: -46)
-//
-//                let scaledAndTranslatedTransform = CGAffineTransform(translationX: 15, y: -40).scaledBy(x: 0.6, y: 0.6)
-//                profilePhoto.transform = scaledAndTranslatedTransform
-////                navigationBarView.alpha = 0
-//            })
-//        } else if contentOffSetY <= CGFloat(thresholdOffset) {
-//            navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-//            navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
-//            nickName.transform = CGAffineTransform(translationX: 0, y: 0)
-//            nickName.font = nickName.font.withSize(35)
-//
-//            profilePhoto.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-////            navigationBarView.alpha = 1
-//        }
+        
         navigationBarView.layoutIfNeeded()
 
         if scrollView.requestNextPage() {
@@ -395,17 +386,6 @@ extension MyPageViewController: UIScrollViewDelegate {
             }
         }
     }
-
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        let contentOffSetY = scrollView.contentOffset.y
-//        if velocity.y >= 0, contentOffSetY > CGFloat(thresholdOffset) { // 올릴 때
-//            navigationBarViewHeight.constant = CGFloat(scrollUpNavigationBarViewHeight)
-//        } else if velocity.y < 0, contentOffSetY <= CGFloat(thresholdOffset) { // 내릴 때
-//                navigationBarView.transform = CGAffineTransform(translationX: 0, y: 0)
-//                navigationBarViewHeight.constant = CGFloat(scrollDownNavigationViewHeight)
-//        }
-//        navigationBarView.layoutIfNeeded()
-//    }
 }
 
 extension UIScrollView {
