@@ -304,16 +304,28 @@ extension MyPageViewController: UICollectionViewDelegate {
 
         var multipleCount = 1
         
-        if collectionView.numberOfItems(inSection: 0) > 2, collectionView.numberOfItems(inSection: 0) <= 4 {
+        if collectionView.numberOfItems(inSection: 0) > 2 {
             multipleCount = 2
-        } else if collectionView.numberOfItems(inSection: 0) > 4 {
-            multipleCount = 3
         }
+//        else if collectionView.numberOfItems(inSection: 0) > 4 {
+//            multipleCount = 3
+//        }
         print("multipleCount: \(multipleCount)")
         
-            let value = (((DeviceInfo.screenWidth - 48 - 10) / 2) * multipleCount)
+        let value = (((Int(DeviceInfo.screenWidth) - 48 - 10) / 2) * multipleCount)
+        print("value: \(value)")
         
-        let footer = DeviceInfo.screenHeight - fixHeaderView.bounds.height - 160  - (10 * multipleCount) /* 줄 추가시 세로 공백 10*/  /* - 34 탭바 밑에*/
+        guard let tabBarBottomCoverViewHeight = (rootViewController as? MainViewController)?.tabBarBottomCoverView.bounds.height else {
+            return CGSize(width: 0, height: 0)
+        }
+        
+        guard let tabBarHeight = (rootViewController as? MainViewController)?.tabBar.bounds.height else {
+            return CGSize(width: 0, height: 0)
+        }
+        
+        let footer = Int(DeviceInfo.screenHeight - fixHeaderView.bounds.height) - 160 - value  - (10 * (multipleCount - 1)) - Int(tabBarBottomCoverViewHeight)
+        print("footer: \(footer)")
+        
          footerSize = CGSize(width: 0, height: footer)
         
         return footerSize
@@ -341,54 +353,58 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
 extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
-        navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY * 2))
+        navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY))
+        print("contentOffSetY: \(contentOffSetY)")
+        let maxContentOffSetY = CGFloat(180)
         
-        if contentOffSetY < 183 {
+        if contentOffSetY < maxContentOffSetY {
             sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
             sortingButton.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
         } else {
-            sortingView.transform = CGAffineTransform(translationX: 0, y: -183)
-            sortingButton.transform = CGAffineTransform(translationX: 0, y: -183)
+            sortingView.transform = CGAffineTransform(translationX: 0, y: -maxContentOffSetY)
+            sortingButton.transform = CGAffineTransform(translationX: 0, y: -maxContentOffSetY)
         }
 
-        if contentOffSetY > 10 {
-            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
-                self?.settingButton.alpha = 0
-            })
-        } else if contentOffSetY <= 10 {
-            settingButton.alpha = 1
-        }
         if contentOffSetY > 20 {
+            UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
+                self?.navigationBarButton.alpha = 0
+            })
+        } else if contentOffSetY <= 20 {
+            navigationBarButton.alpha = 1
+        }
+        if contentOffSetY > 40 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.nickName.alpha = 0
                 self?.profilePhoto.alpha = 0
             })
-        } else if contentOffSetY <= 20 {
+        } else if contentOffSetY <= 40 {
             nickName.alpha = 1
             profilePhoto.alpha = 1
         }
         
-        if contentOffSetY > 70 {
+        if contentOffSetY > 160 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 0
             })
-        } else if contentOffSetY <= 70 {
+        } else if contentOffSetY <= 160 {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 1
             })
         }
         
-        if contentOffSetY > 120 {
-            UIView.animate(withDuration: 0.05, animations: { [weak self] () -> Void in
-                self?.shortNavigationBarViewSettingButton.alpha = 1
-                self?.shortNavigationBarViewNickName.alpha = 1
-                self?.shortNavigationBarViewProfilePhoto.alpha = 1
+        if contentOffSetY > maxContentOffSetY {
+            navigationBarView.alpha = 0
+            UIView.animate(withDuration: 0.2, animations: { [weak self] () -> Void in
+                self?.shortNavigationBarButton.alpha = 1
+                self?.shortNavigationBarNickName.alpha = 1
+                self?.shortNavigationBarProfilePhoto.alpha = 1
             })
-        } else if contentOffSetY <= 120 {
-            UIView.animate(withDuration: 0.05, animations: { [weak self] () -> Void in
-                self?.shortNavigationBarViewSettingButton.alpha = 0
-                self?.shortNavigationBarViewNickName.alpha = 0
-                self?.shortNavigationBarViewProfilePhoto.alpha = 0
+        } else if contentOffSetY <= maxContentOffSetY {
+            navigationBarView.alpha = 1
+            UIView.animate(withDuration: 0.2, animations: { [weak self] () -> Void in
+                self?.shortNavigationBarButton.alpha = 0
+                self?.shortNavigationBarNickName.alpha = 0
+                self?.shortNavigationBarProfilePhoto.alpha = 0
             })
         }
         
