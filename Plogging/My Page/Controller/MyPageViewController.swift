@@ -111,12 +111,6 @@ class MyPageViewController: UIViewController {
         
         navigationBarButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
         shortNavigationBarButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
-        
-        if type == .mypage {
-            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        } else {
-            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,10 +135,14 @@ class MyPageViewController: UIViewController {
     func setUpNavigationBarUI() {
         if type == .mypage {
             navigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
+            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             shortNavigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
         } else {
             navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+            navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
             shortNavigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+            shortNavigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            shortNavigationBarNickName.leadingAnchor.constraint(equalTo: shortNavigationBarButton.trailingAnchor, constant: -5).isActive = true
         }
         fixHeaderView.backgroundColor = UIColor.tintGreen
         navigationBarView.backgroundColor = UIColor.tintGreen
