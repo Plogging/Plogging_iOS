@@ -128,6 +128,7 @@
                         <outlet property="rankingView" destination="mRy-ze-S5H" id="Og7-HP-1gu"/>
                         <outlet property="shadowView" destination="14t-un-sOC" id="qf9-YG-fIA"/>
                         <outlet property="tabBar" destination="EuL-s9-PTS" id="E2p-pW-DMJ"/>
+                        <outlet property="tabBarBottomCoverView" destination="Yj7-gS-pNf" id="aou-Ut-9tn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

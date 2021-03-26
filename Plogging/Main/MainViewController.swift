@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var myPageView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
-    
+    @IBOutlet weak var tabBarBottomCoverView: UIView!
     var rankingViewController: RankingViewController?
     var ploggingController: PloggingStartViewController?
     var myPageViewController: MyPageViewController?
