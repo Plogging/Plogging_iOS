@@ -400,15 +400,6 @@ extension MyPageViewController: UIScrollViewDelegate {
             }
         }
     }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let contentOffSetY = scrollView.contentOffset.y
-        if velocity.y >= 0, contentOffSetY < CGFloat(175) { // 올릴 때
-            collectionView.contentOffset = CGPoint(x: 0, y: 175)
-        }
-        navigationBarView.layoutIfNeeded()
-    }
-
 }
 
 extension UIScrollView {
