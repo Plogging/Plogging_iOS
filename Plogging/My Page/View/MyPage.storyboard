@@ -190,7 +190,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="73C-oG-M9d">
-                                                                <rect key="frame" x="18.666666666666664" y="46" width="86" height="20"/>
+                                                                <rect key="frame" x="15.666666666666664" y="46" width="92.333333333333343" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="8iy-6C-0Dp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -200,7 +200,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000점" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHx-Ri-NwK">
-                                                                        <rect key="frame" x="24.000000000000007" y="0.0" width="61.999999999999993" height="20"/>
+                                                                        <rect key="frame" x="24" y="0.0" width="68.333333333333329" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="mp3-Hl-pSn"/>
                                                                         </constraints>
@@ -234,7 +234,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SMf-Lq-kFy">
-                                                                <rect key="frame" x="23.666666666666657" y="46" width="76" height="20"/>
+                                                                <rect key="frame" x="22.333333333333314" y="46" width="78.666666666666671" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running" translatesAutoresizingMaskIntoConstraints="NO" id="3ZE-wO-Jjl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -244,7 +244,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siv-pd-zhM">
-                                                                        <rect key="frame" x="24" y="0.0" width="52" height="20"/>
+                                                                        <rect key="frame" x="23.999999999999996" y="0.0" width="54.666666666666657" height="20"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -275,7 +275,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hu7-05-4Fh">
-                                                                <rect key="frame" x="23.333333333333314" y="46" width="76.666666666666671" height="20"/>
+                                                                <rect key="frame" x="21" y="46" width="81.333333333333329" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trashCan" translatesAutoresizingMaskIntoConstraints="NO" id="tXR-QO-4Z6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -285,7 +285,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000개" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nym-Hf-Lwc">
-                                                                        <rect key="frame" x="23.999999999999996" y="0.0" width="52.666666666666657" height="20"/>
+                                                                        <rect key="frame" x="24.000000000000004" y="0.0" width="57.333333333333343" height="20"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeoEB00" family="AppleSDGothicNeoEB00" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -398,11 +398,10 @@
                         <outlet property="ploggingInfoView" destination="dOf-75-dJS" id="Djc-EU-OCp"/>
                         <outlet property="profilePhoto" destination="NVi-sV-TLm" id="ngM-Mh-2Bp"/>
                         <outlet property="scrollView" destination="IYc-3A-PVR" id="JdQ-UW-2hE"/>
-                        <outlet property="settingButton" destination="VU6-nD-Ldn" id="e8w-HA-Hfd"/>
+                        <outlet property="shortNavigationBarButton" destination="zaX-U0-YJP" id="Mka-42-PC1"/>
+                        <outlet property="shortNavigationBarNickName" destination="ePG-JL-qVm" id="vJZ-rP-VZe"/>
+                        <outlet property="shortNavigationBarProfilePhoto" destination="s69-Tp-mld" id="Onc-s0-aL8"/>
                         <outlet property="shortNavigationBarView" destination="Dui-KK-1sb" id="Xbx-7t-leo"/>
-                        <outlet property="shortNavigationBarViewNickName" destination="ePG-JL-qVm" id="vJZ-rP-VZe"/>
-                        <outlet property="shortNavigationBarViewProfilePhoto" destination="s69-Tp-mld" id="Onc-s0-aL8"/>
-                        <outlet property="shortNavigationBarViewSettingButton" destination="zaX-U0-YJP" id="Mka-42-PC1"/>
                         <outlet property="sortingButton" destination="F76-qf-TP4" id="Lh1-VZ-fdu"/>
                         <outlet property="sortingLabel" destination="O2T-sV-trM" id="Vyy-oa-dfn"/>
                         <outlet property="sortingView" destination="6Cc-Jq-jUn" id="agk-Ye-nGk"/>

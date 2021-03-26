@@ -46,11 +46,10 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var nickName: UILabel!
     @IBOutlet weak var profilePhoto: UIImageView!
-    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shortNavigationBarView: UIView!
-    @IBOutlet weak var shortNavigationBarViewProfilePhoto: UIImageView!
-    @IBOutlet weak var shortNavigationBarViewNickName: UILabel!
-    @IBOutlet weak var shortNavigationBarViewSettingButton: UIButton!
+    @IBOutlet weak var shortNavigationBarProfilePhoto: UIImageView!
+    @IBOutlet weak var shortNavigationBarNickName: UILabel!
+    @IBOutlet weak var shortNavigationBarButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalPloggingScore: UILabel!
     @IBOutlet weak var totalPloggingDistance: UILabel!
@@ -110,8 +109,8 @@ class MyPageViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteItem), name: Notification.Name.deleteItem, object: nil)
         
-        settingButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
-        shortNavigationBarViewSettingButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
+        navigationBarButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
+        shortNavigationBarButton.addTarget(self, action: #selector(goToSetting), for: .touchUpInside)
         
         if type == .mypage {
             navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -142,16 +141,18 @@ class MyPageViewController: UIViewController {
     func setUpNavigationBarUI() {
         if type == .mypage {
             navigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
+            shortNavigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
         } else {
             navigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
+            shortNavigationBarButton.setImage(UIImage(named: "buttonBack"), for: .normal)
         }
         fixHeaderView.backgroundColor = UIColor.tintGreen
         navigationBarView.backgroundColor = UIColor.tintGreen
         shortNavigationBarView.backgroundColor = UIColor.tintGreen
         
-        shortNavigationBarViewSettingButton.alpha = 0
-        shortNavigationBarViewNickName.alpha = 0
-        shortNavigationBarViewProfilePhoto.alpha = 0
+        shortNavigationBarButton.alpha = 0
+        shortNavigationBarNickName.alpha = 0
+        shortNavigationBarProfilePhoto.alpha = 0
         
         navigationBarView.clipsToBounds = true
         navigationBarView.layer.cornerRadius = 37
@@ -171,13 +172,13 @@ class MyPageViewController: UIViewController {
                 return
             } else {
                 self?.nickName.text = userData?.userName
-                self?.shortNavigationBarViewNickName.text = userData?.userName
+                self?.shortNavigationBarNickName.text = userData?.userName
                 if let usrImage = userData?.userImg,
                    let userImageURL = URL(string: usrImage) {
                     PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
                     self?.profilePhoto.sizeToFit()
                     self?.profilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
-                    self?.shortNavigationBarViewProfilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
+                    self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
                 }
                 
                 if self?.weeklyOrMonthly == "weekly" {
