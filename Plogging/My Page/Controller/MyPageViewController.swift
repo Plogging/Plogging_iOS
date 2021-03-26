@@ -65,6 +65,8 @@ class MyPageViewController: UIViewController {
     private let scrollDownNavigationViewHeight = 269
     private let scrollUpNavigationBarViewHeight = 82
     private let thresholdOffset = 70
+    private var contentsOffset = 0
+    private var footerSizeHeight = 0
     var url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
     private(set) var currentSortType: MyPageSortType = .date {
         didSet {
@@ -298,20 +300,20 @@ extension MyPageViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         var footerSize = CGSize()
+
+        var multipleCount = 1
         
-        if DeviceInfo.screenHeight >= 844 {
-            if collectionView.numberOfItems(inSection: 0) <= 4 {
-                footerSize = CGSize(width: 0, height: 0)
-            } else {
-                footerSize = CGSize(width: 0, height: 110)
-            }
-        } else {
-            if collectionView.numberOfItems(inSection: 0) <= 2 {
-                footerSize = CGSize(width: 0, height: 0)
-            } else {
-                footerSize = CGSize(width: 0, height: 160)
-            }
+        if collectionView.numberOfItems(inSection: 0) > 2, collectionView.numberOfItems(inSection: 0) <= 4 {
+            multipleCount = 2
+        } else if collectionView.numberOfItems(inSection: 0) > 4 {
+            multipleCount = 3
         }
+        print("multipleCount: \(multipleCount)")
+        
+            let value = (((DeviceInfo.screenWidth - 48 - 10) / 2) * multipleCount)
+        
+        let footer = DeviceInfo.screenHeight - fixHeaderView.bounds.height - 160  - (10 * multipleCount) /* 줄 추가시 세로 공백 10*/  /* - 34 탭바 밑에*/
+         footerSize = CGSize(width: 0, height: footer)
         
         return footerSize
     }
@@ -339,7 +341,6 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY * 2))
-        print("contentOffSetY: \(contentOffSetY)")
         
         if contentOffSetY < 183 {
             sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
@@ -398,6 +399,15 @@ extension MyPageViewController: UIScrollViewDelegate {
             }
         }
     }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let contentOffSetY = scrollView.contentOffset.y
+        if velocity.y >= 0, contentOffSetY < CGFloat(175) { // 올릴 때
+            collectionView.contentOffset = CGPoint(x: 0, y: 175)
+        }
+        navigationBarView.layoutIfNeeded()
+    }
+
 }
 
 extension UIScrollView {
