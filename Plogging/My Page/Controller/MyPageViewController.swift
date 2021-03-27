@@ -353,8 +353,10 @@ extension MyPageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY))
-        print("contentOffSetY: \(contentOffSetY)")
         let maxContentOffSetY = CGFloat(183)
+        let navigationBarButtonThresholds = CGFloat(20)
+        let navigationBarItemsThresholds = CGFloat(40)
+        let ploggingInfoViewThresholds = CGFloat(160)
         
         if contentOffSetY < maxContentOffSetY {
             sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
@@ -364,28 +366,29 @@ extension MyPageViewController: UIScrollViewDelegate {
             sortingButton.transform = CGAffineTransform(translationX: 0, y: -maxContentOffSetY)
         }
 
-        if contentOffSetY > 20 {
+        if contentOffSetY > navigationBarButtonThresholds {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.navigationBarButton.alpha = 0
             })
-        } else if contentOffSetY <= 20 {
+        } else if contentOffSetY <= navigationBarButtonThresholds {
             navigationBarButton.alpha = 1
         }
-        if contentOffSetY > 40 {
+        
+        if contentOffSetY > navigationBarItemsThresholds {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.nickName.alpha = 0
                 self?.profilePhoto.alpha = 0
             })
-        } else if contentOffSetY <= 40 {
+        } else if contentOffSetY <= navigationBarItemsThresholds {
             nickName.alpha = 1
             profilePhoto.alpha = 1
         }
         
-        if contentOffSetY > 160 {
+        if contentOffSetY > ploggingInfoViewThresholds {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 0
             })
-        } else if contentOffSetY <= 160 {
+        } else if contentOffSetY <= ploggingInfoViewThresholds {
             UIView.animate(withDuration: 0.1, animations: { [weak self] () -> Void in
                 self?.ploggingInfoView.alpha = 1
             })
