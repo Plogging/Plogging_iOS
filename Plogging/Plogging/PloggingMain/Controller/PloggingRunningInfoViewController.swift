@@ -17,7 +17,8 @@ class PloggingRunningInfoViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
-    
+    @IBOutlet weak var currentLocationButton: UIButton!
+
     var timer: Timer?
     var startDate: Date?
     var distance: Int?
@@ -205,6 +206,9 @@ class PloggingRunningInfoViewController: UIViewController {
         infoView.layer.cornerRadius = 20
         infoView.clipsToBounds = true
 
+        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
+        currentLocationButton.backgroundColor = .white
+        
         stopButton.backgroundColor = UIColor.veryLightPinkTwo
         stopButton.setAttributedTitle(NSMutableAttributedString().normal("종료", fontSize: 19), for: .normal)
         stopButton.setTitleColor(.brownGrey, for: .normal)
@@ -231,5 +235,9 @@ class PloggingRunningInfoViewController: UIViewController {
             self.summeryDistance.dataLabel.text = String(format: "%.2f", Float(distance)/1000)
             self.summeryKcal.dataLabel.text = "\(self.kcal)"
         }
+    }
+    
+    @IBAction func focusCurrentLocation(_ sender: Any) {
+        pathManager.pointResentLocation(location: mapView.userLocation.coordinate)
     }
 }

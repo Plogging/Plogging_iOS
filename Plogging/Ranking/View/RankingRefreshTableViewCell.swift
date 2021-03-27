@@ -11,6 +11,13 @@ class RankingRefreshTableViewCell: UITableViewCell {
 
     weak var delegate: RefreshCellDelegate?
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let inset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        contentView.frame = contentView.frame.inset(by: inset)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

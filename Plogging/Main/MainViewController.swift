@@ -15,10 +15,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
     @IBOutlet weak var tabBarBottomCoverView: UIView!
-    var rankingViewController: RankingViewController?
-    var ploggingController: PloggingStartViewController?
-    var myPageViewController: MyPageViewController?
-    
+    private var rankingViewController: RankingViewController?
+    private var ploggingController: PloggingStartViewController?
+    private var myPageViewController: MyPageViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         requestUserData()
@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func requestUserData() {
+    private func requestUserData() {
         guard let id = PloggingUserData.shared.getUserId() else {
             self.makeLoginRootViewController()
             return
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func setUpTabBarUI() {
+    private func setUpTabBarUI() {
         tabBar.selectedItem = ploggingTabItem
         
         shadowView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor
@@ -86,6 +86,7 @@ extension MainViewController: UITabBarDelegate {
             rankingViewController?.requestBothRankingAPI()
         case MainTab.plogging.index:
             view.bringSubviewToFront(ploggingView)
+            ploggingController?.requestUserNickName()
         case MainTab.myPage.index:
             view.bringSubviewToFront(myPageView)
             myPageViewController?.mypageTabReload()

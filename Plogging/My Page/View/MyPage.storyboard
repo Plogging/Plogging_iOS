@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="efj-1E-G0c">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -165,7 +166,7 @@
                                                 </constraints>
                                                 <state key="normal" image="setting"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-sV-TLm">
                                                 <rect key="frame" x="330" y="45" width="74" height="74"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="74" id="C2m-Zw-ob1"/>
@@ -522,7 +523,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-e7-GN3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-e7-GN3">
                                 <rect key="frame" x="359.66666666666669" y="153" width="44.333333333333314" height="44.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44.399999999999999" id="1Fc-pS-TDO"/>
@@ -1444,7 +1445,7 @@ KakaoSDK
                                             <action selector="back:" destination="LwY-ux-eob" eventType="touchUpInside" id="RXJ-ga-yAa"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-G4-Zuy">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-G4-Zuy">
                                         <rect key="frame" x="359.66666666666669" y="20.000000000000004" width="44.333333333333314" height="44.333333333333343"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44.399999999999999" id="4Hj-3U-kLY"/>
@@ -1560,6 +1561,7 @@ KakaoSDK
         <image name="path9" width="13" height="22"/>
         <image name="running" width="36" height="36"/>
         <image name="setting" width="27" height="29"/>
+        <image name="test" width="375" height="375"/>
         <image name="trashCan" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

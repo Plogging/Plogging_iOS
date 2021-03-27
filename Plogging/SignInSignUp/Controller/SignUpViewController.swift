@@ -140,9 +140,11 @@ class SignUpViewController: UIViewController {
         if let email = emailTextField.text {
             if let message = checkEmailVaidation(email: email) {
                 setupWarningLabel(message: message)
+                emailView.unvalid()
                 return
             }
             setupWarningLabel(message: nil)
+            emailView.valid()
         }
         
         // 비밀번호 validation check 8자 이상
@@ -150,12 +152,15 @@ class SignUpViewController: UIViewController {
             if let message = checkPasswordValidation(password: password) {
                 if password.count < 8 {
                     setupWarningLabel(message: message)
+                    passwordView.unvalid()
                     return
                 }
                 setupWarningLabel(message: message)
+                passwordView.unvalid()
                 return
             }
             setupWarningLabel(message: nil)
+            passwordView.valid()
         }
         
         // 비밀번호 동일한지 체크
@@ -163,9 +168,11 @@ class SignUpViewController: UIViewController {
            let pass2 = passwordCheckTextField.text {
             if let message = checkPasswordEqual(pass1, pass2) {
                 setupWarningLabel(message: message)
+                passwordCheckView.unvalid()
                 return
             }
             setupWarningLabel(message: nil)
+            passwordCheckView.valid()
         }
         
         isValidate = true

@@ -8,23 +8,22 @@
 import UIKit
 
 extension UIColor {
-    static let black = UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1)
-    static let lightGray = UIColor(red: 182/255, green: 182/255, blue: 182/255, alpha: 1)
-    static let darkGray = UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1)
-    static let veryLightPinkTwo = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
-    static let tintGreen = UIColor(red: 55/255, green: 213/255, blue: 172/255, alpha: 1)
-    static let loginGray = UIColor(red: 207/255, green: 216/255, blue: 214/255, alpha: 1)
-    static let onboardingPaleGreen = UIColor(red: 213/255, green: 246/255, blue: 233/255, alpha: 1)
-    static let greenBlue = UIColor(red: 0/255, green: 184/255, blue: 144/255, alpha: 1)
-    static let rankingGray = UIColor(red: 206/255, green: 206/255, blue: 206/255, alpha: 1)
-    static let lightGreenishBlue = UIColor(red: 114/255, green: 236/255, blue: 201/255, alpha: 1)
-    static let paleGrey = UIColor(red: 248/255, green: 250/255, blue: 252/255, alpha: 1)
-    static let paleGreyZero = UIColor(red: 248/255, green: 250/255, blue: 252/255, alpha: 0)
-    static let strawberry = UIColor(red: 255/255, green: 41/255, blue: 67/255, alpha: 1)
-    static let rankingGreen = UIColor(red: 0/255, green: 143/255, blue: 122/255, alpha: 1)
-    static let brownGrey = UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1)
-
-    static func fromInt(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
+    static func getColor(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat) -> UIColor {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: alpha)
     }
+    
+    static let black = UIColor.getColor(r: 137, g: 137, b: 137, alpha: 1)
+    static let lightGray = UIColor.getColor(r: 182, g: 182, b: 182, alpha: 1)
+    static let veryLightPinkTwo = UIColor.getColor(r: 234, g: 234, b: 234, alpha: 1)
+    static let tintGreen = UIColor.getColor(r: 55, g: 213, b: 172, alpha: 1)
+    static let loginGray = UIColor.getColor(r: 207, g: 216, b: 214, alpha: 1)
+    static let onboardingPaleGreen = UIColor.getColor(r: 213, g: 246, b: 233, alpha: 1)
+    static let greenBlue = UIColor.getColor(r: 0, g: 184, b: 144, alpha: 1)
+    static let rankingGray = UIColor.getColor(r: 206, g: 206, b: 206, alpha: 1)
+    static let lightGreenishBlue = UIColor.getColor(r: 114, g: 236, b: 201, alpha: 1)
+    static let paleGrey = UIColor.getColor(r: 248, g: 250, b: 252, alpha: 1)
+    static let paleGreyZero = UIColor.getColor(r: 248, g: 250, b: 252, alpha: 0)
+    static let strawberry = UIColor.getColor(r: 255, g: 41, b: 67, alpha: 1)
+    static let rankingGreen = UIColor.getColor(r: 0, g: 143, b: 122, alpha: 1)
+    static let brownGrey = UIColor.getColor(r: 137, g: 137, b: 137, alpha: 1)
 }
