@@ -66,7 +66,7 @@ class MyPageViewController: UIViewController {
     private let thresholdOffset = 70
     private var contentsOffset = 0
     private var footerSizeHeight = 0
-    var url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
+    private var url = BaseURL.getURL(basePath: .ploggingResult(PloggingUserData.shared.getUserId() ?? ""))
     private(set) var currentSortType: MyPageSortType = .date {
         didSet {
             currentPagingDataSource = currentSortType.getDataSource(url: url)
@@ -124,15 +124,7 @@ class MyPageViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    func mypageTabReload() {
-        requestHeaderData()
-        currentSortType = .date
-        currentPagingDataSource?.loadFromFirst {
-            self.updateUI()
-        }
-    }
-    
-    func setUpNavigationBarUI() {
+    private func setUpNavigationBarUI() {
         if type == .mypage {
             navigationBarButton.setImage(UIImage(named: "setting"), for: .normal)
             navigationBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -191,8 +183,16 @@ class MyPageViewController: UIViewController {
             }
         }
     }
+    
+    func mypageTabReload() {
+        requestHeaderData()
+        currentSortType = .date
+        currentPagingDataSource?.loadFromFirst {
+            self.updateUI()
+        }
+    }
 
-    func updateUI() {
+    private func updateUI() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -300,19 +300,6 @@ extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         var footerSize = CGSize()
 
-        var multipleCount = 1
-        
-        if collectionView.numberOfItems(inSection: 0) > 2 {
-            multipleCount = 2
-        }
-//        else if collectionView.numberOfItems(inSection: 0) > 4 {
-//            multipleCount = 3
-//        }
-        print("multipleCount: \(multipleCount)")
-        
-        let value = (((Int(DeviceInfo.screenWidth) - 48 - 10) / 2) * multipleCount)
-        print("value: \(value)")
-        
         guard let tabBarBottomCoverViewHeight = (rootViewController as? MainViewController)?.tabBarBottomCoverView.bounds.height else {
             return CGSize(width: 0, height: 0)
         }
@@ -320,11 +307,25 @@ extension MyPageViewController: UICollectionViewDelegate {
         guard let tabBarHeight = (rootViewController as? MainViewController)?.tabBar.bounds.height else {
             return CGSize(width: 0, height: 0)
         }
+        let leading = 24
+        let trailing = 24
+        let lineSpacing = 10
+        let topSpacing = 160
         
-        let footer = Int(DeviceInfo.screenHeight - fixHeaderView.bounds.height) - 160 - value  - (10 * (multipleCount - 1)) - Int(tabBarBottomCoverViewHeight)
-        print("footer: \(footer)")
+        var contentsLineCount = 1
+        if collectionView.numberOfItems(inSection: 0) > 2, collectionView.numberOfItems(inSection: 0) <= 4 {
+            contentsLineCount = 2
+        } else if collectionView.numberOfItems(inSection: 0) > 4 {
+            contentsLineCount = 3
+        }
+        let contentsSize = (((Int(DeviceInfo.screenWidth) - leading - trailing - lineSpacing) / 2) * contentsLineCount)
         
-         footerSize = CGSize(width: 0, height: footer)
+        var footerHeight = Int(DeviceInfo.screenHeight - fixHeaderView.bounds.height) - topSpacing
+                        - contentsSize - (10 * (contentsLineCount - 1)) - Int(tabBarBottomCoverViewHeight)
+        if footerHeight < 0 {
+            footerHeight += Int(tabBarHeight) + lineSpacing * 3
+        }
+        footerSize = CGSize(width: 0, height: footerHeight)
         
         return footerSize
     }
@@ -341,7 +342,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let startEdgeInsets = CGFloat(182)
+        let startEdgeInsets = CGFloat(185)
         
         return UIEdgeInsets(top: startEdgeInsets, left: 0, bottom: 0, right: 0)
     }
@@ -353,7 +354,7 @@ extension MyPageViewController: UIScrollViewDelegate {
         let contentOffSetY = scrollView.contentOffset.y
         navigationBarView.transform = CGAffineTransform(translationX: 0, y: min(0, -contentOffSetY))
         print("contentOffSetY: \(contentOffSetY)")
-        let maxContentOffSetY = CGFloat(180)
+        let maxContentOffSetY = CGFloat(183)
         
         if contentOffSetY < maxContentOffSetY {
             sortingView.transform = CGAffineTransform(translationX: 0, y: -contentOffSetY)
