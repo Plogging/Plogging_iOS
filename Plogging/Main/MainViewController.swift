@@ -14,11 +14,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var myPageView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ploggingTabItem: UITabBarItem!
-    
+    @IBOutlet weak var tabBarBottomCoverView: UIView!
     private var rankingViewController: RankingViewController?
     private var ploggingController: PloggingStartViewController?
     private var myPageViewController: MyPageViewController?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         requestUserData()
