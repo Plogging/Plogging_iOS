@@ -189,6 +189,7 @@ class LoginViewController: UIViewController {
             return
         default:
             print("error")
+            setupWarningLabel(message: result.rcmsg)
         }
     }
 }
