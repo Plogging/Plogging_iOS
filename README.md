@@ -2,7 +2,6 @@
 > 환경을 지키는 달리기, 에코런
 
 ## Team
-> 에코런 iOS팀
 - [전소영](https://github.com/jeon-soyeong) 
 - [강태우](https://github.com/H0use96) 
 - [김혜리](https://github.com/kimhyeri)
