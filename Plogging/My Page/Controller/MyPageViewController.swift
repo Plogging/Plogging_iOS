@@ -165,7 +165,9 @@ class MyPageViewController: UIViewController {
                 self?.shortNavigationBarNickName.text = userData?.userName
                 if let usrImage = userData?.userImg,
                    let userImageURL = URL(string: usrImage) {
-                    PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
+                    if self?.type == .mypage {
+                        PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
+                    }
                     self?.profilePhoto.sizeToFit()
                     self?.profilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
                     self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
