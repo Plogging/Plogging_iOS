@@ -299,7 +299,11 @@ extension MyPageViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         var footerSize = CGSize()
-
+        
+        if collectionView.numberOfItems(inSection: 0) < 1 {
+            return CGSize(width: 0, height: 0)
+        }
+        
         guard let tabBarBottomCoverViewHeight = (rootViewController as? MainViewController)?.tabBarBottomCoverView.bounds.height else {
             return CGSize(width: 0, height: 0)
         }
@@ -307,17 +311,19 @@ extension MyPageViewController: UICollectionViewDelegate {
         guard let tabBarHeight = (rootViewController as? MainViewController)?.tabBar.bounds.height else {
             return CGSize(width: 0, height: 0)
         }
+        
         let leading = 24
         let trailing = 24
         let lineSpacing = 10
         let topSpacing = 160
-        
         var contentsLineCount = 1
+        
         if collectionView.numberOfItems(inSection: 0) > 2, collectionView.numberOfItems(inSection: 0) <= 4 {
             contentsLineCount = 2
         } else if collectionView.numberOfItems(inSection: 0) > 4 {
             contentsLineCount = 3
         }
+        
         let contentsSize = (((Int(DeviceInfo.screenWidth) - leading - trailing - lineSpacing) / 2) * contentsLineCount)
         
         var footerHeight = Int(DeviceInfo.screenHeight - fixHeaderView.bounds.height) - topSpacing
@@ -325,6 +331,7 @@ extension MyPageViewController: UICollectionViewDelegate {
         if footerHeight < 0 {
             footerHeight += Int(tabBarHeight) + lineSpacing * 3
         }
+        
         footerSize = CGSize(width: 0, height: footerHeight)
         
         return footerSize

@@ -97,7 +97,6 @@
 		9B2A87E825D952F3008EC772 /* Protocol+PagingParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87E725D952F3008EC772 /* Protocol+PagingParsable.swift */; };
 		9B2A87EC25D99F4E008EC772 /* MypageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87EB25D99F4E008EC772 /* MypageParser.swift */; };
 		9B2A87EF25DA2F4E008EC772 /* PloggingResultScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A87EE25DA2F4E008EC772 /* PloggingResultScore.swift */; };
-		9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */; };
 		9B32B58F25C1DD0C00CB25C0 /* TrashCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */; };
 		9B34767625D044D3000144EC /* PloggingDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */; };
 		9B3F9DA725D7A69200E41F95 /* PagingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F9DA625D7A69100E41F95 /* PagingDataSource.swift */; };
@@ -109,9 +108,7 @@
 		9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B661B9525B8292F008EA09D /* SegueIdentifier.swift */; };
 		9B671CC425AC99B100B0B415 /* PloggingResultImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C239425A6F18A0084D27B /* PloggingResultImageMaker.swift */; };
 		9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DF225AE0DB700B0B415 /* Ranking.storyboard */; };
-		9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */; };
 		9B671E0225AE0DE900B0B415 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0125AE0DE900B0B415 /* RankingViewController.swift */; };
-		9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */; };
 		9B8A434C25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8A434B25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift */; };
 		9BBFF19A25C9479400D6636E /* PloggingResultPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */; };
 		9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */; };
@@ -234,7 +231,6 @@
 		9B2A87E725D952F3008EC772 /* Protocol+PagingParsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+PagingParsable.swift"; sourceTree = "<group>"; };
 		9B2A87EB25D99F4E008EC772 /* MypageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageParser.swift; sourceTree = "<group>"; };
 		9B2A87EE25DA2F4E008EC772 /* PloggingResultScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultScore.swift; sourceTree = "<group>"; };
-		9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingMainViewController.swift; sourceTree = "<group>"; };
 		9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCountCell.swift; sourceTree = "<group>"; };
 		9B34767525D044D3000144EC /* PloggingDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingDetailInfoViewController.swift; sourceTree = "<group>"; };
 		9B3F9DA625D7A69100E41F95 /* PagingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingDataSource.swift; sourceTree = "<group>"; };
@@ -245,9 +241,7 @@
 		9B661B9525B8292F008EA09D /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		9B671CC825AC99DC00B0B415 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		9B671DF225AE0DB700B0B415 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
-		9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plogging.storyboard; sourceTree = "<group>"; };
 		9B671E0125AE0DE900B0B415 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
-		9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingViewController.swift; sourceTree = "<group>"; };
 		9B8A434B25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultBasicInfo.swift; sourceTree = "<group>"; };
 		9BBFF19925C9479200D6636E /* PloggingResultPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PloggingResultPhotoCell.swift; sourceTree = "<group>"; };
 		9BF729D925BF315E008ABEBF /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
@@ -413,23 +407,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1C8B320D25C48FCF0021A88D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9B671DFC25AE0DD800B0B415 /* Plogging.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1C8B320E25C48FD40021A88D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9B671E0625AE0DF700B0B415 /* PloggingViewController.swift */,
-				9B2C333625B8787800EB5B87 /* PloggingMainViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		1C8B320F25C48FFD0021A88D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +463,7 @@
 				1C5B304725A604E100413115 /* APIKey.swift */,
 				9B51A63525B5C998000AA9FA /* DeviceInfo.swift */,
 				1CB62E5025DAC76000330B4A /* PloggingUserData.swift */,
+				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -605,9 +583,9 @@
 				1CC08DBA25A4B55B00EE3505 /* SignInSignUp */,
 				9B671DEF25AE0CDC00B0B415 /* Ranking */,
 				9B671DF125AE0D1600B0B415 /* Plogging */,
+				3D51A0932B7C1EAA461372FD /* GPS */,
 				9B671DF025AE0D0400B0B415 /* My Page */,
 				9B5A32E325AEB1170061A361 /* Supporting Files */,
-				3D51A0932B7C1EAA461372FD /* GPS */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -673,7 +651,6 @@
 		9B32B5AC25C27F4900CB25C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B661B9525B8292F008EA09D /* SegueIdentifier.swift */,
 				9B32B58E25C1DD0C00CB25C0 /* TrashCountCell.swift */,
 			);
 			path = Model;
@@ -725,10 +702,8 @@
 			isa = PBXGroup;
 			children = (
 				1C8B320F25C48FFD0021A88D /* Model */,
-				1C8B320D25C48FCF0021A88D /* View */,
-				1C8B320E25C48FD40021A88D /* Controller */,
-				9B0C235125A4D62F0084D27B /* Plogging Result */,
 				3D51AF8FFDDB42FBC0C207CD /* PloggingMain */,
+				9B0C235125A4D62F0084D27B /* Plogging Result */,
 			);
 			path = Plogging;
 			sourceTree = "<group>";
@@ -875,7 +850,6 @@
 				9B01588C25A0CB19003D3B7B /* Assets.xcassets in Resources */,
 				1C21851725B8B7560076CD14 /* PopUp.storyboard in Resources */,
 				9B01588A25A0CB15003D3B7B /* Main.storyboard in Resources */,
-				9B671DFD25AE0DD800B0B415 /* Plogging.storyboard in Resources */,
 				9B14C11F25BC6A520066B2B5 /* AppleSDGothicNeoH.ttf in Resources */,
 				9BF729DA25BF3193008ABEBF /* SFProDisplay-Black.ttf in Resources */,
 				9B671DF325AE0DB700B0B415 /* Ranking.storyboard in Resources */,
@@ -1030,7 +1004,6 @@
 				9B0C239025A6F1540084D27B /* ImageRenderingMaker.swift in Sources */,
 				1C677B112605E52600EB1CA3 /* Extension+UIView.swift in Sources */,
 				1C5B0E0925D6FDFB008560FA /* Protocol+RefreshCellDelegate.swift in Sources */,
-				9B2C333725B8787800EB5B87 /* PloggingMainViewController.swift in Sources */,
 				9B661B9625B8292F008EA09D /* SegueIdentifier.swift in Sources */,
 				9B8A434C25DB90CA00CD6F92 /* PloggingResultBasicInfo.swift in Sources */,
 				9B01588725A0CB15003D3B7B /* MainViewController.swift in Sources */,
@@ -1063,7 +1036,6 @@
 				1C21851C25B8B7630076CD14 /* PopUpViewController.swift in Sources */,
 				1CB62E4F25DA70EF00330B4A /* RankingPhotoViewController.swift in Sources */,
 				9B00B3B725D289A5006427DE /* DeleteUserViewController.swift in Sources */,
-				9B671E0725AE0DF700B0B415 /* PloggingViewController.swift in Sources */,
 				1C9A3AA325CDCAC100668058 /* Extension+UITableView.swift in Sources */,
 				1CC08DDC25A5D56D00EE3505 /* Extension+UIViewController.swift in Sources */,
 				1C5EDBFC25BC6A8400C156A9 /* Enum+Storyboard.swift in Sources */,
