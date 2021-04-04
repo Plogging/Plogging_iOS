@@ -182,7 +182,9 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             if let email = appleIDCredential.email,
-               let given = appleIDCredential.fullName?.givenName, let family = appleIDCredential.fullName?.familyName {
+               let given = appleIDCredential.fullName?.givenName,
+               let family = appleIDCredential.fullName?.familyName,
+               let token = appleIDCredential.identityToken {
                 PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
                 self.requestSNSLogin(email: email, name: family+given,
                                           type: SNSType.apple.rawValue)
