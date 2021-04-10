@@ -19,7 +19,17 @@ class SNSLoginManager: NSObject {
     
     private var completion: ((SNSLoginData) -> Void)?
 
+    // SNS로그인 completion
     func callCompleteLoginNoti(result: PloggingUser?, param: [String: Any]) {
+        var info = param
+        if let result = result {
+            info.updateValue(result, forKey: "result")
+        }
+        NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
+    }
+    
+    // 애플로그인 completion
+    func callCompletionAppleLoginNoti(result: PloggingUserInfo?, param: [String: Any]) {
         var info = param
         if let result = result {
             info.updateValue(result, forKey: "result")
@@ -181,16 +191,34 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            if let email = appleIDCredential.email,
-               let given = appleIDCredential.fullName?.givenName,
-               let family = appleIDCredential.fullName?.familyName,
-               let token = appleIDCredential.identityToken {
-                PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
-                self.requestSNSLogin(email: email, name: family+given,
-                                          type: SNSType.apple.rawValue)
-                break;
+            // 처음 접근하는 유저, 두번 접근하는 유저
+            if let credentialKey = appleIDCredential.identityToken {
+                let email = appleIDCredential.email ?? ""
+                let given = appleIDCredential.fullName?.givenName ?? ""
+                let family = appleIDCredential.fullName?.familyName ?? ""
+                print(credentialKey)
+                if email.count < 1 {
+                    // reqeustAPI 서버에 유저 정보 있는지
+                    let param: [String: Any] = ["appleIdentifier": credentialKey]
+                    
+                    APICollection.sharedAPI.requestUserApple(param: param) { (response) in
+                        if let code = try? response.get().rc {
+                            switch code {
+                            case 200:
+                                let ploggingInfo: PloggingUserInfo? = try? response.get()
+                                self.callCompletionAppleLoginNoti(result: ploggingInfo, param: ["type":"apple"])
+                            default:
+                                self.callCompletionAppleLoginNoti(result: nil, param: ["type":"apple"])
+                            }
+                        }
+                    }
+                } else {
+                    PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
+                    self.requestSNSLogin(email: email, name: family+given,
+                                              type: SNSType.apple.rawValue)
+                    break
+                }
             }
-            validChcekApple()
         default:
             break
         }
@@ -198,29 +226,6 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
-    }
-    
-    func validChcekApple() {
-        if let userIdentifier = PloggingUserData.shared.getAppleUserIdentifier() {
-            let authorizationProvider = ASAuthorizationAppleIDProvider()
-            authorizationProvider.getCredentialState(forUserID: userIdentifier) { (state, error) in
-                switch (state) {
-                case .authorized:
-                    print("Account Found - Signed In")
-                    DispatchQueue.main.async { [self] in
-                        callCompleteLoginNoti(result: nil, param: ["type":"apple"])
-                    }
-                    break
-                case .revoked:
-                    print("다른 방법으로 로그인 해주세요.")
-                    fallthrough
-                case .notFound:
-                    print("다른 방법으로 로그인 해주세요.")
-                default:
-                    break
-                }
-            }
-        }
     }
 }
 
