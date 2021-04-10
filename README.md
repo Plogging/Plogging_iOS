@@ -19,3 +19,6 @@
 
 ## Key Color
 - ![#37d5ac](https://via.placeholder.com/15/37d5ac/000000?text=+) `#37d5ac`
+
+## Download
+- [App Store](https://apps.apple.com/kr/app/%EC%97%90%EC%BD%94%EB%9F%B0/id1553907014)
