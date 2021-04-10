@@ -169,8 +169,8 @@ class MyPageViewController: UIViewController {
                         PloggingUserData.shared.setUserImage(userImageUrl: userImage)
                     }
                     self?.profilePhoto.sizeToFit()
-                    self?.profilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
-                    self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
+                    self?.profilePhoto.kf.setImage(with: userImageURL)
+                    self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL)
                 }
                 
                 if self?.weeklyOrMonthly == "weekly" {
