@@ -79,9 +79,9 @@ class SNSLoginViewController: UIViewController {
                     PloggingUserData.shared.saveUserData(id: id,
                                                          nickName: nickName,
                                                          image: image)
+                    makeDefaultRootViewController()
                 }
             }
-            makeDefaultRootViewController()
             return
         case 409:
             let storyboard = UIStoryboard(name: Storyboard.SNSLogin.rawValue, bundle: nil)
