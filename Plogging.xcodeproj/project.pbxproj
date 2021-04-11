@@ -1248,6 +1248,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = H92U9KV5T2;
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1271,6 +1272,7 @@
 				CODE_SIGN_ENTITLEMENTS = Plogging/PloggingRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Plogging/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
