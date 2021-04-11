@@ -163,14 +163,14 @@ class MyPageViewController: UIViewController {
             } else {
                 self?.nickName.text = userData?.userName
                 self?.shortNavigationBarNickName.text = userData?.userName
-                if let usrImage = userData?.userImg,
-                   let userImageURL = URL(string: usrImage) {
+                if let userImage = userData?.userImg,
+                   let userImageURL = URL(string: userImage) {
                     if self?.type == .mypage {
-                        PloggingUserData.shared.setUserImage(userImageUrl: usrImage)
+                        PloggingUserData.shared.setUserImage(userImageUrl: userImage)
                     }
                     self?.profilePhoto.sizeToFit()
-                    self?.profilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
-                    self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL, options: [.forceRefresh])
+                    self?.profilePhoto.kf.setImage(with: userImageURL)
+                    self?.shortNavigationBarProfilePhoto.kf.setImage(with: userImageURL)
                 }
                 
                 if self?.weeklyOrMonthly == "weekly" {
