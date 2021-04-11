@@ -2,9 +2,7 @@
   <h1>
     EcoRun
   </h1>
-  <h2>
     환경을 지키는 달리기, 에코런!
-  </h2>
 </div>
 
 ## Introduction
