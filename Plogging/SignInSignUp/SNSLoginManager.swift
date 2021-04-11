@@ -215,6 +215,8 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
                         default:
                             self.callCompleteAppleLoginNoti(result: nil, param: ["type":"apple"])
                         }
+                    } else {
+                        self.callCompleteAppleLoginNoti(result: nil, param: ["type":"apple"])
                     }
                 }
             } else {
