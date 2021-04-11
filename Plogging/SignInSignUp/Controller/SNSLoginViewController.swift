@@ -55,10 +55,14 @@ class SNSLoginViewController: UIViewController {
                     PloggingUserData.shared.saveUserData(id: id,
                                                          nickName: nickName,
                                                          image: image)
-                    makeDefaultRootViewController()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.makeDefaultRootViewController()
+                    }
                 } else {
                     // 200외 다른 RC는 회원탈퇴로 간주하고 애플로그인 재설정 요청
-                    showPopUpViewController(with: .애플로그인재설정)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.showPopUpViewController(with: .애플로그인재설정)
+                    }
                 }
             }
         }
