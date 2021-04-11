@@ -28,8 +28,7 @@ class SNSLoginManager: NSObject {
         NotificationCenter.default.post(name: .loginCompletion, object: nil, userInfo: info)
     }
     
-    // 애플로그인 completion
-    func callCompletionAppleLoginNoti(result: PloggingUserInfo?, param: [String: Any]) {
+    func callCompleteAppleLoginNoti(result: PloggingUserInfo?, param: [String: Any]) {
         var info = param
         if let result = result {
             info.updateValue(result, forKey: "result")
@@ -197,32 +196,32 @@ extension SNSLoginManager: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             // 처음 접근하는 유저, 두번 접근하는 유저
-            if let credentialKey = appleIDCredential.identityToken {
-                let email = appleIDCredential.email ?? ""
-                let given = appleIDCredential.fullName?.givenName ?? ""
-                let family = appleIDCredential.fullName?.familyName ?? ""
-                print(credentialKey)
-                if email.count < 1 {
-                    // reqeustAPI 서버에 유저 정보 있는지
-                    let param: [String: Any] = ["appleIdentifier": credentialKey]
-                    
-                    APICollection.sharedAPI.requestUserApple(param: param) { (response) in
-                        if let code = try? response.get().rc {
-                            switch code {
-                            case 200:
-                                let ploggingInfo: PloggingUserInfo? = try? response.get()
-                                self.callCompletionAppleLoginNoti(result: ploggingInfo, param: ["type":"apple"])
-                            default:
-                                self.callCompletionAppleLoginNoti(result: nil, param: ["type":"apple"])
-                            }
+            let credentialKey = appleIDCredential.user
+            let email = appleIDCredential.email ?? ""
+            let given = appleIDCredential.fullName?.givenName ?? ""
+            let family = appleIDCredential.fullName?.familyName ?? ""
+            print(credentialKey)
+            if email.count < 1 {
+                // reqeustAPI 서버에 유저 정보 있는지
+                let param: [String: Any] = ["appleIdentifier": credentialKey]
+                
+                APICollection.sharedAPI.requestUserApple(param: param) { (response) in
+                    if let code = try? response.get().rc {
+                        switch code {
+                        case 200:
+                            let ploggingInfo: PloggingUserInfo? = try? response.get()
+                            PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
+                            self.callCompleteAppleLoginNoti(result: ploggingInfo, param: ["type":"apple"])
+                        default:
+                            self.callCompleteAppleLoginNoti(result: nil, param: ["type":"apple"])
                         }
                     }
-                } else {
-                    PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
-                    self.requestSNSLogin(email: email, name: family+given,
-                                              type: SNSType.apple.rawValue)
-                    break
                 }
+            } else {
+                PloggingUserData.shared.setAppleUserIdentifier(indentifier: appleIDCredential.user)
+                self.requestSNSLogin(email: email, name: family+given,
+                                          type: SNSType.apple.rawValue)
+                break
             }
         default:
             break

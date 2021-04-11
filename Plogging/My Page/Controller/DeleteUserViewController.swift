@@ -36,6 +36,7 @@ class DeleteUserViewController: UIViewController {
         APICollection.sharedAPI.requestDeleteUser { (response) in
             if let result = try? response.get() {
                 if result.rc == 200 {
+                    PloggingUserData.shared.removeAppleUserData()
                     PloggingCookie.shared.removeUserCookie()
                     PloggingUserData.shared.removeUserData()
                     self.makeLoginRootViewController()

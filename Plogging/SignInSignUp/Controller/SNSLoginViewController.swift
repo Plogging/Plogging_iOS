@@ -47,17 +47,17 @@ class SNSLoginViewController: UIViewController {
             } else if let result = data["type"] as? String,
                       result == "apple" {
                 // 애플로그인으로 들어오는 유저는 이 FLOW
-                
                 if let result = data["result"] as? PloggingUserInfo?,
                    let id = result?.userId,
                    let nickName = result?.userName,
                    let image = result?.userImg {
-                    // 200
+                    // 200 재로그인 유저
                     PloggingUserData.shared.saveUserData(id: id,
                                                          nickName: nickName,
                                                          image: image)
                     makeDefaultRootViewController()
                 } else {
+                    // 200외 다른 RC는 회원탈퇴로 간주하고 애플로그인 재설정 요청
                     showPopUpViewController(with: .애플로그인재설정)
                 }
             }
