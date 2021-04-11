@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var fixHeaderView: UIView!
@@ -145,6 +146,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                     if let userImage = result.profileImg {
                         PloggingUserData.shared.setUserImage(userImageUrl: userImage)
                         self?.profilePhoto.image = image
+                        KingfisherManager.shared.cache.clearCache()
                         
                         self?.profilePhotoCoverView.alpha = 1
                         self?.checkImage.alpha = 1
