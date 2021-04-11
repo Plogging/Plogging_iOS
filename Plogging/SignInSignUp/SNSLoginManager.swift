@@ -140,11 +140,16 @@ class SNSLoginManager: NSObject {
         
     func requestSNSLogin(email: String, name: String, type: String) {
         
-        let param: [String: Any] = [
+        var param: [String: Any] = [
             "userId": "\(email):\(type)",
-            "userName": name
+            "userName": name,
+            "appleIdentifier": ""
         ]
-
+        
+        if let credentialKey = PloggingUserData.shared.getAppleUserIdentifier() {
+            param.updateValue(credentialKey, forKey: "appleIdentifier")
+        }
+        
         APICollection.sharedAPI.requestSignInSocial(param: param) { (response) in
             if let response = try? response.get() {
                 self.callCompleteLoginNoti(result: response, param: param)
