@@ -60,4 +60,8 @@ class PloggingUserData {
     func setAppleUserIdentifier(indentifier: String) {
         UserDefaults.standard.setValue(indentifier, forKey: apple)
     }
+    
+    func removeAppleUserData() {
+        UserDefaults.standard.removeObject(forKey: apple)
+    }
 }

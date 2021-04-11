@@ -14,6 +14,7 @@ enum PopUpType {
     case 랭킹점수안내팝업
     case 비밀번호변경완료팝업
     case 인스타그램설치팝업
+    case 애플로그인재설정
     
     // 아니요, 네
     // 2 Yes No Button
@@ -45,6 +46,8 @@ extension PopUpType {
             return "인스타그램을 설치해주세요"
         case .사진저장승인:
             return "사진을 저장하시겠어요?"
+        case .애플로그인재설정:
+            return "애플 로그인 재설정"
         }
     }
     
@@ -68,6 +71,8 @@ extension PopUpType {
             return "인스타그램을 설치한 뒤\n플로깅 사진을 공유해주세요."
         case .사진저장승인:
             return "공유를 하기 위해\n사용자 기기에 사진이 저장됩니다."
+        case .애플로그인재설정:
+            return "애플 로그인 재설정이 필요합니다.\n\n설정 > Apple ID > 암호 및 보안 >\n Apple ID를 사용하는 앱 >\n 에코런 > Apple ID 사용 중단"
         }
     }
     
@@ -91,12 +96,14 @@ extension PopUpType {
             return UIImage(named: "instagramInstall")
         case .사진저장승인:
             return UIImage(named: "savePhoto")
+        case .애플로그인재설정:
+            return nil
         }
     }
     
     func numberOfButton() -> CGFloat {
         switch self {
-        case .운동점수안내팝업, .랭킹점수안내팝업, .비밀번호변경완료팝업, .인스타그램설치팝업:
+        case .운동점수안내팝업, .랭킹점수안내팝업, .비밀번호변경완료팝업, .인스타그램설치팝업, .애플로그인재설정:
             return 1
         case .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .사진저장승인:
             return 2
@@ -105,6 +112,8 @@ extension PopUpType {
     
     func outerViewHeight() -> CGFloat {
         switch self {
+        case .애플로그인재설정:
+            return 281
         case .운동점수안내팝업, .랭킹점수안내팝업:
             return 427
         case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
@@ -116,14 +125,14 @@ extension PopUpType {
         switch self {
         case .운동점수안내팝업, .랭킹점수안내팝업:
             return 356
-        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인, .애플로그인재설정:
             return 281
         }
     }
     
     func topConstraint() -> CGFloat {
         switch self {
-        case .운동점수안내팝업, .랭킹점수안내팝업:
+        case .운동점수안내팝업, .랭킹점수안내팝업, .애플로그인재설정:
             return 0
         case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인:
             return 20
@@ -134,7 +143,7 @@ extension PopUpType {
         switch self {
         case .기록삭제팝업:
             return 25
-        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .기록삭제팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인, .운동점수안내팝업, .랭킹점수안내팝업:
+        case .비밀번호변경완료팝업, .종료팝업, .사진없이저장팝업, .로그아웃팝업, .인스타그램설치팝업, .사진저장승인, .운동점수안내팝업, .랭킹점수안내팝업, .애플로그인재설정:
             return 0
         }
     }

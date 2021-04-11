@@ -151,14 +151,28 @@ class LoginViewController: UIViewController {
     func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .loginCompletion, object: nil)
     }
-
-    @objc func onDidReceiveData(_ notification: Notification)
-    {
+    
+    @objc func onDidReceiveData(_ notification: Notification) {
         if let data = notification.userInfo as? [String: Any] {
-            if let result = data["result"] as? PloggingUser, let userId = data["userId"] as? String {
+            if let result = data["result"] as? PloggingUser,
+               let userId = data["userId"] as? String {
                 moveToOtherPage(result, userId)
-            } else if let result = data["type"] as? String, result == "apple" {
-                makeDefaultRootViewController()
+            } else if let result = data["type"] as? String,
+                      result == "apple" {
+                // 애플로그인으로 들어오는 유저는 이 FLOW
+                if let result = data["result"] as? PloggingUserInfo?,
+                   let id = result?.userId,
+                   let nickName = result?.userName,
+                   let image = result?.userImg {
+                    // 200 재로그인 유저
+                    PloggingUserData.shared.saveUserData(id: id,
+                                                         nickName: nickName,
+                                                         image: image)
+                    makeDefaultRootViewController()
+                } else {
+                    // 200외 다른 RC는 회원탈퇴로 간주하고 애플로그인 재설정 요청
+                    showPopUpViewController(with: .애플로그인재설정)
+                }
             }
         }
     }

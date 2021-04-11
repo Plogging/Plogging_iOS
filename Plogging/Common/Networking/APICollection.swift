@@ -94,6 +94,31 @@ extension APICollection {
         }
     }
 
+    /// Apple 유저 정보 확인
+    func requestUserApple(param: Parameters, completion: @escaping (Result<PloggingUserInfo, APIError>) -> Void) {
+        AF.request(BaseURL.getURL(basePath: .userApple),
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: defaultHeader
+        ).responseJSON { response in
+            guard let data = response.data else {
+                return completion(.failure(.dataFailed))
+            }
+
+            print(response)
+ 
+            // 쿠키 설정
+            getCookies()
+            
+            guard let value = try? JSONDecoder().decode(PloggingUserInfo.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
     /// 사용자 아이디 가입 확인
     func requestUserCheck(param: Parameters, completion: @escaping (Result<PloggingUser, APIError>) -> Void) {
         AF.request(BaseURL.getURL(basePath: .userCheck),

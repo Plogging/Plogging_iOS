@@ -84,6 +84,12 @@ class NickNameViewController: UIViewController {
         userInfo.updateValue(nickName, forKey: "userName")
         
         if loginType == "SNS" {
+            if let credentialKey = PloggingUserData.shared.getAppleUserIdentifier() {
+                userInfo.updateValue(credentialKey, forKey: "appleIdentifier")
+            } else {
+                userInfo.updateValue("", forKey: "appleIdentifier")
+            }
+            
             APICollection.sharedAPI.requestSignInSocial(param: userInfo) { (response) in
                 self.ploggingUserInfo = try? response.get()
             }

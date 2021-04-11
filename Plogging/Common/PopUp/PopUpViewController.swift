@@ -67,6 +67,12 @@ class PopUpViewController: UIViewController {
             noButton.isHidden = false
             yesButton.setTitle("네", for: .normal)
         }
+        
+        if type == .애플로그인재설정 {
+            messageStackViewTopConstraint.constant = 30
+        } else {
+            messageStackViewTopConstraint.constant = 90
+        }
     }
     
     @IBAction func clickNoButton(_ sender: UIButton) {

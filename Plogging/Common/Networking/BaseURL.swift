@@ -19,6 +19,7 @@ enum BasePath {
     // USER
     case user
     case userSocial
+    case userApple
     case userCheck
     case userSignIn
     case userSignOut
@@ -42,6 +43,8 @@ enum BasePath {
             return "/user"
         case .userSocial:
             return "/user/social"
+        case .userApple:
+            return "/user/apple"
         case .userCheck:
             return "/user/check"
         case .userSignIn:
