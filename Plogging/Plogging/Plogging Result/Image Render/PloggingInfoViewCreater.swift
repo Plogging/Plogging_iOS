@@ -13,7 +13,7 @@ class PloggingInfoViewCreater {
     let iconSize = DeviceInfo.screenWidth * 0.075
     let logoSize = DeviceInfo.screenWidth * 0.25
     
-    func createFloggingInfoView(distance: String, trashCount: String) -> UIImageView {
+    func createPloggingInfoView(distance: String, trashCount: String) -> UIImageView {
         addPloggingDistanceView(distance)
         addTrashCountView(trashCount)
         addTodayDate()
