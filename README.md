@@ -1,10 +1,9 @@
-# Plogging
-> 환경을 지키는 달리기, 에코런
-
-## Team
-- [전소영](https://github.com/jeon-soyeong) 
-- [강태우](https://github.com/H0use96) 
-- [김혜리](https://github.com/kimhyeri)
+<div align="center">
+  <h1>
+    EcoRun
+  </h1>
+    환경을 지키는 달리기, 에코런!
+</div>
 
 ## Skills
 - Core Data
@@ -20,14 +19,28 @@
 ## Key Color
 - ![#37d5ac](https://via.placeholder.com/15/37d5ac/000000?text=+) `#37d5ac`
 
-## Screenshot
-![텍스트목록](./image/1.png)
-![텍스트목록](./image/2.png)
-![텍스트목록](./image/3.png)
-![텍스트목록](./image/4.png)
-![텍스트목록](./image/5.png)
-![텍스트목록](./image/6.png)
-![텍스트목록](./image/7.png)
-
 ## Download
 - [App Store](https://apps.apple.com/kr/app/%EC%97%90%EC%BD%94%EB%9F%B0/id1553907014)
+
+
+## Screen Shot
+<div align="center">
+  <div>
+      <img src="./image/1.png" width="20%"/>
+    	<img src="./image/2.png" width="20%"/>
+    	<img src="./image/3.png" width="20%"/>
+  </div>
+
+
+
+  <div align="center">
+      <img src="./image/4.png" width="20%"/>
+    	<img src="./image/5.png" width="20%"/>
+    	<img src="./image/6.png" width="20%"/>
+      <img src="./image/7.png" width="20%"/>
+  </div>
+
+
+
+
+
