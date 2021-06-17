@@ -37,7 +37,7 @@ class SettingViewController: UIViewController {
             return
         }
                 
-        profilePhoto.kf.setImage(with: userImageUrl, options: [.forceRefresh])
+        profilePhoto.kf.setImage(with: userImageUrl)
         nickName.text = PloggingUserData.shared.getUserName()
     }
 
