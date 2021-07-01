@@ -89,6 +89,11 @@ class LoginViewController: UIViewController {
             
             APICollection.sharedAPI.requestSignInCustom(param: param) { (response) in
                 self.ploggingUserInfo = try? response.get()
+                if let code = try? response.get().rc {
+                    if code == 404, let message = try? response.get().rcmsg {
+                        self.showToast(message: message)
+                    }
+                }
             }
         }
     }
