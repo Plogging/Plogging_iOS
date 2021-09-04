@@ -33,7 +33,7 @@ class MyRankingTableViewCell: UITableViewCell {
     func config(model: UserRankData?) {
         if let model = model {
             if let url = URL(string: model.profileImg){
-                profileImageView.kf.setImage(with: url)
+                profileImageView.kf.setImage(with: url, placeholder: UIImage(named: "user"))
             }
             rankLabel.text = "\(model.rank + 1)위"
             scoreLabel.text = "\(model.score)점"
@@ -41,10 +41,8 @@ class MyRankingTableViewCell: UITableViewCell {
             rankLabel.text = "0위"
             if let userImage = PloggingUserData.shared.getUserImage(),
                let url = URL(string: userImage) {
-                profileImageView.kf.setImage(with: url)
-            } else {
-                profileImageView.image = UIImage(named: "user")
-            }
+                profileImageView.kf.setImage(with: url, placeholder: UIImage(named: "user"))
+            } 
             scoreLabel.text = "0점"
         }
     }

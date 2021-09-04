@@ -36,8 +36,8 @@ class SettingViewController: UIViewController {
         guard let userImageUrl = URL(string: userImage) else {
             return
         }
-                
-        profilePhoto.kf.setImage(with: userImageUrl)
+        
+        profilePhoto.kf.setImage(with: userImageUrl, placeholder: UIImage(named: "user"))
         nickName.text = PloggingUserData.shared.getUserName()
     }
 
