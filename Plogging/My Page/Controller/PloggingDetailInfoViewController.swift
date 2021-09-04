@@ -131,7 +131,7 @@ class PloggingDetailInfoViewController: UIViewController {
         
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         
-        if let lastAsset = fetchResult.firstObject as? PHAsset {
+        if let lastAsset = fetchResult.firstObject {
             guard let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)") else {
                 return
             }

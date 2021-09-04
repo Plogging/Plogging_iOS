@@ -181,12 +181,12 @@ extension PloggingResultViewController {
             return
         }
         
-        APICollection.sharedAPI.requestRegisterPloggingResult(param: requestParameter, imageData: forwardingImageData) { [weak self] (response) in
+        APICollection.sharedAPI.requestRegisterPloggingResult(param: requestParameter, imageData: forwardingImageData) { (response) in
             if let result = try? response.get() {
                 if result.rc == 200 {
                     print("success")
                 } else if result.rc == 401 {
-//                    self?.makeLoginRootViewController()
+                    print("failed")
                 }
             }
         }
